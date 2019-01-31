@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[1],{138:function(n,e,t){"use strict";t.r(e);var c=t(8);t(0);e.default=function(){return Object(c.a)("center",{style:{display:"flex",minHeight:"100vh",justifyContent:"center",alignItems:"center"}},Object(c.a)("h3",null,"Under Construction...!!"))}}}]);
+//# sourceMappingURL=component---src-pages-blog-js-2665571fabb806c8c2d3.js.map
