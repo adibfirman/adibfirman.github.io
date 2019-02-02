@@ -22,6 +22,10 @@ const Header = () => {
 
 const styles = {
   wrapper: css`
+    @media (max-width: 498px) {
+      padding: 1vh 0;
+    }
+
     display: flex;
     justify-content: space-between;
     align-items: center;
