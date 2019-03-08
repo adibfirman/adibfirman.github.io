@@ -5,6 +5,7 @@ import LogoLinkedin from 'react-ionicons/lib/LogoLinkedin'
 import LogoGithub from 'react-ionicons/lib/LogoGithub'
 import LogoTwitter from 'react-ionicons/lib/LogoTwitter'
 import LogoInstagram from 'react-ionicons/lib/LogoInstagram'
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
 import SEO from '../components/seo'
 import Header from '../components/Header'
@@ -25,34 +26,34 @@ const IndexPage = ({ data }) => {
         <div css={styles.contactContainer}>
           <h5>Get In Touch</h5>
           <div css={styles.contact}>
-            <a
+            <OutboundLink
               href="https://twitter.com/dibfirman"
               target="_blank"
               rel="noopener noreferrer"
             >
               <LogoTwitter fontSize={FONT_SIZE_ICON} />
-            </a>
-            <a
+            </OutboundLink>
+            <OutboundLink
               href="https://www.instagram.com/adibfirman/"
               target="_blank"
               rel="noopener noreferrer"
             >
               <LogoInstagram fontSize={FONT_SIZE_ICON} />
-            </a>
-            <a
+            </OutboundLink>
+            <OutboundLink
               href="https://github.com/adibfirman"
               target="_blank"
               rel="noopener noreferrer"
             >
               <LogoGithub fontSize={FONT_SIZE_ICON} />
-            </a>
-            <a
+            </OutboundLink>
+            <OutboundLink
               href="https://www.linkedin.com/in/adibfirman/"
               target="_blank"
               rel="noopener noreferrer"
             >
               <LogoLinkedin fontSize={FONT_SIZE_ICON} />
-            </a>
+            </OutboundLink>
           </div>
         </div>
       </div>
@@ -89,7 +90,7 @@ const styles = {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    min-height: 80vh;
+    min-height: 75vh;
   `,
 }
 
