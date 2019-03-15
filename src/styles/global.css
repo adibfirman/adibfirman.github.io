@@ -13,13 +13,19 @@ a {
   text-decoration: none;
 }
 
-/* component style */
-@media only screen and (max-width: 498px) {
+/* custom responsinve */
+@media (max-width: 425px) {
   .header-wrapper {
     padding: 2vh 1.5vh !important;
   }
+
+  .layout-home .title {
+    font-size: 30px !important;
+    margin: 0 0 10px 0 !important;
+  }
 }
 
+/* component style */
 .header-wrapper {
   display: flex;
   justify-content: space-between;
@@ -64,6 +70,7 @@ a {
   align-items: center;
   flex-direction: column;
   min-height: 75vh;
+  text-align: center;
 }
 
 .layout-home .title {
