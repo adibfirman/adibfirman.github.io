@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css?family=Coustard');
+
+:root {
+  --font-portofolio: 'Coustard', serif;
+}
+
+html {
+  font-display: swap;
+}
+
+a {
+  color: unset;
+  text-decoration: none;
+}
+
+/* component style */
+@media only screen and (max-width: 498px) {
+  .header-wrapper {
+    padding: 2vh 1.5vh !important;
+  }
+}
+
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5vh 10vh;
+  font-family: var(--font-portofolio);
+  font-size: 15px;
+  color: #212121;
+  font-weight: bolder;
+  letter-spacing: 2.5px;
+}
+
+.header-wrapper .link-header {
+  font-weight: 600;
+}
+
+.footer {
+  font-family: var(--font-portofolio);
+  display: flex;
+  justify-content: center;
+}
+
+.footer .gatsby-icon {
+  position: relative;
+  width: 15px;
+}
+
+.button-link {
+  border: 2px black solid;
+  border-radius: 5px;
+  padding: 2px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Layout Home Style */
+.layout-home {
+  display: flex;
+  font-family: var(--font-portofolio);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 75vh;
+}
+
+.layout-home .title {
+  font-size: 50px;
+  margin: 0;
+}
+
+.layout-home .contact-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.layout-home .contact {
+  display: flex;
+  width: 40vh;
+  justify-content: space-between;
+  align-items: center;
+}
