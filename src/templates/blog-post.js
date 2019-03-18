@@ -1,7 +1,10 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 
 export default function BlogTemplate({ data }) {
   const { markdownRemark: post } = data // data.markdownRemark holds our post data
+
+  document.querySelector('html').setAttribute('class', 'layout-blog')
   return (
     <div className="blog-post-container">
       <div className="blog-post">
