@@ -1,3 +1,8 @@
+/*
+  thanks @danabramov (overreacted.io) to see little bit of style,
+  and @mazipan (https://www.mazipan.xyz) for reason why I'm create my personal blog
+*/
+
 /* --- setup font --- */
 @font-face {
   font-family: 'Coustard';
@@ -313,4 +318,37 @@ ul {
 .gatsby-highlight-code-line {
   margin-right: -1.3125rem;
   margin-left: -1.3125rem;
+}
+
+.blog-post-content img {
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+}
+
+.blog-post-content .token.boolean {
+  color: #457dff;
+}
+
+.blog-post-content blockquote {
+  margin-left: -1.75rem;
+  margin-right: 1.75rem;
+  margin-top: 0;
+  padding-bottom: 0;
+  padding-left: 1.42188rem;
+  padding-right: 0;
+  padding-top: 0;
+  margin-bottom: 1.75rem;
+  font-size: 1.20112rem;
+  line-height: 1.75rem;
+  color: inherit;
+  font-style: italic;
+  border-left: 0.32813rem solid hsla(0, 0%, 0%, 0.9);
+  border-left-color: inherit;
+  opacity: 0.8;
 }

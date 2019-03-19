@@ -14,13 +14,19 @@ module.exports = {
       options: {
         plugins: [
           `gatsby-remark-autolink-headers`,
-          `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
           `gatsby-remark-prismjs`,
+          {
+            resolve: `gatsby-remark-copy-linked-files`,
+            options: {
+              ignoreFileExtensions: [],
+            },
+          },
           {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 590,
+              sizeByPixelDensity: true,
             },
           },
           {

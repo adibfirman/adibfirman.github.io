@@ -9,7 +9,10 @@ import Contact from '../components/Contact'
 const IndexPage = ({ data }) => {
   const { name } = data.site.siteMetadata
 
-  document.querySelector('html').removeAttribute('class')
+  React.useEffect(() => {
+    document.querySelector('html').removeAttribute('class')
+  }, [])
+
   return (
     <Fragment>
       <SEO title="Adib Firman — Frontend Web Developer" />

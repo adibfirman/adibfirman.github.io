@@ -20,7 +20,10 @@ export default function BlogTemplate({ data }) {
     )
   }
 
-  document.querySelector('html').setAttribute('class', 'layout-blog')
+  React.useEffect(() => {
+    document.querySelector('html').setAttribute('class', 'layout-blog')
+  }, [])
+
   return (
     <div className="container container-blog container-detail-blog">
       <SEO

@@ -7,7 +7,10 @@ import HeaderBlog from '../components/HeaderBlog'
 export default function Blog({ data }) {
   const { allMarkdownRemark: posts } = data
 
-  document.querySelector('html').setAttribute('class', 'layout-blog')
+  React.useEffect(() => {
+    document.querySelector('html').setAttribute('class', 'layout-blog')
+  }, [])
+
   return (
     <div className="container container-blog">
       <SEO title="@adibfirman — A personal blog by Adib Firman" />

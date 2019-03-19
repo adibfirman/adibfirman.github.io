@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 
 import Contact from './Contact'
 
@@ -6,7 +7,9 @@ function HeaderBlog({ hideImage, customText, className }) {
   return (
     <div style={{ display: 'flex' }}>
       <div className="name-container">
-        <span className="title">@adibfirman</span>
+        <Link className="title" to="/">
+          @adibfirman
+        </Link>
         <Contact className="contact" iconColor="#56b6c2" />
       </div>
       <div className="jokes">{customText}</div>
