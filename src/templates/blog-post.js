@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import HeaderBlog from '../components/HeaderBlog'
+import { HeaderBlog } from '../components/Header/HeaderBlog'
 import SEO from '../components/seo'
 
 export default function BlogTemplate({ data }) {

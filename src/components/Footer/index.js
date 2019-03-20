@@ -4,7 +4,7 @@ import LogoHeart from 'react-ionicons/lib/IosHeart'
 import * as styles from './styles'
 
 const YEAR = new Date().getFullYear()
-const gatsbyIcon = require('../images/gatsby-icon.png')
+const gatsbyIcon = require('../../images/gatsby-icon.png')
 export function Footer() {
   return (
     <div css={styles.container}>

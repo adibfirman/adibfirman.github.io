@@ -54,10 +54,6 @@ ul {
 /* --- setup responsinve --- */
 /* Mobile small and up */
 @media (min-width: 320px) {
-  .container-blog .jokes {
-    display: none;
-  }
-
   .layout-blog {
     padding-top: 1.5rem;
   }
@@ -65,10 +61,6 @@ ul {
 
 /* Table and up */
 @media (min-width: 768px) {
-  .container-blog .jokes {
-    display: flex;
-  }
-
   .container {
     max-width: 50%;
   }
@@ -99,43 +91,6 @@ ul {
   width: 100%;
   margin-right: auto;
   margin-left: auto;
-}
-
-.profile-img {
-  width: var(--profile-size);
-  height: var(--profile-size);
-  border-radius: 50%;
-}
-
-.container-blog .name-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex: 1;
-  max-width: 26vh;
-  justify-content: center;
-}
-
-.container-blog .jokes {
-  flex: 1;
-  align-items: center;
-  font-size: 22px;
-  margin-left: 10pt;
-}
-
-.container-blog .img-container {
-  display: flex;
-  flex: 1;
-  justify-content: flex-end;
-}
-
-.name-container .title {
-  font-size: 25px;
-  color: var(--primary-color);
-}
-
-.container-content {
-  margin-top: 3rem;
 }
 
 .container-content .title {
