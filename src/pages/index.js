@@ -2,9 +2,10 @@ import React, { Fragment } from 'react'
 import { graphql } from 'gatsby'
 
 import SEO from '../components/seo'
-import Header from '../components/Header'
+import { Header } from '../components/Header'
 import Footer from '../components/Footer'
-import Contact from '../components/Contact'
+import { Contact } from '../components/Contact'
+import * as styles from './styles'
 
 const IndexPage = ({ data }) => {
   const { name } = data.site.siteMetadata
@@ -17,7 +18,7 @@ const IndexPage = ({ data }) => {
     <Fragment>
       <SEO title="Adib Firman — Frontend Web Developer" />
       <Header />
-      <div className="layout-home">
+      <div css={styles.layoutHome}>
         <h4 className="title">Hi, I'm {name}</h4>
         <label>
           FRONTEND WEB DEVELOPER, BEGINNER WRITER, AND A MAN LOVING A CAT

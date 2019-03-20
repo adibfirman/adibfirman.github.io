@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-import Contact from './Contact'
+import { Contact } from './Contact'
 
 function HeaderBlog({ hideImage, customText, className }) {
   return (

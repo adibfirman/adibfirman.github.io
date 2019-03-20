@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 
-import SEO from '../components/seo'
-import HeaderBlog from '../components/HeaderBlog'
+import SEO from '../../components/seo'
+import HeaderBlog from '../../components/HeaderBlog'
 
 export default function Blog({ data }) {
   const { allMarkdownRemark: posts } = data

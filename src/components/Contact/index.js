@@ -5,10 +5,12 @@ import LogoGithub from 'react-ionicons/lib/LogoGithub'
 import LogoTwitter from 'react-ionicons/lib/LogoTwitter'
 import LogoInstagram from 'react-ionicons/lib/LogoInstagram'
 
+import * as styles from './styles'
+
 const FONT_SIZE_ICON = '30'
-export default function Contact({ className, iconColor }) {
+export function Contact({ className, iconColor }) {
   return (
-    <div className={className}>
+    <div css={styles.container} className={className}>
       <OutboundLink
         href="https://twitter.com/dibfirman"
         target="_blank"

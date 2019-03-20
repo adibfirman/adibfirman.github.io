@@ -4,7 +4,7 @@ import { graphql, StaticQuery, Link } from 'gatsby'
 import ButtonLink from '../ButtonLink'
 import * as styles from './style'
 
-const Header = () => {
+export function Header() {
   return (
     <StaticQuery
       query={query}
@@ -27,5 +27,3 @@ const query = graphql`
     }
   }
 `
-
-export default Header

@@ -1,6 +1,6 @@
 /*
-  thanks @danabramov (overreacted.io) to see little bit of style,
-  and @mazipan (https://www.mazipan.xyz) for reason why I'm create my personal blog
+  thanks @danabramov (overreacted.io) to see little bit of style and,
+  @mazipan (https://www.mazipan.xyz) for reason why I'm create my personal blog
 */
 
 /* --- setup font --- */
@@ -58,11 +58,6 @@ ul {
     display: none;
   }
 
-  .layout-home .title {
-    font-size: 30px;
-    margin: 0 0 10px 0;
-  }
-
   .layout-blog {
     padding-top: 1.5rem;
   }
@@ -72,11 +67,6 @@ ul {
 @media (min-width: 768px) {
   .container-blog .jokes {
     display: flex;
-  }
-
-  .layout-home .title {
-    font-size: 50px;
-    margin: 0;
   }
 
   .container {
@@ -107,31 +97,6 @@ ul {
   padding: 2px 10px;
   display: flex;
   justify-content: center;
-  align-items: center;
-}
-
-/* --- Layout Home Style --- */
-.layout-home {
-  display: flex;
-  font-family: var(--font-portofolio);
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  min-height: 75vh;
-  text-align: center;
-}
-
-.layout-home .contact-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.layout-home .contact {
-  display: flex;
-  width: 40vh;
-  justify-content: space-between;
   align-items: center;
 }
 
@@ -182,9 +147,7 @@ ul {
 }
 
 .name-container .contact {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
+  
 }
 
 .container-content {

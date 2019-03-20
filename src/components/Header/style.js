@@ -12,11 +12,11 @@ export const headerWrapper = css`
   font-weight: bolder;
   letter-spacing: 2.5px;
 
-  @media (min-width: ${MIN_WIDTH_MOBILE}) {
+  @media (${MIN_WIDTH_MOBILE}) {
     padding: 2vh 1.5vh;
   }
 
-  @media (min-width: ${MIN_WIDTH_PC}) {
+  @media (${MIN_WIDTH_PC}) {
     padding: 5vh 10vh;
   }
 
