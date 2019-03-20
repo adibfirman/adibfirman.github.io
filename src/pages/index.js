@@ -8,7 +8,7 @@ import { Contact } from '../components/Contact'
 import * as styles from './styles'
 
 const IndexPage = ({ data }) => {
-  const { name } = data.site.siteMetadata
+  const { name, author } = data.site.siteMetadata
 
   React.useEffect(() => {
     document.querySelector('html').removeAttribute('class')
@@ -16,16 +16,16 @@ const IndexPage = ({ data }) => {
 
   return (
     <Fragment>
-      <SEO title="Adib Firman — Frontend Web Developer" />
+      <SEO title={`${author} — Frontend Web Developer`} />
       <Header />
       <div css={styles.layoutHome}>
         <h4 className="title">Hi, I'm {name}</h4>
         <label>
-          FRONTEND WEB DEVELOPER, BEGINNER WRITER, AND A MAN LOVING A CAT
+          FRONTEND WEB DEVELOPER and PART TIME WRITER ON MY PERSONAL BLOG
         </label>
-        <div className="contact-container">
+        <div css={styles.contactContainer}>
           <h5>Get In Touch</h5>
-          <Contact className="contact" />
+          <Contact css={styles.contact} />
         </div>
       </div>
       <Footer />
@@ -38,6 +38,7 @@ export const query = graphql`
     site {
       siteMetadata {
         name
+        author
       }
     }
   }

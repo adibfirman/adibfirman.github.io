@@ -1,9 +1,10 @@
 module.exports = {
   siteMetadata: {
     title: `adibfirman`,
-    description: `Adib Firman Personal Website`,
+    description: `Personal web and blog by Adib Firman`,
     author: `@adibfirman`,
     name: `Adib Firman`,
+    tagline: `A Note From A Developer's Mind`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

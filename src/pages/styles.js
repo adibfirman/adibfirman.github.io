@@ -11,17 +11,6 @@ export const layoutHome = css`
   min-height: 75vh;
   text-align: center;
 
-  .contact-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .contact {
-    width: 40vh;
-  }
-
   @media (${MIN_WIDTH_MOBILE}) {
     .title {
       font-size: 30px;
@@ -35,4 +24,15 @@ export const layoutHome = css`
       margin: 0;
     }
   }
+`
+
+export const contactContainer = css`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+
+export const contact = css`
+  width: 40vh;
 `

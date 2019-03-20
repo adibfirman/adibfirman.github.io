@@ -13,7 +13,7 @@ export function HeaderBlog({ hideImage, customText, className }) {
         </Link>
         <Contact iconColor="#56b6c2" />
       </div>
-      <div css={styles.jokes}>a man loving a cat</div>
+      <div css={styles.jokes}>A Note From A Developer's Mind</div>
       <div css={styles.imgContainer}>
         <img
           src="https://i.pinimg.com/originals/32/23/77/322377b211e0653efc8c3513a3769f3d.jpg"
