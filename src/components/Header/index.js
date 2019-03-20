@@ -1,17 +1,16 @@
 import React from 'react'
 import { graphql, StaticQuery, Link } from 'gatsby'
 
-import ButtonLink from './ButtonLink'
+import ButtonLink from '../ButtonLink'
+import * as styles from './style'
 
 const Header = () => {
   return (
     <StaticQuery
       query={query}
       render={({ site }) => (
-        <div className="header-wrapper">
-          <Link className="link-header" to="/">
-            {site.siteMetadata.author}
-          </Link>
+        <div css={styles.headerWrapper}>
+          <Link to="/">{site.siteMetadata.author}</Link>
           <ButtonLink to="/blog">BLOG</ButtonLink>
         </div>
       )}

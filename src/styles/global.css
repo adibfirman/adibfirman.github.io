@@ -58,10 +58,6 @@ ul {
     display: none;
   }
 
-  .header-wrapper {
-    padding: 2vh 1.5vh;
-  }
-
   .layout-home .title {
     font-size: 30px;
     margin: 0 0 10px 0;
@@ -76,10 +72,6 @@ ul {
 @media (min-width: 768px) {
   .container-blog .jokes {
     display: flex;
-  }
-
-  .header-wrapper {
-    padding: 5vh 10vh;
   }
 
   .layout-home .title {
@@ -97,20 +89,6 @@ ul {
 }
 
 /* --- component style --- */
-.header-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: var(--font-portofolio);
-  font-size: 15px;
-  color: #212121;
-  font-weight: bolder;
-  letter-spacing: 2.5px;
-}
-
-.header-wrapper .link-header {
-  font-weight: 600;
-}
 
 .footer {
   font-family: var(--font-portofolio);
