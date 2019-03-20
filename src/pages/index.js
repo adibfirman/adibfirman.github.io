@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 
 import SEO from '../components/seo'
 import { Header } from '../components/Header'
-import Footer from '../components/Footer'
+import { Footer } from '../components/Footer'
 import { Contact } from '../components/Contact'
 import * as styles from './styles'
 
