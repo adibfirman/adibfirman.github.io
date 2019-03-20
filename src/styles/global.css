@@ -79,18 +79,6 @@ ul {
 }
 
 /* --- component style --- */
-
-.footer {
-  font-family: var(--font-portofolio);
-  display: flex;
-  justify-content: center;
-}
-
-.footer .gatsby-icon {
-  position: relative;
-  width: 15px;
-}
-
 .button-link {
   border: 2px black solid;
   border-radius: 5px;
@@ -144,10 +132,6 @@ ul {
 .name-container .title {
   font-size: 25px;
   color: var(--primary-color);
-}
-
-.name-container .contact {
-  
 }
 
 .container-content {
