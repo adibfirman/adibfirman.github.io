@@ -52,21 +52,13 @@ ul {
 }
 
 /* --- setup responsinve --- */
-/* Mobile small and up */
-@media (min-width: 320px) {
-  .layout-blog {
-    padding-top: 1.5rem;
-  }
-}
-
-/* Table and up */
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .container {
-    max-width: 50%;
+    max-width: unset !important;
   }
 
   .layout-blog {
-    padding-top: 3rem;
+    padding-top: 1.5rem !important;
   }
 }
 
@@ -75,18 +67,14 @@ ul {
   background-color: #282c34;
   color: var(--color-blog);
   font-family: var(--font-blog);
+  padding-top: 3rem;
 }
 
 .container {
   width: 100%;
   margin-right: auto;
   margin-left: auto;
-}
-
-.container-content .title {
-  font-size: 30px;
-  margin-bottom: 0.5rem;
-  color: #43d0e1;
+  max-width: 50%;
 }
 
 /* --- Layout detail blog --- */

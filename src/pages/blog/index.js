@@ -3,6 +3,7 @@ import { Link, graphql } from 'gatsby'
 
 import SEO from '../../components/seo'
 import { HeaderBlog } from '../../components/Header/HeaderBlog'
+import * as styles from './styles'
 
 export default function Blog({ data }) {
   const { allMarkdownRemark: posts, site } = data
@@ -13,7 +14,7 @@ export default function Blog({ data }) {
   }, [])
 
   return (
-    <div className="container container-blog">
+    <div className="container">
       <SEO
         title={`${siteMetadata.author} — A personal blog by Adib Firman`}
         description={siteMetadata.tagline}
@@ -30,15 +31,15 @@ function ItemPost({ frontmatter, timeToRead }) {
   const { title, path, spoiler, date } = frontmatter
 
   return (
-    <div className="container-content">
-      <h3 className="title">
+    <React.Fragment>
+      <h3 css={styles.title}>
         <Link to={path}>{title}</Link>
       </h3>
       <small>
         <strong>{date}</strong> | {timeToRead} min read
       </small>
-      <div>{spoiler}</div>
-    </div>
+      <p css={styles.spoiler}>{spoiler}</p>
+    </React.Fragment>
   )
 }
 
