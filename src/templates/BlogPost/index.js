@@ -1,18 +1,20 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import { HeaderBlog } from '../components/Header/HeaderBlog'
-import SEO from '../components/seo'
+import { HeaderBlog } from '../../components/Header/HeaderBlog'
+import SEO from '../../components/seo'
+import * as styles from './styles'
 
 export default function BlogTemplate({ data }) {
-  const { markdownRemark: post } = data // data.markdownRemark holds our post data
+  const { markdownRemark: post, site } = data
+  const { siteMetadata } = site
 
   const Title = () => {
     const { date, title } = post.frontmatter
 
     return (
-      <div className="header-detail-blog">
-        <div className="title">{title}</div>
+      <div css={styles.containerHeader}>
+        <div css={styles.headerTitle}>{title}</div>
         <small>
           <strong>{date}</strong> | {post.timeToRead} min read
         </small>
@@ -25,18 +27,16 @@ export default function BlogTemplate({ data }) {
   }, [])
 
   return (
-    <div className="container container-blog container-detail-blog">
+    <div className="container">
       <SEO
-        title={`${post.frontmatter.title} — @adibfirman`}
+        title={`${post.frontmatter.title} — ${siteMetadata.author}`}
         description={post.frontmatter.spoiler}
       />
       <HeaderBlog hideImage customText={<Title />} />
-      <div className="blog-post">
-        <div
-          className="blog-post-content"
-          dangerouslySetInnerHTML={{ __html: post.html }}
-        />
-      </div>
+      <div
+        css={styles.contentBlogPost}
+        dangerouslySetInnerHTML={{ __html: post.html }}
+      />
     </div>
   )
 }
@@ -51,6 +51,11 @@ export const pageQuery = graphql`
         path
         title
         spoiler
+      }
+    }
+    site {
+      siteMetadata {
+        author
       }
     }
   }

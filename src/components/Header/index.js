@@ -11,7 +11,7 @@ export function Header() {
         <div css={styles.headerWrapper}>
           <Link to="/">{site.siteMetadata.author}</Link>
           <div css={styles.containerBtnLink}>
-            <Link to="/blog">Blog</Link>
+            <Link to="/blog">blog</Link>
           </div>
         </div>
       )}
