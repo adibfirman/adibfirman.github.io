@@ -70,16 +70,6 @@ ul {
   }
 }
 
-/* --- component style --- */
-.button-link {
-  border: 2px black solid;
-  border-radius: 5px;
-  padding: 2px 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 /* --- Layout list of blog --- */
 .layout-blog {
   background-color: #282c34;

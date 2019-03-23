@@ -1,6 +1,6 @@
 import { css } from '@emotion/core'
 
-import { MIN_WIDTH_MOBILE, MIN_WIDTH_PC } from '../../configs/constants'
+import { IS_MOBILE } from '../../configs/constants'
 
 export const headerWrapper = css`
   display: flex;
@@ -11,16 +11,22 @@ export const headerWrapper = css`
   color: #212121;
   font-weight: bolder;
   letter-spacing: 2.5px;
+  padding: 5vh 10vh;
 
-  @media (${MIN_WIDTH_MOBILE}) {
+  @media ${IS_MOBILE} {
     padding: 2vh 1.5vh;
-  }
-
-  @media (${MIN_WIDTH_PC}) {
-    padding: 5vh 10vh;
   }
 
   a {
     font-weight: 600;
   }
+`
+
+export const containerBtnLink = css`
+  border: 2px black solid;
+  border-radius: 5px;
+  padding: 2px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `

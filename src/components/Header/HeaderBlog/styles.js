@@ -1,11 +1,9 @@
 import { css } from '@emotion/core'
 
-import { MIN_WIDTH_MOBILE, MIN_WIDTH_PC } from '../../../configs/constants'
+import { IS_MOBILE } from '../../../configs/constants'
 
 export const container = css`
-  @media (${MIN_WIDTH_PC}) {
-    display: flex;
-  }
+  display: flex;
 `
 
 export const nameContainer = css`
@@ -22,29 +20,23 @@ export const jokes = css`
   flex: 1;
   align-items: center;
   font-size: 22px;
+  margin: unset;
+  margin-left: 10pt;
 
-  @media (${MIN_WIDTH_MOBILE}) {
+  @media ${IS_MOBILE} {
     margin: 6px 0 -6px 0;
-  }
-
-  @media (${MIN_WIDTH_PC}) {
-    margin: unset;
-    margin-left: 10pt;
   }
 `
 
 export const imgContainer = css`
   display: flex;
   justify-content: flex-end;
+  position: unset;
 
-  @media (${MIN_WIDTH_MOBILE}) {
+  @media ${IS_MOBILE} {
     position: absolute;
     top: 2em;
     right: 5px;
-  }
-
-  @media (${MIN_WIDTH_PC}) {
-    position: unset;
   }
 `
 

@@ -1,3 +1,1 @@
-export const MIN_WIDTH_MOBILE = 'min-width: 320px'
-
-export const MIN_WIDTH_PC = 'min-width: 768px'
+export const IS_MOBILE = '(max-width: 768px)'

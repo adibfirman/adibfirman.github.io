@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql, StaticQuery, Link } from 'gatsby'
 
-import ButtonLink from '../ButtonLink'
 import * as styles from './style'
 
 export function Header() {
@@ -11,7 +10,9 @@ export function Header() {
       render={({ site }) => (
         <div css={styles.headerWrapper}>
           <Link to="/">{site.siteMetadata.author}</Link>
-          <ButtonLink to="/blog">BLOG</ButtonLink>
+          <div css={styles.containerBtnLink}>
+            <Link to="/blog">Blog</Link>
+          </div>
         </div>
       )}
     />

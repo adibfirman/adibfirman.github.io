@@ -1,6 +1,6 @@
 import { css } from '@emotion/core'
 
-import { MIN_WIDTH_MOBILE, MIN_WIDTH_PC } from '../configs/constants'
+import { IS_MOBILE } from '../configs/constants'
 
 export const layoutHome = css`
   display: flex;
@@ -11,17 +11,15 @@ export const layoutHome = css`
   min-height: 75vh;
   text-align: center;
 
-  @media (${MIN_WIDTH_MOBILE}) {
+  .title {
+    font-size: 50px;
+    margin: 0;
+  }
+
+  @media ${IS_MOBILE} {
     .title {
       font-size: 30px;
       margin: 0 0 10px 0;
-    }
-  }
-
-  @media (${MIN_WIDTH_PC}) {
-    .title {
-      font-size: 50px;
-      margin: 0;
     }
   }
 `
