@@ -4,6 +4,10 @@ import { IS_MOBILE } from '../../../configs/constants'
 
 export const container = css`
   display: flex;
+
+  @media ${IS_MOBILE} {
+    display: unset;
+  }
 `
 
 export const nameContainer = css`

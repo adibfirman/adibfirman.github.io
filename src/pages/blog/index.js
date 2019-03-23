@@ -5,7 +5,8 @@ import SEO from '../../components/seo'
 import { HeaderBlog } from '../../components/Header/HeaderBlog'
 
 export default function Blog({ data }) {
-  const { allMarkdownRemark: posts } = data
+  const { allMarkdownRemark: posts, site } = data
+  const { siteMetadata } = site
 
   React.useEffect(() => {
     document.querySelector('html').setAttribute('class', 'layout-blog')
@@ -13,7 +14,10 @@ export default function Blog({ data }) {
 
   return (
     <div className="container container-blog">
-      <SEO title="@adibfirman — A personal blog by Adib Firman" />
+      <SEO
+        title={`${siteMetadata.author} — A personal blog by Adib Firman`}
+        description={siteMetadata.tagline}
+      />
       <HeaderBlog />
       {posts.edges.map(({ node }) => (
         <ItemPost key={node.id} {...node} />
@@ -39,7 +43,7 @@ function ItemPost({ frontmatter, timeToRead }) {
 }
 
 export const query = graphql`
-  query getListPosts {
+  query {
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
@@ -52,6 +56,12 @@ export const query = graphql`
           }
           timeToRead
         }
+      }
+    }
+    site {
+      siteMetadata {
+        author
+        tagline
       }
     }
   }
