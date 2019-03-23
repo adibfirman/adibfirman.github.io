@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import { css } from '@emotion/core'
 
 import SEO from '../../components/seo'
 import { HeaderBlog } from '../../components/Header/HeaderBlog'
+import * as styles from '../../styles/pages/blog'
 
 export default function Blog({ data }) {
   const { allMarkdownRemark: posts, site } = data
@@ -67,13 +67,3 @@ export const query = graphql`
     }
   }
 `
-const styles = {
-  title: css`
-    font-size: 30px;
-    margin-bottom: 0.5rem;
-    color: #43d0e1;
-  `,
-  spoiler: css`
-    margin-top: 0;
-  `,
-}
