@@ -3,7 +3,9 @@ import { css } from '@emotion/core'
 import { MIN_WIDTH_MOBILE, MIN_WIDTH_PC } from '../../../configs/constants'
 
 export const container = css`
-  display: flex;
+  @media (${MIN_WIDTH_PC}) {
+    display: flex;
+  }
 `
 
 export const nameContainer = css`
@@ -16,24 +18,34 @@ export const nameContainer = css`
 `
 
 export const jokes = css`
+  display: flex;
   flex: 1;
   align-items: center;
   font-size: 22px;
-  margin-left: 10pt;
 
   @media (${MIN_WIDTH_MOBILE}) {
-    display: none;
+    margin: 6px 0 -6px 0;
   }
 
   @media (${MIN_WIDTH_PC}) {
-    display: flex;
+    margin: unset;
+    margin-left: 10pt;
   }
 `
 
 export const imgContainer = css`
   display: flex;
-  flex: 1;
   justify-content: flex-end;
+
+  @media (${MIN_WIDTH_MOBILE}) {
+    position: absolute;
+    top: 2em;
+    right: 5px;
+  }
+
+  @media (${MIN_WIDTH_PC}) {
+    position: unset;
+  }
 `
 
 export const profleImg = css`
