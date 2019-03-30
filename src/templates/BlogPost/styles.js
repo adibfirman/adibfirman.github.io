@@ -20,6 +20,12 @@ export const headerTitle = css`
 export const contentBlogPost = css`
   font-size: 18px;
 
+  @media ${IS_MOBILE} {
+    p {
+      text-align: justify;
+    }
+  }
+
   a {
     color: var(--primary-color);
     text-decoration: underline;
@@ -53,17 +59,15 @@ export const contentBlogPost = css`
     margin-right: -1.3125rem;
     border-radius: 10px;
     background: #212328;
-    -webkit-overflow-scrolling: touch;
     overflow: auto;
   }
 
   pre[class*='language-'] {
-    overflow: auto;
     padding: 0 1.312rem;
   }
 
   code[class*='language-'] {
-    font-family: 'Input Mono';
+    font-family: 'InputMono-Medium';
     font-size: 12.5px;
   }
 
