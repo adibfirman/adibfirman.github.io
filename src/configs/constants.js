@@ -1,1 +1,1 @@
-export const IS_MOBILE = '(max-width: 425px)'
+export const IS_MOBILE = '(max-width: 1024px)'

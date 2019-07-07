@@ -109,7 +109,6 @@ export const contentBlogPost = css`
     padding: 3px 1.25em 3px 1.4em;
   }
 
-  .gatsby-highlight,
   .gatsby-highlight-code-line {
     margin-right: -1.3125rem;
     margin-left: -1.3125rem;
@@ -117,13 +116,15 @@ export const contentBlogPost = css`
 
   img {
     max-width: 100%;
-    margin-left: 0;
-    margin-right: 0;
     margin-top: 0;
     padding-bottom: 0;
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
+    position: relative;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
   }
 
   .token .boolean {
