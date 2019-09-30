@@ -1,8 +1,8 @@
 ---
 title: Kumpulan Sampah | Garbage Collection
 path: /blog/context-api-pada-react
-date: '2018-12-28'
-spoiler: Pengenalan tentang Kumpulan Sampah pada Javascript
+date: '2019-12-22'
+spoiler: Pengenalan tentang apa itu Garbage Collection
 ---
 
 lorem ipsum test
