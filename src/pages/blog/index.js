@@ -27,13 +27,15 @@ export default function Blog({ data }) {
   )
 }
 
-function ItemPost({ frontmatter, timeToRead }) {
-  const { title, path, spoiler, date } = frontmatter
+function ItemPost({ frontmatter, timeToRead, fileAbsolutePath }) {
+  const { title, spoiler, date } = frontmatter
+  const splitFilePath = fileAbsolutePath.split('/')
+  const path = splitFilePath[splitFilePath.length - 2]
 
   return (
     <React.Fragment>
       <h3 css={styles.title}>
-        <Link to={path}>{title}</Link>
+        <Link to={`/blog/${path}`}>{title}</Link>
       </h3>
       <small>
         <strong>{date}</strong> | {timeToRead} min read
@@ -49,9 +51,9 @@ export const query = graphql`
       edges {
         node {
           id
+          fileAbsolutePath
           frontmatter {
             title
-            path
             date(formatString: "DD MMM YYYY")
             spoiler
           }

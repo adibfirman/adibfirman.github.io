@@ -30,3 +30,9 @@ export const containerBtnLink = css`
   justify-content: center;
   align-items: center;
 `
+
+export const containerListBtn = css`
+  display: grid;
+  grid-template-columns: repeat(2, 0fr);
+  grid-column-gap: 1em;
+`

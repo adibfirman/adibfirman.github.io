@@ -1,6 +1,5 @@
 ---
 title: Mencoba Context API Pada React
-path: /blog/context-api-pada-react
 date: '2018-12-28'
 spoiler: Ringkasan penggunaan context API React
 ---

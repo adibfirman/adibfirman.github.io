@@ -1,8 +1,7 @@
 const path = require('path')
 
 exports.createPages = ({ actions, graphql }) => {
-  cosnt = { createPage } = actions
-
+  const { createPage } = actions
   const blogPostTemplate = path.resolve(`src/templates/BlogPost/index.js`)
 
   return graphql(`
@@ -13,23 +12,24 @@ exports.createPages = ({ actions, graphql }) => {
       ) {
         edges {
           node {
-            frontmatter {
-              path
-            }
+            fileAbsolutePath
+            id
           }
         }
       }
     }
   `).then(result => {
-    if (result.errors) {
-      return Promise.reject(result.errors)
-    }
+    if (result.errors) throw new Error(result.errors)
 
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+      const { fileAbsolutePath, id } = node
+      const splitFilePath = fileAbsolutePath.split('/')
+      const pathName = splitFilePath[splitFilePath.length - 2]
+
       createPage({
-        path: node.frontmatter.path,
+        path: `blog/${pathName}`,
         component: blogPostTemplate,
-        context: {}, // additional data can be passed via context
+        context: { pathName, id },
       })
     })
   })

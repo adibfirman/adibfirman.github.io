@@ -1,5 +1,4 @@
 ---
-path: /blog/mengenal-si-cantik-es6-part-1
 title: Mengenal Si-Cantik ES6 (Part 1)
 date: '2018-05-17'
 spoiler: Pengenalan EcmaScript (ES6) bagian 1/2
