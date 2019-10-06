@@ -14,15 +14,16 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        commonmark: true,
-        footnotes: true,
-        pedantic: true,
-        gfm: true,
         plugins: [
           `gatsby-remark-autolink-headers`,
           `gatsby-remark-smartypants`,
           `gatsby-remark-prismjs`,
-          `gatsby-remark-copy-linked-files`,
+          {
+            resolve: `gatsby-remark-copy-linked-files`,
+            options: {
+              ignoreFileExtensions: [],
+            },
+          },
           {
             resolve: `gatsby-remark-images`,
             options: {
