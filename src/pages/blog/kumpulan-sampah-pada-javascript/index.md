@@ -4,6 +4,11 @@ date: '2019-12-22'
 spoiler: Kumpulan Sampah di javascript?
 ---
 
+### Introduction
+Pada kali ini kita akan berbicara tentang Sampah-Sampah pada Javascript, sebenarnya istilah ini disebut juga dengan **Garbage Collection** oke, selanjutnya kita panggil dengan **GC**, sebenarnya **GC** tidak hanya pada javascript bahkan di bahasa pemrograman lain pun istilah ini pasti tidak asing, cuman dijavascript ini sedikit spesial (ibarat kata beli nasi goreng ini karetnya dua), **GC** pada javascript ini bekerja secara otomatis, nah kalau pada bahasa LOW-LEVEL programming lainnta itu harus set manual atau kita harus meng-operasikan **GC** secara manual, yaaa sebenarnya ada pros dan cons juga cuman saya tidak akan membahas masalah itu.
+
+### One Reference
+
 notes:
 
 - garbage collection in javascript it's all automatically on the fly, but for some reason the value cannot be remove
