@@ -4,10 +4,15 @@ date: '2019-12-22'
 spoiler: Kumpulan Sampah di javascript?
 ---
 
-### Introduction
-Pada kali ini kita akan berbicara tentang Sampah-Sampah pada Javascript, sebenarnya istilah ini disebut juga dengan **Garbage Collection** oke, selanjutnya kita panggil dengan **GC**, sebenarnya **GC** tidak hanya pada javascript bahkan di bahasa pemrograman lain pun istilah ini pasti tidak asing, cuman dijavascript ini sedikit spesial (ibarat kata beli nasi goreng ini karetnya dua), **GC** pada javascript ini bekerja secara otomatis, nah kalau pada bahasa LOW-LEVEL programming lainnta itu harus set manual atau kita harus meng-operasikan **GC** secara manual, yaaa sebenarnya ada pros dan cons juga cuman saya tidak akan membahas masalah itu.
+## TL;DR
+Pada waktu itu saya menghadiri sebuah konferensi yaitu JSDay, dan juga ini pertama kali diadakan di Indonesia, dan waktu itu [Alex Lakatos](https://twitter.com/lakatos88) membawakan sebuah tema yaitu tentang **Hands on Performance** gitu (saya lupa :peace:) dan beliau menyinggung masalah **Garbage Collection**, dan pada kali ini saya mau menjelaskan apa itu **Garbage Collection**.
 
-### One Reference
+## Introduction
+Pada kali ini kita akan berbicara tentang Sampah-Sampah pada Javascript, sebenarnya istilah ini disebut juga dengan **Garbage Collection** oke, selanjutnya kita panggil dengan **GC**, nah **GC** sendiri penjelasan cepatnya ialah **free-up memory** jadi object atau variable yang tidak dipakai akan dibersihkan oleh Javascript Engine itu sendiri, sebenarnya **GC** tidak hanya pada javascript bahkan di bahasa pemrograman lain pun istilah ini pasti tidak asing, cuman dijavascript ini sedikit spesial (ibarat kata beli nasi goreng ini karetnya dua), **GC** pada javascript ini bekerja secara otomatis, nah kalau pada bahasa _LOW-LEVEL_ programming lainnta itu harus set manual atau kita harus meng-operasikan **GC** secara manual, yaaa sebenarnya ada pros dan cons juga cuman saya tidak akan membahas masalah itu.
+
+Pada javascript sendiri ada beberapa tipe **variable** yang bisa diakses dan tidak bisa diakses oleh javascript engine, oke kita bahas satu persatu.
+
+## Dapat Diakses
 
 notes:
 
