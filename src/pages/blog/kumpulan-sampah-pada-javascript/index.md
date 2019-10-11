@@ -18,12 +18,19 @@ lalu bagaimana dengan JS yang notabennya adalah sebuah _high level_ nah kalau ki
 
 
 ### Meng-alokasi memory
-Jadi pada dasarnya ketika kita men-deklarasikan sebuah variable dan beserta valuenya, JS Engine akan otomatis mengalokasikan sebuah memory sesuai dengan value apa yang kita berikan.
+Jadi pada dasarnya ketika kita men-deklarasikan sebuah variable dan beserta valuenya, JS Engine akan otomatis mengalokasikan sebuah memory sesuai dengan value apa yang kita berikan. Contohnya seperti ini;
 
+```jsx
+var abc = 123; // mengalokasi memory untuk integer
+var xyz = 'adib'; // mengalokasi memory untuk string
+var obj = { a: 1, b: 'adib' } // mengalokasi memory untuk Object
+```
 
+### Menggunakan memory yang telah dialokasikan
+Sebenarnya ini adalah sebuah step yang sudah saya bahas diatas, yang pastinya setiap bahasa pemrograman akan melakukan sebuah _read and write_ pada memory, jadi jika kita asumsikan dibelakang layar akan melakukan sebuah _read and write_ pada sebuah string, integer ataupun sebuah object.
 
-
-
+### Membersihkan memory
+Yaa pada step kali ini adalah step yang paling major atau sangat berpengaruh pada sebuah memory
 
 
 

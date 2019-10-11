@@ -71,8 +71,13 @@ export const contentBlogPost = css`
     font-size: 12.5px;
   }
 
-  .token .comment {
+  .token.comment {
     color: #809393;
+    font-style: italic;
+  }
+
+  .token.number {
+    color: #a27a5a;
   }
 
   .token.keyword,
@@ -147,5 +152,10 @@ export const contentBlogPost = css`
     border-left: 0.32813rem solid hsla(0, 0%, 0%, 0.9);
     border-left-color: inherit;
     opacity: 0.8;
+  }
+
+  em {
+    font-weight: bold;
+    text-decoration: underline;
   }
 `
