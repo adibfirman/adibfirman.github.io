@@ -1,6 +1,6 @@
 ---
 title: Kumpulan Sampah di Javascript
-date: '2019-12-22'
+date: '2019-10-11'
 spoiler: Kumpulan Sampah di javascript?
 ---
 
