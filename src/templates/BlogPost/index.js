@@ -31,7 +31,7 @@ export default function BlogTemplate({ data, pageContext }) {
       <SEO
         title={`${post.frontmatter.title} — ${siteMetadata.author}`}
         description={post.frontmatter.spoiler}
-        slug={`blog/${pageContext.pathName}`}
+        slug={`/blog/${pageContext.pathName}`}
       />
       <HeaderBlog hideImage customText={<Title />} />
       <div
