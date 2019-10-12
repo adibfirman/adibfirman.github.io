@@ -11,6 +11,10 @@ const detailsQuery = graphql`
         title
         description
         author
+        name
+        tagline
+        twitterUsername
+        siteUrl
       }
     }
   }

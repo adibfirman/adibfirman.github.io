@@ -18,6 +18,7 @@ export default function Blog({ data }) {
       <SEO
         title={`${siteMetadata.author} — A personal blog by Adib Firman`}
         description={siteMetadata.tagline}
+        slug="/blog"
       />
       <HeaderBlog />
       {posts.edges.map(({ node }) => (
