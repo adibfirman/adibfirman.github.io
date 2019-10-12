@@ -5,6 +5,10 @@ module.exports = {
     author: `@adibfirman`,
     name: `Adib Firman`,
     tagline: `a study note from a man who write a code`,
+    siteUrl: 'https://adibfirman.github.io',
+    social: {
+      twitter: '@dibfirman',
+    },
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

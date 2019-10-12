@@ -3,13 +3,27 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
-function SEO({ description, lang, meta, keywords, title }) {
+const myPhoto = require('../images/myPhoto.jpg')
+const detailsQuery = graphql`
+  query DefaultSEOQuery {
+    site {
+      siteMetadata {
+        title
+        description
+        author
+      }
+    }
+  }
+`
+
+function SEO({ description, lang, meta, keywords, title, slug }) {
   return (
     <StaticQuery
       query={detailsQuery}
       render={data => {
-        const metaDescription =
-          description || data.site.siteMetadata.description
+        const { siteMetadata } = data.site
+        const metaDescription = description || siteMetadata.description
+        const url = `${siteMetadata.siteUrl}${slug}`
         return (
           <Helmet
             htmlAttributes={{ lang }}
@@ -20,6 +34,10 @@ function SEO({ description, lang, meta, keywords, title }) {
                 content: metaDescription,
               },
               {
+                property: 'og:url',
+                content: url,
+              },
+              {
                 property: `og:title`,
                 content: title,
               },
@@ -28,16 +46,16 @@ function SEO({ description, lang, meta, keywords, title }) {
                 content: metaDescription,
               },
               {
-                property: `og:type`,
-                content: `website`,
+                property: 'og:image',
+                content: myPhoto,
               },
               {
                 name: `twitter:card`,
-                content: `summary`,
+                content: 'summary',
               },
               {
                 name: `twitter:creator`,
-                content: data.site.siteMetadata.author,
+                content: siteMetadata.social.twitter,
               },
               {
                 name: `twitter:title`,
@@ -69,15 +87,3 @@ SEO.propTypes = {
 }
 
 export default SEO
-
-const detailsQuery = graphql`
-  query DefaultSEOQuery {
-    site {
-      siteMetadata {
-        title
-        description
-        author
-      }
-    }
-  }
-`
