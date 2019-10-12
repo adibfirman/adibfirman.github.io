@@ -5,7 +5,7 @@ import { HeaderBlog } from '../../components/Header/HeaderBlog'
 import SEO from '../../components/seo'
 import * as styles from './styles'
 
-export default function BlogTemplate({ data, pathContext }) {
+export default function BlogTemplate({ data, pageContext }) {
   const { markdownRemark: post, site } = data
   const { siteMetadata } = site
 
@@ -31,7 +31,7 @@ export default function BlogTemplate({ data, pathContext }) {
       <SEO
         title={`${post.frontmatter.title} — ${siteMetadata.author}`}
         description={post.frontmatter.spoiler}
-        slug={`blog/${pathContext.pathName}`}
+        slug={`blog/${pageContext.pathName}`}
       />
       <HeaderBlog hideImage customText={<Title />} />
       <div

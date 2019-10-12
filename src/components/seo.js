@@ -16,7 +16,14 @@ const detailsQuery = graphql`
   }
 `
 
-function SEO({ description, lang, meta, keywords, title, slug }) {
+function SEO({
+  description,
+  lang = 'id',
+  meta = [],
+  keywords,
+  title,
+  slug = '',
+}) {
   return (
     <StaticQuery
       query={detailsQuery}
@@ -55,7 +62,7 @@ function SEO({ description, lang, meta, keywords, title, slug }) {
               },
               {
                 name: `twitter:creator`,
-                content: siteMetadata.social.twitter,
+                content: siteMetadata.twitterUsername,
               },
               {
                 name: `twitter:title`,
@@ -71,11 +78,6 @@ function SEO({ description, lang, meta, keywords, title, slug }) {
       }}
     />
   )
-}
-
-SEO.defaultProps = {
-  lang: `id-ID`,
-  meta: [],
 }
 
 SEO.propTypes = {

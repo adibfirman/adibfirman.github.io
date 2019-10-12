@@ -6,9 +6,7 @@ module.exports = {
     name: `Adib Firman`,
     tagline: `a study note from a man who write a code`,
     siteUrl: 'https://adibfirman.github.io',
-    social: {
-      twitter: '@dibfirman',
-    },
+    twitterUsername: '@dibfirman',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
