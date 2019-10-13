@@ -27,7 +27,7 @@ export default function BlogTemplate({ data, pageContext }) {
   }, [])
 
   return (
-    <div className="container">
+    <div css={styles.wrapperContent} className="container">
       <SEO
         title={`${post.frontmatter.title} — ${siteMetadata.author}`}
         description={post.frontmatter.spoiler}

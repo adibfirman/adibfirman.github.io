@@ -19,6 +19,7 @@ export const headerTitle = css`
 
 export const contentBlogPost = css`
   font-size: 18px;
+  line-height: 1.3;
 
   @media ${IS_MOBILE} {
     p {
@@ -54,16 +55,21 @@ export const contentBlogPost = css`
   }
 
   .gatsby-highlight {
-    margin-bottom: 1.75rem;
-    margin-left: -1.3125rem;
-    margin-right: -1.3125rem;
     border-radius: 10px;
     background: #212328;
     overflow: auto;
+    margin-left: -1.18em;
+    margin-right: -1.18em;
+
+    @media ${IS_MOBILE} {
+      margin-left: -1em;
+      margin-right: -0.9em;
+    }
   }
 
   pre[class*='language-'] {
     padding: 0 1.312rem;
+    float: left;
   }
 
   code[class*='language-'] {
@@ -157,5 +163,11 @@ export const contentBlogPost = css`
   em {
     font-weight: bold;
     text-decoration: underline;
+  }
+`
+
+export const wrapperContent = css`
+  @media ${IS_MOBILE} {
+    width: 95%;
   }
 `
