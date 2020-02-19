@@ -43,7 +43,6 @@ export const contact = css`
 `
 
 export const wrapperList = css`
-  list-style-type: cjk-ideographic;
   padding-left: 2em;
 `
 
