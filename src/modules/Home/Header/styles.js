@@ -1,6 +1,8 @@
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 
+import { IS_MOBILE } from 'configs/constants'
+
 export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -9,6 +11,10 @@ export const Wrapper = styled.div`
   color: #212121;
   font-weight: bolder;
   letter-spacing: 2.5px;
+
+  @media ${IS_MOBILE} {
+    margin: 0 -1em;
+  }
 `
 
 export const ButtonLink = styled(Link)`
