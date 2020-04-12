@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import LogoHeart from 'react-ionicons/lib/IosHeart'
 
 import SEO from '../components/seo'
@@ -11,7 +11,8 @@ const gatsbyIcon = require('media/gatsby-icon.png')
 function Home({ data }) {
   const { name, author } = data.site.siteMetadata
 
-  React.useEffect(() => {
+  // remove attr class, if user from page blog detail
+  useEffect(() => {
     document.querySelector('html').removeAttribute('class')
   }, [])
 
