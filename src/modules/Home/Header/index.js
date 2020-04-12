@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, Link, StaticQuery } from 'gatsby'
 
-import * as Styled from './style'
+import * as Styled from './styles'
 
 export function Header() {
   return (
