@@ -7,7 +7,6 @@ import LogoInstagram from 'react-ionicons/lib/LogoInstagram'
 
 import SEO from '../components/seo'
 import { Header } from './Header'
-import { Contact } from '../components/Contact'
 import * as Styled from './styles'
 import Footer from './Footer'
 
