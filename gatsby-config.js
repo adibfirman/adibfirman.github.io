@@ -14,6 +14,19 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-emotion`,
     {
+      resolve: 'gatsby-plugin-module-resolver',
+      options: {
+        root: './src',
+        aliases: {
+          components: './modules/components',
+          configs: './configs',
+          pages: './pages',
+          modules: './modules',
+          media: './media',
+        },
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
@@ -52,13 +65,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `adibfirman.github.io`,
+        short_name: `personalpage`,
         start_url: `/`,
         background_color: `#60B0F4`,
         theme_color: `#60B0F4`,
         display: `minimal-ui`,
-        icon: `src/images/icon.png`, // This path is relative to the root of the site.
+        icon: `src/media/icon.png`,
       },
     },
     {

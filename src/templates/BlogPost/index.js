@@ -1,8 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import { HeaderBlog } from '../../components/Header/HeaderBlog'
-import SEO from '../../components/seo'
+import { HeaderBlog } from '../../modules/components/Header/HeaderBlog'
+import SEO from '../../modules/components/seo'
 import * as styles from './styles'
 
 export default function BlogTemplate({ data, pageContext }) {

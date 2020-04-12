@@ -1,15 +1,15 @@
 import React, { Fragment } from 'react'
 import { graphql } from 'gatsby'
 
-import SEO from '../components/seo'
-import { Header } from '../components/Header'
-import { Footer } from '../components/Footer'
+import SEO from '../modules/components/seo'
+import { Header } from '../modules/components/Header'
+// import { Footer } from '../modules/components/Footer'
 import * as styles from '../styles/pages/talks'
 
 const talks = [
   {
     date: 'September 25, 2019',
-    link: 'https://avoid-these-when-using-hooks.netlify.com/',
+    link: '',
     title: 'Avoid these when using hooks',
     location: 'Shopee Indonesia',
   },
@@ -49,7 +49,7 @@ export default function TalkPage({ data }) {
           ))}
         </ul>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </Fragment>
   )
 }

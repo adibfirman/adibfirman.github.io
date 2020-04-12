@@ -1,6 +1,6 @@
 import { css } from '@emotion/core'
 
-import { IS_MOBILE } from '../../../configs/constants'
+import { IS_MOBILE } from '../../../../configs/constants'
 
 export const container = css`
   display: flex;

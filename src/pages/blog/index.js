@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 
-import SEO from '../../components/seo'
-import { HeaderBlog } from '../../components/Header/HeaderBlog'
+import SEO from '../../modules/components/seo'
+import { HeaderBlog } from '../../modules/components/Header/HeaderBlog'
 import * as styles from '../../styles/pages/blog'
 
 export default function Blog({ data }) {

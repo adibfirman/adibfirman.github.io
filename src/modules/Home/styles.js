@@ -34,3 +34,13 @@ export const contactContainer = css`
 export const contact = css`
   width: 40vh;
 `
+export const footer = css`
+  font-family: var(--font-portofolio);
+  display: flex;
+  justify-content: center;
+
+  .gatsby-icon {
+    position: relative;
+    width: 15px;
+  }
+`
