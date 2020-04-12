@@ -5,10 +5,10 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "@emotion/core": "10.0.9",
+    "@emotion/core": "^10.0.28",
     "gatsby": "^2.20.18",
     "gatsby-image": "2.0.20",
-    "gatsby-plugin-emotion": "4.0.6",
+    "gatsby-plugin-emotion": "^4.2.1",
     "gatsby-plugin-google-analytics": "^2.0.16",
     "gatsby-plugin-manifest": "^2.2.21",
     "gatsby-plugin-module-resolver": "^1.0.3",
@@ -42,6 +42,8 @@
     "deploy": "gatsby build && gh-pages -d public -b master"
   },
   "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-plugin-react": "^7.19.0",
     "gh-pages": "2.0.1",
     "prettier": "1.15.2"
   },
