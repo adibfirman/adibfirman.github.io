@@ -2,8 +2,6 @@ import React, { Fragment } from 'react'
 import { graphql } from 'gatsby'
 
 import SEO from '../modules/components/seo'
-import { Header } from '../modules/components/Header'
-// import { Footer } from '../modules/components/Footer'
 import * as styles from '../styles/pages/talks'
 
 const talks = [
@@ -34,7 +32,6 @@ export default function TalkPage({ data }) {
         title={`${author} — Frontend Web Developer`}
         description="List of talks which i have been bring it."
       />
-      <Header />
       <div css={styles.layoutHome}>
         <h2>My talks at,</h2>
         <ul css={styles.wrapperList}>
@@ -42,14 +39,13 @@ export default function TalkPage({ data }) {
             <li key={i} css={styles.theTalk}>
               <span css={styles.date}>{talk.date}</span>
               <a css={styles.title} target="__blank" href={talk.link}>
-                "{talk.title}"
+                &quot;{talk.title}&quot;
               </a>
               <span>{talk.location}</span>
             </li>
           ))}
         </ul>
       </div>
-      {/* <Footer /> */}
     </Fragment>
   )
 }

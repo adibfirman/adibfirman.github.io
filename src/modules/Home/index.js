@@ -1,8 +1,8 @@
-import React, { Fragment, useEffect } from 'react'
+import React from 'react'
 import LogoHeart from 'react-ionicons/lib/IosHeart'
 
 import SEO from '../components/seo'
-import { Header } from '../components/Header'
+import { Header } from './Header'
 import { Contact } from '../components/Contact'
 import * as styles from './styles'
 
@@ -11,17 +11,12 @@ const gatsbyIcon = require('media/gatsby-icon.png')
 function Home({ data }) {
   const { name, author } = data.site.siteMetadata
 
-  // remove attr class, if user from page blog detail
-  useEffect(() => {
-    document.querySelector('html').removeAttribute('class')
-  }, [])
-
   return (
-    <Fragment>
+    <div>
       <SEO title={`${author} — Web Development`} />
       <Header />
       <div css={styles.layoutHome}>
-        <h4 className="title">Hi, I'm {name}</h4>
+        <h4 className="title">Hi, I&apos;m {name}</h4>
         <span>
           Web Development, Software Engineering and Jr Developer For Life
         </span>
@@ -31,7 +26,7 @@ function Home({ data }) {
         </div>
       </div>
       <Footer />
-    </Fragment>
+    </div>
   )
 }
 
