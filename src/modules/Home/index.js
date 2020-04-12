@@ -1,51 +1,68 @@
 import React from 'react'
-import LogoHeart from 'react-ionicons/lib/IosHeart'
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
+import LogoLinkedin from 'react-ionicons/lib/LogoLinkedin'
+import LogoGithub from 'react-ionicons/lib/LogoGithub'
+import LogoTwitter from 'react-ionicons/lib/LogoTwitter'
+import LogoInstagram from 'react-ionicons/lib/LogoInstagram'
 
 import SEO from '../components/seo'
 import { Header } from './Header'
 import { Contact } from '../components/Contact'
-import * as styles from './styles'
+import * as Styled from './styles'
+import Footer from './Footer'
 
-const gatsbyIcon = require('media/gatsby-icon.png')
+const FONT_SIZE_ICON = '30'
 
 function Home({ data }) {
   const { name, author } = data.site.siteMetadata
 
   return (
-    <div>
+    <Styled.Wrapper>
       <SEO title={`${author} — Web Development`} />
       <Header />
-      <div css={styles.layoutHome}>
-        <h4 className="title">Hi, I&apos;m {name}</h4>
-        <span>
+      <Styled.BaseContent>
+        <Styled.Title className="font-coustard">
+          Hi, I&apos;m {name}
+        </Styled.Title>
+        <p className="font-coustard">
           Web Development, Software Engineering and Jr Developer For Life
-        </span>
-        <div css={styles.contactContainer}>
+        </p>
+        <Styled.BaseContact>
           <h5>Get In Touch</h5>
-          <Contact css={styles.contact} />
-        </div>
-      </div>
+          <Styled.BaseListContact>
+            <OutboundLink
+              href="https://twitter.com/dibfirman"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LogoTwitter fontSize={FONT_SIZE_ICON} />
+            </OutboundLink>
+            <OutboundLink
+              href="https://www.instagram.com/adibfirman/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LogoInstagram fontSize={FONT_SIZE_ICON} />
+            </OutboundLink>
+            <OutboundLink
+              href="https://github.com/adibfirman"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LogoGithub fontSize={FONT_SIZE_ICON} />
+            </OutboundLink>
+            <OutboundLink
+              href="https://www.linkedin.com/in/adibfirman/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LogoLinkedin fontSize={FONT_SIZE_ICON} />
+            </OutboundLink>
+          </Styled.BaseListContact>
+        </Styled.BaseContact>
+      </Styled.BaseContent>
       <Footer />
-    </div>
-  )
-}
-
-function Footer() {
-  const YEAR = new Date().getFullYear()
-
-  return (
-    <div css={styles.footer}>
-      <span>
-        &copy; {YEAR} Made With <LogoHeart fontSize="15" /> And{' '}
-        <a
-          href="https://www.gatsbyjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src={gatsbyIcon} className="gatsby-icon" alt="gatsby-icon" />
-        </a>
-      </span>
-    </div>
+    </Styled.Wrapper>
   )
 }
 

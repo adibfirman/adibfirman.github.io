@@ -9,7 +9,6 @@ export const Wrapper = styled.div`
   color: #212121;
   font-weight: bolder;
   letter-spacing: 2.5px;
-  padding: 1em 2em;
 `
 
 export const ButtonLink = styled(Link)`
