@@ -1,11 +1,7 @@
-import { css } from '@emotion/core'
+import styled from '@emotion/styled'
 
-export const title = css`
-  font-size: 30px;
-  margin-bottom: 0.5rem;
-  color: #43d0e1;
-`
-
-export const spoiler = css`
-  margin-top: 0;
+export const Wrapper = styled.div`
+  display: grid;
+  grid-template-rows: 0fr 1fr;
+  min-height: 1000vh;
 `

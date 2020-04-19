@@ -2,7 +2,6 @@ import React from 'react'
 import { Link, StaticQuery, graphql } from 'gatsby'
 
 import * as styles from './styles'
-import { Contact } from '../../Contact'
 
 export function HeaderBlog(props) {
   return (
@@ -22,7 +21,6 @@ function ContentComponent({ site, customText }) {
         <Link css={styles.title} to="/">
           {siteMetadata.author}
         </Link>
-        <Contact iconColor="#56b6c2" />
       </div>
       <div css={styles.jokes}>{customText || siteMetadata.tagline}</div>
       <div css={styles.imgContainer}>
