@@ -9,7 +9,7 @@ function Header() {
     const ele = eleHeader.current
     const scrollTop = window.scrollY
 
-    ;(function effectHeight() {
+    function effectHeight() {
       let height = 300
       let maxHeight
 
@@ -19,7 +19,9 @@ function Header() {
       }
 
       ele.style.height = `${maxHeight}px`
-    })()
+    }
+
+    window.requestAnimationFrame(effectHeight)
   }
 
   useEffect(() => {
@@ -27,7 +29,11 @@ function Header() {
     return () => window.removeEventListener('scroll', onUserScroll)
   }, [])
 
-  return <Wrapper ref={eleHeader} />
+  return (
+    <Wrapper ref={eleHeader}>
+      <h1>Test</h1>
+    </Wrapper>
+  )
 }
 
 export default Header
