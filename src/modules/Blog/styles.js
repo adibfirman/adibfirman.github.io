@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 
-export const Wrapper = styled.div`
-  display: grid;
-  grid-template-rows: 0fr 1fr;
-  min-height: 1000vh;
+export const BaseBlogs = styled.div`
+  position: relative;
+  z-index: 1;
+  background-color: #fcfdfe;
 `

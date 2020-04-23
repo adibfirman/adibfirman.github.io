@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { Link } from 'gatsby'
 
 import SEO from '../components/seo'
-import { Wrapper } from './styles'
+import { BaseBlogs } from './styles'
 import Header from './Header'
 
 export default function Blog({ data }) {
@@ -16,9 +16,13 @@ export default function Blog({ data }) {
         description={siteMetadata.tagline}
         slug="/blog"
       />
-      <Wrapper>
-        <Header />
-      </Wrapper>
+      <Header />
+      <BaseBlogs>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore
+        accusantium exercitationem consectetur neque provident. Possimus
+        corrupti reprehenderit dicta molestiae vero molestias sint, magnam,
+        perferendis qui ducimus tempore quos voluptatibus vitae?
+      </BaseBlogs>
       {/* {posts.edges.map(({ node }) => (
         <ItemPost key={node.id} {...node} />
       ))} */}
