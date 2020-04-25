@@ -15,7 +15,7 @@ export const query = graphql`
           fileAbsolutePath
           frontmatter {
             title
-            date(formatString: "DD MMM YYYY")
+            date(formatString: "DD MMMM YYYY")
             spoiler
           }
           timeToRead

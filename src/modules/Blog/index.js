@@ -42,17 +42,15 @@ export default function Blog({ data }) {
 }
 
 function ItemPost({ frontmatter, timeToRead, fileAbsolutePath }) {
-  const { title, spoiler, date } = frontmatter
+  const { title, date } = frontmatter
   const splitFilePath = fileAbsolutePath.split('/')
   const path = splitFilePath[splitFilePath.length - 2]
 
   return (
     <Post to={`/blog/${path}`}>
-      <TitlePost className="font-reenie">{title}</TitlePost>
-      <BaseTimePost className="font-reenie">
-        <strong>{date}</strong> | {timeToRead} min read
-      </BaseTimePost>
-      <SpoilerPost className="font-reenie">{spoiler}</SpoilerPost>
+      <TitlePost className="font-reenie">{date}</TitlePost>
+      <SpoilerPost className="font-reenie">{title}</SpoilerPost>
+      <BaseTimePost className="font-reenie">{timeToRead} min read</BaseTimePost>
       <svg
         width="100%"
         height="100%"
