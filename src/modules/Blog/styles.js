@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 
-import { IS_TABLET } from 'configs/constants'
+import { IS_TABLET, IS_MOBILE, IS_MOBILE_SMALL } from 'configs/constants'
 
 export const BaseBlogs = styled.div`
   position: relative;
@@ -28,6 +28,11 @@ export const TitleNotes = styled.div`
 export const BaseListNote = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
+
+  @media ${IS_MOBILE} {
+    display: flex;
+    flex-direction: column;
+  }
 `
 
 export const Post = styled(Link)`
@@ -42,6 +47,10 @@ export const TitlePost = styled.strong`
   width: 63%;
   padding-top: 17%;
   padding-left: 4%;
+
+  @media ${IS_MOBILE_SMALL} {
+    font-size: 1.5em;
+  }
 `
 
 export const BaseTimePost = styled.small`
@@ -59,7 +68,7 @@ export const SpoilerPost = styled.div`
   left: 0;
   width: 100%;
   text-align: center;
-  font-size: 2em;
+  font-size: 2.4em;
   height: 100%;
   display: flex;
   align-items: center;
