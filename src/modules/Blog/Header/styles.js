@@ -1,9 +1,9 @@
 import styled from '@emotion/styled'
 
-const baseHeight = 'height: 300px;'
+import { IS_TABLET } from 'configs/constants'
 
 export const Wrapper = styled.header`
-  ${baseHeight}
+  height: 45vh;
   display: flex;
   background-color: #c0c0e2;
 `
@@ -14,9 +14,10 @@ export const Title = styled.h1`
 `
 
 export const BaseBigHeader = styled.div`
-  ${baseHeight}
   display: flex;
-  margin: auto;
+  margin: 0 auto;
+  height: fit-content;
+  margin-top: 7%;
   width: calc(100% - 21em);
   flex-direction: column;
   position: fixed;
@@ -24,6 +25,13 @@ export const BaseBigHeader = styled.div`
   bottom: 6em;
   left: 0;
   right: 0;
+  text-align: unset;
+
+  @media ${IS_TABLET} {
+    text-align: center;
+    width: calc(100% - 3em);
+    margin-top: 10%;
+  }
 `
 
 export const Line = styled.div`
@@ -32,6 +40,11 @@ export const Line = styled.div`
   height: 20px;
   margin-bottom: 12px;
   border-radius: 13px;
+  visibility: visible;
+
+  @media ${IS_TABLET} {
+    visibility: hidden;
+  }
 
   &.text-shadow {
     position: absolute;
