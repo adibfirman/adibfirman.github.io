@@ -3,6 +3,7 @@
 /* --- setup font --- */
 @import url('https://fonts.googleapis.com/css2?family=Coustard&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Sniglet&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap');
 
 @font-face {
   font-family: 'InputMono-Medium';
@@ -18,6 +19,10 @@
 
 .font-sniglet {
   font-family: 'Sniglet', serif, Arial, Helvetica, sans-serif;
+}
+
+.font-reenie {
+  font-family: 'Reenie Beanie', cursive;
 }
 
 a {
