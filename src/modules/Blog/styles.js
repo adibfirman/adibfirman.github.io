@@ -28,6 +28,7 @@ export const TitleNotes = styled.div`
 export const BaseListNote = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
 
   @media ${IS_MOBILE} {
     display: flex;
