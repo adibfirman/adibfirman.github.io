@@ -20,7 +20,7 @@ export default function Blog({ data }) {
   return (
     <Fragment>
       <SEO
-        title={`${siteMetadata.author} — A personal blog by Adib Firman`}
+        title={`${siteMetadata.author} — Some study notes by me`}
         description={siteMetadata.tagline}
         slug="/blog"
       />

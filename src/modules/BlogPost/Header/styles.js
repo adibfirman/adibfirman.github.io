@@ -5,8 +5,6 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 81%;
-  margin: 0 auto;
 `
 
 export const BaseSosmed = styled.div`

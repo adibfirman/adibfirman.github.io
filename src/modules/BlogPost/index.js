@@ -2,7 +2,7 @@ import React from 'react'
 import { Global } from '@emotion/core'
 
 import Header from './Header'
-import { globalStyle } from './styles'
+import { globalStyle, ContentWrapper } from './styles'
 
 export default function BlogPost({ data, pageContext }) {
   // const { markdownRemark: post, site } = data
@@ -40,10 +40,15 @@ export default function BlogPost({ data, pageContext }) {
   //   </div>
   // )
   return (
-    <>
+    <ContentWrapper>
       <Global styles={globalStyle} />
       <Header />
-      <div style={{ marginBottom: '300vh' }} />
-    </>
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt quod
+        doloremque placeat eum mollitia iusto a omnis quas odio ea consectetur
+        voluptas blanditiis saepe recusandae quos, reiciendis distinctio. Amet,
+        temporibus!
+      </div>
+    </ContentWrapper>
   )
 }

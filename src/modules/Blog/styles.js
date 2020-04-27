@@ -10,7 +10,7 @@ export const BaseBlogs = styled.div`
 `
 
 export const BaseIBlogPosts = styled.div`
-  width: 60%;
+  width: 67%;
   margin: 0 auto;
   padding-bottom: 3em;
 
@@ -26,14 +26,9 @@ export const TitleNotes = styled.div`
 `
 
 export const BaseListNote = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 1em;
-
-  @media ${IS_MOBILE} {
-    display: flex;
-    flex-direction: column;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 `
 
 export const Post = styled(Link)`
