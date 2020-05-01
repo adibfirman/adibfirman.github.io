@@ -4,6 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Coustard&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Sniglet&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
 
 @font-face {
   font-family: 'InputMono-Medium';
@@ -11,6 +12,10 @@
   font-weight: 400;
   font-display: swap;
   src: url(./fonts/InputMono-Medium.ttf);
+}
+
+.font-merriweather {
+  font-family: 'Merriweather', serif;
 }
 
 .font-coustard {
