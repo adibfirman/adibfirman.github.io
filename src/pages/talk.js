@@ -2,7 +2,6 @@ import React, { Fragment } from 'react'
 import { graphql } from 'gatsby'
 
 import SEO from '../modules/components/seo'
-import * as styles from '../styles/pages/talks'
 
 const talks = [
   {
@@ -32,13 +31,13 @@ export default function TalkPage({ data }) {
         title={`${author} — Frontend Web Developer`}
         description="List of talks which i have been bring it."
       />
-      <div css={styles.layoutHome}>
+      <div>
         <h2>My talks at,</h2>
-        <ul css={styles.wrapperList}>
+        <ul>
           {talks.map((talk, i) => (
-            <li key={i} css={styles.theTalk}>
-              <span css={styles.date}>{talk.date}</span>
-              <a css={styles.title} target="__blank" href={talk.link}>
+            <li key={i}>
+              <span>{talk.date}</span>
+              <a target="__blank" href={talk.link}>
                 &quot;{talk.title}&quot;
               </a>
               <span>{talk.location}</span>
