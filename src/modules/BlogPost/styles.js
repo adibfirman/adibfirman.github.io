@@ -38,16 +38,19 @@ export const TImeDesc = styled.div`
   color: #a8a8d6;
 `
 
+const fontPost = `
+  font-size: 1.1em;
+  line-height: 32px;
+  letter-spacing: -0.003em;
+  color: rgba(0, 0, 0, 0.84);
+  word-break: break-word;
+  font-weight: 400;
+`
 export const Content = styled.div`
   padding-top: 2em;
 
   p {
-    font-size: 1.1em;
-    line-height: 32px;
-    letter-spacing: -0.003em;
-    color: rgba(0, 0, 0, 0.84);
-    word-break: break-word;
-    font-weight: 400;
+    ${fontPost}
   }
 
   svg {
@@ -85,6 +88,16 @@ export const Content = styled.div`
     text-decoration: none;
   }
 
+  ul {
+    list-style-image: none;
+    padding-left: 28px;
+
+    li {
+      ${fontPost}
+      margin: 5px 0;
+    }
+  }
+
   hr {
     margin-left: 0;
     margin-right: 0;
@@ -100,24 +113,17 @@ export const Content = styled.div`
   }
 
   .language-text {
-    font-family: var(--font-blog);
+    color: #fff !important;
     background: #515a6b;
     padding: 3px;
-    font-size: 15px;
     border-radius: 5px;
   }
 
   .gatsby-highlight {
     border-radius: 10px;
-    background: #212328;
+    background: #282c34;
     overflow: auto;
-    margin-left: -1.18em;
-    margin-right: -1.18em;
-
-    @media ${IS_MOBILE} {
-      margin-left: -1em;
-      margin-right: -0.9em;
-    }
+    margin: 1em -1.5em;
   }
 
   pre[class*='language-'] {
@@ -128,10 +134,11 @@ export const Content = styled.div`
   code[class*='language-'] {
     font-family: 'InputMono-Medium';
     font-size: 12.5px;
+    color: #e06a62;
   }
 
   .token.comment {
-    color: #809393;
+    color: #7f848e;
     font-style: italic;
   }
 
@@ -139,14 +146,28 @@ export const Content = styled.div`
     color: #a27a5a;
   }
 
-  .token.keyword,
-  .token.operator,
   .token.tag {
-    color: var(--primary-color);
+    color: rgb(138, 89, 157);
   }
 
-  .token .punctuation {
-    color: var(--color-blog);
+  .token.attr-value {
+    color: #98c36e;
+  }
+
+  .token.plain-text {
+    color: #abada9;
+  }
+
+  .token.keyword {
+    color: #c678dd;
+  }
+
+  .token.operator {
+    color: rgb(71, 138, 149);
+  }
+
+  .token.punctuation {
+    color: #8aa1ba;
   }
 
   .token .attr-name {
@@ -216,5 +237,9 @@ export const Content = styled.div`
   em {
     font-weight: bold;
     text-decoration: underline;
+  }
+
+  .token.class-name {
+    color: #e5c074;
   }
 `
