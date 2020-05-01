@@ -4,7 +4,7 @@ date: '2018-10-23'
 spoiler: Pengenalan EcmaScript (ES6) bagian 2/2
 ---
 
-Pada part sebelumnya kita sudah berkenalan dengan ES6 dan juga beberapa fungsi pada ES6 contohnya pendeklarasian variabel, lalu pada part kali ini kita akan mengupas tuntaskan tentang si-cantik ES6 ini, langsung saja beeraaanggkaattt….
+Pada part [sebelumnya](/blog/mengenal-si-cantik-es6-part-1) kita sudah berkenalan dengan ES6 dan juga beberapa fungsi pada ES6 contohnya pendeklarasian variabel, lalu pada part kali ini kita akan mengupas tuntaskan tentang si-cantik ES6 ini, langsung saja beeraaanggkaattt….
 
 ---
 

@@ -12,6 +12,10 @@ export const globalStyle = css`
 export const ContentWrapper = styled.div`
   width: 81%;
   margin: 0 auto;
+
+  @media ${IS_MOBILE} {
+    width: 97%;
+  }
 `
 
 export const BasePost = styled.div`
@@ -74,7 +78,7 @@ export const Content = styled.div`
     margin-inline-end: 0px;
   }
 
-  a[target] {
+  a:not([aria-label]) {
     color: #9595e0;
     font-weight: bold;
     background-image: linear-gradient(
