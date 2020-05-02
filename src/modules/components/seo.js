@@ -24,9 +24,9 @@ function SEO({
   description,
   lang = 'id',
   meta = [],
-  keywords,
   title,
   slug = '',
+  image = myPhoto,
 }) {
   return (
     <StaticQuery
@@ -58,7 +58,7 @@ function SEO({
               },
               {
                 property: 'og:image',
-                content: myPhoto,
+                content: image,
               },
               {
                 name: `twitter:card`,
@@ -66,7 +66,7 @@ function SEO({
               },
               {
                 name: `twitter:image`,
-                content: myPhoto,
+                content: image,
               },
               {
                 name: `twitter:creator`,

@@ -96,7 +96,8 @@ export const Content = styled.div`
     text-decoration: none;
   }
 
-  ul {
+  ul,
+  ol {
     list-style: disc;
     list-style-image: none;
     padding-left: 28px;
@@ -253,4 +254,17 @@ export const Content = styled.div`
   .token.class-name {
     color: #e5c074;
   }
+`
+
+export const BaseImage = styled.div`
+  margin: 0 -24px;
+`
+
+export const AuthorText = styled.div`
+  font-size: 0.9em;
+  text-transform: capitalize;
+  color: #9e9e9e;
+  display: block;
+  text-align: center;
+  padding: 7px 24px;
 `

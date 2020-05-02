@@ -12,10 +12,18 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       html
       timeToRead
+      coverImg {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
       frontmatter {
         date(formatString: "DD MMM YYYY")
         title
         spoiler
+        coverAuthor
       }
     }
     site {

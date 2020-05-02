@@ -1,5 +1,6 @@
 import React from 'react'
 import { Global } from '@emotion/core'
+import Img from 'gatsby-image'
 
 import Header from './Header'
 import SEO from '../components/seo'
@@ -10,12 +11,15 @@ import {
   BasePost,
   ContentWrapper,
   Content,
+  BaseImage,
+  AuthorText,
 } from './styles'
 
 export default function BlogPost({ data, pageContext }) {
   const { markdownRemark: post, site } = data
   const { siteMetadata } = site
   const { date, title } = post.frontmatter
+  const imgMeta = post.coverImg.childImageSharp.fluid.src
 
   return (
     <ContentWrapper>
@@ -23,6 +27,7 @@ export default function BlogPost({ data, pageContext }) {
         title={`${post.frontmatter.title} — ${siteMetadata.author}`}
         description={post.frontmatter.spoiler}
         slug={`/blog/${pageContext.pathName}`}
+        image={window.location.origin + imgMeta}
       />
       <Global styles={globalStyle} />
       <Header />
@@ -32,6 +37,13 @@ export default function BlogPost({ data, pageContext }) {
           <span>Diterbitkan pada {date}</span>
           <span>{post.timeToRead} min read</span>
         </TImeDesc>
+        <BaseImage>
+          <Img
+            fluid={post.coverImg.childImageSharp.fluid}
+            alt={post.frontmatter.coverAuthor}
+          />
+          <AuthorText>{post.frontmatter.coverAuthor}</AuthorText>
+        </BaseImage>
         <Content
           className="font-merriweather"
           dangerouslySetInnerHTML={{ __html: post.html }}

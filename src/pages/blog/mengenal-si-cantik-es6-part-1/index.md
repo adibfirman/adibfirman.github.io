@@ -2,7 +2,7 @@
 title: Mengenal Si-Cantik ES6 (Part 1)
 date: '2018-05-17'
 spoiler: Pengenalan EcmaScript (ES6) bagian 1/2
-cover: https://images.unsplash.com/photo-1526253038957-bce54e05968e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80
+coverImg: https://images.unsplash.com/photo-1526253038957-bce54e05968e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80
 coverAuthor: Women using laptop computer beside person wearing hat by @nesabymakers on Unsplash
 ---
 
