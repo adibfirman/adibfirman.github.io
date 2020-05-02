@@ -2,6 +2,8 @@
 title: Kumpulan Sampah di Javascript
 date: '2019-10-11'
 spoiler: Kumpulan Sampah di javascript?
+coverImg: https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80
+coverAuthor: four assorted-color trash bins beside gray wall photo by @pawel_czerwinski on Unsplash
 ---
 
 ## TL;DR

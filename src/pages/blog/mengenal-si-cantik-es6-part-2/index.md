@@ -2,6 +2,8 @@
 title: Mengenal Si-Cantik ES6 (Part 2)
 date: '2018-10-23'
 spoiler: Pengenalan EcmaScript (ES6) bagian 2/2
+coverImg: https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80
+coverAuthor: person using laptop photo by @johnschno on Unsplash
 ---
 
 Pada part [sebelumnya](/blog/mengenal-si-cantik-es6-part-1) kita sudah berkenalan dengan ES6 dan juga beberapa fungsi pada ES6 contohnya pendeklarasian variabel, lalu pada part kali ini kita akan mengupas tuntaskan tentang si-cantik ES6 ini, langsung saja beeraaanggkaattt….

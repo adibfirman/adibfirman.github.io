@@ -2,6 +2,8 @@
 title: Mencoba Context API Pada React
 date: '2018-12-28'
 spoiler: Ringkasan penggunaan context API React
+coverImg: https://images.unsplash.com/photo-1467727673784-39c8ccb7e5fb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=667&q=80
+coverAuthor: person tumbling on gray concrete road photo by @petrussousa on Unsplash
 ---
 
 ### TL'DR
