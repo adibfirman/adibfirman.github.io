@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
-const myPhoto = require('media/myPhoto.jpg')
+const myPhoto = require('media/myPhoto.png')
 const detailsQuery = graphql`
   query DefaultSEOQuery {
     site {
