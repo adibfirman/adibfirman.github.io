@@ -19,7 +19,7 @@ export default function BlogPost({ data, pageContext }) {
   const { markdownRemark: post, site } = data
   const { siteMetadata } = site
   const { date, title } = post.frontmatter
-  const imgMeta = post.coverImg.childImageSharp.fluid.base64
+  const imgMeta = post.coverImg.childImageSharp.fluid.src
   const readingTime = `${post.timeToRead} min read`
 
   return (
