@@ -1,7 +1,7 @@
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 
-import { IS_MOBILE } from 'configs/constants'
+import { IS_MOBILE, IS_TABLET } from 'configs/constants'
 
 export const globalStyle = css`
   body {
@@ -10,8 +10,12 @@ export const globalStyle = css`
 `
 
 export const ContentWrapper = styled.div`
-  width: 81%;
+  width: 58%;
   margin: 0 auto;
+
+  @media ${IS_TABLET} {
+    width: 80%;
+  }
 
   @media ${IS_MOBILE} {
     width: 97%;
@@ -93,6 +97,7 @@ export const Content = styled.div`
   }
 
   ul {
+    list-style: disc;
     list-style-image: none;
     padding-left: 28px;
 
@@ -103,17 +108,19 @@ export const Content = styled.div`
   }
 
   hr {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    margin-bottom: calc(1.75rem - 1px);
-    background: #d7dae0;
+    height: fit-content;
+    padding: 0;
     border: none;
-    height: 1px;
+    margin-top: -50px;
+
+    &::after {
+      content: '...';
+      font-size: 5em;
+      color: #9595e082;
+      display: block;
+      text-align: center;
+      letter-spacing: 5px;
+    }
   }
 
   .language-text {
@@ -133,6 +140,7 @@ export const Content = styled.div`
   pre[class*='language-'] {
     padding: 0 1.312rem;
     float: left;
+    width: 100%;
   }
 
   code[class*='language-'] {
@@ -194,7 +202,7 @@ export const Content = styled.div`
   .gatsby-highlight-code-line {
     background-color: #333538;
     display: block;
-    border-left: 0.25em solid #56b6c2;
+    border-left: 0.25em solid #b28cf7;
     padding: 3px 1.25em 3px 1.4em;
   }
 
@@ -212,8 +220,7 @@ export const Content = styled.div`
     padding-top: 0;
     position: relative;
     display: block;
-    margin-right: auto;
-    margin-left: auto;
+    margin: 1.3em auto;
   }
 
   .token .boolean {
