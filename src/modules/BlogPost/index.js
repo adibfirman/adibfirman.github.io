@@ -20,6 +20,7 @@ export default function BlogPost({ data, pageContext }) {
   const { siteMetadata } = site
   const { date, title } = post.frontmatter
   const imgMeta = post.coverImg.childImageSharp.fluid.base64
+  const readingTime = `${post.timeToRead} min read`
 
   return (
     <ContentWrapper>
@@ -28,6 +29,29 @@ export default function BlogPost({ data, pageContext }) {
         description={post.frontmatter.spoiler}
         slug={`/blog/${pageContext.pathName}`}
         image={imgMeta}
+        type="article"
+        meta={[
+          {
+            name: `twitter:imageAlt`,
+            content: post.frontmatter.coverAuthor,
+          },
+          {
+            name: `label1`,
+            content: 'Written by',
+          },
+          {
+            name: `data1`,
+            content: siteMetadata.name,
+          },
+          {
+            name: `label2`,
+            content: 'Reading time',
+          },
+          {
+            name: `data2`,
+            content: readingTime,
+          },
+        ]}
       />
       <Global styles={globalStyle} />
       <Header />
@@ -35,7 +59,7 @@ export default function BlogPost({ data, pageContext }) {
         <Title className="font-sniglet">{title}</Title>
         <TImeDesc className="font-coustard">
           <span>Diterbitkan pada {date}</span>
-          <span>{post.timeToRead} min read</span>
+          <span>{readingTime}</span>
         </TImeDesc>
         <BaseImage>
           <Img

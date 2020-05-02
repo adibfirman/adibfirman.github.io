@@ -23,6 +23,7 @@ export default function Blog() {
         siteMetadata {
           author
           tagline
+          name
         }
       }
     }

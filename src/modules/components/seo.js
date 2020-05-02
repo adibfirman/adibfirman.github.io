@@ -27,6 +27,7 @@ function SEO({
   title,
   slug = '',
   image = myPhoto,
+  type = 'website',
 }) {
   return (
     <StaticQuery
@@ -54,7 +55,7 @@ function SEO({
               },
               {
                 property: `og:type`,
-                content: 'website',
+                content: type,
               },
               {
                 property: `og:description`,
