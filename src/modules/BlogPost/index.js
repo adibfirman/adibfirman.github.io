@@ -19,7 +19,7 @@ export default function BlogPost({ data, pageContext }) {
   const { markdownRemark: post, site } = data
   const { siteMetadata } = site
   const { date, title } = post.frontmatter
-  const imgMeta = post.coverImg.childImageSharp.fluid.src
+  const imgMeta = post.coverImg.childImageSharp.fluid.base64
 
   return (
     <ContentWrapper>
@@ -27,7 +27,7 @@ export default function BlogPost({ data, pageContext }) {
         title={`${post.frontmatter.title} — ${siteMetadata.author}`}
         description={post.frontmatter.spoiler}
         slug={`/blog/${pageContext.pathName}`}
-        image={window.location.origin + imgMeta}
+        image={imgMeta}
       />
       <Global styles={globalStyle} />
       <Header />
