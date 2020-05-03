@@ -3,6 +3,7 @@ import { Global } from '@emotion/core'
 import Img from 'gatsby-image'
 
 import Header from './Header'
+import Footer from './Footer'
 import SEO from '../components/seo'
 import {
   globalStyle,
@@ -73,6 +74,7 @@ export default function BlogPost({ data, pageContext }) {
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
       </BasePost>
+      <Footer pageContext={pageContext} />
     </ContentWrapper>
   )
 }

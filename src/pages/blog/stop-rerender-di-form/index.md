@@ -2,8 +2,8 @@
 title: Stop re-render form pada React
 date: '2020-05-04'
 spoiler: Stop terlalu banyak re-render di sebuah form pada aplikasi React
-coverImg: https://images.unsplash.com/photo-1484950763426-56b5bf172dbb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80
-coverAuthor: silhouette of off-road car by https://unsplash.com/@r3dmax on Unsplash
+coverImg: https://images.unsplash.com/photo-1506704810770-7e9bbab1094b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80
+coverAuthor: close up photo of streat go and stop singage displaying stop photo by @kaip on Unsplash
 ---
 
 Aktifitas sebuah form pasti sangat tidak asing pada sebuah web, ntah itu hanya menuliskan sebuah nama, email dan lain sebagainya. Terkadang ketika menyimpan data tersebut kita hanya sekedar menyimpannya pada sebuah state biasa seperti ini
@@ -31,7 +31,7 @@ memang hal diatas adalah hal yang normal biasa kita lakukan untuk melakukan sebu
 
 ![Image from codesandbox](./image-one.png)
 
-contoh ketika saya mengetikan nama dua huruf saja huruf _a_ dan _d_ form kita sudah melakukan re-render 2 kali, untuk memastikan lagi kita akan melihat devtools react dan yaa hal itu benar-benar terjadi, karena hal tersebut dinamakan _Reconciliation_.
+contoh ketika saya mengetikan nama dua huruf saja huruf _a_ dan _d_ form kita sudah melakukan re-render 2 kali, untuk memastikan lagi kita akan melihat devtools react dan yaa hal itu benar-benar terjadi, dan hal tersebut dinamakan _Reconciliation_
 
 ![Example of profiller react](./image-two.png)
 
@@ -82,7 +82,7 @@ yap kita akan mencoba memasukan sebuah nama pada input kita dan, kita pastikan t
 
 ![Make sure re-render not happening aggain](./image-four.png)
 
-lihat devtool tidak menditeksi ada proses render pada form kita, lalu bagaimana apa kita tetap dapat valuenya? jawabannya YA
+lihat devtool tidak mendeteksi ada proses render pada form kita, lalu bagaimana apa kita tetap dapat valuenya? jawabannya YA
 
 ![We got the value form](./image-five.png)
 
@@ -161,8 +161,6 @@ input itu tetap kosong lalu bagimana selanjutnya?
 
 yaps ada penambahan atribut yaitu `defaultValue` atribut tersebut yang akan mengisi `input` kita dengan value yang kita ambil dari fungsi `getName` di dalam sebuah `useEffect`.
 
----
+## Rangkuman
 
-## Recap Tulisan
-
-Hal yang dilakukan diatas adalah antara perlu dan tidak sih, karena kalau hal yang biasa kita gunakan dengan menggunakan sebuah `state` biasa tetep berjalan normal dan tidak mengganggu user yaa kenapa harus menggunakan teknik _Uncontrolled Component_ kan?
+Hal yang dilakukan diatas adalah antara perlu dan tidak sih, karena kalau hal yang biasa kita gunakan dengan menggunakan sebuah `state` biasa tetep berjalan normal dan tidak mengganggu user, maka tidak perlu melakukan sebuah _Uncontrolled Component_ dan kita harus memastikan terlebih dahulu sebelum benar-benar menggunakan teknik ini.

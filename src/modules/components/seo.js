@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
-const myPhoto =
+export const myPhoto =
   'https://avatars1.githubusercontent.com/u/24794196?s=460&u=b784734314dc3a94ee2f68b5e8fbd98bda4d45c0&v=4'
 const detailsQuery = graphql`
   query DefaultSEOQuery {

@@ -50,6 +50,18 @@ exports.createPages = ({ actions, graphql }) => {
         limit: 1000
       ) {
         edges {
+          next {
+            fileAbsolutePath
+            frontmatter {
+              title
+            }
+          }
+          previous {
+            fileAbsolutePath
+            frontmatter {
+              title
+            }
+          }
           node {
             fileAbsolutePath
             id
@@ -60,15 +72,30 @@ exports.createPages = ({ actions, graphql }) => {
   `).then(result => {
     if (result.errors) throw new Error(result.errors)
 
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      const { fileAbsolutePath, id } = node
-      const splitFilePath = fileAbsolutePath.split('/')
+    function getPathname(filePath) {
+      const splitFilePath = filePath.split('/')
       const pathName = splitFilePath[splitFilePath.length - 2]
+
+      return pathName
+    }
+
+    result.data.allMarkdownRemark.edges.forEach(({ node, next, previous }) => {
+      const { fileAbsolutePath, id } = node
+      const pathName = getPathname(fileAbsolutePath)
+      const nextPost = next && {
+        pathName: `blog/${getPathname(next.fileAbsolutePath)}`,
+        title: next.frontmatter.title,
+      }
+
+      const prevPost = previous && {
+        pathName: `blog/${getPathname(previous.fileAbsolutePath)}`,
+        title: previous.frontmatter.title,
+      }
 
       createPage({
         path: `blog/${pathName}`,
         component: blogPostTemplate,
-        context: { pathName, id },
+        context: { pathName, id, nextPost, prevPost },
       })
     })
   })
