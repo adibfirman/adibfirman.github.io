@@ -23,17 +23,21 @@ function Footer({ pageContext }) {
         </BaseDesc>
       </BaseFooter>
       <BaseNavigation>
-        {nextPost && (
+        {nextPost ? (
           <Navigation to={nextPost.pathName} className="font-sniglet">
             <MdArrowDropleft color="#673ab79c" fontSize={ICON_SIZE} />
             <span>{nextPost.title}</span>
           </Navigation>
+        ) : (
+          <span />
         )}
-        {prevPost && (
+        {prevPost ? (
           <Navigation to={prevPost.pathName} className="font-sniglet">
             <span>{prevPost.title}</span>
             <MdArrowDropright color="#673ab79c" fontSize={ICON_SIZE} />
           </Navigation>
+        ) : (
+          <span />
         )}
       </BaseNavigation>
     </>

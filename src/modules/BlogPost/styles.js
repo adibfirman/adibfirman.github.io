@@ -229,21 +229,12 @@ export const Content = styled.div`
   }
 
   blockquote {
-    margin-left: -1.75rem;
-    margin-right: 1.75rem;
-    margin-top: 0;
-    padding-bottom: 0;
-    padding-left: 1.42188rem;
-    padding-right: 0;
-    padding-top: 0;
-    margin-bottom: 1.75rem;
-    font-size: 1.20112rem;
-    line-height: 1.75rem;
+    margin-left: -28px;
     color: inherit;
     font-style: italic;
-    border-left: 0.32813rem solid hsla(0, 0%, 0%, 0.9);
-    border-left-color: inherit;
-    opacity: 0.8;
+    border-left: 0.32813rem solid #9595e0;
+    padding-left: 24px;
+    font-size: inherit;
   }
 
   em {
