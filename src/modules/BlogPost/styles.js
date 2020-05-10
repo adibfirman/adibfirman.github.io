@@ -141,7 +141,6 @@ export const Content = styled.div`
   pre[class*='language-'] {
     padding: 0 1.312rem;
     float: left;
-    width: 100%;
   }
 
   code[class*='language-'] {
