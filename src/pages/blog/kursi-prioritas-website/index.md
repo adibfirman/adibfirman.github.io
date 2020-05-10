@@ -1,6 +1,6 @@
 ---
 title: Kursi prioritas pada website, ada kah?
-date: '9999-99-99'
+date: '2020-05-10'
 spoiler: Bahkan di website sekali pun ada kursi prioritas
 coverImg: https://images.unsplash.com/photo-1582594686787-cde580bbb7d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80
 coverAuthor: yellow metal chair on gray concrete read during daytime photo by @schaidler on Unsplash
