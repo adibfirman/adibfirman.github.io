@@ -140,7 +140,7 @@ export const Content = styled.div`
 
   pre[class*='language-'] {
     padding: 0 1.312rem;
-    float: left;
+    /* float: left; */
   }
 
   code[class*='language-'] {
@@ -149,17 +149,38 @@ export const Content = styled.div`
     color: #e06a62;
   }
 
+  code[class='language-sh'] {
+    color: #ffffffba;
+
+    &::before {
+      content: '➜ ';
+      color: #98c379;
+    }
+  }
+
+  code[class='language-sh-result'] {
+    color: #ffffffba;
+  }
+
   .token.comment {
     color: #7f848e;
     font-style: italic;
   }
 
   .token.number {
-    color: #a27a5a;
+    color: #db9f6f;
   }
 
   .token.tag {
     color: rgb(138, 89, 157);
+
+    .token.tag {
+      color: #e06a62;
+    }
+
+    .token.script.language-javascript {
+      color: #e06a62;
+    }
   }
 
   .token.attr-value {
@@ -192,7 +213,10 @@ export const Content = styled.div`
     color: #98c379;
   }
 
-  .token.builtin,
+  .token.builtin {
+    color: #d3914c;
+  }
+
   .token.char,
   .token.constant,
   .token.function {
@@ -229,11 +253,14 @@ export const Content = styled.div`
 
   blockquote {
     margin-left: -28px;
-    color: inherit;
     font-style: italic;
     border-left: 0.32813rem solid #9595e0;
     padding-left: 24px;
     font-size: inherit;
+
+    p {
+      color: rgba(0, 0, 0, 0.54);
+    }
   }
 
   em {
