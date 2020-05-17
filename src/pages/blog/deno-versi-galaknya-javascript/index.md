@@ -1,7 +1,7 @@
 ---
 title: Deno-saurus versi galaknya JavaScript?
 date: '2020-05-17'
-spoiler: Bermain dengan Deno, a secure runtime untuk JavaScript/TypeScript
+spoiler: Bermain dengan Deno, a secure runtime untuk JavaScript dan TypeScript
 coverImg: https://deno.land/images/deno_logo.png
 coverAuthor: Deno logo
 ---
