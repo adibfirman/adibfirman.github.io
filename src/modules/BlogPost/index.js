@@ -29,7 +29,7 @@ export default function BlogPost({ data, pageContext }) {
         title={`${post.frontmatter.title} — ${siteMetadata.author}`}
         description={post.frontmatter.spoiler}
         slug={`/blog/${pageContext.pathName}`}
-        image={imgMeta}
+        image={siteMetadata.siteUrl + imgMeta}
         type="article"
         meta={[
           {
@@ -37,19 +37,19 @@ export default function BlogPost({ data, pageContext }) {
             content: post.frontmatter.coverAuthor,
           },
           {
-            name: `label1`,
+            name: `twitter:label1`,
             content: 'Written by',
           },
           {
-            name: `data1`,
+            name: `twitter:data1`,
             content: siteMetadata.name,
           },
           {
-            name: `label2`,
+            name: `twitter:label2`,
             content: 'Reading time',
           },
           {
-            name: `data2`,
+            name: `twitter:data2`,
             content: readingTime,
           },
         ]}

@@ -28,7 +28,7 @@ function SEO({
   title,
   slug = '',
   image = myPhoto,
-  type = 'website',
+  type = 'blog',
 }) {
   return (
     <StaticQuery
@@ -42,8 +42,18 @@ function SEO({
             htmlAttributes={{ lang }}
             title={title}
             meta={[
+              // -- general tag --
               {
-                name: `description`,
+                name: 'referrer',
+                content: 'no-referrer-when-downgrade',
+              },
+              // -- OG TAG --
+              {
+                name: 'og:site_name',
+                content: 'adibfirman',
+              },
+              {
+                name: 'og:description',
                 content: metaDescription,
               },
               {
@@ -59,16 +69,17 @@ function SEO({
                 content: type,
               },
               {
-                property: `og:description`,
-                content: metaDescription,
-              },
-              {
                 property: 'og:image',
                 content: image,
               },
+              // -- Twitter TAG --
               {
                 name: `twitter:card`,
                 content: 'summary_large_image',
+              },
+              {
+                property: 'twitter:url',
+                content: url,
               },
               {
                 name: `twitter:image`,
