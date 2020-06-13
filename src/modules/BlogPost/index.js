@@ -32,6 +32,7 @@ export default function BlogPost({ data, pageContext }) {
         image={siteMetadata.siteUrl + imgMeta}
         type="article"
         meta={[
+          // -- twitter meta tag additional --
           {
             name: `twitter:imageAlt`,
             content: post.frontmatter.coverAuthor,

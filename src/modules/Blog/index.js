@@ -21,7 +21,6 @@ export default function Blog({ data }) {
     <Fragment>
       <SEO
         title={`${siteMetadata.author} — Some study notes by me`}
-        description={siteMetadata.tagline}
         slug="/blog"
       />
       <Header />

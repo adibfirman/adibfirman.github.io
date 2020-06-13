@@ -56,11 +56,7 @@ function SEO({
                 name: 'description',
                 content: desc,
               },
-              // -- OG TAG --
-              {
-                name: 'og:site_name',
-                content: 'adibfirman',
-              },
+              // -- OG / facebook TAG --
               {
                 name: 'og:description',
                 content: desc,
@@ -83,7 +79,7 @@ function SEO({
               },
               // -- Twitter TAG --
               {
-                name: `twitter:card`,
+                property: `twitter:card`,
                 content: 'summary_large_image',
               },
               {
@@ -91,23 +87,23 @@ function SEO({
                 content: url,
               },
               {
-                name: `twitter:image`,
+                property: `twitter:image`,
                 content: image,
               },
               {
-                name: `twitter:creator`,
+                property: `twitter:creator`,
                 content: siteMetadata.twitterUsername,
               },
               {
-                name: `twitter:site`,
+                property: `twitter:site`,
                 content: siteMetadata.twitterUsername,
               },
               {
-                name: `twitter:title`,
+                property: `twitter:title`,
                 content: title,
               },
               {
-                name: `twitter:description`,
+                property: `twitter:description`,
                 content: desc,
               },
             ].concat(meta)}
