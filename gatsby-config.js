@@ -1,10 +1,10 @@
 module.exports = {
   siteMetadata: {
     title: `adibfirman`,
-    description: `Personal web and blog by Adib Firman`,
+    description: `Personal web and study note by Adib Firman`,
     author: `@adibfirman`,
     name: `Adib Firman`,
-    tagline: `a study note from a man who write a code`,
+    tagline: `Web Development, Software Engineering and Jr Developer For Life`,
     siteUrl: 'https://adibfirman.github.io',
     twitterUsername: '@dibfirman',
   },

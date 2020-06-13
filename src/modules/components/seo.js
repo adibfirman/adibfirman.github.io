@@ -3,8 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
-export const myPhoto =
-  'https://avatars1.githubusercontent.com/u/24794196?s=460&u=b784734314dc3a94ee2f68b5e8fbd98bda4d45c0&v=4'
+export const myPhoto = `https://avatars1.githubusercontent.com/u/24794196?s=460&u=b784734314dc3a94ee2f68b5e8fbd98bda4d45c0&v=4`
 const detailsQuery = graphql`
   query DefaultSEOQuery {
     site {
@@ -35,8 +34,9 @@ function SEO({
       query={detailsQuery}
       render={data => {
         const { siteMetadata } = data.site
-        const metaDescription = description || siteMetadata.description
-        const url = `${siteMetadata.siteUrl}${slug}`
+        const desc = description || siteMetadata.tagline
+        const url = `${siteMetadata.siteUrl}${slug}/`
+
         return (
           <Helmet
             htmlAttributes={{ lang }}
@@ -47,6 +47,15 @@ function SEO({
                 name: 'referrer',
                 content: 'no-referrer-when-downgrade',
               },
+              // -- primary tags --
+              {
+                name: 'title',
+                content: title,
+              },
+              {
+                name: 'description',
+                content: desc,
+              },
               // -- OG TAG --
               {
                 name: 'og:site_name',
@@ -54,7 +63,7 @@ function SEO({
               },
               {
                 name: 'og:description',
-                content: metaDescription,
+                content: desc,
               },
               {
                 property: 'og:url',
@@ -99,7 +108,7 @@ function SEO({
               },
               {
                 name: `twitter:description`,
-                content: metaDescription,
+                content: desc,
               },
             ].concat(meta)}
           />

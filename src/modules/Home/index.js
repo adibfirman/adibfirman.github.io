@@ -17,7 +17,7 @@ function Home({ data }) {
 
   return (
     <Styled.Wrapper>
-      <SEO title={`${author} — Web Development`} />
+      <SEO title={`${author} — Web Development`} type="website" />
       <Header />
       <Styled.BaseContent>
         <Styled.Title className="font-coustard">
