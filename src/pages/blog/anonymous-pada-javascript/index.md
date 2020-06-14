@@ -1,7 +1,6 @@
 ---
 title: Fungsi anonymous, musuhmu ketika development..!!
-# TODO: write the date
-date:
+date: '2020-06-14'
 spoiler: Jangan pernah menulis fungsi anonymous di JavaScript
 coverImg: https://images.unsplash.com/photo-1569087682520-45253cc2e0ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80
 coverAuthor: silhouette photograph of man photo by @chrisyangchrisfilm on @unsplash
