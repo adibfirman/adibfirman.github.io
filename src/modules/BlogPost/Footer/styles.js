@@ -15,6 +15,10 @@ export const BaseFooter = styled.div`
 
 export const BaseDesc = styled.div`
   margin-bottom: 5px;
+
+  > :nth-of-type(1) {
+    margin-bottom: 10px;
+  }
 `
 
 export const BaseNavigation = styled.div`
