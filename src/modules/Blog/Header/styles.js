@@ -1,11 +1,15 @@
 import styled from '@emotion/styled'
 
-import { IS_TABLET } from 'configs/constants'
+import { IS_TABLET, IS_MOBILE } from 'configs/constants'
 
 export const Wrapper = styled.header`
   height: 45vh;
   display: flex;
   background-color: #c0c0e2;
+
+  @media ${IS_MOBILE} {
+    height: 13em;
+  }
 `
 
 export const Title = styled.h1`
