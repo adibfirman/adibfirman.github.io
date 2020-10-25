@@ -1,34 +1,40 @@
 {
-  "name": "kitakumpul",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/adibfirman/kitakumpul.git",
-  "author": "adibfirman <dib.firman@gmail.com>",
-  "license": "MIT",
-  "scripts": {
-    "dev": "next",
-    "start": "next start",
-    "build": "next build"
-  },
-  "devDependencies": {
-    "@types/node": "^14.14.2",
-    "@types/react": "^16.9.53",
-    "@typescript-eslint/eslint-plugin": "^4.5.0",
-    "@typescript-eslint/parser": "^4.5.0",
-    "babel-plugin-module-resolver": "^4.0.0",
-    "eslint": "^7.12.0",
-    "eslint-config-prettier": "^6.14.0",
-    "eslint-loader": "^4.0.2",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-react": "^7.21.5",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "prettier": "^2.1.2",
-    "typescript": "^4.0.3"
-  },
-  "dependencies": {
-    "next": "^9.5.5",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1"
-  }
+	"name": "adibfirman-blog",
+	"private": true,
+	"version": "1.0.0",
+	"author": "adibfirman <dib.firman@gmail.com>",
+	"license": "MIT",
+	"scripts": {
+		"dev": "next",
+		"start": "next start",
+		"build": "next build"
+	},
+	"devDependencies": {
+		"@types/node": "^14.14.2",
+		"@types/react": "^16.9.53",
+		"@typescript-eslint/eslint-plugin": "^4.5.0",
+		"@typescript-eslint/parser": "^4.5.0",
+		"babel-plugin-module-resolver": "^4.0.0",
+		"eslint": "^7.12.0",
+		"eslint-config-prettier": "^6.14.0",
+		"eslint-loader": "^4.0.2",
+		"eslint-plugin-import": "^2.22.1",
+		"eslint-plugin-jsx-a11y": "^6.3.1",
+		"eslint-plugin-react": "^7.21.5",
+		"eslint-plugin-react-hooks": "^4.2.0",
+		"prettier": "^2.1.2",
+		"typescript": "^4.0.3"
+	},
+	"dependencies": {
+		"@chakra-ui/core": "^0.8.0",
+		"@emotion/core": "^10.0.35",
+		"@emotion/styled": "^10.0.27",
+		"emotion": "^10.0.27",
+		"emotion-server": "^10.0.27",
+		"emotion-theming": "^10.0.27",
+		"next": "^9.5.5",
+		"next-seo": "^4.14.0",
+		"react": "^17.0.1",
+		"react-dom": "^17.0.1"
+	}
 }

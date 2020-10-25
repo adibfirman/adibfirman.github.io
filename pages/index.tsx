@@ -1,16 +1,15 @@
 import React from "react";
+import { NextSeo } from "next-seo";
 
-import Layout from "@components/Layout";
-import { sumNum } from "@utils";
+import { Page } from "@components";
 
-export default function App() {
-	const firstNum = Math.floor(Math.random() * 100) + 1;
-	const secNum = Math.floor(Math.random() * 100) + 1;
-
+const HomePage = () => {
 	return (
-		<Layout>
-			<h1>Hello World..!!</h1>
-			{firstNum} + {secNum} = {sumNum({ a: firstNum, b: secNum })}
-		</Layout>
+		<Page>
+			<NextSeo title="Welcome👋" />
+			<h1 style={{ marginTop: "400vh" }}>hello world</h1>
+		</Page>
 	);
-}
+};
+
+export default HomePage;

@@ -16,7 +16,7 @@
 		"baseUrl": ".",
 		"downlevelIteration": true,
 		"paths": {
-			"@components/*": ["./components/*"],
+			"@components": ["./components"],
 			"@utils": ["./utils"]
 		}
 	},

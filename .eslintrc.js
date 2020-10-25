@@ -56,6 +56,7 @@ module.exports = {
 		"import/prefer-default-export": "off",
 		"import/no-unresolved": "off",
 		"@typescript-eslint/explicit-function-return-type": ["off"],
-		"@typescript-eslint/no-explicit-any": "off"
+		"@typescript-eslint/no-explicit-any": "off",
+		"react/prop-types": "off"
 	}
 };

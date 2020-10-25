@@ -1,1 +1,3 @@
-export { default as sumNum } from "./sumNum";
+export const isBrowser = typeof window !== undefined;
+
+export { default as theme } from "./theme";
