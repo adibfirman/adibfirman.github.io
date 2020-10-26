@@ -8,7 +8,8 @@ const textProps = {
 	transition,
 	position: "absolute",
 	fontFamily: "grandstander",
-	fontSize: "xl"
+	fontSize: "xl",
+	fontWeight: "normal"
 } as BoxProps;
 
 const Header = () => {
@@ -33,30 +34,27 @@ const Header = () => {
 			top="0"
 			left="0"
 			width="100%"
-			backgroundColor={isScrolling ? "white" : "azure.50"}
-			boxShadow={!isScrolling ? "unset" : "rgba(0, 0, 0, 0.15) 0px 1px 4px 0px"}
+			backgroundColor={["white", isScrolling ? "white" : "azure.50"]}
+			boxShadow={[
+				"#00000026 0px 1px 4px 0px",
+				!isScrolling ? "unset" : "#00000026 0px 1px 4px 0px"
+			]}
 		>
-			<Flex
-				position="relative"
-				maxWidth="lg"
-				m="0 auto"
-				p="4"
-				justifyContent="space-between"
-				alignItems="center"
-			>
-				<Text {...textProps} top="15px" left="-2px" opacity={isScrolling ? 1 : 0}>
-					@
-				</Text>
-				<Text {...textProps} opacity={!isScrolling ? 1 : 0}>
-					a
-				</Text>
-				<Text {...textProps} left={isScrolling ? "16px" : "29px"}>
-					dib
-				</Text>
-				<Text {...textProps} left={isScrolling ? "46px" : "65px"}>
-					firman
-				</Text>
-				<div />
+			<Flex maxWidth="lg" m="0 auto" p={[6, 4]} justifyContent="space-between" alignItems="center">
+				<Box position="relative" pb="27px">
+					<Text {...textProps} top="2px" left="-1px" opacity={isScrolling ? 1 : 0}>
+						@
+					</Text>
+					<Text {...textProps} opacity={!isScrolling ? 1 : 0} left={[0, 4]}>
+						a
+					</Text>
+					<Text {...textProps} left={[isScrolling ? 4 : "13px", isScrolling ? 4 : "29px"]}>
+						dib
+					</Text>
+					<Text {...textProps} left={[isScrolling ? "46px" : 12, isScrolling ? "46px" : "65px"]}>
+						firman
+					</Text>
+				</Box>
 				<Grid gridAutoFlow="column" gap={6}>
 					<Link>Blog</Link>
 					<Link>Talks</Link>
