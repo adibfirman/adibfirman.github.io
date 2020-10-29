@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Text, BoxProps, Box, Flex, Grid, Link } from "@chakra-ui/core";
+import { Text, BoxProps, Box, Flex, Grid, Link as UILink } from "@chakra-ui/core";
 
 import { isBrowser } from "@utils";
 
@@ -11,6 +11,12 @@ const textProps = {
 	fontSize: "xl",
 	fontWeight: "normal"
 } as BoxProps;
+
+const Link: React.FC = ({ children }) => (
+	<UILink color="gray.500" _hover={{ color: "gray.600", textDecoration: "underline" }}>
+		{children}
+	</UILink>
+);
 
 const Header = () => {
 	const [isScrolling, setIsScrolling] = useState(false);
