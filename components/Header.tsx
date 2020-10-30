@@ -48,16 +48,13 @@ const Header = () => {
 		>
 			<Flex maxWidth="lg" m="0 auto" p={[6, 4]} justifyContent="space-between" alignItems="center">
 				<Box position="relative" pb="27px">
-					<Text {...textProps} top="2px" left="-1px" opacity={isScrolling ? 1 : 0}>
+					<Text {...textProps} top="2px" left="0" opacity={isScrolling ? 1 : 0}>
 						@
 					</Text>
-					<Text {...textProps} opacity={!isScrolling ? 1 : 0} left={[0, 4]}>
-						a
+					<Text {...textProps} left={[isScrolling ? "1.1rem" : 0]}>
+						adib
 					</Text>
-					<Text {...textProps} left={[isScrolling ? 4 : "13px", isScrolling ? 4 : "29px"]}>
-						dib
-					</Text>
-					<Text {...textProps} left={[isScrolling ? "46px" : 12, isScrolling ? "46px" : "65px"]}>
+					<Text {...textProps} left={isScrolling ? "3.7rem" : 12}>
 						firman
 					</Text>
 				</Box>

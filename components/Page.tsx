@@ -1,7 +1,7 @@
 import React from "react";
 import { Box } from "@chakra-ui/core";
 
-import { Header } from "./";
+import { Header, Footer } from "./";
 
 const LayoutPage: React.FC = ({ children }) => (
 	<Box backgroundColor="azure.50">
@@ -9,6 +9,7 @@ const LayoutPage: React.FC = ({ children }) => (
 			<Header />
 			<Box>{children}</Box>
 		</Box>
+		<Footer />
 	</Box>
 );
 
