@@ -1,60 +1,43 @@
 {
-  "name": "adibfirman-blog",
-  "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
-  "dependencies": {
-    "@emotion/core": "^10.0.28",
-    "@emotion/styled": "^10.0.27",
-    "gatsby": "^2.20.18",
-    "gatsby-image": "^2.4.0",
-    "gatsby-plugin-emotion": "^4.2.1",
-    "gatsby-plugin-google-analytics": "^2.0.16",
-    "gatsby-plugin-manifest": "^2.2.21",
-    "gatsby-plugin-module-resolver": "^1.0.3",
-    "gatsby-plugin-react-helmet": "3.0.2",
-    "gatsby-plugin-sharp": "^2.2.29",
-    "gatsby-remark-autolink-headers": "^2.0.16",
-    "gatsby-remark-copy-linked-files": "^2.0.11",
-    "gatsby-remark-external-links": "^0.0.4",
-    "gatsby-remark-images": "^3.0.10",
-    "gatsby-remark-prismjs": "^3.2.6",
-    "gatsby-remark-smartypants": "^2.0.9",
-    "gatsby-source-filesystem": "^2.0.25",
-    "gatsby-transformer-remark": "^2.3.3",
-    "gatsby-transformer-sharp": "^2.2.21",
-    "prismjs": "^1.15.0",
-    "prop-types": "15.6.2",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
-    "react-helmet": "5.2.0",
-    "react-ionicons": "^3.0.1"
-  },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
-  "scripts": {
-    "build": "gatsby build",
-    "dev": "gatsby develop",
-    "format": "prettier --write \"src/**/*.js\"",
-    "test": "echo \"Write tests!! -> https://gatsby.app/unit-testing\"",
-    "deploy": "gatsby build && gh-pages -d public -b master",
-    "clean": "rm -rf .cache public",
-    "start": "yarn clean && yarn dev"
-  },
-  "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-plugin-react": "^7.19.0",
-    "gh-pages": "2.0.1",
-    "prettier": "1.15.2"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  }
+	"name": "adibfirman-blog",
+	"private": true,
+	"version": "1.0.0",
+	"author": "adibfirman <dib.firman@gmail.com>",
+	"license": "MIT",
+	"scripts": {
+		"dev": "next",
+		"start": "next start",
+		"build": "next build",
+		"postbuild": "next-on-netlify"
+	},
+	"devDependencies": {
+		"@types/node": "^14.14.6",
+		"@types/react": "^16.9.55",
+		"@typescript-eslint/eslint-plugin": "^4.6.0",
+		"@typescript-eslint/parser": "^4.6.0",
+		"babel-plugin-module-resolver": "^4.0.0",
+		"eslint": "^7.12.1",
+		"eslint-config-prettier": "^6.15.0",
+		"eslint-loader": "^4.0.2",
+		"eslint-plugin-import": "^2.22.1",
+		"eslint-plugin-jsx-a11y": "^6.4.1",
+		"eslint-plugin-react": "^7.21.5",
+		"eslint-plugin-react-hooks": "^4.2.0",
+		"prettier": "^2.1.2",
+		"typescript": "^4.0.5"
+	},
+	"dependencies": {
+		"@chakra-ui/core": "^0.8.0",
+		"@emotion/core": "^10.0.35",
+		"@emotion/styled": "^10.0.27",
+		"emotion": "^10.0.27",
+		"emotion-server": "^10.0.27",
+		"emotion-theming": "^10.0.27",
+		"next": "^10.0.0",
+		"next-on-netlify": "^2.6.0",
+		"next-seo": "^4.14.0",
+		"react": "^17.0.1",
+		"react-dom": "^17.0.1",
+		"react-feather": "^2.0.8"
+	}
 }

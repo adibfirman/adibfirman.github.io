@@ -1,4 +1,3 @@
 {
-  "editor.formatOnSave": true,
-  "window.zoomLevel": 0.8
+	"editor.formatOnSave": true
 }
