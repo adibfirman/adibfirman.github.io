@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { GitHub, Twitter, Linkedin, Rss } from "react-feather";
 import { Flex, Link, useTheme, Box, Heading, Text, List, ListItem, Grid } from "@chakra-ui/core";
 

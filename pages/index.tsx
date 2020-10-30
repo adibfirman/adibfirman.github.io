@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { NextSeo } from "next-seo";
 import { Heading, useTheme, Flex, Text } from "@chakra-ui/core";
 

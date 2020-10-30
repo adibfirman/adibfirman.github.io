@@ -7,7 +7,8 @@
 	"scripts": {
 		"dev": "next",
 		"start": "next start",
-		"build": "next build"
+		"build": "next build",
+		"postbuild": "next-on-netlify"
 	},
 	"devDependencies": {
 		"@types/node": "^14.14.6",
@@ -33,6 +34,7 @@
 		"emotion-server": "^10.0.27",
 		"emotion-theming": "^10.0.27",
 		"next": "^10.0.0",
+		"next-on-netlify": "^2.6.0",
 		"next-seo": "^4.14.0",
 		"react": "^17.0.1",
 		"react-dom": "^17.0.1",

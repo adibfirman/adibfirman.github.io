@@ -1,5 +1,5 @@
 /* eslint-disable react/no-danger */
-import React from "react";
+import * as React from "react";
 import Document, { DocumentContext } from "next/document";
 import { extractCritical } from "emotion-server";
 

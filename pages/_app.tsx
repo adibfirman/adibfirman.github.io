@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { AppProps } from "next/app";
 import Head from "next/head";
 import { CSSReset, ColorModeProvider, ThemeProvider } from "@chakra-ui/core";
