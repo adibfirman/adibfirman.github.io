@@ -1,6 +1,6 @@
 import * as React from "react";
 import { GitHub, Twitter, Linkedin, Rss } from "react-feather";
-import { Flex, Link, useTheme, Box, Heading, Text, List, ListItem, Grid } from "@chakra-ui/core";
+import { Link, useTheme, Box, Heading, Text, List, ListItem, Grid } from "@chakra-ui/core";
 
 const SOCIAL_MEDIA = [
 	{
@@ -31,13 +31,20 @@ const Footer = () => {
 
 	return (
 		<Box backgroundColor="white" boxShadow="#00000026 0px 1px 4px 0px" py="12">
-			<Flex maxWidth="lg" mx="auto" justifyContent="space-between">
-				<Flex alignSelf="center">
+			<Grid
+				gridAutoFlow={["row", "column"]}
+				maxWidth={[null, "lg"]}
+				gridAutoColumns={["1fr", null]}
+				mx="auto"
+				justifyContent="space-between"
+				px={[4, 0]}
+			>
+				<Box display={["none", "block"]} alignSelf="center">
 					<Text fontSize="xs" color="gray.600">
 						© {currentYear}. All Rights Reserved.
 					</Text>
-				</Flex>
-				<Box>
+				</Box>
+				<Grid>
 					<Heading as="h2" fontSize="md" lineHeight="15px" mb="2">
 						Get In Touch.
 					</Heading>
@@ -58,8 +65,8 @@ const Footer = () => {
 							</ListItem>
 						))}
 					</List>
-				</Box>
-			</Flex>
+				</Grid>
+			</Grid>
 		</Box>
 	);
 };
