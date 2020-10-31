@@ -54,7 +54,7 @@ const HomePage: NextPage<HomePageProps> = ({ origin, recentBlogs, host }) => {
 					Recents blog* 🇮🇩
 				</Heading>
 				<Grid
-					mx={[null, `calc(-1*${theme.space[40]})`]}
+					mx={[null, `calc(-1*${theme.space[56]})`]}
 					gridAutoFlow={["row", "column"]}
 					gridTemplateColumns={[null, "repeat(3, minmax(1em, 1fr))"]}
 					gap={4}
@@ -66,6 +66,7 @@ const HomePage: NextPage<HomePageProps> = ({ origin, recentBlogs, host }) => {
 							backgroundColor="white"
 							p={4}
 							borderRadius={4}
+							boxShadow="5px 10px 14px 1px #d9d9da"
 						>
 							<Heading
 								as="h2"
