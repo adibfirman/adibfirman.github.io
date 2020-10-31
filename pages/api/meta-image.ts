@@ -8,6 +8,7 @@ import type { NextApiHandler } from "next";
 import chrome from "chrome-aws-lambda";
 import pptr from "puppeteer";
 import qs from "querystring";
+import absoluteURL from "next-absolute-url";
 
 const isDev = process.env.NODE_ENV === "development";
 let browser: Browser;
@@ -17,7 +18,9 @@ const handler: NextApiHandler = async (req, res) => {
 		const title = req.query.title as string;
 		const pathURL = req.query.pathURL as string;
 		const query = qs.stringify({ title, pathURL });
-		const url = `http://${req.headers.host}/meta-image?${query}`;
+
+		const { origin } = absoluteURL(req);
+		const url = `${origin}/meta-image?${query}`;
 
 		browser = await chrome.puppeteer.launch({
 			ignoreDefaultArgs: ["--disable-extensions"],
@@ -30,7 +33,7 @@ const handler: NextApiHandler = async (req, res) => {
 
 		const page = await browser.newPage();
 
-		await page.setViewport({ width: 920, height: 511 });
+		await page.setViewport({ width: 1200, height: 630 });
 		await page.goto(url, { waitUntil: "load" });
 
 		const screenshot = await page.screenshot({ encoding: "binary" });

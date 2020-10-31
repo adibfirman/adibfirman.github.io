@@ -3,12 +3,7 @@ import Image from "next/image";
 import type { GetServerSideProps, NextPage } from "next";
 import { Heading, Flex, Text, useTheme, Grid, Box } from "@chakra-ui/core";
 
-type QueryStringParams = {
-	title: string;
-	pathURL: string;
-};
-
-const MetaImagePage: NextPage<QueryStringParams> = ({ title, pathURL }) => {
+const MetaImagePage: NextPage<ParamsMetaImage> = ({ title, pathURL }) => {
 	const theme = useTheme();
 
 	return (
@@ -22,7 +17,7 @@ const MetaImagePage: NextPage<QueryStringParams> = ({ title, pathURL }) => {
 				textAlign="center"
 				as="h2"
 				fontFamily="grandstander"
-				fontSize="md"
+				fontSize="4xl"
 				fontWeight="normal"
 			>
 				@adibfirman
@@ -47,7 +42,7 @@ const MetaImagePage: NextPage<QueryStringParams> = ({ title, pathURL }) => {
 				textAlign="center"
 				as="h2"
 				fontFamily="grandstander"
-				fontSize="md"
+				fontSize="4xl"
 				fontWeight="normal"
 			>
 				{pathURL}
@@ -56,7 +51,7 @@ const MetaImagePage: NextPage<QueryStringParams> = ({ title, pathURL }) => {
 	);
 };
 
-export const getServerSideProps: GetServerSideProps<QueryStringParams> = async ({ query }) => {
+export const getServerSideProps: GetServerSideProps<ParamsMetaImage> = async ({ query }) => {
 	const title = (query.title as string) || "";
 	const pathURL = (query.pathURL as string) || "";
 

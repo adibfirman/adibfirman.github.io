@@ -17,7 +17,8 @@
 		"downlevelIteration": true,
 		"paths": {
 			"@components": ["./components"],
-			"@utils": ["./utils"]
+			"@utils": ["./utils"],
+			"@/*": ["./*"]
 		}
 	},
 	"exclude": ["node_modules"],
