@@ -41,7 +41,8 @@ const HomePage: NextPage<HomePageProps> = ({ origin, recentBlogs, host }) => {
 			<Flex
 				justifyContent="center"
 				flexDirection="column"
-				height={`calc(100vh - ${theme.space[16]})`}
+				height={[null, `calc(100vh - ${theme.space[16]})`]}
+				py={[12, null]}
 			>
 				<Heading textAlign="center" as="h1">
 					Hi, There 👋
@@ -53,9 +54,9 @@ const HomePage: NextPage<HomePageProps> = ({ origin, recentBlogs, host }) => {
 					Recents blog* 🇮🇩
 				</Heading>
 				<Grid
-					mx={`calc(-1*${theme.space[40]})`}
-					gridAutoFlow="column"
-					gridTemplateColumns="repeat(3, minmax(1em, 1fr))"
+					mx={[null, `calc(-1*${theme.space[40]})`]}
+					gridAutoFlow={["row", "column"]}
+					gridTemplateColumns={[null, "repeat(3, minmax(1em, 1fr))"]}
 					gap={4}
 				>
 					{recentBlogs.map(({ data, pathname }, i) => (
