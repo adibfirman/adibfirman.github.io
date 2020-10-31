@@ -6,28 +6,27 @@ import qs from "querystring";
 import absoluteURL from "next-absolute-url";
 
 import { Page } from "@components";
-import { URL as siteURL } from "@/next-seo.config";
 
 interface HomePageProps {
 	origin: string;
+	host: string;
 }
-
-const queryStringMetaImage = {
-	title: "Hi, There",
-	pathURL: siteURL
-} as ParamsMetaImage;
 
 const descPage = `I'm Adib Firman, I'm software engineer from 🇮🇩 (Indonesia) day by day I'm working
 especially with web development, learn something fun with web development stuff and
 occasionally I write on my blog when I was finished learn it.`;
 
-const HomePage: NextPage<HomePageProps> = ({ origin }) => {
+const HomePage: NextPage<HomePageProps> = ({ origin, host }) => {
 	const theme = useTheme();
+	const queryStringMetaImage = {
+		title: "Hi, There...!!",
+		pathURL: host
+	} as ParamsMetaImage;
 
 	return (
 		<Page>
 			<NextSeo
-				title="Hi, There...!!"
+				title={queryStringMetaImage.title}
 				description={descPage}
 				openGraph={{
 					description: descPage,
@@ -50,8 +49,8 @@ const HomePage: NextPage<HomePageProps> = ({ origin }) => {
 };
 
 HomePage.getInitialProps = ctx => {
-	const { origin } = absoluteURL(ctx.req);
-	return { origin };
+	const { origin, host } = absoluteURL(ctx.req);
+	return { origin, host };
 };
 
 export default HomePage;
