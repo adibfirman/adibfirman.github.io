@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import NextLink from "next/link";
 import { Text, BoxProps, Box, Flex, Grid, Link as UILink } from "@chakra-ui/core";
 
 import { isBrowser } from "@utils";
@@ -12,9 +13,11 @@ const textProps = {
 	fontWeight: "normal"
 } as BoxProps;
 
-const Link: React.FC = ({ children }) => (
-	<UILink color="gray.500" _hover={{ color: "gray.600", textDecoration: "underline" }}>
-		{children}
+const Link: React.FC<{ href?: string }> = ({ children }) => (
+	<UILink as="div" color="gray.500" _hover={{ color: "gray.600", textDecoration: "underline" }}>
+		<NextLink href="/oss">
+			<a>{children}</a>
+		</NextLink>
 	</UILink>
 );
 
@@ -47,17 +50,21 @@ const Header = () => {
 			]}
 		>
 			<Flex maxWidth="lg" m="0 auto" p={[6, 4]} justifyContent="space-between" alignItems="center">
-				<Box position="relative" pb="27px">
-					<Text {...textProps} top="2px" left="0" opacity={isScrolling ? 1 : 0}>
-						@
-					</Text>
-					<Text {...textProps} left={[isScrolling ? "1.1rem" : 0]}>
-						adib
-					</Text>
-					<Text {...textProps} left={isScrolling ? "3.7rem" : 12}>
-						firman
-					</Text>
-				</Box>
+				<NextLink href="/">
+					<a>
+						<Box position="relative" pb="27px">
+							<Text {...textProps} top="2px" left="0" opacity={isScrolling ? 1 : 0}>
+								@
+							</Text>
+							<Text {...textProps} left={[isScrolling ? "1.1rem" : 0]}>
+								adib
+							</Text>
+							<Text {...textProps} left={isScrolling ? "3.7rem" : 12}>
+								firman
+							</Text>
+						</Box>
+					</a>
+				</NextLink>
 				<Grid gridAutoFlow="column" gap={6}>
 					<Link>Blog</Link>
 					<Link>Talks</Link>

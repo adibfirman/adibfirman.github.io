@@ -17,6 +17,7 @@
 		"downlevelIteration": true,
 		"paths": {
 			"@components": ["./components"],
+			"@components/*": ["./components/*"],
 			"@utils": ["./utils"],
 			"@utils/*": ["./utils/*"],
 			"@/*": ["./*"]
