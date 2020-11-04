@@ -7,7 +7,7 @@ import { Header, Footer } from ".";
 import { isBrowser } from "utils";
 
 type PropsLayoutPage = {
-	title?: string;
+	title: string;
 	desc: string;
 	SEO: {
 		title: string;
@@ -37,12 +37,9 @@ const LayoutPage: React.FC<PropsLayoutPage> = ({ children, title, desc, SEO }) =
 			<Box maxWidth="lg" m="0 auto" px="4" pt="16">
 				<Header />
 				<Flex flexDirection="column" py={[12, null]}>
-					{title && (
-						<Heading textAlign="center" as="h1">
-							{title}
-						</Heading>
-					)}
-
+					<Heading textAlign="center" as="h1">
+						{title}
+					</Heading>
 					<Text textAlign="justify" fontSize="lg" mt="6">
 						{desc}
 					</Text>
