@@ -14,9 +14,7 @@ interface HomePageProps {
 	recentBlogs: typeof listBlogs;
 }
 
-const descPage = `I'm Adib Firman, I'm software engineer from 🇮🇩 (Indonesia) day by day I'm working
-especially with web development, learn something fun with web development stuff and
-occasionally I write on my blog when I was finished learn it.`;
+const descPage = `I'm Adib Firman, I'm software engineer from 🇮🇩 (Indonesia) day by day working and learn a fun things about web development, and occasionally write a blog too and sometimes write about what I've done learn on web things.`;
 
 const HomePage: NextPage<HomePageProps> = ({ recentBlogs, host }) => {
 	const theme = useTheme();
