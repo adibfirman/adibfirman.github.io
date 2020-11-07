@@ -13,9 +13,9 @@ const textProps = {
 	fontWeight: "normal"
 } as BoxProps;
 
-const Link: React.FC<{ href?: string }> = ({ children }) => (
+const Link: React.FC<{ href: string }> = ({ children, href }) => (
 	<UILink as="div" color="gray.500" _hover={{ color: "gray.600", textDecoration: "underline" }}>
-		<NextLink href="/oss">
+		<NextLink href={href}>
 			<a>{children}</a>
 		</NextLink>
 	</UILink>
@@ -66,9 +66,9 @@ const Header = () => {
 					</a>
 				</NextLink>
 				<Grid gridAutoFlow="column" gap={6}>
-					<Link>Blog</Link>
-					<Link>Talks</Link>
-					<Link>OSS</Link>
+					<Link href="/blog">Blog</Link>
+					<Link href="/talks">Talks</Link>
+					<Link href="/oss">OSS</Link>
 				</Grid>
 			</Flex>
 		</Box>
