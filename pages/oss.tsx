@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Flex, Box, Text, Grid, useTheme } from "@chakra-ui/core";
+import GHButton from "react-github-btn";
 
 import { Page } from "@components";
 import { NavigationCard } from "@components/UI";
@@ -58,15 +59,12 @@ const CardTitle = ({ title, ...props }: { title: string; link?: string; ariaLabe
 	<Flex alignItems="center" justifyContent="space-between">
 		<Text>{title}</Text>
 		<Box mb="-6px">
-			<a
-				className="github-button"
-				href={props?.link ?? `${AUTHOR_LINK}/${title}`}
+			<GHButton
+				data-text="Star"
+				data-show-count
 				data-icon="octicon-star"
-				data-show-count="true"
-				aria-label={`Star ${props?.ariaLabel ?? `adibfirman/${title}`} on GitHub`}
-			>
-				Star
-			</a>
+				href={props?.link ?? `${AUTHOR_LINK}/${title}`}
+			/>
 		</Box>
 	</Flex>
 );

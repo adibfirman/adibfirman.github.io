@@ -30,7 +30,7 @@ const NavigationCard = ({ title, desc, href }: Props) => {
 						whiteSpace="nowrap"
 						overflow="hidden"
 						style={{ textOverflow: "ellipsis" }}
-						title={title}
+						title={typeof title !== "string" ? "" : title}
 						fontWeight={700}
 					>
 						{title}
