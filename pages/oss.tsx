@@ -1,11 +1,32 @@
 import * as React from "react";
-import { Flex, Grid, useTheme } from "@chakra-ui/core";
+import { Flex, Box, Text, Grid, useTheme } from "@chakra-ui/core";
 
 import { Page } from "@components";
 import { NavigationCard } from "@components/UI";
 
 const DESC_PAGE = `In here just a list of little fun stuff learning by doing on the web platform, so creating something on Open-Source Software it's like I've been created a fun things and learning at the same time.`;
 const TITLE_PAGE = "My OSS Project";
+const AUTHOR_LINK = "https://github.com/adibfirman";
+const OSS_LIST = [
+	{
+		title: "react-lazy-viewport",
+		desc: "⚛️ Load your react component based on viewport browser"
+	},
+	{
+		title: "reducer-logger",
+		desc: "⚛️ Hooks for debug your awesome useReducer React API"
+	},
+	{
+		title: "react-datepicker",
+		desc: "⚛️ A React Datepicker Component"
+	},
+	{
+		title: "ReactJS ID Website",
+		desc: "An Official ReactJS Indonesia",
+		link: "https://github.com/reactjs-id/website",
+		ariaLabel: "reactjs-id/website"
+	}
+];
 
 const OSSPage = () => {
 	const theme = useTheme();
@@ -16,28 +37,38 @@ const OSSPage = () => {
 				gridTemplateColumns="repeat(2, 1fr)"
 				gridAutoColumns="19rem"
 				gap="4"
-				mx={`calc(-1*${theme.space[20]})`}
+				mx={`calc(-1*${theme.space[24]})`}
 				mt="8"
 				justifyContent="center"
 			>
-				<NavigationCard
-					title="react-lazy-viewport"
-					desc="⚛️ Load your react component based on viewport browser"
-					href="https://github.com/adibfirman/react-lazy-viewport"
-				/>
-				<NavigationCard
-					title="react-lazy-viewport"
-					desc="⚛️ Load your react component based on viewport browser"
-					href="https://github.com/adibfirman/react-lazy-viewport"
-				/>
-				<NavigationCard
-					title="react-lazy-viewport"
-					desc="⚛️ Load your react component based on viewport browser"
-					href="https://github.com/adibfirman/react-lazy-viewport"
-				/>
+				{OSS_LIST.map((oss, i) => (
+					<NavigationCard
+						key={i}
+						desc={oss.desc}
+						href={oss?.link ?? `${AUTHOR_LINK}/${oss.title}`}
+						title={<CardTitle {...oss} />}
+					/>
+				))}
 			</Grid>
 		</Page>
 	);
 };
+
+const CardTitle = ({ title, ...props }: { title: string; link?: string; ariaLabel?: string }) => (
+	<Flex alignItems="center" justifyContent="space-between">
+		<Text>{title}</Text>
+		<Box mb="-6px">
+			<a
+				className="github-button"
+				href={props?.link ?? `${AUTHOR_LINK}/${title}`}
+				data-icon="octicon-star"
+				data-show-count="true"
+				aria-label={`Star ${props?.ariaLabel ?? `adibfirman/${title}`} on GitHub`}
+			>
+				Star
+			</a>
+		</Box>
+	</Flex>
+);
 
 export default OSSPage;

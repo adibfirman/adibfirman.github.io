@@ -4,7 +4,7 @@ import { Grid, Text, Flex, useTheme, PseudoBox } from "@chakra-ui/core";
 import { ArrowRight } from "react-feather";
 
 type Props = {
-	title: string;
+	title: string | React.ReactElement;
 	desc: string;
 	href: string;
 };

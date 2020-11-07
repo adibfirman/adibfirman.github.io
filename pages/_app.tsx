@@ -17,6 +17,7 @@ const CustomizeApp = ({ Component, pageProps }: AppProps) => {
 				<ColorModeProvider value="light">
 					<Head>
 						<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+						<script async defer src="https://buttons.github.io/buttons.js" />
 						<link rel="icon" href="/favicon.png" sizes="16x16" type="image/png" />
 						<link
 							href="https://fonts.googleapis.com/css2?family=Grandstander&display=swap"
