@@ -35,10 +35,10 @@ const OSSPage = () => {
 	return (
 		<Page title={TITLE_PAGE} desc={DESC_PAGE} SEO={{ title: TITLE_PAGE, desc: DESC_PAGE }}>
 			<Grid
-				gridTemplateColumns="repeat(2, 1fr)"
-				gridAutoColumns="19rem"
+				gridTemplateColumns={[null, "repeat(2, 1fr)"]}
+				gridAutoColumns={[null, "19rem"]}
 				gap="4"
-				mx={`calc(-1*${theme.space[24]})`}
+				mx={[null, `calc(-1*${theme.space[24]})`]}
 				mt="8"
 				justifyContent="center"
 			>
