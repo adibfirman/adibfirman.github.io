@@ -4,7 +4,7 @@ import { Award, ExternalLink } from "react-feather";
 
 import { Page } from "@components";
 
-const DESC_PAGE = `By the way in below here, I have become a speaker and sharing according the theme of talk, so It's amazing moment meet a new friends, sharing new technology, and so on.`;
+const DESC_PAGE = `By the way in below here are list of my talks, I'm sharing my knowledge according the theme of talk, so It's amazing moment meet a new friends, sharing new technology, and so on.`;
 const TITLE_PAGE = "Yeahh, I was in here..!!";
 const LiST_TALK = [
 	{
@@ -21,7 +21,7 @@ const LiST_TALK = [
 	}
 ];
 
-const OSSPage = () => {
+const TalksPage = () => {
 	const theme = useTheme();
 
 	return (
@@ -58,4 +58,4 @@ const OSSPage = () => {
 	);
 };
 
-export default OSSPage;
+export default TalksPage;
