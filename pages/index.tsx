@@ -1,8 +1,7 @@
-import type { GetServerSideProps, NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 
 import * as React from "react";
 import { Heading, Grid, useTheme } from "@chakra-ui/core";
-import absoluteURL from "next-absolute-url";
 import { getUnixTime } from "date-fns";
 import matter from "gray-matter";
 import fs from "fs";
@@ -14,7 +13,6 @@ import { blogsFilePaths, BLOG_PATH } from "@utils/blogs";
 
 interface HomePageProps {
 	origin: string;
-	host: string;
 	recentBlogs: [
 		{
 			pathname: string;
@@ -27,22 +25,19 @@ interface HomePageProps {
 	];
 }
 
-const descPage = `I'm Adib Firman, I'm software engineer from 🇮🇩 (Indonesia) day by day working and learn a fun things about web development, and occasionally write a blog too and sometimes write about what I've done learn on web things.`;
+const DESC_PAGE = `I'm Adib Firman, I'm software engineer from 🇮🇩 (Indonesia) day by day working and learn a fun things about web development, and occasionally write a blog too and sometimes write about what I've done learn on web things.`;
+const TITLE_PAGE = "Hi, There...!!";
 
-const HomePage: NextPage<HomePageProps> = ({ recentBlogs, host }) => {
+const HomePage: NextPage<HomePageProps> = ({ recentBlogs }) => {
 	const theme = useTheme();
-	const queryStringMetaImage = {
-		title: "Hi, There...!!",
-		pathURL: host
-	} as ParamsMetaImage;
 
 	return (
 		<Page
-			title={queryStringMetaImage.title + "👋"}
-			desc={descPage}
+			title={TITLE_PAGE + "👋"}
+			desc={DESC_PAGE}
 			SEO={{
-				title: queryStringMetaImage.title,
-				desc: descPage
+				title: TITLE_PAGE,
+				desc: DESC_PAGE
 			}}
 		>
 			<Heading as="h2" mt={16} mb={4} fontSize="xl">
@@ -67,8 +62,7 @@ const HomePage: NextPage<HomePageProps> = ({ recentBlogs, host }) => {
 	);
 };
 
-export const getServerSideProps: GetServerSideProps = async ctx => {
-	const { host } = absoluteURL(ctx.req);
+export const getStaticProps: GetStaticProps = async () => {
 	const listBlogs = blogsFilePaths
 		.map(blogFolder => {
 			const filePath = path.join(BLOG_PATH, blogFolder, "index.md");
@@ -91,7 +85,6 @@ export const getServerSideProps: GetServerSideProps = async ctx => {
 
 	return {
 		props: {
-			host,
 			recentBlogs: listBlogs.slice(0, 3)
 		}
 	};
