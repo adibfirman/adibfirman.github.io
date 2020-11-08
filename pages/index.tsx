@@ -3,15 +3,28 @@ import type { GetServerSideProps, NextPage } from "next";
 import * as React from "react";
 import { Heading, Grid, useTheme } from "@chakra-ui/core";
 import absoluteURL from "next-absolute-url";
+import { getUnixTime } from "date-fns";
+import matter from "gray-matter";
+import fs from "fs";
+import path from "path";
 
 import { Page } from "@components";
 import { NavigationCard } from "@components/UI";
-import { listBlogs } from "@utils/blogs";
+import { blogsFilePaths, BLOG_PATH } from "@utils/blogs";
 
 interface HomePageProps {
 	origin: string;
 	host: string;
-	recentBlogs: typeof listBlogs;
+	recentBlogs: [
+		{
+			pathname: string;
+			data: {
+				title: string;
+				spoiler: string;
+				date: string;
+			};
+		}
+	];
 }
 
 const descPage = `I'm Adib Firman, I'm software engineer from 🇮🇩 (Indonesia) day by day working and learn a fun things about web development, and occasionally write a blog too and sometimes write about what I've done learn on web things.`;
@@ -56,6 +69,25 @@ const HomePage: NextPage<HomePageProps> = ({ recentBlogs, host }) => {
 
 export const getServerSideProps: GetServerSideProps = async ctx => {
 	const { host } = absoluteURL(ctx.req);
+	const listBlogs = blogsFilePaths
+		.map(blogFolder => {
+			const filePath = path.join(BLOG_PATH, blogFolder, "index.md");
+			const source = fs.readFileSync(filePath);
+			const { data, content } = matter(source);
+			const blogDate = new Date(data.date);
+
+			return {
+				content,
+				pathname: blogFolder,
+				data: {
+					title: data.title,
+					spoiler: data.spoiler,
+					date: blogDate.toDateString(),
+					timestamps: getUnixTime(blogDate)
+				}
+			};
+		})
+		.sort((a, b) => b.data.timestamps - a.data.timestamps);
 
 	return {
 		props: {
