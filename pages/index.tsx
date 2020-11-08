@@ -6,12 +6,21 @@ import absoluteURL from "next-absolute-url";
 
 import { Page } from "@components";
 import { NavigationCard } from "@components/UI";
-import { listBlogs } from "@utils/blogs";
+import { getListBlogs } from "@utils/blogs";
 
 interface HomePageProps {
 	origin: string;
 	host: string;
-	recentBlogs: typeof listBlogs;
+	recentBlogs: [
+		{
+			pathname: string;
+			data: {
+				title: string;
+				spoiler: string;
+				date: string;
+			};
+		}
+	];
 }
 
 const descPage = `I'm Adib Firman, I'm software engineer from 🇮🇩 (Indonesia) day by day working and learn a fun things about web development, and occasionally write a blog too and sometimes write about what I've done learn on web things.`;
@@ -55,6 +64,7 @@ const HomePage: NextPage<HomePageProps> = ({ recentBlogs, host }) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async ctx => {
+	const listBlogs = getListBlogs();
 	const { host } = absoluteURL(ctx.req);
 
 	return {
