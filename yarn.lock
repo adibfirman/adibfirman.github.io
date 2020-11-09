@@ -6380,10 +6380,9 @@ next-aws-lambda@^2.5.0:
   resolved "https://registry.yarnpkg.com/next-aws-lambda/-/next-aws-lambda-2.5.0.tgz#66067ca3a59524e87579cfc5c19cad17eba1329e"
   integrity sha512-TKI0e+RFOuevQnkliE73VCzx9VRF8qpXuL18uxOJvPhCe09pxLwfaDQMuNKf3b2d9PS/Ajn+Y/O41bBuJMu4aA==
 
-next-on-netlify@^2.6.0:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/next-on-netlify/-/next-on-netlify-2.6.0.tgz#a0a8b7b18c7503da62a63d75f73adeb83ae9b3c6"
-  integrity sha512-33uvHruvSqxcEdYoYRF+OoOarXssDU3eAGdlg8xQ2/QIFiJMysE8Gr+utxgbKWsgZJ8SIT45T+tyCFwGeuTvDg==
+next-on-netlify@netlify/next-on-netlify#incremental-static-regeneration:
+  version "2.4.0"
+  resolved "https://codeload.github.com/netlify/next-on-netlify/tar.gz/a11be6a1d585470e7e451110a1fe1c38f07ed37a"
   dependencies:
     "@sls-next/lambda-at-edge" "^1.5.2"
     commander "^6.0.0"
