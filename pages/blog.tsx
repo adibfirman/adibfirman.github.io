@@ -3,8 +3,8 @@ import { Box } from "@chakra-ui/core";
 
 import { Page } from "@components";
 
-const DESC_PAGE = `So in this page I was writing my little knowledge about a web things, all by blogs writed with 🇮🇩 content, but for the further I will trying to translate it 🙏.`;
-const TITLE_PAGE = "A knowledge werehouse ";
+const DESC_PAGE = `So in this page, it's just an open space where I share my knowledge or let say "seeds" of my thoughts to be cultivated in public, *most of these seeds writed in 🇮🇩 `;
+const TITLE_PAGE = "I'm a Digital Gardeners";
 
 const BlogPage = () => {
 	return (
