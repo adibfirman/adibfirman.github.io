@@ -1,5 +1,4 @@
 import * as React from "react";
-import Image from "next/image";
 import type { GetServerSideProps, NextPage } from "next";
 import { Heading, Flex, Text, useTheme, Grid, Box } from "@chakra-ui/core";
 
@@ -31,11 +30,11 @@ const MetaImagePage: NextPage<ParamsMetaImage> = ({ title, pathURL }) => {
 				p={10}
 				alignItems="center"
 			>
-				<Text color="azure.700" fontSize="6xl" maxWidth="37rem">
+				<Text color="azure.700" fontSize="6xl" maxWidth="74%">
 					{title}
 				</Text>
-				<Box position="absolute" width="18%" right={16} top={16}>
-					<Image unsized src="/character.png" />
+				<Box position="absolute" width="21%" right={16} top="5rem">
+					<img src="/character.png" />
 				</Box>
 			</Flex>
 			<Heading
