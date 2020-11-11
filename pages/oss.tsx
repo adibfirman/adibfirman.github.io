@@ -29,11 +29,17 @@ const OSS_LIST = [
 	}
 ];
 
-const OSSPage = () => {
+const OSSPage = ({ host, origin }: CustomizeAppProps) => {
 	const theme = useTheme();
 
 	return (
-		<Page title={TITLE_PAGE} desc={DESC_PAGE} SEO={{ title: TITLE_PAGE, desc: DESC_PAGE }}>
+		<Page
+			host={host}
+			origin={origin}
+			title={TITLE_PAGE}
+			desc={DESC_PAGE}
+			SEO={{ title: TITLE_PAGE, desc: DESC_PAGE }}
+		>
 			<Grid
 				gridTemplateColumns={[null, "repeat(2, 1fr)"]}
 				gridAutoColumns={[null, "19rem"]}

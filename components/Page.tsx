@@ -4,24 +4,20 @@ import { Box, Heading, Text, Flex } from "@chakra-ui/core";
 import qs from "querystring";
 
 import { Header, Footer } from ".";
-import { isBrowser } from "utils";
 
-type PropsLayoutPage = {
+interface PropsLayoutPage extends CustomizeAppProps {
 	title: string;
 	desc: string;
 	SEO: {
 		title: string;
 		desc: string;
 	};
-};
+}
 
-const LayoutPage: React.FC<PropsLayoutPage> = ({ children, title, desc, SEO }) => {
-	const host = !isBrowser ? "" : window.location.host;
-	const pathname = !isBrowser ? "" : window.location.pathname;
-	const origin = !isBrowser ? "" : window.location.origin;
+const LayoutPage: React.FC<PropsLayoutPage> = ({ children, title, desc, SEO, host, origin }) => {
 	const paramsMetaImage = qs.stringify({
 		title: SEO.title,
-		pathURL: host + (pathname === "/" ? "" : pathname)
+		pathURL: host
 	} as ParamsMetaImage);
 
 	return (

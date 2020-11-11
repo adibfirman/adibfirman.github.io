@@ -6,9 +6,15 @@ import { Page } from "@components";
 const DESC_PAGE = `So in this page, it's just an open space where I share my knowledge or let say "seeds" of my thoughts to be cultivated in public, *most of these seeds writed in 🇮🇩 `;
 const TITLE_PAGE = "I'm a Digital Gardeners";
 
-const BlogPage = () => {
+const BlogPage = ({ host, origin }: CustomizeAppProps) => {
 	return (
-		<Page title={TITLE_PAGE} desc={DESC_PAGE} SEO={{ title: TITLE_PAGE, desc: DESC_PAGE }}>
+		<Page
+			host={host}
+			origin={origin}
+			title={TITLE_PAGE}
+			desc={DESC_PAGE}
+			SEO={{ title: TITLE_PAGE, desc: DESC_PAGE }}
+		>
 			<Box mt={8}>hellow</Box>
 		</Page>
 	);

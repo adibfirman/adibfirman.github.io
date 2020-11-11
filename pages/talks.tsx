@@ -21,11 +21,17 @@ const LiST_TALK = [
 	}
 ];
 
-const TalksPage = () => {
+const TalksPage = ({ host, origin }: CustomizeAppProps) => {
 	const theme = useTheme();
 
 	return (
-		<Page title={TITLE_PAGE} desc={DESC_PAGE} SEO={{ title: TITLE_PAGE, desc: DESC_PAGE }}>
+		<Page
+			host={host}
+			origin={origin}
+			title={TITLE_PAGE}
+			desc={DESC_PAGE}
+			SEO={{ title: TITLE_PAGE, desc: DESC_PAGE }}
+		>
 			<Box mt="8">
 				<List spacing={6}>
 					{LiST_TALK.map(talk => (
