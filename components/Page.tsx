@@ -4,20 +4,23 @@ import { Box, Heading, Text, Flex } from "@chakra-ui/core";
 import qs from "querystring";
 
 import { Header, Footer } from ".";
+import { URL as URLApp } from "next-seo.config";
 
-interface PropsLayoutPage extends CustomizeAppProps {
+type PropsLayoutPage = {
+	path?: string;
 	title: string;
 	desc: string;
 	SEO: {
 		title: string;
 		desc: string;
 	};
-}
+};
 
-const LayoutPage: React.FC<PropsLayoutPage> = ({ children, title, desc, SEO, host, origin }) => {
+const LayoutPage: React.FC<PropsLayoutPage> = ({ children, title, desc, SEO, path = "" }) => {
+	const { host, origin, pathname, href } = new URL(URLApp + path);
 	const paramsMetaImage = qs.stringify({
 		title: SEO.title,
-		pathURL: host
+		pathURL: host + (pathname === "/" ? "" : pathname)
 	} as ParamsMetaImage);
 
 	return (
@@ -26,6 +29,7 @@ const LayoutPage: React.FC<PropsLayoutPage> = ({ children, title, desc, SEO, hos
 				title={SEO.title}
 				description={SEO.desc}
 				openGraph={{
+					url: href,
 					description: SEO.desc,
 					images: [{ url: `${origin}/api/meta-image?${paramsMetaImage}` }]
 				}}

@@ -1,9 +1,11 @@
 import * as React from "react";
 import { Flex, Box, Text, Grid, useTheme } from "@chakra-ui/core";
-import GHButton from "react-github-btn";
+import dynamic from "next/dynamic";
 
 import { Page } from "@components";
 import { NavigationCard } from "@components/UI";
+
+const GHButton = dynamic(() => import("react-github-btn"), { ssr: false });
 
 const DESC_PAGE = `In here just a list of little fun stuff learning by doing on the web platform, so creating something on Open-Source Software it's like I've been created a fun things and learning at the same time.`;
 const TITLE_PAGE = "My OSS Project";
@@ -29,13 +31,12 @@ const OSS_LIST = [
 	}
 ];
 
-const OSSPage = ({ host, origin }: CustomizeAppProps) => {
+const OSSPage = () => {
 	const theme = useTheme();
 
 	return (
 		<Page
-			host={host}
-			origin={origin}
+			path="/oss"
 			title={TITLE_PAGE}
 			desc={DESC_PAGE}
 			SEO={{ title: TITLE_PAGE, desc: DESC_PAGE }}

@@ -21,13 +21,12 @@ const LiST_TALK = [
 	}
 ];
 
-const TalksPage = ({ host, origin }: CustomizeAppProps) => {
+const TalksPage = () => {
 	const theme = useTheme();
 
 	return (
 		<Page
-			host={host}
-			origin={origin}
+			path="/talks"
 			title={TITLE_PAGE}
 			desc={DESC_PAGE}
 			SEO={{ title: TITLE_PAGE, desc: DESC_PAGE }}

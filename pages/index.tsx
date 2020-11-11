@@ -7,24 +7,18 @@ import { Page } from "@components";
 import { NavigationCard } from "@components/UI";
 import { listBlogs } from "@utils/blogs";
 
-interface HomePageProps extends CustomizeAppProps {
+type HomePageProps = {
 	recentBlogs: typeof listBlogs;
-}
+};
 
 const DESC_PAGE = `I'm Adib Firman, I'm software engineer from 🇮🇩 (Indonesia) day by day working and learn a fun things about web development, and occasionally plant seeds on my own digital garden.`;
 const TITLE_PAGE = "Hi, There...!!";
 
-const HomePage: NextPage<HomePageProps> = ({ recentBlogs, host, origin }) => {
+const HomePage: NextPage<HomePageProps> = ({ recentBlogs }) => {
 	const theme = useTheme();
 
 	return (
-		<Page
-			host={host}
-			origin={origin}
-			title={TITLE_PAGE + "👋"}
-			desc={DESC_PAGE}
-			SEO={{ title: TITLE_PAGE, desc: DESC_PAGE }}
-		>
+		<Page title={TITLE_PAGE + "👋"} desc={DESC_PAGE} SEO={{ title: TITLE_PAGE, desc: DESC_PAGE }}>
 			<Box my={16}>
 				<Heading as="h2" mb={4} fontSize="xl">
 					Recents blogs* 🇮🇩
