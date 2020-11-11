@@ -1,6 +1,6 @@
 import * as React from "react";
 import Link from "next/link";
-import { Box, PseudoBox, Icon, Grid, Stack, Heading, Text, useTheme } from "@chakra-ui/core";
+import { Box, PseudoBox, Icon, Grid, Stack, Text, useTheme } from "@chakra-ui/core";
 import { Heart } from "react-feather";
 
 import { Page } from "@components";
@@ -31,7 +31,7 @@ const BlogPage = () => {
 									<PseudoBox
 										fontWeight="bolder"
 										_groupHover={{ textDecoration: "underline" }}
-										fontSize="xl"
+										fontSize="lg"
 									>
 										Ruang penyimpanan pada website
 									</PseudoBox>
@@ -63,7 +63,7 @@ const BlogPage = () => {
 									alignItems="center"
 									alignContent="center"
 								>
-									<Text>JAN</Text>
+									<Text>Jan</Text>
 									<Box borderColor="azure.300" borderBottomWidth="1px" borderBottomStyle="solid" />
 									<Text textAlign="center">01</Text>
 								</Grid>
