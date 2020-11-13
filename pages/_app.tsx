@@ -8,7 +8,7 @@ import { cache } from "emotion";
 import { DefaultSeo } from "next-seo";
 
 import SEO from "../next-seo.config";
-import { theme } from "@utils";
+import theme from "@utils/theme";
 
 const CustomizeApp = ({ Component, pageProps }: AppProps) => {
 	return (

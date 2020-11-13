@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import NextLink from "next/link";
 import { Text, BoxProps, Box, Flex, Grid, Link as UILink } from "@chakra-ui/core";
 
-import { isBrowser } from "@utils";
+import isBrowser from "@utils/isBrowser";
 
 const transition = "all 350ms ease-in-out 0s";
 const textProps = {

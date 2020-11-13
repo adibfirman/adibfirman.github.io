@@ -1,6 +1,6 @@
 import * as React from "react";
 import { NextSeo } from "next-seo";
-import { Box, Heading, Text, Flex } from "@chakra-ui/core";
+import { Box, Heading, Text, Flex, BoxProps } from "@chakra-ui/core";
 import qs from "querystring";
 
 import { Header, Footer } from ".";
@@ -9,14 +9,22 @@ import { URL as URLApp } from "next-seo.config";
 type PropsLayoutPage = {
 	path?: string;
 	title: string;
-	desc: string;
+	desc?: string;
+	bodyStyle?: BoxProps;
 	SEO: {
 		title: string;
 		desc: string;
 	};
 };
 
-const LayoutPage: React.FC<PropsLayoutPage> = ({ children, title, desc, SEO, path = "" }) => {
+const LayoutPage: React.FC<PropsLayoutPage> = ({
+	children,
+	title,
+	desc,
+	SEO,
+	path = "",
+	bodyStyle
+}) => {
 	const { host, origin, pathname, href } = new URL(URLApp + path);
 	const paramsMetaImage = qs.stringify({
 		title: SEO.title,
@@ -36,13 +44,17 @@ const LayoutPage: React.FC<PropsLayoutPage> = ({ children, title, desc, SEO, pat
 			/>
 			<Box maxWidth="lg" m="0 auto" px="4" pt="16">
 				<Header />
-				<Flex flexDirection="column" py={[12, null]}>
+				<Flex flexDirection="column" py={[12, null]} {...bodyStyle}>
 					<Heading textAlign="center" as="h1">
 						{title}
 					</Heading>
-					<Text textAlign="justify" fontSize="lg" mt="6">
-						{desc}
-					</Text>
+
+					{desc && (
+						<Text textAlign="justify" fontSize="lg" mt="6">
+							{desc}
+						</Text>
+					)}
+
 					{children}
 				</Flex>
 			</Box>

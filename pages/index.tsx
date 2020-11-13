@@ -11,7 +11,7 @@ type HomePageProps = {
 	recentBlogs: typeof listBlogs;
 };
 
-const DESC_PAGE = `I'm Adib Firman, I'm software engineer from 🇮🇩 (Indonesia) day by day working and learn a fun things about web development, and occasionally plant seeds on my own digital garden.`;
+const DESC_PAGE = `I'm Adib Firman, I'm software engineer from 🇮🇩 (Indonesia) day by day working and learn a fun things about web development, and occasionally planting seed on my own digital garden.`;
 const TITLE_PAGE = "Hi, There...!!";
 
 const HomePage: NextPage<HomePageProps> = ({ recentBlogs }) => {
