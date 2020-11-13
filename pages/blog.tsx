@@ -1,7 +1,7 @@
 import * as React from "react";
 import NextLink from "next/link";
 import { format as formatDate } from "date-fns";
-import { Box, PseudoBox, Icon, Grid, Stack, Text, useTheme, Link } from "@chakra-ui/core";
+import { Box, PseudoBox, Icon, Grid, Stack, Text, useTheme } from "@chakra-ui/core";
 import { Heart } from "react-feather";
 
 import { Page } from "@components";
@@ -34,7 +34,7 @@ const BlogPage = ({ mapListBlogsPerYears }: Props) => {
 			desc={DESC_PAGE}
 			SEO={{ title: TITLE_PAGE, desc: DESC_PAGE }}
 		>
-			<Stack mt={8} mx={`calc(-1*${theme.space[20]})`} spacing={10}>
+			<Stack mt={8} mx={[null, `calc(-1*${theme.space[20]})`]} spacing={10}>
 				{years.map(year => (
 					<Box key={year}>
 						<Text fontWeight={600} fontSize="2xl">
@@ -48,7 +48,7 @@ const BlogPage = ({ mapListBlogsPerYears }: Props) => {
 						/>
 						<Stack spacing={3}>
 							{mapListBlogsPerYears[year].map((blog, i) => (
-								<PseudoBox key={i} role="group" cursor="pointer" py={2} px={8}>
+								<PseudoBox key={i} role="group" cursor="pointer" py={2} px={[2, 8]}>
 									<NextLink href={`/blog/${blog.pathname}`}>
 										<Grid gridAutoFlow="column" gridTemplateColumns="93% 1fr" gap="1">
 											<Box>
