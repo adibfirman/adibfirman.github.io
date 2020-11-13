@@ -15,7 +15,7 @@ export const markdownToHTML = async (markdown: string) => {
 	return htmlContent;
 };
 
-// get list blogs latest update
+// get list blogs
 export const listBlogs = blogsFilePaths
 	.map(blogFolder => {
 		const filePath = path.join(BLOG_PATH, blogFolder, "index.md");
@@ -27,8 +27,8 @@ export const listBlogs = blogsFilePaths
 			content,
 			pathname: blogFolder,
 			data: {
-				title: data.title,
-				spoiler: data.spoiler,
+				title: data.title as string,
+				spoiler: data.spoiler as string,
 				date: blogDate.toDateString(),
 				timestamps: getUnixTime(blogDate)
 			}
