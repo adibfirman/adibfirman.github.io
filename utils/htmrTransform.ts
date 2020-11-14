@@ -1,8 +1,9 @@
-import { Hr } from "@components/Markdown";
+import { Hr, Paragraph } from "@components/Markdown";
 import type { HtmrOptions } from "htmr";
 
 const htmrTransform = {
-	hr: Hr
+	hr: Hr,
+	p: Paragraph
 } as HtmrOptions["transform"];
 
 export default htmrTransform;

@@ -18,7 +18,8 @@ const colors = {
 
 const fonts = {
 	...baseTheme.fonts,
-	grandstander: "'Grandstander', cursive"
+	grandstander: "'Grandstander', cursive",
+	merriweather: "'Merriweather', serif"
 };
 
 const theme = {
