@@ -8,6 +8,7 @@ const Paragraph: React.FC = ({ children }) => (
 		wordBreak="break-word"
 		fontFamily="merriweather"
 		fontSize="1.1rem"
+		color="azure.700"
 	>
 		{children}
 	</Text>
