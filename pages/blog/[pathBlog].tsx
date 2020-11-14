@@ -5,10 +5,12 @@ import { format as formatDate } from "date-fns";
 import remark from "remark";
 import remarkHTML from "remark-html";
 import htmr from "htmr";
-import { Box, useTheme, Flex, Text, Icon } from "@chakra-ui/core";
+import { useTheme, Flex, Text, Icon } from "@chakra-ui/core";
 import { Heart, Calendar } from "react-feather";
 
 import { Page } from "@components";
+import { Hr } from "@components/UI";
+import htmrTransform from "utils/htmrTransform";
 import { listBlogs } from "@utils/blogs";
 
 type Props = {
@@ -17,7 +19,7 @@ type Props = {
 };
 
 const BlogPage = ({ frontMatter, source }: Props) => {
-	const content = htmr(source);
+	const content = htmr(source, { transform: htmrTransform });
 	const theme = useTheme();
 	const createdAt = new Date(frontMatter.data.date);
 
@@ -28,7 +30,7 @@ const BlogPage = ({ frontMatter, source }: Props) => {
 			SEO={{ title: frontMatter.data.title, desc: frontMatter.data.spoiler }}
 			bodyStyle={{ mx: [null, `calc(-1*${theme.space[20]})`] }}
 		>
-			<Box my={3} borderColor="azure.300" borderBottomWidth="1px" borderBottomStyle="solid" />
+			<Hr />
 			<Flex justifyContent="space-between" alignItems="center">
 				<Flex alignItems="center">
 					<Icon as={Calendar} color="azure.400" justifySelf="center" mr={1} />
@@ -43,7 +45,7 @@ const BlogPage = ({ frontMatter, source }: Props) => {
 					</Text>
 				</Flex>
 			</Flex>
-			<Box my={3} borderColor="azure.300" borderBottomWidth="1px" borderBottomStyle="solid" />
+			<Hr />
 			{content}
 		</Page>
 	);
