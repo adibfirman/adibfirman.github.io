@@ -19,7 +19,8 @@ const colors = {
 const fonts = {
 	...baseTheme.fonts,
 	grandstander: "'Grandstander', cursive",
-	merriweather: "'Merriweather', serif"
+	merriweather: "'Merriweather', serif",
+	inputMono: "InputMono-Medium"
 };
 
 const theme = {

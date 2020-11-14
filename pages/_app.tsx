@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import * as React from "react";
 import Head from "next/head";
 import { CSSReset, ColorModeProvider, ThemeProvider } from "@chakra-ui/core";
+import { Global, css } from "@emotion/react";
 import { CacheProvider } from "@emotion/core";
 import { cache } from "emotion";
 import { DefaultSeo } from "next-seo";
@@ -10,11 +11,22 @@ import { DefaultSeo } from "next-seo";
 import SEO from "../next-seo.config";
 import theme from "@utils/theme";
 
+const globalStyle = css`
+	@font-face {
+		font-family: "InputMono-Medium";
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+		src: url("/fonts/InputMono-Medium.ttf");
+	}
+`;
+
 const CustomizeApp = ({ Component, pageProps }: AppProps) => {
 	return (
 		<CacheProvider value={cache}>
 			<ThemeProvider theme={theme}>
 				<CSSReset />
+				<Global styles={globalStyle} />
 				<ColorModeProvider value="light">
 					<Head>
 						<meta name="viewport" content="width=device-width, initial-scale=1.0" />

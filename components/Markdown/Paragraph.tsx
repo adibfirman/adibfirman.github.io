@@ -9,6 +9,7 @@ const Paragraph: React.FC = ({ children }) => (
 		fontFamily="merriweather"
 		fontSize="1.1rem"
 		color="azure.700"
+		textAlign="justify"
 	>
 		{children}
 	</Text>
