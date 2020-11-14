@@ -1,12 +1,17 @@
+import type { Language } from "prism-react-renderer";
 import * as React from "react";
-import { Fragment } from "react";
 import { Code as ChakraUICode } from "@chakra-ui/core";
 
-type Props = {
+import HighlightCode from "./HighlightCode";
+
+export type Props = {
 	className?: string;
 };
 
-const Code: React.FC<Props> = ({ children, className }) => {
+const Code: React.FC<Props> = props => {
+	const { children, className } = props;
+	const language = className?.replace(/language-/gi, "") as Language;
+
 	if (!className)
 		return (
 			<ChakraUICode
@@ -22,7 +27,8 @@ const Code: React.FC<Props> = ({ children, className }) => {
 				{children}
 			</ChakraUICode>
 		);
-	return <Fragment>{children}</Fragment>;
+
+	return <HighlightCode {...props} language={language} />;
 };
 
 export default Code;

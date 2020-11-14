@@ -3,8 +3,8 @@ import type { AppProps } from "next/app";
 import * as React from "react";
 import Head from "next/head";
 import { CSSReset, ColorModeProvider, ThemeProvider } from "@chakra-ui/core";
-import { Global, css } from "@emotion/react";
-import { CacheProvider } from "@emotion/core";
+import { css } from "@emotion/core";
+import { CacheProvider, Global } from "@emotion/core";
 import { cache } from "emotion";
 import { DefaultSeo } from "next-seo";
 

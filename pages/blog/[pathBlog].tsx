@@ -2,8 +2,6 @@ import type { GetStaticProps } from "next";
 
 import * as React from "react";
 import { format as formatDate } from "date-fns";
-import remark from "remark";
-import remarkHTML from "remark-html";
 import htmr from "htmr";
 import { useTheme, Flex, Text, Icon } from "@chakra-ui/core";
 import { Heart, Calendar } from "react-feather";
@@ -11,7 +9,7 @@ import { Heart, Calendar } from "react-feather";
 import { Page } from "@components";
 import { Hr } from "@components/UI";
 import htmrTransform from "utils/htmrTransform";
-import { listBlogs } from "@utils/blogs";
+import { listBlogs, markdownToHTML } from "@utils/blogs";
 
 type Props = {
 	source: string;
@@ -53,16 +51,12 @@ const BlogPage = ({ frontMatter, source }: Props) => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
 	const detailBlog = listBlogs.find(blog => blog.pathname === params?.pathBlog);
-
-	const remarkedMarkdown = await remark()
-		.use(remarkHTML)
-		.process(detailBlog?.content ?? "");
-
-	const stringRemarkedMarkdown = remarkedMarkdown.toString();
+	const parseMarkdownToHTML = await markdownToHTML(detailBlog?.content ?? "");
+	const htmlContent = parseMarkdownToHTML;
 
 	return {
 		props: {
-			source: stringRemarkedMarkdown,
+			source: htmlContent,
 			frontMatter: detailBlog
 		}
 	};

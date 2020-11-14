@@ -65,15 +65,15 @@ Jadi dengan `StorageManager` kalian bisa mengecek berapasih kuota yang tersisa p
 Cara meng-handle error kapasitas berlebihan jika menggunakan indexedDB
 
 ```js
-import * as idb* from 'idb';
+import * as idb from "idb";
 
-const transaction = idb.transaction(['entries'], 'readwrite');
+const transaction = idb.transaction(["entries"], "readwrite");
 
-transaction.onabort = function(event) {
-  const error = event.target.error;
-  if (error.name == 'QuotaExceededError') {
-    // handle kuota yang berlebihan
-  }
+transaction.onabort = function (event) {
+	const error = event.target.error;
+	if (error.name == "QuotaExceededError") {
+		// handle kuota yang berlebihan
+	}
 };
 ```
 

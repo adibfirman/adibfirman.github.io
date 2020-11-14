@@ -6,7 +6,7 @@
 	"license": "MIT",
 	"scripts": {
 		"dev": "next",
-		"dev:watch": "next-remote-watch ./blog-contents",
+		"dev:watch": "next-remote-watch ./blogs",
 		"start": "next start",
 		"build": "next build"
 	},
@@ -46,6 +46,7 @@
 		"next-absolute-url": "^1.2.2",
 		"next-remote-watch": "^0.2.0",
 		"next-seo": "^4.14.0",
+		"prism-react-renderer": "^1.1.1",
 		"puppeteer-core": "^5.4.1",
 		"react": "^17.0.1",
 		"react-dom": "^17.0.1",
