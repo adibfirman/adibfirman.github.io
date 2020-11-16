@@ -4,6 +4,7 @@ import type { HtmrOptions } from "htmr";
 import * as React from "react";
 import { format as formatDate } from "date-fns";
 import htmr from "htmr";
+import { useRouter } from "next/router";
 import { useTheme, Flex, Text, Icon } from "@chakra-ui/core";
 import { Heart, Calendar } from "react-feather";
 
@@ -19,12 +20,7 @@ type Props = {
 };
 
 const BlogPage = ({ frontMatter, source }: Props) => {
-  const extendsTransform = {
-    ...htmrTransform,
-    img: ({ alt, src }) => <Image {...{ alt, src }} dirFolder={frontMatter.pathname} />
-  } as HtmrOptions["transform"];
-
-  const content = htmr(source, { transform: extendsTransform });
+  const content = htmr(source, { transform: htmrTransform });
   const theme = useTheme();
   const createdAt = new Date(frontMatter.data.date);
 

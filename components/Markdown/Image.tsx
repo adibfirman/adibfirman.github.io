@@ -1,23 +1,23 @@
 import * as React from "react";
-import NextImage from "next/image";
+import { useRouter } from "next/router";
+import { Image as ChakraUiImage } from "@chakra-ui/react";
 import qs from "querystring";
 
-interface Props extends Partial<HTMLImageElement> {
-  dirFolder: string;
-}
-
+type Props = Partial<HTMLImageElement>;
 const Image = (props: Props) => {
+  const router = useRouter();
+
   const fileName = props.src;
-  const dirFolder = props.dirFolder;
+  const dirFolder = router.query.pathBlog;
   const params = qs.stringify({ fileName, dirFolder });
   const urlImage = `/api/get-image-blog?${params}`;
 
   return (
-    <img
+    <ChakraUiImage
       src={urlImage}
       alt={typeof props.alt !== "string" ? "" : props.alt}
-      width={500}
-      height={500}
+      mx="auto"
+      my={4}
     />
   );
 };
