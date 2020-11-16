@@ -6,12 +6,14 @@ type MapHeading = {
 };
 
 const MAP_HEADING = {
+  1: { fontSize: "3xl", fontWeight: "medium" },
   2: { fontSize: "2xl", fontWeight: "medium" }
 } as MapHeading;
 
 const Heading: React.FC<{ level: number }> = props => {
   const as = `h${props.level}` as React.ElementType;
-  const { fontWeight, fontSize } = MAP_HEADING[props.level];
+  const fontWeight = MAP_HEADING[props.level]?.fontWeight ?? "";
+  const fontSize = MAP_HEADING[props.level]?.fontSize ?? "";
 
   return <ChakraUIReact as={as} fontSize={fontSize} my={4} fontWeight={fontWeight} {...props} />;
 };
