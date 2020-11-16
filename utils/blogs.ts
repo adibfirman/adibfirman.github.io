@@ -5,8 +5,8 @@ import html from "remark-html";
 import { getUnixTime } from "date-fns";
 import matter from "gray-matter";
 
-const BLOG_PATH = path.join(process.cwd(), "_blog");
-const blogsFilePaths = fs.readdirSync(BLOG_PATH);
+export const BLOG_PATH = path.join(process.cwd(), "_blog");
+export const blogsFilePaths = fs.readdirSync(BLOG_PATH);
 
 export const markdownToHTML = async (markdown: string) => {
   const remarkedMarkdown = await remark().use(html).process(markdown);
