@@ -18,7 +18,7 @@ Saya tidak akan menjelaskan apa perbedaan dari jenis - jenis _function_ diatas, 
 
 ```js
 (function () {
-	throw new Error("disini");
+  throw new Error("disini");
 })();
 ```
 
@@ -31,7 +31,7 @@ Ini dia yang saya bilang bahwa fungsi _anonymous_ itu bahkan bisa jadi musuh ket
 
 ```js
 (function iniFungsiKita() {
-	throw new Error("disini");
+  throw new Error("disini");
 })();
 ```
 
@@ -49,7 +49,7 @@ Oke ini adalah kasus yang menarik, jadi gini terkadang ntah di group atau dikerj
 import React from "react";
 
 export default () => {
-	return <h1>Halo dunia</h1>;
+  return <h1>Halo dunia</h1>;
 };
 ```
 
@@ -59,11 +59,11 @@ diatas adalah contoh sebuah component yang sifatnya _anonymous_ oke sekarang mar
 import React from "react";
 
 export default () => {
-	setTimeout(() => {
-		console.error("ehh error disini");
-	}, 3000);
+  setTimeout(() => {
+    console.error("ehh error disini");
+  }, 3000);
 
-	return <h1>Halo dunia</h1>;
+  return <h1>Halo dunia</h1>;
 };
 ```
 
@@ -77,11 +77,11 @@ lihat _stack trace_ yang ada pada sebelah kiri kita tidak tau dimana fungsi kita
 import React from "react";
 
 export default function IniAdalahAppKita() {
-	setTimeout(() => {
-		console.error("ehh error disini");
-	}, 3000);
+  setTimeout(() => {
+    console.error("ehh error disini");
+  }, 3000);
 
-	return <h1>Halo dunia</h1>;
+  return <h1>Halo dunia</h1>;
 }
 ```
 

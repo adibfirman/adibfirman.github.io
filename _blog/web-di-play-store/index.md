@@ -143,14 +143,14 @@ jangan ditutup dibiarkan dulu saja, lalu kalian buka repository WEB kalian, dan 
 
 ```json
 [
-	{
-		"relation": ["delegate_permission/common.handle_all_urls"],
-		"target": {
-			"namespace": "android_app",
-			"package_name": "com.example.simpletwa",
-			"sha256_cert_fingerprints": ["12:23:34:56"]
-		}
-	}
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.example.simpletwa",
+      "sha256_cert_fingerprints": ["12:23:34:56"]
+    }
+  }
 ]
 ```
 

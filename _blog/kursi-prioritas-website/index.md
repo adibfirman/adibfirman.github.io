@@ -21,15 +21,15 @@ Yang pertama `Highest` ketika kita menempatkan code kita pada bagian tag `<head>
 ```html
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Test</title>
-		<link rel="stylesheet" href="./app.css" />
-	</head>
-	<body>
-		<h1>Testing...</h1>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test</title>
+    <link rel="stylesheet" href="./app.css" />
+  </head>
+  <body>
+    <h1>Testing...</h1>
+  </body>
 </html>
 ```
 
@@ -44,16 +44,16 @@ Yang kedua ada `High` langsung saja kita akan lihat code seperti ini.
 ```html
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Test</title>
-		<script src="./app.js"></script>
-		<script src="./app2.js"></script>
-	</head>
-	<body>
-		<h1>Testing...</h1>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test</title>
+    <script src="./app.js"></script>
+    <script src="./app2.js"></script>
+  </head>
+  <body>
+    <h1>Testing...</h1>
+  </body>
 </html>
 ```
 
@@ -68,19 +68,19 @@ Yang terakhir ada `Medium` dan `Low` nah kedua prioritas ini yang biasanya brows
 ```html
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Test</title>
-	</head>
-	<body>
-		<h1>Testing...</h1>
-		<img
-			src="https://images.unsplash.com/photo-1582594686787-cde580bbb7d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
-		/>
-		<script src="./app.js"></script>
-		<script src="./app2.js"></script>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test</title>
+  </head>
+  <body>
+    <h1>Testing...</h1>
+    <img
+      src="https://images.unsplash.com/photo-1582594686787-cde580bbb7d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+    />
+    <script src="./app.js"></script>
+    <script src="./app2.js"></script>
+  </body>
 </html>
 ```
 
@@ -98,7 +98,7 @@ Kalian lihat kan imagenya? yaa bisa dibilang itu adalah `viewport` kalian, ketik
 ...
 <h1 style="margin-bottom:100vh;">Testing...</h1>
 <img
-	src="https://images.unsplash.com/photo-1582594686787-cde580bbb7d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+  src="https://images.unsplash.com/photo-1582594686787-cde580bbb7d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
 />
 ...
 ```
@@ -128,19 +128,19 @@ Ini adalah metode dimana kita bisa memberitahukan browser seperti ini _"tolong d
 ```html{7-8}
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Test</title>
-		<link rel="preload" href="./app.js" as="script" />
-		<link rel="preload" href="./app2.js" as="script" />
-	</head>
-	<body>
-		<h1>Testing...</h1>
-		<img
-			src="https://images.unsplash.com/photo-1582594686787-cde580bbb7d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
-		/>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test</title>
+    <link rel="preload" href="./app.js" as="script" />
+    <link rel="preload" href="./app2.js" as="script" />
+  </head>
+  <body>
+    <h1>Testing...</h1>
+    <img
+      src="https://images.unsplash.com/photo-1582594686787-cde580bbb7d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+    />
+  </body>
 </html>
 ```
 
@@ -180,23 +180,23 @@ Ini adalah cara yang saya senangi, dengan cara ini bisa dikatakan kita mencoba m
 ```html
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Test</title>
-		<!-- JS utama saya -->
-		<link rel="preload" href="./app.js" as="script" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test</title>
+    <!-- JS utama saya -->
+    <link rel="preload" href="./app.js" as="script" />
 
-		<!-- ini adalah code buat bikin dialog/modal -->
-		<link rel="prefetch" href="./app.css" as="style" />
-		<link rel="prefetch" href="./app2.js" as="script" />
-	</head>
-	<body>
-		<h1>Testing...</h1>
-		<img
-			src="https://images.unsplash.com/photo-1582594686787-cde580bbb7d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
-		/>
-	</body>
+    <!-- ini adalah code buat bikin dialog/modal -->
+    <link rel="prefetch" href="./app.css" as="style" />
+    <link rel="prefetch" href="./app2.js" as="script" />
+  </head>
+  <body>
+    <h1>Testing...</h1>
+    <img
+      src="https://images.unsplash.com/photo-1582594686787-cde580bbb7d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+    />
+  </body>
 </html>
 ```
 

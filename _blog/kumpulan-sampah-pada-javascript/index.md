@@ -56,9 +56,9 @@ nah seperti kode diatas jika kita masih punya sebuah referensi data, **GC** tida
  * dan juga dari object `a` yanag sudah kita buat didalamnya
  */
 var x = {
-	a: {
-		b: 2
-	}
+  a: {
+    b: 2
+  }
 };
 
 /**

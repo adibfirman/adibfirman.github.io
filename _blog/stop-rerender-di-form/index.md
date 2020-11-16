@@ -8,18 +8,18 @@ Aktifitas sebuah form pasti sangat tidak asing pada sebuah web, ntah itu hanya m
 
 ```jsx
 function MyForm() {
-	const [name, setName] = useState("");
+  const [name, setName] = useState("");
 
-	return (
-		<form>
-			<input
-				placeholder="Tolong masukkan nama anda"
-				type="text"
-				value={name}
-				onChange={e => setName(e.target.value)}
-			/>
-		</form>
-	);
+  return (
+    <form>
+      <input
+        placeholder="Tolong masukkan nama anda"
+        type="text"
+        value={name}
+        onChange={e => setName(e.target.value)}
+      />
+    </form>
+  );
 }
 
 export default MyForm;
@@ -37,11 +37,11 @@ lalu bagaimana kita mencegah hal tersebut? apakah kita tetap membutuhkan sebuah 
 
 ```jsx
 function MyForm() {
-	return (
-		<form>
-			<input placeholder="Tolong masukkan nama anda" type="text" />
-		</form>
-	);
+  return (
+    <form>
+      <input placeholder="Tolong masukkan nama anda" type="text" />
+    </form>
+  );
 }
 ```
 
@@ -49,17 +49,17 @@ seharusnya kita tetap bisa menuliskan sebuah nama pada input yang telah kita bua
 
 ```jsx
 function MyForm() {
-	function handleSubmitForm(e) {
-		e.preventDefault();
-		console.log("tombol submit ter-klik");
-	}
+  function handleSubmitForm(e) {
+    e.preventDefault();
+    console.log("tombol submit ter-klik");
+  }
 
-	return (
-		<form onSubmit={handleSubmitForm}>
-			<input placeholder="Tolong masukkan nama anda" type="text" name="name" />
-			<button type="submit">submit</button>
-		</form>
-	);
+  return (
+    <form onSubmit={handleSubmitForm}>
+      <input placeholder="Tolong masukkan nama anda" type="text" name="name" />
+      <button type="submit">submit</button>
+    </form>
+  );
 }
 ```
 
@@ -68,10 +68,10 @@ yaa kode diatas adalah kode normal yang biasa kita buat pada sebuah form, yaitu 
 ```jsx
 //...
 function handleSubmitForm(e) {
-	e.preventDefault();
-	const { name } = e.target.elements;
+  e.preventDefault();
+  const { name } = e.target.elements;
 
-	console.log("name value", name.value);
+  console.log("name value", name.value);
 }
 // ...
 ```
@@ -114,29 +114,29 @@ Lalu misalkan kita punya data dari sebuah API, bagaimana kita memasukkan data te
 
 ```jsx
 function MyForm() {
-	const [name, setName] = useState("");
+  const [name, setName] = useState("");
 
-	function handleSubmitForm(e) {
-		e.preventDefault();
-		const { name } = e.target.elements;
+  function handleSubmitForm(e) {
+    e.preventDefault();
+    const { name } = e.target.elements;
 
-		console.log("name value", name.value);
-	}
+    console.log("name value", name.value);
+  }
 
-	useEffect(() => {
-		(function getName() {
-			setTimeout(() => {
-				setName("adib");
-			}, 1000);
-		})();
-	}, []);
+  useEffect(() => {
+    (function getName() {
+      setTimeout(() => {
+        setName("adib");
+      }, 1000);
+    })();
+  }, []);
 
-	return (
-		<form onSubmit={handleSubmitForm}>
-			<input placeholder="Tolong masukkan nama anda" type="text" name="name" />
-			<button type="submit">submit</button>
-		</form>
-	);
+  return (
+    <form onSubmit={handleSubmitForm}>
+      <input placeholder="Tolong masukkan nama anda" type="text" name="name" />
+      <button type="submit">submit</button>
+    </form>
+  );
 }
 ```
 

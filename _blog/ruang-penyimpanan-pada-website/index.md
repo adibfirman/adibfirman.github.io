@@ -49,13 +49,13 @@ Terkadang memang mengasyikan menyimpan segala sesuatu didalam browser, nah tetap
 
 ```js
 if (navigator.storage && navigator.storage.estimate) {
-	const quota = await navigator.storage.estimate();
-	const percentageUsed = (quota.usage / quota.quota) * 100; // persentase penggunaan
-	const remaining = quota.quota - quota.usage; // ini adalah sisa dari ruang penyimpanan
+  const quota = await navigator.storage.estimate();
+  const percentageUsed = (quota.usage / quota.quota) * 100; // persentase penggunaan
+  const remaining = quota.quota - quota.usage; // ini adalah sisa dari ruang penyimpanan
 
-	// secara kasarnya seperti ini
-	// quota.usage -> banyaknya data yang digunakan
-	// quota.quota -> maksimum data yang bisa digunakan
+  // secara kasarnya seperti ini
+  // quota.usage -> banyaknya data yang digunakan
+  // quota.quota -> maksimum data yang bisa digunakan
 }
 ```
 
@@ -70,10 +70,10 @@ import * as idb from "idb";
 const transaction = idb.transaction(["entries"], "readwrite");
 
 transaction.onabort = function (event) {
-	const error = event.target.error;
-	if (error.name == "QuotaExceededError") {
-		// handle kuota yang berlebihan
-	}
+  const error = event.target.error;
+  if (error.name == "QuotaExceededError") {
+    // handle kuota yang berlebihan
+  }
 };
 ```
 
@@ -81,12 +81,12 @@ Lalu jika pada ruang penyimpanan cache seperti ini
 
 ```js
 try {
-	const cache = await caches.open("my-cache");
-	await cache.add(new Request("/sample1.jpg"));
+  const cache = await caches.open("my-cache");
+  await cache.add(new Request("/sample1.jpg"));
 } catch (err) {
-	if (error.name === "QuotaExceededError") {
-		// handle kuota yang berlebihan
-	}
+  if (error.name === "QuotaExceededError") {
+    // handle kuota yang berlebihan
+  }
 }
 ```
 

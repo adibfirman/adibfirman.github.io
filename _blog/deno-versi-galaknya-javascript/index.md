@@ -130,7 +130,7 @@ const serveLocally = serve({ port: PORT });
 console.log(`http://localhost:${PORT}`);
 
 for await (const req of serveLocally) {
-	req.respond({ body: "Hello World\n" });
+  req.respond({ body: "Hello World\n" });
 }
 ```
 

@@ -39,11 +39,11 @@ Biasanya kita mendeklarasi sebuah variabel menggunakan `var`, nah didalam `ES6`,
 ```jsx
 var x = 3;
 function func(getRandomNum) {
-	if (getRandomNum) {
-		var x = 10;
-	}
+  if (getRandomNum) {
+    var x = 10;
+  }
 
-	return x;
+  return x;
 }
 
 console.log(func(false)); // undefined
@@ -54,11 +54,11 @@ kenapa bisa keluar `undefined`, karena variabel `var` ini cakupannya adalah sebu
 ```jsx{4}
 var x = 3;
 function func(getRandomNum) {
-	if (getRandomNum) {
-		x = 10; // remove 'var'
-	}
+  if (getRandomNum) {
+    x = 10; // remove 'var'
+  }
 
-	return x;
+  return x;
 }
 
 console.log(func(false)); // 3
@@ -69,11 +69,11 @@ ini memang berhasil keluar angka `3`, tetapi `var x` mendeklarasikan sebuah `glo
 ```jsx
 let x = 3;
 function func(getRandomNum) {
-	if (getRandomNum) {
-		let x = 10; // remove 'var'
-	}
+  if (getRandomNum) {
+    let x = 10; // remove 'var'
+  }
 
-	return x;
+  return x;
 }
 
 console.log(func(false)); // 3
@@ -84,11 +84,11 @@ ketika kita mengganti-nya dengan `let`, langsung bisa terlihat bahwa kita akan m
 ```jsx
 let x = 3;
 function func(getRandomNum) {
-	if (getRandomNum) {
-		let x = 10;
-	}
+  if (getRandomNum) {
+    let x = 10;
+  }
 
-	return x;
+  return x;
 }
 
 let x = 10;
@@ -101,11 +101,11 @@ kita akan mendapatkan sebuah error, dimana errornya bahwa _“coy, si X ini udah
 ```jsx
 const x = 3;
 function func(getRandomNum) {
-	if (getRandomNum) {
-		const x = 10;
-	}
+  if (getRandomNum) {
+    const x = 10;
+  }
 
-	return x;
+  return x;
 }
 
 console.log(func(false)); // 3

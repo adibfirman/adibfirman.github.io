@@ -36,39 +36,39 @@ Untuk selanjutnya kita akan melihat sebuah component `statefull`
 
 ```jsx
 class ContextProvider extends React.PureComponent {
-	state = {
-		number: 0
-	};
+  state = {
+    number: 0
+  };
 
-	addNumbers = () => {
-		this.setState(({ number }) => {
-			return {
-				number: ++number
-			};
-		});
-	};
+  addNumbers = () => {
+    this.setState(({ number }) => {
+      return {
+        number: ++number
+      };
+    });
+  };
 
-	subtractNumbers = () => {
-		this.setState(({ number }) => {
-			return {
-				number: --number
-			};
-		});
-	};
+  subtractNumbers = () => {
+    this.setState(({ number }) => {
+      return {
+        number: --number
+      };
+    });
+  };
 
-	render() {
-		return (
-			<Provider
-				value={{
-					...this.state,
-					addNumbers: this.addNumbers,
-					subtractNumbers: this.subtractNumbers
-				}}
-			>
-				{this.props.children}
-			</Provider>
-		);
-	}
+  render() {
+    return (
+      <Provider
+        value={{
+          ...this.state,
+          addNumbers: this.addNumbers,
+          subtractNumbers: this.subtractNumbers
+        }}
+      >
+        {this.props.children}
+      </Provider>
+    );
+  }
 }
 ```
 
@@ -93,18 +93,18 @@ ada dua yang kita ambil yaitu 1) Consumer dan 2) ContextType, untuk kasus ini ki
 
 ```jsx
 const HeaderRenderProps = ({ title }) => {
-	return (
-		<Consumer>
-			{({ number }) => (
-				<React.Fragment>
-					<div id="header-title">Perry's Counter App (Render Props)</div>
-					<div id="header-container">
-						<h1>{number}</h1>
-					</div>
-				</React.Fragment>
-			)}
-		</Consumer>
-	);
+  return (
+    <Consumer>
+      {({ number }) => (
+        <React.Fragment>
+          <div id="header-title">Perry's Counter App (Render Props)</div>
+          <div id="header-container">
+            <h1>{number}</h1>
+          </div>
+        </React.Fragment>
+      )}
+    </Consumer>
+  );
 };
 ```
 
