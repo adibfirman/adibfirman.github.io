@@ -4,20 +4,16 @@ import Highlight, { defaultProps } from "prism-react-renderer";
 import theme from "prism-react-renderer/themes/github";
 import { Flex, Text, Box } from "@chakra-ui/react";
 
-import type { Props as ParentProps } from ".";
-
-interface Props extends ParentProps {
+type Props = {
   language: Language;
-}
+  value: string;
+};
 
-const HighlightCode: React.FC<Props> = ({ children, language }) => {
-  const code = children as string[];
-
+const HighlightCode: React.FC<Props> = ({ value, language }) => {
   return (
-    <Highlight {...defaultProps} theme={theme} code={code[0]} language={language}>
+    <Highlight {...defaultProps} theme={theme} code={value} language={language}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => {
-        const splicedTokens = tokens.splice(0, tokens.length - 1);
-        const lengthTokens = splicedTokens.length;
+        const lengthTokens = tokens.length;
 
         return (
           <Box
@@ -51,7 +47,7 @@ const HighlightCode: React.FC<Props> = ({ children, language }) => {
               </Text>
             </Flex>
             <Box overflowX="auto" my="-6px" py="6px">
-              {splicedTokens.map((line, i) => (
+              {tokens.map((line, i) => (
                 <Flex key={i} h="20px" {...getLineProps({ line, key: i })}>
                   <Text as="span" fontSize="sm" color="azure.200" ml={8} mr={4}>
                     {i + 1}

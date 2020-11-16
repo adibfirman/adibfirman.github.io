@@ -1,18 +1,15 @@
 import type { GetStaticProps } from "next";
-import type { HtmrOptions } from "htmr";
 
 import * as React from "react";
 import { format as formatDate } from "date-fns";
-import htmr from "htmr";
-import { useRouter } from "next/router";
+import ReactMarkdown from "react-markdown";
 import { useTheme, Flex, Text, Icon } from "@chakra-ui/core";
 import { Heart, Calendar } from "react-feather";
 
 import { Page } from "@components";
 import { Hr } from "@components/UI";
-import htmrTransform from "utils/htmrTransform";
-import { listBlogs, markdownToHTML } from "@utils/blogs";
-import { Image } from "@components/Markdown";
+import { listBlogs } from "@utils/blogs";
+import markdownParser from "@utils/markdownParser";
 
 type Props = {
   source: string;
@@ -20,7 +17,6 @@ type Props = {
 };
 
 const BlogPage = ({ frontMatter, source }: Props) => {
-  const content = htmr(source, { transform: htmrTransform });
   const theme = useTheme();
   const createdAt = new Date(frontMatter.data.date);
 
@@ -47,19 +43,17 @@ const BlogPage = ({ frontMatter, source }: Props) => {
         </Flex>
       </Flex>
       <Hr />
-      {content}
+      <ReactMarkdown renderers={markdownParser}>{source}</ReactMarkdown>
     </Page>
   );
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const detailBlog = listBlogs.find(blog => blog.pathname === params?.pathBlog);
-  const parseMarkdownToHTML = await markdownToHTML(detailBlog?.content ?? "");
-  const htmlContent = parseMarkdownToHTML;
 
   return {
     props: {
-      source: htmlContent,
+      source: detailBlog?.content ?? "",
       frontMatter: detailBlog
     }
   };
