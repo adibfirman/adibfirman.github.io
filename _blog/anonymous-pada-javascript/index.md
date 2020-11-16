@@ -100,7 +100,6 @@ Jadi ada untuk React sendiri usahakan benar - benar memberikan fungsi itu sebuah
 
 dan untungnya ada _plugin eslint_ yang membantu kita untuk memeriksa itu semua dan ini dia librarynya [eslint-plugin-import](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-anonymous-default-export.md).
 
-<br/>
-<br/>
-<br/>
-Terima kasih, stay with named function :cheers:
+\
+\
+Terima kasih, stay with named function 😎
