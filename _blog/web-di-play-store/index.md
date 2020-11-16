@@ -45,7 +45,7 @@ lalu ketika next kira - kira desc dari project kita seperti ini
 
 **klik finish**, lalu kalian buka file `build.gradle` dengan tulisan `Module: app` dan tambahkan beberapa file ini
 
-```java{3-8,10-11,17}
+```java
 android {
   ...
   defaultConfig {
@@ -67,7 +67,7 @@ dependencies {
 }
 ```
 
-dan kekita kalian menambahkan beberapa line code baru, android studio akan memberitahukan bahwa, APP yang kita buat itu harus segera di _sync_ kan, lalu tekan saja _Sync Now_ seperti dibawah ini
+dan ketika kalian menambahkan beberapa line code baru, android studio akan memberitahukan bahwa, APP yang kita buat itu harus segera di _sync_ kan, lalu tekan saja _Sync Now_ seperti dibawah ini
 
 ![](./image-4.png)
 
@@ -75,9 +75,9 @@ tahap dasar membuat pondasi TWA sudah selesai, lalu selanjutnya kita akan mendaf
 
 ![](./image-5.png)
 
-lalu kalian buka filenya lalu tambahkan code dibawah ini, mulai dari yang sudah _highlight_
+lalu kalian buka filenya lalu tambahkan code dibawah ini, mulai dari yang sudah di _highlight_
 
-```xml{11-35}
+```xml{11-29}
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.simpletwa">
 
@@ -121,8 +121,8 @@ dan ketika dibuka tadaaa, kalian sudah melihat WEB kalian didalam sebuah aplikas
 ![](./image-7.png)
 
 ada yang aneh bukan? ya ada URL-barnya pada APP kita, selanjutnya kita akan membuat namanya **Digital AssetLinks.**
-<br/>
-<br/>
+\
+\
 Apa sih yang dimaksud dengan **Digital AssetLinks**? secara singkatnya hal ini yang menyatukan atau bisa dibilang membuat kepercayaan yang sangat kuat antara WEB kita dengan APP yang tidak buat dan juga hal ini lah yang membuat URL bar yang tadi kita buat akan hilang dan tampilan akan benar - benar seperti native APP keren bukan? jika ingin tahu lebih lanjut silahkan mampir [kesini](https://developers.google.com/digital-asset-links/v1/getting-started).
 
 ## Membuat surat perjanjian
@@ -199,7 +199,7 @@ lihat seperti native APP pada umumnya bukan? saya hanya sampai disini aja jadi j
 ## Beberapa catatan
 
 Setelah kita membuat simple TWA ada beberapa catatan yang harus diperhatikan, yaitu, full screen hanya jalan ketika chrome version lebih dari **72**, jika user dibawah versi itu maka URL bar tetap terlihat, lalu bagaimana cara menghandle hal tersebut? jadi pada package `Custom Tab` yang sudah kita tambahkan pada APP kita melalui android studio tadi, dia ada fungsi yang namanya `TrustedWebUtils.chromeNeedsUpdate` jadi ini akan notice user bahwa chrome yang dipakai user itu support `TWA` atau tidak, jika tidak kita akan tampilkan WebView, dan juga jika default browser user bukan chrome maka kita jika tampilkan WebView sebagai fallbacknya, memang WebView sendiri ada kekurangan seperti yang sudah kita bahas sebelumnya tetapi, lihat dulu apakah user yang mendapatkan WebView ini signifikan? jika iya, tetap native APP adalah satu satunya cara.
-<br/>
-<br/>
+\
+\
 
 Terima Kasih.
