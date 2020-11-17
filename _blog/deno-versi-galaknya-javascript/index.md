@@ -40,7 +40,7 @@ deno run main.ts
 
 ketika sudah dijalankan kita akan melihat console dengan result seperti ini
 
-```sh-result
+```sh
 Compile file:///dir/bla/bla/main.ts
 Hello World
 ```

@@ -11,13 +11,15 @@ import {
   Link,
   Image,
   InlineCode,
-  Heading
+  Heading,
+  Blockquote
 } from "@components/Markdown";
 
 const markdownParser = {
   image: ({ src, alt }) => <Image alt={alt} src={src} />,
   strong: props => <Text as="strong" fontWeight="bold" {...props} />,
-  a: props => <Link<typeof props> {...props} />,
+  link: props => <Link<typeof props> {...props} />,
+  blockquote: Blockquote,
   heading: Heading,
   thematicBreak: Hr,
   paragraph: Paragraph,
