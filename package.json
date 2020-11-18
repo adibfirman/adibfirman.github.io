@@ -40,7 +40,7 @@
     "dev": "gatsby develop",
     "format": "prettier --write \"src/**/*.js\"",
     "test": "echo \"Write tests!! -> https://gatsby.app/unit-testing\"",
-    "deploy": "gatsby build && gh-pages -d public -b master",
+    "deploy": "gatsby build && gh-pages -d public -b gh-pages",
     "clean": "rm -rf .cache public",
     "start": "yarn clean && yarn dev"
   },
