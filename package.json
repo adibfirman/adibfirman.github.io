@@ -35,6 +35,8 @@
 		"@emotion/core": "^10.0.35",
 		"@emotion/react": "^11.0.0",
 		"@emotion/styled": "^10.0.27",
+		"@mdx-js/loader": "^1.6.21",
+		"@next/mdx": "^10.0.1",
 		"@types/parse-numeric-range": "^0.0.1",
 		"date-fns": "^2.16.1",
 		"emotion": "^10.0.27",
