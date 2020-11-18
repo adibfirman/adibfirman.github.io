@@ -35,7 +35,7 @@ const BlogPage = ({ mapListBlogsPerYears }: Props) => {
       desc={DESC_PAGE}
       SEO={{ title: TITLE_PAGE, desc: DESC_PAGE }}
     >
-      <Stack mt="300vh" mx={[null, `calc(-1*${theme.space[20]})`]} spacing={10}>
+      <Stack mt={8} mx={[null, `calc(-1*${theme.space[20]})`]} spacing={10}>
         {years.map(year => (
           <Box key={year}>
             <Text fontWeight={600} fontSize="2xl">
