@@ -10,13 +10,15 @@ import { Page } from "@components";
 import { Hr } from "@components/UI";
 import { listBlogs } from "@utils/blogs";
 import markdownParser from "@utils/markdownParser";
+import getCountMention from "@utils/getCountMention";
 
 type Props = {
   source: string;
   frontMatter: typeof listBlogs[0];
+  webmentionCount: number;
 };
 
-const BlogPage = ({ frontMatter, source }: Props) => {
+const BlogPage = ({ frontMatter, source, webmentionCount }: Props) => {
   const theme = useTheme();
   const createdAt = new Date(frontMatter.data.date);
 
@@ -38,7 +40,7 @@ const BlogPage = ({ frontMatter, source }: Props) => {
         <Flex alignItems="center">
           <Icon as={Heart} color="azure.400" justifySelf="center" mr={1} />
           <Text fontSize="sm" color="azure.400">
-            123
+            {webmentionCount}
           </Text>
         </Flex>
       </Flex>
@@ -50,9 +52,11 @@ const BlogPage = ({ frontMatter, source }: Props) => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const detailBlog = listBlogs.find(blog => blog.pathname === params?.pathBlog);
+  const webmentionCount = await getCountMention(`/blog/${detailBlog?.pathname}`);
 
   return {
     props: {
+      webmentionCount,
       source: detailBlog?.content ?? "",
       frontMatter: detailBlog
     }
