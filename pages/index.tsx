@@ -8,49 +8,49 @@ import { NavigationCard } from "@components/UI";
 import { listBlogs } from "@utils/blogs";
 
 type HomePageProps = {
-	recentBlogs: typeof listBlogs;
+  recentBlogs: typeof listBlogs;
 };
 
 const DESC_PAGE = `I'm Adib Firman, I'm software engineer from 🇮🇩 (Indonesia) day by day working and learn a fun things about web development, and occasionally planting seed on my own digital garden.`;
-const TITLE_PAGE = "Hi, There...!!";
+const TITLE_PAGE = "Hello, There...!!";
 
 const HomePage: NextPage<HomePageProps> = ({ recentBlogs }) => {
-	const theme = useTheme();
+  const theme = useTheme();
 
-	return (
-		<Page title={TITLE_PAGE + "👋"} desc={DESC_PAGE} SEO={{ title: TITLE_PAGE, desc: DESC_PAGE }}>
-			<Box my={16}>
-				<Heading as="h2" mb={4} fontSize="xl">
-					Recents blogs* 🇮🇩
-				</Heading>
-				<Grid
-					mx={[null, `calc(-1*${theme.space[56]})`]}
-					gridAutoFlow={["row", "column"]}
-					gridTemplateColumns={[null, "repeat(3, minmax(1em, 1fr))"]}
-					gap={4}
-				>
-					{recentBlogs.map(({ data, pathname }, i) => (
-						<NavigationCard
-							key={i}
-							title={data.title}
-							desc={data.spoiler}
-							href={`/blog/${pathname}`}
-						/>
-					))}
-				</Grid>
-			</Box>
-		</Page>
-	);
+  return (
+    <Page title={TITLE_PAGE + "👋"} desc={DESC_PAGE} SEO={{ title: TITLE_PAGE, desc: DESC_PAGE }}>
+      <Box my={16}>
+        <Heading as="h2" mb={4} fontSize="xl">
+          Recents blogs* 🇮🇩
+        </Heading>
+        <Grid
+          mx={[null, `calc(-1*${theme.space[56]})`]}
+          gridAutoFlow={["row", "column"]}
+          gridTemplateColumns={[null, "repeat(3, minmax(1em, 1fr))"]}
+          gap={4}
+        >
+          {recentBlogs.map(({ data, pathname }, i) => (
+            <NavigationCard
+              key={i}
+              title={data.title}
+              desc={data.spoiler}
+              href={`/blog/${pathname}`}
+            />
+          ))}
+        </Grid>
+      </Box>
+    </Page>
+  );
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-	const threeRecentBlogs = listBlogs.slice(0, 3);
+  const threeRecentBlogs = listBlogs.slice(0, 3);
 
-	return {
-		props: {
-			recentBlogs: threeRecentBlogs
-		}
-	};
+  return {
+    props: {
+      recentBlogs: threeRecentBlogs
+    }
+  };
 };
 
 export default HomePage;
