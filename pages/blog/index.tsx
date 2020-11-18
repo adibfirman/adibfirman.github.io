@@ -7,12 +7,15 @@ import { Text } from "@chakra-ui/react";
 
 import { Page } from "@components";
 import { listBlogs } from "@utils/blogs";
+import getCountMention from "@utils/getCountMention";
 
 const DESC_PAGE = `So in this page, it's just an open space where I share my knowledge or let say "seeds" of my thoughts to be cultivated in public, *most of these seeds writed in 🇮🇩 `;
 const TITLE_PAGE = "I'm a Digital Gardeners";
 
 type MapListBlogsPerYears = {
-  [year: string]: Array<{ monthCreated: string; dayCreated: string } & typeof listBlogs[0]>;
+  [year: string]: Array<
+    { monthCreated: string; dayCreated: string; loveCount: number } & typeof listBlogs[0]
+  >;
 };
 
 type Props = {
@@ -77,7 +80,7 @@ const BlogPage = ({ mapListBlogsPerYears }: Props) => {
                         >
                           <Icon as={Heart} color="azure.400" justifySelf="center" />
                           <Text fontSize="sm" color="azure.400">
-                            123
+                            {blog.loveCount}
                           </Text>
                         </Grid>
                       </Box>
@@ -108,21 +111,25 @@ const BlogPage = ({ mapListBlogsPerYears }: Props) => {
   );
 };
 
-export const getStaticProps = () => {
-  const mapListBlogsPerYears = listBlogs.reduce((acc, blog) => {
+export const getStaticProps = async () => {
+  const mapListBlogsPerYears: MapListBlogsPerYears = {};
+
+  for (let i = 0; i < listBlogs.length; i++) {
+    const blog = listBlogs[i];
     const date = new Date(blog.data.date);
     const year = formatDate(date, "yyyy");
+    const webmentionCount = await getCountMention(`/blog/${blog.pathname}`);
+
     const detail = {
       ...blog,
       monthCreated: formatDate(date, "MMM"),
-      dayCreated: formatDate(date, "dd")
+      dayCreated: formatDate(date, "dd"),
+      loveCount: webmentionCount
     };
 
-    if (!acc[year]) acc[year] = [];
-    acc[year].push(detail);
-
-    return acc;
-  }, {} as MapListBlogsPerYears);
+    if (!mapListBlogsPerYears[year]) mapListBlogsPerYears[year] = [];
+    mapListBlogsPerYears[year].push(detail);
+  }
 
   return { props: { mapListBlogsPerYears } };
 };

@@ -8,7 +8,7 @@ import { CacheProvider, Global } from "@emotion/core";
 import { cache } from "emotion";
 import { DefaultSeo } from "next-seo";
 
-import SEO from "../next-seo.config";
+import SEO, { URL as ownDomain } from "../next-seo.config";
 import theme from "@utils/theme";
 
 const globalStyle = css`
@@ -22,6 +22,8 @@ const globalStyle = css`
 `;
 
 const CustomizeApp = ({ Component, pageProps }: AppProps) => {
+  const webURL = new URL(ownDomain);
+
   return (
     <CacheProvider value={cache}>
       <ThemeProvider theme={theme}>
@@ -42,8 +44,8 @@ const CustomizeApp = ({ Component, pageProps }: AppProps) => {
             />
 
             {/* <!-- Webmention.io --> */}
-            <link rel="webmention" href="https://webmention.io/adibfirman.space/webmention" />
-            <link rel="pingback" href="https://webmention.io/adibfirman.space/xmlrpc" />
+            <link rel="webmention" href={`https://webmention.io/${webURL.hostname}/webmention`} />
+            <link rel="pingback" href={`https://webmention.io/${webURL.hostname}/xmlrpc`} />
 
             {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
             <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135917039-1" />
