@@ -8,7 +8,7 @@ import { Heart, Calendar } from "react-feather";
 
 import { Page } from "@components";
 import { Hr } from "@components/UI";
-import { listBlogs } from "@utils/blogs";
+import { listBlogs, getPostByPath } from "@utils/blogs";
 import markdownParser from "@utils/markdownParser";
 import getCountMention from "@utils/getCountMention";
 
@@ -51,8 +51,8 @@ const BlogPage = ({ frontMatter, source, webmentionCount }: Props) => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const detailBlog = listBlogs.find(blog => blog.pathname === params?.pathBlog);
-  const webmentionCount = await getCountMention(`/blog/${detailBlog?.pathname}`);
+  const detailBlog = getPostByPath(params?.pathBlog as string);
+  const webmentionCount = await getCountMention(`/blog/${detailBlog.data.pathname}`);
 
   return {
     props: {

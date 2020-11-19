@@ -15,6 +15,19 @@ export const markdownToHTML = async (markdown: string) => {
   return htmlContent;
 };
 
+export function getPostByPath(pathBlog: string) {
+  const fullPath = path.join(BLOG_PATH, pathBlog, `index.md`);
+  const fileContents = fs.readFileSync(fullPath, "utf8");
+  const { data, content } = matter(fileContents);
+
+  type Data = {
+    content: string;
+    data: typeof listBlogs[0];
+  };
+
+  return { data, content } as Data;
+}
+
 // get list blogs
 export const listBlogs = blogsFilePaths
   .map(blogFolder => {
