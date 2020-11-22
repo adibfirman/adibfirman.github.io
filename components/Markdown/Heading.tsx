@@ -7,7 +7,8 @@ type MapHeading = {
 
 const MAP_HEADING = {
   1: { fontSize: "3xl", fontWeight: "medium" },
-  2: { fontSize: "2xl", fontWeight: "medium" }
+  2: { fontSize: "2xl", fontWeight: "medium" },
+  3: { fontSize: "xl", fontWeight: "medium" }
 } as MapHeading;
 
 const Heading: React.FC<{ level: number }> = props => {

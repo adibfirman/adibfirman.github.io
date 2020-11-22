@@ -1,8 +1,9 @@
 import * as React from "react";
 import { Text } from "@chakra-ui/core";
 
-const Paragraph: React.FC = ({ children }) => (
+const Paragraph: React.FC<{ as: React.ElementType }> = ({ children, as }) => (
   <Text
+    as={as}
     fontWeight="normal"
     lineHeight="32px"
     wordBreak="break-word"
