@@ -1,4 +1,4 @@
-import type { GetStaticProps } from "next";
+import type { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 
 import * as React from "react";
 import { format as formatDate } from "date-fns";
@@ -12,19 +12,18 @@ import { listBlogs, getPostByPath } from "@utils/blogs";
 import markdownParser from "@utils/markdownParser";
 import getCountMention from "@utils/getCountMention";
 
-type Props = {
-  source: string;
-  frontMatter: typeof listBlogs[0];
-  webmentionCount: number;
-};
-
-const BlogPage = ({ frontMatter, source, webmentionCount }: Props) => {
+function BlogPage({
+  frontMatter,
+  source,
+  webmentionCount,
+  pathname
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   const theme = useTheme();
   const createdAt = new Date(frontMatter.data.date);
 
   return (
     <Page
-      path={`/blog/${frontMatter.pathname}`}
+      path={`/blog/${pathname}`}
       title={frontMatter.data.title}
       SEO={{ title: frontMatter.data.title, desc: frontMatter.data.spoiler }}
       bodyStyle={{ mx: [null, `calc(-1*${theme.space[20]})`] }}
@@ -48,20 +47,22 @@ const BlogPage = ({ frontMatter, source, webmentionCount }: Props) => {
       <ReactMarkdown renderers={markdownParser}>{source}</ReactMarkdown>
     </Page>
   );
-};
+}
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const detailBlog = getPostByPath(params?.pathBlog as string);
-  const webmentionCount = await getCountMention(`/blog/${detailBlog.data.pathname}`);
+export async function getStaticProps({ params }: GetStaticPropsContext) {
+  const pathname = params?.pathBlog ?? "";
+  const detailBlog = getPostByPath(pathname as string);
+  const webmentionCount = await getCountMention(`/blog/${pathname}`);
 
   return {
     props: {
       webmentionCount,
       source: detailBlog?.content ?? "",
-      frontMatter: detailBlog
+      frontMatter: detailBlog,
+      pathname
     }
   };
-};
+}
 
 export const getStaticPaths = async () => {
   const paths = listBlogs.map(blog => ({ params: { pathBlog: blog.pathname } }));

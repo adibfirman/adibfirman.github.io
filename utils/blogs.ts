@@ -22,7 +22,7 @@ export function getPostByPath(pathBlog: string) {
 
   type Data = {
     content: string;
-    data: typeof listBlogs[0];
+    data: typeof listBlogs[0]["data"];
   };
 
   return { data, content } as Data;
