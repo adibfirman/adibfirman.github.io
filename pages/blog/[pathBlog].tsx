@@ -25,11 +25,8 @@ function BlogPage({
   useEffect(() => {
     (async function getwebmentionCount() {
       try {
-        const fetchCount = ((await getCountMention(`/blog/${pathname}`)) as unknown) as {
-          count: number;
-        };
-
-        setWebmentionCount(fetchCount.count);
+        const getCount = await getCountMention(`/blog/${pathname}`);
+        setWebmentionCount(getCount);
       } catch (error) {
         console.log("-- There's error on getwebmentionCount --");
       }

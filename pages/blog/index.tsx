@@ -25,11 +25,8 @@ const BlogCard = (props: MapListBlogsPerYears[0][0]) => {
   useEffect(() => {
     (async function getwebmentionCount() {
       try {
-        const fetchCount = ((await getCountMention(`/blog/${props.pathname}`)) as unknown) as {
-          count: number;
-        };
-
-        setWebmentionCount(fetchCount.count);
+        const getCount = await getCountMention(`/blog/${props.pathname}`);
+        setWebmentionCount(getCount);
       } catch (error) {
         console.log("-- There's error on getwebmentionCount --");
       }

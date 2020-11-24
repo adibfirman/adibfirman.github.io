@@ -8,8 +8,7 @@ export default async function getCountMention(pathname: string) {
   const configs = { headers: { "Content-Type": "application/json" } };
 
   const getWebmentionCount = await fetch(webmentionURL, configs);
-
   const webmention = await getWebmentionCount.json();
 
-  return webmention.count as number;
+  return webmention.children.length as number;
 }
