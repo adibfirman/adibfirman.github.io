@@ -43,15 +43,12 @@ const CustomizeApp = ({ Component, pageProps }: AppProps) => {
               rel="stylesheet"
             />
 
+            {/* <!-- Webmention.io --> */}
+            <link rel="webmention" href={`https://webmention.io/${webURL.hostname}/webmention`} />
+            <link rel="pingback" href={`https://webmention.io/${webURL.hostname}/xmlrpc`} />
+
             {process.env.NODE_ENV === "production" && (
               <>
-                {/* <!-- Webmention.io --> */}
-                <link
-                  rel="webmention"
-                  href={`https://webmention.io/${webURL.hostname}/webmention`}
-                />
-                <link rel="pingback" href={`https://webmention.io/${webURL.hostname}/xmlrpc`} />
-
                 {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
                 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135917039-1" />
                 <script
