@@ -1,6 +1,7 @@
 import type { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 
 import * as React from "react";
+import { useEffect, useState } from "react";
 import { format as formatDate } from "date-fns";
 import ReactMarkdown from "react-markdown";
 import { useTheme, Flex, Text, Icon } from "@chakra-ui/core";
@@ -15,11 +16,25 @@ import getCountMention from "@utils/getCountMention";
 function BlogPage({
   frontMatter,
   source,
-  webmentionCount,
   pathname
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const theme = useTheme();
   const createdAt = new Date(frontMatter.data.date);
+  const [webmentionCount, setWebmentionCount] = useState(0);
+
+  useEffect(() => {
+    (async function getwebmentionCount() {
+      try {
+        const fetchCount = ((await getCountMention(`/blog/${pathname}`)) as unknown) as {
+          count: number;
+        };
+
+        setWebmentionCount(fetchCount.count);
+      } catch (error) {
+        console.log("-- There's error on getwebmentionCount --");
+      }
+    })();
+  }, []);
 
   return (
     <Page
@@ -52,11 +67,9 @@ function BlogPage({
 export async function getStaticProps({ params }: GetStaticPropsContext) {
   const pathname = params?.pathBlog ?? "";
   const detailBlog = getPostByPath(pathname as string);
-  const webmentionCount = await getCountMention(`/blog/${pathname}`);
 
   return {
     props: {
-      webmentionCount,
       source: detailBlog?.content ?? "",
       frontMatter: detailBlog,
       pathname
