@@ -1,6 +1,6 @@
 ---
 title: Komentari Fungsi Mu..!!
-date: "9999-01-01"
+date: "2020-11-26"
 spoiler: "Berikan sebuah komentar pada fungsi-mu sendiri."
 ---
 
