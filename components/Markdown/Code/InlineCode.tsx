@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Code as ChakraUICode } from "@chakra-ui/core";
+import { Code as ChakraUICode } from "@chakra-ui/react";
 
 const InlineCode: React.FC = ({ children }) => {
   return (

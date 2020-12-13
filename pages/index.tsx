@@ -1,7 +1,8 @@
 import type { GetStaticProps, NextPage } from "next";
 
 import * as React from "react";
-import { Heading, Box, Grid, useTheme } from "@chakra-ui/core";
+import { Heading, Box, Grid } from "@chakra-ui/react";
+import { useTheme } from "@chakra-ui/core";
 
 import { Page } from "@components";
 import { NavigationCard } from "@components/UI";

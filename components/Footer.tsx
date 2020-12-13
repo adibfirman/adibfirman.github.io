@@ -1,27 +1,27 @@
 import * as React from "react";
 import { GitHub, Twitter, Linkedin, Rss } from "react-feather";
-import { Link, useTheme, Box, Heading, Text, List, ListItem, Grid } from "@chakra-ui/core";
+import { Link, useTheme, Box, Heading, Text, List, ListItem, Grid, Icon } from "@chakra-ui/react";
 
 const SOCIAL_MEDIA = [
   {
     link: "https://github.com/adibfirman",
     text: "Checkout my Github",
-    Icon: GitHub
+    customIcon: GitHub
   },
   {
     link: "https://twitter.com/dibfirman",
     text: "Follow me on Twitter",
-    Icon: Twitter
+    customIcon: Twitter
   },
   {
     link: "https://twitter.com/dibfirman",
     text: "Connect through Linkedin",
-    Icon: Linkedin
+    customIcon: Linkedin
   },
   {
     link: "/rss",
     text: "Subscribe with RSS Feed",
-    Icon: Rss
+    customIcon: Rss
   }
 ];
 
@@ -49,7 +49,7 @@ const Footer = () => {
             Get In Touch.
           </Heading>
           <List>
-            {SOCIAL_MEDIA.map(({ Icon, ...media }, i) => (
+            {SOCIAL_MEDIA.map((media, i) => (
               <ListItem key={i.toString()}>
                 <Grid
                   gridAutoFlow="column"
@@ -57,7 +57,7 @@ const Footer = () => {
                   alignItems="center"
                   gridAutoColumns="max-content"
                 >
-                  <Icon size={theme.space[4]} color={theme.colors.gray[600]} />
+                  <Icon as={media.customIcon} color="gray.600" />
                   <Link textAlign="left" color="gray.600" isExternal href={media.link} rel="me">
                     {media.text}
                   </Link>

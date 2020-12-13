@@ -5,7 +5,8 @@ import { useState, useEffect } from "react";
 import NextLink from "next/link";
 import { format as formatDate } from "date-fns";
 import { Heart } from "react-feather";
-import { Box, PseudoBox, Icon, Grid, Stack, useTheme } from "@chakra-ui/core";
+import { Box, Icon, Grid, Stack } from "@chakra-ui/react";
+import { useTheme } from "@chakra-ui/core";
 import { Text } from "@chakra-ui/react";
 
 import { Page } from "@components";
@@ -34,17 +35,13 @@ const BlogCard = (props: MapListBlogsPerYears[0][0]) => {
   }, []);
 
   return (
-    <PseudoBox role="group" cursor="pointer" py={2} px={[2, 8]}>
+    <Box role="group" cursor="pointer" py={2} px={[2, 8]}>
       <NextLink href={`/blog/${props.pathname}`}>
         <Grid gridAutoFlow="column" gridTemplateColumns="93% 1fr" gap="1">
           <Box>
-            <PseudoBox
-              fontWeight="bolder"
-              _groupHover={{ textDecoration: "underline" }}
-              fontSize="lg"
-            >
+            <Box fontWeight="bolder" _groupHover={{ textDecoration: "underline" }} fontSize="lg">
               {props.data.title}
-            </PseudoBox>
+            </Box>
             <Text color="azure.600" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
               {props.data.spoiler}
             </Text>
@@ -68,7 +65,7 @@ const BlogCard = (props: MapListBlogsPerYears[0][0]) => {
           </Grid>
         </Grid>
       </NextLink>
-    </PseudoBox>
+    </Box>
   );
 };
 

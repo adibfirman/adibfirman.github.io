@@ -4,7 +4,8 @@ import * as React from "react";
 import { useEffect, useState } from "react";
 import { format as formatDate } from "date-fns";
 import ReactMarkdown from "react-markdown";
-import { useTheme, Flex, Text, Icon } from "@chakra-ui/core";
+import { Flex, Text, Icon } from "@chakra-ui/react";
+import { useTheme } from "@chakra-ui/core";
 import { Heart, Calendar } from "react-feather";
 
 import { Page } from "@components";

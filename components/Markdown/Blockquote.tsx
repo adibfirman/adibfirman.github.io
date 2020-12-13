@@ -1,5 +1,6 @@
 import * as React from "react";
-import { useTheme, Icon, Grid, Box } from "@chakra-ui/core";
+import { Icon, Grid, Box } from "@chakra-ui/react";
+import { useTheme } from "@chakra-ui/core";
 import { Wind } from "react-feather";
 
 const Blockquote: React.FC = ({ children }) => {
@@ -17,7 +18,7 @@ const Blockquote: React.FC = ({ children }) => {
     >
       <Grid justifyItems="center" gap={2}>
         <Box h={10} w={1} borderRadius="md" backgroundColor="azure.400" />
-        <Icon as={Wind} color="azure.300" size="30px" />
+        <Icon as={Wind} color="azure.300" w={30} h={30} />
         <Box h={10} w={1} borderRadius="md" backgroundColor="azure.400" />
       </Grid>
       {children}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
-import { Text, BoxProps, Box, Flex, Grid, Link as UILink } from "@chakra-ui/core";
+import { Text, BoxProps, Box, Flex, Grid, Link as UILink } from "@chakra-ui/react";
 
 import isBrowser from "@utils/isBrowser";
 
