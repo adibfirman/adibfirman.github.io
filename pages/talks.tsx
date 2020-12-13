@@ -2,6 +2,7 @@ import * as React from "react";
 import { Box, Grid, Flex, Text, List, ListItem, Link } from "@chakra-ui/react";
 import { useTheme } from "@chakra-ui/core";
 import { Award, ExternalLink } from "react-feather";
+import { useColorMode } from "@chakra-ui/core";
 
 import { Page } from "@components";
 
@@ -24,6 +25,11 @@ const LiST_TALK = [
 
 const TalksPage = () => {
   const theme = useTheme();
+  const { colorMode } = useColorMode();
+
+  // === dark mode need's ===
+  const text = { light: "unset", dark: "dark.text" }[colorMode];
+  // ========================
 
   return (
     <Page
@@ -44,10 +50,10 @@ const TalksPage = () => {
               >
                 <Award size={theme.space[6]} color={theme.colors.green[500]} />
                 <Flex flexDirection="column">
-                  <Text>{talk.title}</Text>
-                  <Text fontWeight={600} mt="-3px" fontSize="sm">
+                  <Text color={text}>{talk.title}</Text>
+                  <Text fontWeight={600} mt="-3px" fontSize="sm" color={text}>
                     {talk.when},{" "}
-                    <Text as="span" fontStyle="italic">
+                    <Text as="span" fontStyle="italic" color={text}>
                       {talk.at}
                     </Text>
                   </Text>
