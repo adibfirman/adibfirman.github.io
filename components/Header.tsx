@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { Text, BoxProps, Box, Flex, Grid, Link as UILink } from "@chakra-ui/react";
-
-import isBrowser from "@utils/isBrowser";
+import { useColorMode, useTheme } from "@chakra-ui/core";
 
 const transition = "all 350ms ease-in-out 0s";
 const textProps = {
@@ -15,20 +14,30 @@ const textProps = {
 } as BoxProps;
 
 const Link: React.FC<{ href: string }> = ({ children, href }) => {
+  const theme = useTheme();
+  const { colorMode } = useColorMode();
   const router = useRouter();
   const regex = new RegExp(href, "gi");
   const isActive = router.pathname.search(regex) > -1;
 
+  // === dark mode need's ===
+  const textColor = { light: isActive ? "gray.700" : "gray.500", dark: "dark.linkTxt" };
+  const hoverableText = { light: "gray.600", dark: "dark.linkTxt" };
+  const bgActive = { light: "azure.200", dark: "unset" };
+  const borderBottom = { light: "unset", dark: `2px solid ${theme.colors.dark.bg1}` };
+  // ========================
+
   return (
     <UILink
       as="div"
-      backgroundColor={isActive ? "azure.200" : "unset"}
+      backgroundColor={isActive ? bgActive[colorMode] : "unset"}
       py={1}
       px={3}
       borderRadius="md"
-      color={isActive ? "gray.700" : "gray.500"}
+      color={textColor[colorMode]}
       fontWeight={isActive ? "bold" : "normal"}
-      _hover={{ color: "gray.600", textDecoration: "underline" }}
+      borderBottom={isActive ? borderBottom[colorMode] : "unset"}
+      _hover={{ color: hoverableText[colorMode], textDecoration: "underline" }}
     >
       <NextLink href={href}>
         <a>{children}</a>
@@ -38,7 +47,13 @@ const Link: React.FC<{ href: string }> = ({ children, href }) => {
 };
 
 const Header = () => {
+  const { toggleColorMode, colorMode } = useColorMode();
   const [isScrolling, setIsScrolling] = useState(false);
+
+  // === dark mode need's ===
+  const bg = { light: isScrolling ? "white" : "azure.50", dark: "dark.bg" };
+  const text = { light: "unset", dark: "dark.text" };
+  // ========================
 
   useEffect(() => {
     const handleScrollBrowser = () => {
@@ -46,7 +61,7 @@ const Header = () => {
       else setIsScrolling(false);
     };
 
-    if (isBrowser) window.addEventListener("scroll", handleScrollBrowser, false);
+    window.addEventListener("scroll", handleScrollBrowser, false);
     return () => window.removeEventListener("scroll", handleScrollBrowser);
   }, []);
 
@@ -59,7 +74,7 @@ const Header = () => {
       top="0"
       left="0"
       width="100%"
-      backgroundColor={["white", isScrolling ? "white" : "azure.50"]}
+      bg={["white", bg[colorMode]]}
       boxShadow={[
         "#00000026 0px 1px 4px 0px",
         !isScrolling ? "unset" : "#00000026 0px 1px 4px 0px"
@@ -69,13 +84,19 @@ const Header = () => {
         <NextLink href="/">
           <a>
             <Box position="relative" pb="27px">
-              <Text {...textProps} top="2px" left="0" opacity={isScrolling ? 1 : 0}>
+              <Text
+                {...textProps}
+                color={text[colorMode]}
+                top="2px"
+                left="0"
+                opacity={isScrolling ? 1 : 0}
+              >
                 @
               </Text>
-              <Text {...textProps} left={[isScrolling ? "1.1rem" : 0]}>
+              <Text {...textProps} color={text[colorMode]} left={[isScrolling ? "1.1rem" : 0]}>
                 adib
               </Text>
-              <Text {...textProps} left={isScrolling ? "3.7rem" : 12}>
+              <Text {...textProps} color={text[colorMode]} left={isScrolling ? "3.7rem" : 12}>
                 firman
               </Text>
             </Box>
@@ -85,6 +106,7 @@ const Header = () => {
           <Link href="/blog">Blog</Link>
           <Link href="/talks">Talks</Link>
           <Link href="/oss">OSS</Link>
+          <button onClick={() => toggleColorMode()}>💡</button>
         </Grid>
       </Flex>
     </Box>

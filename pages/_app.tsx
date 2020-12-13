@@ -19,6 +19,12 @@ const globalStyle = css`
     font-display: swap;
     src: url("/fonts/InputMono-Medium.ttf");
   }
+
+  body {
+    &.dark-mode {
+      background-color: ${theme.colors.dark.bg};
+    }
+  }
 `;
 
 const CustomizeApp = ({ Component, pageProps }: AppProps) => {
@@ -29,7 +35,7 @@ const CustomizeApp = ({ Component, pageProps }: AppProps) => {
       <ThemeProvider theme={theme}>
         <CSSReset />
         <Global styles={globalStyle} />
-        <ColorModeProvider value="light">
+        <ColorModeProvider>
           <Head>
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <link rel="icon" href="/favicon.png" sizes="16x16" type="image/png" />
