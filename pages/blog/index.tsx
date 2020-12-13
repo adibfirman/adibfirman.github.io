@@ -8,6 +8,7 @@ import { Heart } from "react-feather";
 import { Box, Icon, Grid, Stack } from "@chakra-ui/react";
 import { useTheme } from "@chakra-ui/core";
 import { Text } from "@chakra-ui/react";
+import { useColorMode } from "@chakra-ui/core";
 
 import { Page } from "@components";
 import { listBlogs } from "@utils/blogs";
@@ -22,6 +23,12 @@ type MapListBlogsPerYears = {
 
 const BlogCard = (props: MapListBlogsPerYears[0][0]) => {
   const [webmentionCount, setWebmentionCount] = useState(0);
+  const { colorMode } = useColorMode();
+
+  // === dark mode need's ===
+  const text = { light: "unset", dark: "dark.text" }[colorMode];
+  const spoilerText = { light: "azure.600", dark: "dark.text" }[colorMode];
+  // ========================
 
   useEffect(() => {
     (async function getwebmentionCount() {
@@ -39,10 +46,20 @@ const BlogCard = (props: MapListBlogsPerYears[0][0]) => {
       <NextLink href={`/blog/${props.pathname}`}>
         <Grid gridAutoFlow="column" gridTemplateColumns="93% 1fr" gap="1">
           <Box>
-            <Box fontWeight="bolder" _groupHover={{ textDecoration: "underline" }} fontSize="lg">
+            <Box
+              fontWeight="bolder"
+              _groupHover={{ textDecoration: "underline" }}
+              fontSize="lg"
+              color={text}
+            >
               {props.data.title}
             </Box>
-            <Text color="azure.600" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
+            <Text
+              color={spoilerText}
+              whiteSpace="nowrap"
+              overflow="hidden"
+              textOverflow="ellipsis"
+            >
               {props.data.spoiler}
             </Text>
             <Grid
@@ -59,9 +76,11 @@ const BlogCard = (props: MapListBlogsPerYears[0][0]) => {
             </Grid>
           </Box>
           <Grid gap="1" mt="1" justifyContent="flex-end" alignItems="center" alignContent="center">
-            <Text>{props.monthCreated}</Text>
+            <Text color={text}>{props.monthCreated}</Text>
             <Box borderColor="azure.300" borderBottomWidth="1px" borderBottomStyle="solid" />
-            <Text textAlign="center">{props.dayCreated}</Text>
+            <Text textAlign="center" color={text}>
+              {props.dayCreated}
+            </Text>
           </Grid>
         </Grid>
       </NextLink>
@@ -71,12 +90,17 @@ const BlogCard = (props: MapListBlogsPerYears[0][0]) => {
 
 const BlogPage = ({ mapListBlogsPerYears }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const theme = useTheme();
+  const { colorMode } = useColorMode();
   const years = Object.keys(mapListBlogsPerYears).sort((n1, n2) => {
     if (n1 > n2) return -1;
     if (n1 < n2) return 1;
 
     return 0;
   });
+
+  // === dark mode need's ===
+  const text = { light: "unset", dark: "dark.text" }[colorMode];
+  // ========================
 
   return (
     <Page
@@ -88,7 +112,7 @@ const BlogPage = ({ mapListBlogsPerYears }: InferGetStaticPropsType<typeof getSt
       <Stack mt={8} mx={[null, `calc(-1*${theme.space[20]})`]} spacing={10}>
         {years.map(year => (
           <Box key={year}>
-            <Text fontWeight={600} fontSize="2xl">
+            <Text fontWeight={600} fontSize="2xl" color={text}>
               {year}
             </Text>
             <Box
