@@ -17,6 +17,7 @@ const colors = {
   dark: {
     bg: "#0d1117",
     bg1: "#4c659c",
+    bg2: "#161b22",
     text: "#c9d1d9",
     text1: "##3871b3",
     linkTxt: "#58a6ff"

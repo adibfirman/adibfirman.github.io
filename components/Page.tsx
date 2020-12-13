@@ -3,6 +3,7 @@ import type { BoxProps } from "@chakra-ui/react";
 import * as React from "react";
 import { NextSeo } from "next-seo";
 import { Box, Heading, Text, Flex } from "@chakra-ui/react";
+import { useColorMode } from "@chakra-ui/core";
 import qs from "querystring";
 
 import { Header, Footer } from ".";
@@ -27,14 +28,20 @@ const LayoutPage: React.FC<PropsLayoutPage> = ({
   path = "",
   bodyStyle
 }) => {
+  const { colorMode } = useColorMode();
   const { host, origin, pathname, href } = new URL(URLApp + path);
   const paramsMetaImage = qs.stringify({
     title: SEO.title,
     pathURL: host + (pathname === "/" ? "" : pathname)
   } as ParamsMetaImage);
 
+  // === dark mode need's ===
+  const bg = { light: "azure.50", dark: "dark.bg" };
+  const titleText = { light: "unset", dark: "dark.text" };
+  // ========================
+
   return (
-    <Box backgroundColor="azure.50">
+    <Box backgroundColor={bg[colorMode]}>
       <NextSeo
         title={SEO.title}
         description={SEO.desc}
@@ -47,12 +54,18 @@ const LayoutPage: React.FC<PropsLayoutPage> = ({
       <Box maxWidth="lg" m="0 auto" px="4" pt="16">
         <Header />
         <Flex flexDirection="column" py={[12, null]} {...bodyStyle}>
-          <Heading as="h1" fontSize="4xl" textAlign="center" fontWeight="bold">
+          <Heading
+            as="h1"
+            fontSize="4xl"
+            textAlign="center"
+            fontWeight="bold"
+            color={titleText[colorMode]}
+          >
             {title}
           </Heading>
 
           {desc && (
-            <Text textAlign="justify" fontSize="lg" mt="6">
+            <Text textAlign="justify" fontSize="lg" mt="6" color={titleText[colorMode]}>
               {desc}
             </Text>
           )}

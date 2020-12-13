@@ -1,6 +1,7 @@
 import * as React from "react";
 import { GitHub, Twitter, Linkedin, Rss } from "react-feather";
 import { Link, useTheme, Box, Heading, Text, List, ListItem, Grid, Icon } from "@chakra-ui/react";
+import { useColorMode } from "@chakra-ui/core";
 
 const SOCIAL_MEDIA = [
   {
@@ -28,9 +29,15 @@ const SOCIAL_MEDIA = [
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const theme = useTheme();
+  const { colorMode } = useColorMode();
+
+  // === dark mode need's ===
+  const bg = { light: "white", dark: "dark.bg2" };
+  const textColor = { light: "gray.600", dark: "dark.text" };
+  // ========================
 
   return (
-    <Box backgroundColor="white" boxShadow="#00000026 0px 1px 4px 0px" py="12">
+    <Box backgroundColor={bg[colorMode]} boxShadow="#00000026 0px 1px 4px 0px" py="12">
       <Grid
         gridAutoFlow={["row", "column"]}
         maxWidth={[null, "lg"]}
@@ -40,12 +47,12 @@ const Footer = () => {
         px={[4, 0]}
       >
         <Box display={["none", "block"]} alignSelf="center">
-          <Text fontSize="xs" color="gray.600">
+          <Text fontSize="xs" color={textColor[colorMode]}>
             © {currentYear}. All Rights Reserved.
           </Text>
         </Box>
         <Grid>
-          <Heading as="h2" fontSize="md" lineHeight="15px" mb="2">
+          <Heading as="h2" fontSize="md" lineHeight="15px" mb="2" color={textColor[colorMode]}>
             Get In Touch.
           </Heading>
           <List>
@@ -57,8 +64,14 @@ const Footer = () => {
                   alignItems="center"
                   gridAutoColumns="max-content"
                 >
-                  <Icon as={media.customIcon} color="gray.600" />
-                  <Link textAlign="left" color="gray.600" isExternal href={media.link} rel="me">
+                  <Icon as={media.customIcon} color={textColor[colorMode]} />
+                  <Link
+                    textAlign="left"
+                    color={textColor[colorMode]}
+                    isExternal
+                    href={media.link}
+                    rel="me"
+                  >
                     {media.text}
                   </Link>
                 </Grid>

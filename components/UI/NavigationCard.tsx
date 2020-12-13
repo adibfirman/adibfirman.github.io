@@ -3,6 +3,7 @@ import NextLink from "next/link";
 import { Grid, Text, Flex, Box } from "@chakra-ui/react";
 import { useTheme } from "@chakra-ui/core";
 import { ArrowRight } from "react-feather";
+import { useColorMode } from "@chakra-ui/core";
 
 type Props = {
   title: string | React.ReactElement;
@@ -12,12 +13,19 @@ type Props = {
 
 const NavigationCard = ({ title, desc, href }: Props) => {
   const theme = useTheme();
+  const { colorMode } = useColorMode();
+
+  // === dark mode need's ===
+  const titleText = { light: "unset", dark: "dark.text" };
+  const icon = { light: "#000", dark: theme.colors.dark.text };
+  const bg = { light: "white", dark: "dark.bg2" };
+  // ========================
 
   return (
     <NextLink href={href}>
       <Box
         role="group"
-        backgroundColor="white"
+        backgroundColor={bg[colorMode]}
         borderRadius={4}
         boxShadow="xl"
         p={4}
@@ -33,10 +41,11 @@ const NavigationCard = ({ title, desc, href }: Props) => {
             style={{ textOverflow: "ellipsis" }}
             title={typeof title !== "string" ? "" : title}
             fontWeight={700}
+            color={titleText[colorMode]}
           >
             {title}
           </Box>
-          <Text fontSize="sm" mb={6}>
+          <Text fontSize="sm" mb={6} color={titleText[colorMode]}>
             {desc}
           </Text>
           <Flex alignItems="center">
@@ -47,10 +56,11 @@ const NavigationCard = ({ title, desc, href }: Props) => {
               ml="auto"
               fontWeight={700}
               _groupHover={{ textDecoration: "underline" }}
+              color={titleText[colorMode]}
             >
               See Detail
             </Box>
-            <ArrowRight size={theme.fontSizes.lg} />
+            <ArrowRight color={icon[colorMode]} size={theme.fontSizes.lg} />
           </Flex>
         </Grid>
       </Box>

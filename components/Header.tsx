@@ -51,7 +51,7 @@ const Header = () => {
   const [isScrolling, setIsScrolling] = useState(false);
 
   // === dark mode need's ===
-  const bg = { light: isScrolling ? "white" : "azure.50", dark: "dark.bg" };
+  const bg = { light: isScrolling ? "white" : "azure.50", dark: "dark.bg2" };
   const text = { light: "unset", dark: "dark.text" };
   // ========================
 
