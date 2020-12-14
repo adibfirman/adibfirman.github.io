@@ -53,7 +53,12 @@ const LayoutPage: React.FC<PropsLayoutPage> = ({
       />
       <Box maxWidth="lg" m="0 auto" px="4" pt="16">
         <Header />
-        <Flex flexDirection="column" py={[12, null]} {...bodyStyle}>
+        <Flex
+          flexDirection="column"
+          py={[12, null]}
+          minHeight="calc(100vh - 18rem)"
+          {...bodyStyle}
+        >
           <Heading
             as="h1"
             fontSize="4xl"
