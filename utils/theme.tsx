@@ -18,8 +18,11 @@ const colors = {
     bg: "#0d1117",
     bg1: "#4c659c",
     bg2: "#161b22",
+    bg3: "#f0f6fc26",
+    bg4: "#1c2127",
     text: "#c9d1d9",
-    text1: "##3871b3",
+    text1: "#3871b3",
+    text2: "#4f5459",
     linkTxt: "#58a6ff"
   }
 };

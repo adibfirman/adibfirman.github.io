@@ -1,16 +1,24 @@
 import * as React from "react";
 import { Code as ChakraUICode } from "@chakra-ui/react";
+import { useColorMode } from "@chakra-ui/core";
 
 const InlineCode: React.FC = ({ children }) => {
+  const { colorMode } = useColorMode();
+
+  // === dark mode need's ===
+  const titleText = { light: "azure.700", dark: "dark.text" }[colorMode];
+  const bgColor = { light: "#F6F8FA", dark: "dark.bg3" }[colorMode];
+  // ========================
+
   return (
     <ChakraUICode
       fontFamily="inputMono"
-      backgroundColor="#F6F8FA"
+      backgroundColor={bgColor}
       borderWidth={1}
       borderStyle="solid"
-      borderColor="azure.200"
+      borderColor={bgColor}
       borderRadius="md"
-      color="#e3116c"
+      color={titleText}
       py="4px"
       px="6px"
       lineHeight={1}
