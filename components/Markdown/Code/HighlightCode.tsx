@@ -1,5 +1,7 @@
 import type { Language } from "prism-react-renderer";
 import * as React from "react";
+import styled from "@emotion/styled";
+import { css } from "@emotion/core";
 import Highlight, { defaultProps } from "prism-react-renderer";
 import theme from "prism-react-renderer/themes/github";
 import rangeNumber from "parse-numeric-range";
@@ -10,6 +12,22 @@ type Props = {
   language: string;
   value: string;
 };
+
+type TypeWrapperCode = {
+  isHighlightCode: boolean;
+  bgColor: string;
+  boxShadowColor: string;
+};
+
+const WrapperCode = styled.div<TypeWrapperCode>`
+  ${props =>
+    props.isHighlightCode &&
+    css`
+      box-sizing: border-box;
+      box-shadow: inset 2px 0 0 ${props.boxShadowColor};
+      background-color: ${props.bgColor};
+    `}
+`;
 
 const HighlightCode: React.FC<Props> = ({ value, language }) => {
   const langName = language.replace(/{([^}]+)}/gi, "") as Language;
@@ -39,7 +57,7 @@ const HighlightCode: React.FC<Props> = ({ value, language }) => {
             borderWidth={1}
             borderStyle="solid"
             borderColor={bordercolor}
-            borderRadius="md"
+            borderRadius="6px"
             overflow="hidden"
             pb={1}
             my={6}
@@ -64,7 +82,7 @@ const HighlightCode: React.FC<Props> = ({ value, language }) => {
                 {lengthTokens < 10 ? `0${lengthTokens}` : lengthTokens} LOC
               </Text>
             </Flex>
-            <Box overflowX="auto" my="-6px" py="6px">
+            <Box overflowX="auto" my="-6px" py="6px" fontFamily="inputMono">
               {tokens.map((line, i) => {
                 const number = i + 1;
                 let shouldHighlightCode = false;
@@ -76,19 +94,28 @@ const HighlightCode: React.FC<Props> = ({ value, language }) => {
                   if (highlightRows.some(row => row === number)) shouldHighlightCode = true;
                 }
 
+                const highlightColor = { light: "#fffbdd", dark: "#bb80091a" }[colorMode];
+                const boxShadow = { light: "unset", dark: "#bb8009" }[colorMode];
+
                 return (
-                  <Flex
-                    key={i}
-                    display="table-row"
-                    bgColor={shouldHighlightCode ? "#fffbdd" : "unset"}
-                    {...getLineProps({ line, key: i })}
-                  >
+                  <Flex key={i} {...getLineProps({ line, key: i })}>
                     <Text as="span" fontSize="sm" color={numberCode} ml={8} mr={4}>
                       {number}
                     </Text>
-                    {line.map((token, key) => (
-                      <Text key={key} as="span" fontSize="sm" {...getTokenProps({ token, key })} />
-                    ))}
+                    <WrapperCode
+                      bgColor={highlightColor}
+                      isHighlightCode={shouldHighlightCode}
+                      boxShadowColor={boxShadow}
+                    >
+                      {line.map((token, key) => (
+                        <Text
+                          key={key}
+                          as="span"
+                          fontSize="sm"
+                          {...getTokenProps({ token, key })}
+                        />
+                      ))}
+                    </WrapperCode>
                   </Flex>
                 );
               })}

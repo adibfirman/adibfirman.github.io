@@ -6,7 +6,7 @@ spoiler: Kumpulan Sampah di javascript?
 
 ## TL;DR
 
-Pada waktu itu saya menghadiri sebuah konferensi yaitu JSDay, dan juga ini pertama kali diadakan di Indonesia, dan waktu itu [Alex Lakatos](https://twitter.com/lakatos88) membawakan sebuah tema yaitu tentang **Hands on Performance** gitu (saya lupa :peace:) dan beliau menyinggung masalah **Garbage Collection**, dan pada kali ini saya mau menjelaskan apa itu **Garbage Collection**.
+Pada waktu itu saya menghadiri sebuah konferensi yaitu JSDay, dan juga ini pertama kali diadakan di Indonesia, dan waktu itu [Alex Lakatos](https://twitter.com/lakatos88) membawakan sebuah tema yaitu tentang **Hands on Performance** gitu (saya lupa ✌️) dan beliau menyinggung masalah **Garbage Collection**, dan pada kali ini saya mau menjelaskan apa itu **Garbage Collection**.
 
 ## Introduction
 

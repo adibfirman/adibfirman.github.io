@@ -130,10 +130,9 @@ render() {
 
 Sekarang kita lihat dibagian paling bawah ada sebuah statefull component yaitu `HeaderContextType` kalau menggunakan statefull ini lebih mudah, hanya menambahkan ini saja pada component kita
 
-```jsx{2}
+```jsx
 class HeaderContextType extends React.PureComponent {
   static contextType = ContextType;
-
   ...
 }
 ```

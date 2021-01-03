@@ -130,6 +130,7 @@ sudah jelas bukan? jadi nilai dari const ini harus tetap, sooo menurut saya
 - Pilih `let` jika ada perubahan nilai
 - Jauhi `var`
 
-> Karena banyaknya penjelasan tentang ES6 saya tidak mungkin menulisnya sekaligus. Kita akan melanjutkannya di part selanjutnya.
-
+Karena banyaknya penjelasan tentang ES6 saya tidak mungkin menulisnya sekaligus. Kita akan melanjutkannya di part selanjutnya.
+\
+\
 Oke semuanya sekian dulu dari saya jika ada kesalahan dalam penjelasan mohon maaf, karena manusia tidak luput dari kesalahan. Terima Kasih

@@ -20,6 +20,8 @@ const colors = {
     bg2: "#161b22",
     bg3: "#f0f6fc26",
     bg4: "#1c2127",
+    bg5: "#30363d",
+    bg6: "#21262d",
     text: "#c9d1d9",
     text1: "#3871b3",
     text2: "#4f5459",
