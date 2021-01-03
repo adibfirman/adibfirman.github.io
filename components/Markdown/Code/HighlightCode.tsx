@@ -98,8 +98,8 @@ const HighlightCode: React.FC<Props> = ({ value, language }) => {
                 const boxShadow = { light: "unset", dark: "#bb8009" }[colorMode];
 
                 return (
-                  <Flex key={i} {...getLineProps({ line, key: i })}>
-                    <Text as="span" fontSize="sm" color={numberCode} ml={8} mr={4}>
+                  <Flex key={i} {...getLineProps({ line, key: i })} alignItems="center">
+                    <Text as="span" fontSize="xs" color={numberCode} ml={8} mr={4}>
                       {number}
                     </Text>
                     <WrapperCode
@@ -111,7 +111,7 @@ const HighlightCode: React.FC<Props> = ({ value, language }) => {
                         <Text
                           key={key}
                           as="span"
-                          fontSize="sm"
+                          fontSize="xs"
                           {...getTokenProps({ token, key })}
                         />
                       ))}
