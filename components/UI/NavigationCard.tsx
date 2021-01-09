@@ -4,6 +4,7 @@ import { Grid, Text, Flex, Box } from "@chakra-ui/react";
 import { useTheme } from "@chakra-ui/core";
 import { ArrowRight } from "react-feather";
 import { useColorMode } from "@chakra-ui/core";
+import { CustomDefaultTheme } from "@/next-env";
 
 type Props = {
   title: string | React.ReactElement;
@@ -12,7 +13,7 @@ type Props = {
 };
 
 const NavigationCard = ({ title, desc, href }: Props) => {
-  const theme = useTheme();
+  const theme = useTheme() as CustomDefaultTheme;
   const { colorMode } = useColorMode();
 
   // === dark mode need's ===

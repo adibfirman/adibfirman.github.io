@@ -3,6 +3,7 @@ import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { Text, BoxProps, Box, Flex, Grid, Link as UILink } from "@chakra-ui/react";
 import { useColorMode, useTheme, Switch } from "@chakra-ui/core";
+import { CustomDefaultTheme } from "@/next-env";
 
 const transition = "all 350ms ease-in-out 0s";
 const textProps = {
@@ -14,7 +15,7 @@ const textProps = {
 } as BoxProps;
 
 const Link: React.FC<{ href: string }> = ({ children, href }) => {
-  const theme = useTheme();
+  const theme = useTheme() as CustomDefaultTheme;
   const { colorMode } = useColorMode();
   const router = useRouter();
   const regex = new RegExp(href, "gi");

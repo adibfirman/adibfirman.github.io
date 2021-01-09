@@ -5,6 +5,7 @@ import { NextSeo } from "next-seo";
 import { Box, Heading, Text, Flex } from "@chakra-ui/react";
 import { useColorMode } from "@chakra-ui/core";
 import qs from "querystring";
+import { ParamsMetaImage } from "@/next-env";
 
 import { Header, Footer } from ".";
 import { URL as URLApp } from "next-seo.config";

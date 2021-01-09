@@ -2,6 +2,7 @@ import * as React from "react";
 import type { GetServerSideProps, NextPage } from "next";
 import { Heading, Flex, Text, Grid, Box } from "@chakra-ui/react";
 import { useTheme } from "@chakra-ui/core";
+import { ParamsMetaImage } from "@/next-env";
 
 const MetaImagePage: NextPage<ParamsMetaImage> = ({ title, pathURL }) => {
   const theme = useTheme();
