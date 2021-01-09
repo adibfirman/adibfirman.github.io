@@ -5,7 +5,8 @@ spoiler: Akhirnya website kita bisa di tempatkan di play store tapi? webview don
 ---
 
 Jadi sebelum negara api menyerang, WEB yang kita buat itu sebenarnya tidak bisa kita tempatkan pada play store, karena play store sendiri secara umum isinya adalah aplikasi yang berbasis android, contoh ketika kita mempunyai WEB [contohweb.com](#) dan kita rasa ternyata target user kita banyak yang mempunyai HP android otomatis kita harus membuat sebuah APP yang berbasis android ntah itu dengan Java atau Kotlin.
-<br/>
+\
+\
 Tetapi tanpa bahasa native pun kita bisa membuat sebuah APP dan di tempatkan di play store yaitu dengan [React Native](https://reactnative.dev/), [IONIC](https://ionicframework.com/), atau juga dengan WebView, lalu adakah cara kita tanpa harus menulis kode dua kali? jadi pengennya sih ketika kita membuat WEB kita pengen juga versi APP androidnya ada juga gitu, lalu bagaimana caranya?
 
 ## Trusted Web Activity (TWA)
@@ -201,5 +202,4 @@ lihat seperti native APP pada umumnya bukan? saya hanya sampai disini aja jadi j
 Setelah kita membuat simple TWA ada beberapa catatan yang harus diperhatikan, yaitu, full screen hanya jalan ketika chrome version lebih dari **72**, jika user dibawah versi itu maka URL bar tetap terlihat, lalu bagaimana cara menghandle hal tersebut? jadi pada package `Custom Tab` yang sudah kita tambahkan pada APP kita melalui android studio tadi, dia ada fungsi yang namanya `TrustedWebUtils.chromeNeedsUpdate` jadi ini akan notice user bahwa chrome yang dipakai user itu support `TWA` atau tidak, jika tidak kita akan tampilkan WebView, dan juga jika default browser user bukan chrome maka kita jika tampilkan WebView sebagai fallbacknya, memang WebView sendiri ada kekurangan seperti yang sudah kita bahas sebelumnya tetapi, lihat dulu apakah user yang mendapatkan WebView ini signifikan? jika iya, tetap native APP adalah satu satunya cara.
 \
 \
-
 Terima Kasih.

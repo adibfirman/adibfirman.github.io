@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { Text, BoxProps, Box, Flex, Grid, Link as UILink } from "@chakra-ui/react";
-import { useColorMode, useTheme } from "@chakra-ui/core";
+import { useColorMode, useTheme, Switch } from "@chakra-ui/core";
 
 const transition = "all 350ms ease-in-out 0s";
 const textProps = {
@@ -102,11 +102,16 @@ const Header = () => {
             </Box>
           </a>
         </NextLink>
-        <Grid gridAutoFlow="column" gap={6}>
+        <Grid gridAutoFlow="column" gap={6} alignItems="center">
           <Link href="/blog">Blog</Link>
           <Link href="/talks">Talks</Link>
           <Link href="/oss">OSS</Link>
-          <button onClick={() => toggleColorMode()}>💡</button>
+          <Switch
+            isChecked={colorMode === "dark"}
+            size="sm"
+            onChange={() => toggleColorMode()}
+            color="azure.50"
+          />
         </Grid>
       </Flex>
     </Box>
