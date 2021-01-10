@@ -52,13 +52,20 @@ const MetaImagePage: NextPage<ParamsMetaImage> = ({ title, pathURL }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps<ParamsMetaImage> = async ({ query }) => {
+MetaImagePage.getInitialProps = async ({ query }) => {
   const title = (query.title as string) || "";
   const pathURL = (query.pathURL as string) || "";
 
-  return {
-    props: { title, pathURL }
-  };
+  return { title, pathURL };
 };
+
+// export const getServerSideProps: GetServerSideProps<ParamsMetaImage> = async ({ query }) => {
+//   const title = (query.title as string) || "";
+//   const pathURL = (query.pathURL as string) || "";
+
+//   return {
+//     props: { title, pathURL }
+//   };
+// };
 
 export default MetaImagePage;
