@@ -69,14 +69,13 @@ const LayoutPage: React.FC<PropsLayoutPage> = ({
           >
             {title}
           </Heading>
-
           {desc && (
             <Text textAlign="justify" fontSize="lg" mt="6" color={titleText[colorMode]}>
               {desc}
             </Text>
           )}
-
           {children}
+          ds
         </Flex>
       </Box>
       <Footer />
