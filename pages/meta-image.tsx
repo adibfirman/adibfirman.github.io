@@ -1,5 +1,5 @@
 import * as React from "react";
-import type { NextPage } from "next";
+import type { GetServerSideProps, NextPage } from "next";
 import { Heading, Flex, Text, Grid, Box } from "@chakra-ui/react";
 import { useTheme } from "@chakra-ui/core";
 import { ParamsMetaImage } from "@/next-env";
@@ -52,11 +52,13 @@ const MetaImagePage: NextPage<ParamsMetaImage> = ({ title, pathURL }) => {
   );
 };
 
-MetaImagePage.getInitialProps = async ({ query }) => {
+export const getServerSideProps: GetServerSideProps<ParamsMetaImage> = async ({ query }) => {
   const title = (query.title as string) || "";
   const pathURL = (query.pathURL as string) || "";
 
-  return { title, pathURL };
+  return {
+    props: { title, pathURL }
+  };
 };
 
 export default MetaImagePage;
