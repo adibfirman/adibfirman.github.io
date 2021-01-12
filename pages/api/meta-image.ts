@@ -1,51 +1,72 @@
-/**
- * thanks @grikomsn
- * the origin source code from https://github.com/grikomsn/nextplate/blob/master/src/pages/api/social-image.ts
- * with sligtly change
- */
-import type { Browser } from "puppeteer";
 import type { NextApiHandler } from "next";
-import chrome from "chrome-aws-lambda";
-import pptr from "puppeteer";
-import qs from "querystring";
-import absoluteURL from "next-absolute-url";
 
-const isDev = process.env.NODE_ENV === "development";
-let browser: Browser;
+const generateSocialImage = ({
+  title = "",
+  pathURL = "",
+  cloudName = "adibfirman",
+  imagePublicID = "meta-image_h22h0y",
+  cloudinaryUrlBase = "https://res.cloudinary.com",
+  imageWidth = 1280,
+  imageHeight = 669
+}) => {
+  // configure social media image dimensions, quality, and format
+  const imageConfig = [`w_${imageWidth}`, `h_${imageHeight}`].join(",");
+
+  // configure the title text
+  const titleConfig = [
+    `w_900`,
+    "c_fit",
+    "x_48",
+    `l_text:arial_48:${encodeURIComponent(title)}`,
+    "g_west"
+  ].join(",");
+
+  // configure the tagline text
+  const pathURLConfig = [
+    "g_south",
+    "y_16",
+    `l_text:arial_40_light:${encodeURIComponent(pathURL)}`
+  ].join(",");
+
+  // combine all the pieces required to generate a Cloudinary URL
+  const urlParts = [
+    cloudinaryUrlBase,
+    cloudName,
+    "image",
+    "upload",
+    imageConfig,
+    titleConfig,
+    pathURLConfig,
+    imagePublicID
+  ];
+
+  // remove any falsy sections of the URL (e.g. an undefined version)
+  const validParts = urlParts.filter(Boolean);
+
+  // join all the parts into a valid URL to the generated image
+  return validParts.join("/");
+};
 
 const handler: NextApiHandler = async (req, res) => {
-	try {
-		const title = req.query.title as string;
-		const pathURL = req.query.pathURL as string;
-		const query = qs.stringify({ title, pathURL });
+  try {
+    const title = req.query.title as string;
+    const pathURL = req.query.pathURL as string;
 
-		const { origin } = absoluteURL(req);
-		const url = `${origin}/meta-image?${query}`;
+    const getImage = generateSocialImage({
+      title: encodeURIComponent(title),
+      pathURL: encodeURIComponent(pathURL)
+    });
 
-		browser = await chrome.puppeteer.launch({
-			ignoreDefaultArgs: ["--disable-extensions"],
-			args: isDev ? [] : chrome.args,
-			defaultViewport: chrome.defaultViewport,
-			executablePath: isDev ? pptr.executablePath() : await chrome.executablePath,
-			headless: isDev ? true : chrome.headless,
-			ignoreHTTPSErrors: true
-		});
+    const fetchImage = await fetch(getImage);
+    const blobImg = await fetchImage.arrayBuffer();
+    const bufferBase64 = Buffer.from(blobImg);
 
-		const page = await browser.newPage();
-
-		await page.setViewport({ width: 1200, height: 630 });
-		await page.goto(url, { waitUntil: "load" });
-
-		const screenshot = await page.screenshot({ encoding: "binary" });
-
-		res.setHeader("content-type", "image/png");
-		res.setHeader("cache-control", "public, max-age=604800");
-		res.send(screenshot);
-	} catch (error) {
-		res.status(500).json({ error: error.message });
-	} finally {
-		if (browser) await browser.close();
-	}
+    res.setHeader("content-type", "image/png");
+    res.setHeader("cache-control", "public, max-age=604800");
+    res.send(bufferBase64);
+  } catch (error) {
+    res.status(500).json({ error });
+  }
 };
 
 export default handler;

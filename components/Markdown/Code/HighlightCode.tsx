@@ -3,7 +3,8 @@ import * as React from "react";
 import styled from "@emotion/styled";
 import { css } from "@emotion/core";
 import Highlight, { defaultProps } from "prism-react-renderer";
-import theme from "prism-react-renderer/themes/github";
+import lightTheme from "prism-react-renderer/themes/github";
+import darkTheme from "prism-react-renderer/themes/nightOwl";
 import rangeNumber from "parse-numeric-range";
 import { Flex, Text, Box } from "@chakra-ui/react";
 import { useColorMode } from "@chakra-ui/core";
@@ -32,6 +33,7 @@ const WrapperCode = styled.div<TypeWrapperCode>`
 const HighlightCode: React.FC<Props> = ({ value, language }) => {
   const langName = language.replace(/{([^}]+)}/gi, "") as Language;
   const { colorMode } = useColorMode();
+  const theme = { light: lightTheme, dark: darkTheme }[colorMode];
 
   // === dark mode need's ===
   const bgHeader = { light: "azure.100", dark: "dark.bg2" }[colorMode];
@@ -41,13 +43,7 @@ const HighlightCode: React.FC<Props> = ({ value, language }) => {
   // ========================
 
   return (
-    <Highlight
-      {...defaultProps}
-      // @ts-ignore
-      theme={theme(colorMode === "dark")}
-      code={value}
-      language={langName}
-    >
+    <Highlight {...defaultProps} theme={theme} code={value} language={langName}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => {
         const lengthTokens = tokens.length;
 
