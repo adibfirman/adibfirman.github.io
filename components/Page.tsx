@@ -52,7 +52,7 @@ const LayoutPage: React.FC<PropsLayoutPage> = ({
           description: SEO.desc,
           images: [
             {
-              url: `https://via.placeholder.com/1280x669`,
+              url: `${origin}/api/meta-image?${paramsMetaImage}/`,
               width: 1280,
               height: 669,
               alt: SEO.title
