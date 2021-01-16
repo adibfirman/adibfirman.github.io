@@ -2,6 +2,7 @@ import type { BoxProps } from "@chakra-ui/react";
 
 import * as React from "react";
 import { NextSeo } from "next-seo";
+import Head from "next/head";
 import { Box, Heading, Text, Flex } from "@chakra-ui/react";
 import { useColorMode } from "@chakra-ui/core";
 import qs from "querystring";
@@ -49,7 +50,14 @@ const LayoutPage: React.FC<PropsLayoutPage> = ({
         openGraph={{
           url: href,
           description: SEO.desc,
-          images: [{ url: `${origin}/api/meta-image?${paramsMetaImage}` }]
+          images: [
+            {
+              url: `${origin}/api/meta-image?${paramsMetaImage}`,
+              width: 1280,
+              height: 669,
+              alt: SEO.title
+            }
+          ]
         }}
       />
       <Box maxWidth="lg" m="0 auto" px="4" pt="16">
