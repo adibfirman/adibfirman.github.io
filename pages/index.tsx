@@ -8,26 +8,23 @@ import { useColorMode } from "@chakra-ui/core";
 import { Page } from "@components";
 import { NavigationCard } from "@components/UI";
 import { listBlogs } from "@utils/blogs";
+import { useDarkMode } from "@utils/useDarkMode";
 
 type HomePageProps = {
   recentBlogs: typeof listBlogs;
 };
 
 const DESC_PAGE = `I'm Adib Firman, I'm software engineer from 🇮🇩 (Indonesia) day by day working and learn a fun things about web development, and occasionally planting seed on my own digital garden.`;
-const TITLE_PAGE = "Hello, There...!!";
+const TITLE_PAGE = "Hello There...!!";
 
 const HomePage: NextPage<HomePageProps> = ({ recentBlogs }) => {
   const theme = useTheme();
-  const { colorMode } = useColorMode();
-
-  // === dark mode need's ===
-  const titleText = { light: "unset", dark: "dark.text" };
-  // ========================
+  const { colorText } = useDarkMode();
 
   return (
     <Page title={TITLE_PAGE + "👋"} desc={DESC_PAGE} SEO={{ title: TITLE_PAGE, desc: DESC_PAGE }}>
       <Box my={16}>
-        <Heading as="h2" mb={4} fontSize="xl" color={titleText[colorMode]}>
+        <Heading as="h2" mb={4} fontSize="xl" color={colorText}>
           Recents blogs* 🇮🇩
         </Heading>
         <Grid
