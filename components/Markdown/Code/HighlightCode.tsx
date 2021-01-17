@@ -7,7 +7,8 @@ import lightTheme from "prism-react-renderer/themes/github";
 import darkTheme from "prism-react-renderer/themes/nightOwl";
 import rangeNumber from "parse-numeric-range";
 import { Flex, Text, Box } from "@chakra-ui/react";
-import { useColorMode } from "@chakra-ui/core";
+
+import { useDarkMode } from "@utils/useDarkMode";
 
 type Props = {
   language: string;
@@ -32,7 +33,7 @@ const WrapperCode = styled.div<TypeWrapperCode>`
 
 const HighlightCode: React.FC<Props> = ({ value, language }) => {
   const langName = language.replace(/{([^}]+)}/gi, "") as Language;
-  const { colorMode } = useColorMode();
+  const { colorMode } = useDarkMode();
   const theme = { light: lightTheme, dark: darkTheme }[colorMode];
 
   // === dark mode need's ===

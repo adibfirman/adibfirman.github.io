@@ -1,17 +1,14 @@
 import * as React from "react";
 import { UnorderedList, ListItem } from "@chakra-ui/react";
-import { useColorMode } from "@chakra-ui/core";
 
+import { useDarkMode } from "@utils/useDarkMode";
 import { Paragraph } from ".";
 
 export const Ul: React.FC = ({ children }) => {
-  const { colorMode } = useColorMode();
+  const { colorText } = useDarkMode();
 
-  // === dark mode need's ===
-  const color = { light: "#1a202c", dark: "dark.text" }[colorMode];
-  // ========================
   return (
-    <UnorderedList my={4} spacing={2} ml={10} color={color}>
+    <UnorderedList my={4} spacing={2} ml={10} color={colorText}>
       {children}
     </UnorderedList>
   );

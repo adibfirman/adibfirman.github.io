@@ -1,13 +1,10 @@
 import * as React from "react";
 import { Text } from "@chakra-ui/react";
-import { useColorMode } from "@chakra-ui/core";
+
+import { useDarkMode } from "@utils/useDarkMode";
 
 const Paragraph: React.FC<{ as: React.ElementType }> = ({ children, as }) => {
-  const { colorMode } = useColorMode();
-
-  // === dark mode need's ===
-  const titleText = { light: "azure.700", dark: "dark.text" }[colorMode];
-  // ========================
+  const { colorText } = useDarkMode();
 
   return (
     <Text
@@ -17,7 +14,7 @@ const Paragraph: React.FC<{ as: React.ElementType }> = ({ children, as }) => {
       wordBreak="break-word"
       fontFamily="merriweather"
       fontSize="1.1rem"
-      color={titleText}
+      color={colorText}
     >
       {children}
     </Text>

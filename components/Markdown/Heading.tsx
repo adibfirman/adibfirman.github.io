@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Heading as ChakraUIReact } from "@chakra-ui/react";
-import { useColorMode, useTheme } from "@chakra-ui/core";
+
+import { useDarkMode } from "@utils/useDarkMode";
 
 type MapHeading = {
   [key: number]: { fontSize: string; fontWeight: string };
@@ -19,19 +20,17 @@ const MAP_HEADING = {
 } as MapHeading;
 
 const Heading: React.FC<{ level: number }> = props => {
-  const theme = useTheme();
-  const { colorMode } = useColorMode();
+  const { colorMode, colorText } = useDarkMode();
   const as = `h${props.level}` as React.ElementType;
   const defaultStyle = MAP_HEADING[props.level];
 
   // === dark mode need's ===
-  const color = { light: "relative", dark: "dark.text" }[colorMode];
   const borderColor = { light: "unset", dark: "dark.bg6" }[colorMode];
   // ========================
 
   return (
     <ChakraUIReact
-      color={color}
+      color={colorText}
       as={as}
       my={4}
       {...defaultStyle}

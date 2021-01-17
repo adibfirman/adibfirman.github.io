@@ -1,9 +1,10 @@
 import * as React from "react";
 import { Code as ChakraUICode } from "@chakra-ui/react";
-import { useColorMode } from "@chakra-ui/core";
+
+import { useDarkMode } from "@utils/useDarkMode";
 
 const InlineCode: React.FC = ({ children }) => {
-  const { colorMode } = useColorMode();
+  const { colorMode } = useDarkMode();
 
   // === dark mode need's ===
   const titleText = { light: "azure.700", dark: "dark.text" }[colorMode];
