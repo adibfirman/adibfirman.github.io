@@ -11,7 +11,7 @@ export const useDarkMode = () => {
     const bg = { light: "azure.50", dark: "dark.bg" }[colorMode];
     setBG(bg);
     setColorText(titleText);
-  }, []);
+  }, [colorMode]);
 
   return { bg, colorText } as const;
 };

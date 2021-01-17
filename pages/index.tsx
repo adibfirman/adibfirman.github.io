@@ -15,7 +15,7 @@ type HomePageProps = {
 };
 
 const DESC_PAGE = `I'm Adib Firman, I'm software engineer from 🇮🇩 (Indonesia) day by day working and learn a fun things about web development, and occasionally planting seed on my own digital garden.`;
-const TITLE_PAGE = "Hello, There...!!";
+const TITLE_PAGE = "Hello There...!!";
 
 const HomePage: NextPage<HomePageProps> = ({ recentBlogs }) => {
   const theme = useTheme();
