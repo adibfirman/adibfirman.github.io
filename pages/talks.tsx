@@ -2,9 +2,9 @@ import * as React from "react";
 import { Box, Grid, Flex, Text, List, ListItem, Link } from "@chakra-ui/react";
 import { useTheme } from "@chakra-ui/core";
 import { Award, ExternalLink } from "react-feather";
-import { useColorMode } from "@chakra-ui/core";
 
 import { Page } from "@components";
+import { useDarkMode } from "@utils/useDarkMode";
 
 const DESC_PAGE = `By the way in below here are list of my talks, I'm sharing my knowledge according the theme of talk, so It's amazing moment meet a new friends, sharing new technology, and so on.`;
 const TITLE_PAGE = "Yeahh, I was in here..!!";
@@ -25,11 +25,7 @@ const LiST_TALK = [
 
 const TalksPage = () => {
   const theme = useTheme();
-  const { colorMode } = useColorMode();
-
-  // === dark mode need's ===
-  const text = { light: "unset", dark: "dark.text" }[colorMode];
-  // ========================
+  const { colorText } = useDarkMode();
 
   return (
     <Page
@@ -50,10 +46,10 @@ const TalksPage = () => {
               >
                 <Award size={theme.space[6]} color={theme.colors.green[500]} />
                 <Flex flexDirection="column">
-                  <Text color={text}>{talk.title}</Text>
-                  <Text fontWeight={600} mt="-3px" fontSize="sm" color={text}>
+                  <Text color={colorText}>{talk.title}</Text>
+                  <Text fontWeight={600} mt="-3px" fontSize="sm" color={colorText}>
                     {talk.when},{" "}
-                    <Text as="span" fontStyle="italic" color={text}>
+                    <Text as="span" fontStyle="italic" color={colorText}>
                       {talk.at}
                     </Text>
                   </Text>

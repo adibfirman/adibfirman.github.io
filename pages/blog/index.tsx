@@ -8,11 +8,11 @@ import { Heart } from "react-feather";
 import { Box, Icon, Grid, Stack } from "@chakra-ui/react";
 import { useTheme } from "@chakra-ui/core";
 import { Text } from "@chakra-ui/react";
-import { useColorMode } from "@chakra-ui/core";
 
 import { Page } from "@components";
 import { listBlogs } from "@utils/blogs";
 import getCountMention from "@utils/getCountMention";
+import { useDarkMode } from "@utils/useDarkMode";
 
 const DESC_PAGE = `So in this page, it's just an open space where I share my knowledge or let say "seeds" of my thoughts to be cultivated in public, *most of these seeds writed in 🇮🇩 `;
 const TITLE_PAGE = "I'm a Digital Gardeners";
@@ -23,7 +23,7 @@ type MapListBlogsPerYears = {
 
 const BlogCard = (props: MapListBlogsPerYears[0][0]) => {
   const [webmentionCount, setWebmentionCount] = useState(0);
-  const { colorMode } = useColorMode();
+  const { colorMode } = useDarkMode();
 
   // === dark mode need's ===
   const text = { light: "unset", dark: "dark.text" }[colorMode];
@@ -90,7 +90,7 @@ const BlogCard = (props: MapListBlogsPerYears[0][0]) => {
 
 const BlogPage = ({ mapListBlogsPerYears }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const theme = useTheme();
-  const { colorMode } = useColorMode();
+  const { colorMode } = useDarkMode();
   const years = Object.keys(mapListBlogsPerYears).sort((n1, n2) => {
     if (n1 > n2) return -1;
     if (n1 < n2) return 1;
