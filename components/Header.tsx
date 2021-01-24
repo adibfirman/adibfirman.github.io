@@ -64,6 +64,7 @@ const Header = () => {
   // === dark mode need's ===
   const bg = { light: isScrolling ? "white" : "azure.50", dark: "dark.bg2" }[colorMode];
   const text = { light: "unset", dark: "dark.text" }[colorMode];
+  const mobileText = { light: "#1A202C", dark: theme.colors.dark.text }[colorMode];
   // ========================
 
   useEffect(() => {
@@ -108,7 +109,7 @@ const Header = () => {
           </a>
         </NextLink>
         <MobileView>
-          <Menu color={theme.colors.dark.text} onClick={toggleShowDrawer} />
+          <Menu color={mobileText} onClick={toggleShowDrawer} />
           <AnimatePresence>
             {showDraerMenu && (
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
@@ -122,11 +123,7 @@ const Header = () => {
                   padding={4}
                 >
                   <Box float="right">
-                    <CloseIcon
-                      color={theme.colors.dark.text}
-                      onClick={toggleShowDrawer}
-                      size={36}
-                    />
+                    <CloseIcon color={mobileText} onClick={toggleShowDrawer} size={36} />
                   </Box>
                   <Box
                     display="flex"
@@ -166,9 +163,9 @@ const Header = () => {
                       isChecked={colorMode === "dark"}
                       size="sm"
                       onChange={() => toggleColorMode()}
-                      color="azure.50"
+                      color={mobileText}
                     />
-                    <Text textTransform="capitalize" color={text} fontSize={12} ml={1}>
+                    <Text textTransform="capitalize" color={mobileText} fontSize={12} ml={1}>
                       {colorMode}
                     </Text>
                   </Box>

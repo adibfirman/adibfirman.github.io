@@ -25,9 +25,19 @@ const WrapperCode = styled.div<TypeWrapperCode>`
   ${props =>
     props.isHighlightCode &&
     css`
-      box-sizing: border-box;
-      box-shadow: inset 2px 0 0 ${props.boxShadowColor};
+      /* box-sizing: border-box;
+      box-shadow: inset 4px 0 0 ${props.boxShadowColor};
+      background-color: ${props.bgColor}; */
+
+      position: relative;
       background-color: ${props.bgColor};
+
+      &::before {
+        content: "+";
+        color: ${props.boxShadowColor};
+        position: absolute;
+        left: -15px;
+      }
     `}
 `;
 
