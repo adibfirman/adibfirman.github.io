@@ -13,11 +13,11 @@ Pada dasarnya kita tidak pernah membuat web yang benar - benar dari 0, artinya p
 - CSS kita ganti dengan SASS/LESS atau dengan metode css-in-js
 - JS kita ganti dengan TypeScript
 
-Hal - hal yang kita sebutkan diatas memang sudah hal yang biasa apalagi kita tidak bisa terlepas dari sebuah depedency, ketika kita menggunakan sebuah depedency/library kalau kita asal copy/paste kode untuk kita terapkan, tampaknya kita akan bertemu dengan error seperti ini
+Hal - hal yang kita sebutkan diatas memang sudah hal yang biasa apalagi kita tidak bisa terlepas dari sebuah dependency, ketika kita menggunakan sebuah dependency/library kalau kita asal copy/paste kode untuk kita terapkan, tampaknya kita akan bertemu dengan error seperti ini
 
 ![require error example](./image-1.png)
 
-Maka dari itu Module Bundler dibutuhkan untuk menyelesaikan error yang kita dapatkan, Module Bundler yang bisa kita gunakan biasanya ialah, Webpack atau Parcel (ada lagi selain dua ini, tetapi saya sebutkan semua 😅) dan yang ingin kita bahas ialah Snowpack.
+Maka dari itu Module Bundler dibutuhkan untuk menyelesaikan error yang kita dapatkan, Module Bundler yang bisa kita gunakan biasanya ialah, Webpack atau Parcel (ada lagi selain dua ini, tetapi tidak saya sebutkan semua 😅) dan yang ingin kita bahas ialah Snowpack.
 \
 \
 
@@ -41,7 +41,7 @@ Gambar diatas menjelaskan bahwa Snowpack akan men-split file kita dan akan di-re
 _Bundled development_ ialah sebuah metode yang diterapkan oleh budler - bundler seperti sekarang seperti Webpack, Parcel, dll. metode ini sudah sedikit kita jelas diatas ketika ada satu file yang berubah maka bundler tersebut akan me-rebuild-nya ulang.
 \
 \
-Uniknya selama ini ketika kita dalam mode development kita bisa menggunakan ESM by default tanpa harus merubahnya ke commonjs (CJS), maksudnya ialah kita tidak perlu merubah syntax code dari sebuah library/depedency/kode kita ke dalam CJS, dan juga ada beberapa kode secara development kita tidak membutuhkannya.
+Uniknya selama ini ketika kita dalam mode development kita bisa menggunakan ESM by default tanpa harus merubahnya ke commonjs (CJS), maksudnya ialah kita tidak perlu merubah syntax code dari sebuah library/dependency/kode kita ke dalam CJS, dan juga ada beberapa kode secara development kita tidak membutuhkannya.
 \
 \
 _Unbundled development_ ini sudah kita pahami sedikit pada section sebelum ini, intinya cara yang garap oleh Snowpack untuk mempercepat development kita dan menghindari proses re-build yang tidak dibutuhkan ketika development.
