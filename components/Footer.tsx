@@ -10,12 +10,12 @@ const SOCIAL_MEDIA = [
     customIcon: GitHub
   },
   {
-    link: "https://twitter.com/dibfirman",
+    link: "https://twitter.com/adibfirman_",
     text: "Follow me on Twitter",
     customIcon: Twitter
   },
   {
-    link: "https://twitter.com/dibfirman",
+    link: "https://www.linkedin.com/in/adibfirman/",
     text: "Connect through Linkedin",
     customIcon: Linkedin
   },

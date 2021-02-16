@@ -22,7 +22,6 @@ type MapListBlogsPerYears = {
 };
 
 const BlogCard = (props: MapListBlogsPerYears[0][0]) => {
-  const [webmentionCount, setWebmentionCount] = useState(0);
   const { colorMode } = useDarkMode();
 
   // === dark mode need's ===
@@ -30,21 +29,10 @@ const BlogCard = (props: MapListBlogsPerYears[0][0]) => {
   const spoilerText = { light: "azure.600", dark: "dark.text" }[colorMode];
   // ========================
 
-  useEffect(() => {
-    (async function getwebmentionCount() {
-      try {
-        const getCount = await getCountMention(`/blog/${props.pathname}`);
-        setWebmentionCount(getCount);
-      } catch (error) {
-        console.log("-- There's error on getwebmentionCount --");
-      }
-    })();
-  }, []);
-
   return (
     <Box role="group" cursor="pointer" py={2} px={[2, 8]}>
       <NextLink href={`/blog/${props.pathname}`}>
-        <Grid gridAutoFlow="column" gridTemplateColumns="93% 1fr" gap="1">
+        <Grid gridAutoFlow="column" gridTemplateColumns="85% 1fr" gap="1">
           <Box>
             <Box
               fontWeight="bolder"
@@ -62,20 +50,14 @@ const BlogCard = (props: MapListBlogsPerYears[0][0]) => {
             >
               {props.data.spoiler}
             </Text>
-            <Grid
-              mt="2"
-              gridAutoFlow="column"
-              gridAutoColumns="max-content"
-              alignItems="center"
-              gap="1"
-            >
-              <Icon as={Heart} color="azure.400" justifySelf="center" />
-              <Text fontSize="sm" color="azure.400">
-                {webmentionCount}
-              </Text>
-            </Grid>
           </Box>
-          <Grid gap="1" mt="1" justifyContent="flex-end" alignItems="center" alignContent="center">
+          <Grid
+            gap="1"
+            mt="-5px"
+            justifyContent="flex-end"
+            alignItems="center"
+            alignContent="center"
+          >
             <Text color={text}>{props.monthCreated}</Text>
             <Box borderColor="azure.300" borderBottomWidth="1px" borderBottomStyle="solid" />
             <Text textAlign="center" color={text}>
@@ -109,7 +91,7 @@ const BlogPage = ({ mapListBlogsPerYears }: InferGetStaticPropsType<typeof getSt
       desc={DESC_PAGE}
       SEO={{ title: TITLE_PAGE, desc: DESC_PAGE }}
     >
-      <Stack mt={8} mx={[null, `calc(-1*${theme.space[20]})`]} spacing={10}>
+      <Stack mt={8} mx={[null, `calc(-1*${theme.space[12]})`]} spacing={10}>
         {years.map(year => (
           <Box key={year}>
             <Text fontWeight={600} fontSize="2xl" color={text}>
@@ -117,6 +99,7 @@ const BlogPage = ({ mapListBlogsPerYears }: InferGetStaticPropsType<typeof getSt
             </Text>
             <Box
               mt={1}
+              mb={2}
               borderColor="azure.300"
               borderBottomWidth="1px"
               borderBottomStyle="solid"

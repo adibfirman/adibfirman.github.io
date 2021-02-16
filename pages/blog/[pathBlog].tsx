@@ -1,18 +1,16 @@
 import type { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 
 import * as React from "react";
-import { useEffect, useState } from "react";
 import { format as formatDate } from "date-fns";
 import ReactMarkdown from "react-markdown";
 import { Flex, Text, Icon } from "@chakra-ui/react";
 import { useTheme } from "@chakra-ui/core";
-import { Heart, Calendar } from "react-feather";
+import { Calendar } from "react-feather";
 
 import { Page } from "@components";
 import { Hr } from "@components/UI";
 import { listBlogs, getPostByPath } from "@utils/blogs";
 import markdownParser from "@utils/markdownParser";
-import getCountMention from "@utils/getCountMention";
 
 function BlogPage({
   frontMatter,
@@ -21,18 +19,6 @@ function BlogPage({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const theme = useTheme();
   const createdAt = new Date(frontMatter.data.date);
-  const [webmentionCount, setWebmentionCount] = useState(0);
-
-  useEffect(() => {
-    (async function getwebmentionCount() {
-      try {
-        const getCount = await getCountMention(`/blog/${pathname}`);
-        setWebmentionCount(getCount);
-      } catch (error) {
-        console.log("-- There's error on getwebmentionCount --");
-      }
-    })();
-  }, []);
 
   return (
     <Page
@@ -44,15 +30,14 @@ function BlogPage({
       <Hr />
       <Flex justifyContent="space-between" alignItems="center">
         <Flex alignItems="center">
-          <Icon as={Calendar} color="azure.400" justifySelf="center" mr={1} />
           <Text fontSize="sm" color="azure.400">
-            {formatDate(createdAt, "dd MMMM yyyy")}
+            Diterbitkan pada:
           </Text>
         </Flex>
         <Flex alignItems="center">
-          <Icon as={Heart} color="azure.400" justifySelf="center" mr={1} />
+          <Icon as={Calendar} color="azure.400" justifySelf="center" mr={1} />
           <Text fontSize="sm" color="azure.400">
-            {webmentionCount}
+            {formatDate(createdAt, "dd MMMM yyyy")}
           </Text>
         </Flex>
       </Flex>
