@@ -66,7 +66,7 @@ const LayoutPage: React.FC<PropsLayoutPage> = ({
             {title}
           </Heading>
           {desc && (
-            <Text textAlign="justify" fontSize="lg" mt="6" color={colorText}>
+            <Text textAlign="center" fontSize="lg" mt="6" color={colorText}>
               {desc}
             </Text>
           )}

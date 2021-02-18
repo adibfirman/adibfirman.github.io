@@ -179,6 +179,7 @@ const Header = () => {
             <Link href="/blog">Blog</Link>
             <Link href="/talks">Talks</Link>
             <Link href="/oss">OSS</Link>
+            <Link href="/speed">Speed</Link>
             <Switch
               isChecked={colorMode === "dark"}
               size="sm"
