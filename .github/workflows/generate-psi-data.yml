@@ -1,0 +1,32 @@
+name: Generate PSI report
+on:
+  schedule:
+    # https://crontab.guru/#30_2_*_*_1,3,5
+    # At 02:30 on Monday, Wednesday, and Friday
+    - cron: "30 2 * * 1,3,5"
+
+jobs:
+  run_psi:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: psi-gh-action
+        uses: mazipan/psi-gh-action@1.5.0
+        with:
+          api_key: ${{ secrets.PSI_API_KEY }}
+          urls: |
+            https://adibfirman.space/
+            https://adibfirman.space/blog/
+          devices: |
+            mobile
+            desktop
+          runs: 1
+          max: 10
+          override: false
+          branch: master
+          push_back: true
+          token: ${{ secrets.GITHUB_TOKEN }}
