@@ -24,7 +24,7 @@ const SpeedPage = ({ newestData }: { newestData: SpeedReports }) => {
       SEO={{ title: TITLE_PAGE, desc: DESC_PAGE }}
     >
       <Text textAlign="center" fontSize="lg" mt="6" color={titleText[colorMode]}>
-        🗓 Last updated on {newestData.timestamp.substring(0, 10)}
+        🗓 last updated on {newestData.timestamp.substring(0, 10)}
       </Text>
       <Grid
         gridTemplateColumns={[null, "repeat(2, 1fr)"]}
