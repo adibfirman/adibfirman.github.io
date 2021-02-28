@@ -1,9 +1,11 @@
 import * as React from "react";
-import { Link as ChakraUILink } from "@chakra-ui/react";
+import { Link as ChakraUILink, LinkProps } from "@chakra-ui/react";
 
 import { useDarkMode } from "@utils/useDarkMode";
 
-const Link = <T extends unknown>(props: T) => {
+type Props = { children?: React.ReactNode } & LinkProps;
+
+const Link = <T extends unknown>(props: T & Props) => {
   const { colorMode } = useDarkMode();
 
   // === dark mode need's ===
@@ -17,7 +19,9 @@ const Link = <T extends unknown>(props: T) => {
       color={color}
       cursor="pointer"
       _hover={{ textDecoration: "underline" }}
-    />
+    >
+      {props.children}
+    </ChakraUILink>
   );
 };
 

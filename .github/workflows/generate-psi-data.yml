@@ -27,6 +27,6 @@ jobs:
           runs: 1
           max: 10
           override: false
-          branch: master
+          branch: main
           push_back: true
           token: ${{ secrets.GITHUB_TOKEN }}

@@ -92,7 +92,13 @@ const Header = () => {
         !isScrolling ? "unset" : "#00000026 0px 1px 4px 0px"
       ]}
     >
-      <Flex maxWidth="lg" m="0 auto" p={[6, 4]} justifyContent="space-between" alignItems="center">
+      <Flex
+        maxWidth={["100vw", "calc(100vw - 200px)"]}
+        m="0 auto"
+        p={[6, 4]}
+        justifyContent="space-between"
+        alignItems="center"
+      >
         <NextLink href="/">
           <a>
             <Box position="relative" pb="27px">
@@ -174,13 +180,15 @@ const Header = () => {
             )}
           </AnimatePresence>
         </MobileView>
+
         <DesktopView>
-          <Grid gridAutoFlow="column" gap={[1, 6]} alignItems="center">
+          <Grid gridAutoFlow="column" alignItems="center">
             <Link href="/blog">Blog</Link>
             <Link href="/talks">Talks</Link>
             <Link href="/oss">OSS</Link>
             <Link href="/speed">Speed</Link>
             <Switch
+              ml={10}
               isChecked={colorMode === "dark"}
               size="sm"
               onChange={() => toggleColorMode()}
