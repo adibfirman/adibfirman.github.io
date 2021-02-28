@@ -21,6 +21,13 @@ const textProps = {
   fontWeight: "normal"
 } as BoxProps;
 
+const LINKS_HEADER = [
+  { href: "/blog", name: "Blog" },
+  { href: "/talks", name: "Talks" },
+  { href: "/oss", name: "OSS" },
+  { href: "/speed", name: "Speed" }
+];
+
 const Link: LinkProps = ({ children, noPadding = false, href, overWriteActive = false }) => {
   const theme = useTheme() as CustomDefaultTheme;
   const { colorMode } = useColorMode();
@@ -147,15 +154,11 @@ const Header = () => {
                       <Link overWriteActive noPadding href="/">
                         @adibfirman
                       </Link>
-                      <Link noPadding href="/blog">
-                        Blog
-                      </Link>
-                      <Link noPadding href="/talks">
-                        Talks
-                      </Link>
-                      <Link noPadding href="/oss">
-                        OSS
-                      </Link>
+                      {LINKS_HEADER.map(link => (
+                        <Link key={link.href} noPadding href={link.href}>
+                          {link.name}
+                        </Link>
+                      ))}
                     </Grid>
                   </Box>
                   <Box
@@ -183,10 +186,11 @@ const Header = () => {
 
         <DesktopView>
           <Grid gridAutoFlow="column" alignItems="center">
-            <Link href="/blog">Blog</Link>
-            <Link href="/talks">Talks</Link>
-            <Link href="/oss">OSS</Link>
-            <Link href="/speed">Speed</Link>
+            {LINKS_HEADER.map(link => (
+              <Link key={link.href} href={link.href}>
+                {link.name}
+              </Link>
+            ))}
             <Switch
               ml={10}
               isChecked={colorMode === "dark"}

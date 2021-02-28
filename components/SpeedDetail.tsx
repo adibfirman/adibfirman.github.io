@@ -1,10 +1,9 @@
 import * as React from "react";
-import { useState, useMemo, Fragment } from "react";
+import { useMemo, Fragment } from "react";
 import { CircularProgress, CircularProgressLabel, Flex, Text, Grid } from "@chakra-ui/react";
 
 import { SpeedReport } from "@utils/speed";
 import { useDarkMode } from "@utils/useDarkMode";
-import { data } from "remark";
 
 type Props = {
   detailPage: SpeedReport;
