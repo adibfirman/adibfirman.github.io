@@ -9,7 +9,7 @@ import { useDarkMode } from "@utils/useDarkMode";
 import { Page } from "@components";
 import { getPsiReportData, SpeedReport, SpeedReports } from "@utils/speed";
 
-import SpeedDetail from "./_SpeedDetail";
+import SpeedDetail from "@components/SpeedDetail";
 
 const Hr = NextDynamic(() => import("@components/Markdown/Hr"), { ssr: false });
 const Link = NextDynamic(() => import("@components/Markdown/Link"), { ssr: false });
