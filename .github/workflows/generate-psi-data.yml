@@ -23,6 +23,7 @@ jobs:
           urls: |
             https://adibfirman.space/
             https://adibfirman.space/blog/
+            https://adibfirman.space/blog/memahami-apa-itu-snowpack
           devices: |
             mobile
             desktop
