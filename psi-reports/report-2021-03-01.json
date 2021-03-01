@@ -1,0 +1,65 @@
+{
+  "timestamp": "2021-03-01T02:50:14.247Z",
+  "reports": [
+    {
+      "url": "https://adibfirman.space/",
+      "device": "mobile",
+      "perf": 0.64,
+      "fid": 0,
+      "lcp": 2700,
+      "cls": 0,
+      "fcp": 2520,
+      "fci": 5709,
+      "tbt": 1288,
+      "tti": 6963.5,
+      "si": 2520,
+      "req": 38,
+      "size": 463414
+    },
+    {
+      "url": "https://adibfirman.space/",
+      "device": "desktop",
+      "perf": 0.91,
+      "fid": 0,
+      "lcp": 825,
+      "cls": 0,
+      "fcp": 735,
+      "fci": 1515,
+      "tbt": 251.5,
+      "tti": 2083.5,
+      "si": 735,
+      "req": 49,
+      "size": 543084
+    },
+    {
+      "url": "https://adibfirman.space/blog/",
+      "device": "mobile",
+      "perf": 0.63,
+      "fid": 0,
+      "lcp": 2850,
+      "cls": 0,
+      "fcp": 2595,
+      "fci": 5478,
+      "tbt": 1246,
+      "tti": 6993,
+      "si": 2595,
+      "req": 40,
+      "size": 495648
+    },
+    {
+      "url": "https://adibfirman.space/blog/",
+      "device": "desktop",
+      "perf": 0.95,
+      "fid": 0,
+      "lcp": 947,
+      "cls": 0,
+      "fcp": 877,
+      "fci": 1250,
+      "tbt": 123.5,
+      "tti": 2085,
+      "si": 877,
+      "req": 55,
+      "size": 589117
+    }
+  ]
+}
