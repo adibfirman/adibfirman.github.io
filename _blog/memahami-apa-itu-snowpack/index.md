@@ -18,8 +18,6 @@ Hal - hal yang kita sebutkan diatas memang sudah hal yang biasa apalagi kita tid
 ![require error example](./image-1.png)
 
 Maka dari itu Module Bundler dibutuhkan untuk menyelesaikan error yang kita dapatkan, Module Bundler yang bisa kita gunakan biasanya ialah, Webpack atau Parcel (ada lagi selain dua ini, tetapi tidak saya sebutkan semua 😅) dan yang ingin kita bahas ialah Snowpack.
-\
-\
 
 ## Apa itu Snowpack
 
