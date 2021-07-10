@@ -3,7 +3,6 @@ import type { GetStaticProps, NextPage } from "next";
 import * as React from "react";
 import { Heading, Box, Grid } from "@chakra-ui/react";
 import { useTheme } from "@chakra-ui/core";
-import { useColorMode } from "@chakra-ui/core";
 
 import { Page } from "@components";
 import { NavigationCard } from "@components/UI";
@@ -20,6 +19,11 @@ const TITLE_PAGE = "Hello There...!!";
 const HomePage: NextPage<HomePageProps> = ({ recentBlogs }) => {
   const theme = useTheme();
   const { colorText } = useDarkMode();
+  const [abc, setAbc] = React.useState(false);
+
+  React.useEffect(() => {
+    console.log(abc, setAbc);
+  }, [abc]);
 
   return (
     <Page title={TITLE_PAGE + "👋"} desc={DESC_PAGE} SEO={{ title: TITLE_PAGE, desc: DESC_PAGE }}>
