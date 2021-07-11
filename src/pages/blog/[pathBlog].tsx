@@ -3,8 +3,7 @@ import type { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import * as React from "react";
 import { format as formatDate } from "date-fns";
 import ReactMarkdown from "react-markdown";
-import { Flex, Text, Icon } from "@chakra-ui/react";
-import { useTheme } from "@chakra-ui/core";
+import { Flex, Text, Icon, useTheme } from "@chakra-ui/react";
 import { Calendar } from "react-feather";
 
 import { Page } from "@components";

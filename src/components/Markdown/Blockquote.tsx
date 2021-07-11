@@ -1,6 +1,5 @@
 import * as React from "react";
-import { Icon, Grid, Box } from "@chakra-ui/react";
-import { useTheme } from "@chakra-ui/core";
+import { Icon, Grid, Box, useTheme } from "@chakra-ui/react";
 import { Wind } from "react-feather";
 
 const Blockquote: React.FC = ({ children }) => {

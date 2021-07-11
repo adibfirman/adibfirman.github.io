@@ -1,17 +1,13 @@
 import type { InferGetStaticPropsType } from "next";
 
 import * as React from "react";
-import { useState, useEffect } from "react";
 import NextLink from "next/link";
 import { format as formatDate } from "date-fns";
-import { Heart } from "react-feather";
-import { Box, Icon, Grid, Stack } from "@chakra-ui/react";
-import { useTheme } from "@chakra-ui/core";
+import { Box, Grid, Stack, useTheme } from "@chakra-ui/react";
 import { Text } from "@chakra-ui/react";
 
 import { Page } from "@components";
 import { listBlogs } from "@utils/blogs";
-import getCountMention from "@utils/getCountMention";
 import { useDarkMode } from "@utils/useDarkMode";
 
 const DESC_PAGE = `So in this page, it's just an open space where I share my knowledge or let say "seeds" of my thoughts to be cultivated in public, *most of these seeds writed in 🇮🇩 `;

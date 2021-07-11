@@ -1,6 +1,5 @@
 import * as React from "react";
-import { Flex, Box, Text, Grid } from "@chakra-ui/react";
-import { useTheme } from "@chakra-ui/core";
+import { Flex, Box, Text, Grid, useTheme } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
 
 import { Page } from "@components";

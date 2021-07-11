@@ -1,10 +1,11 @@
 import * as React from "react";
-import type { GetServerSideProps, NextPage } from "next";
-import { Heading, Flex, Text, Grid, Box } from "@chakra-ui/react";
-import { useTheme } from "@chakra-ui/core";
-import { ParamsMetaImage } from "@/next-env";
+import type { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
+import { Heading, Flex, Text, Grid, Box, useTheme } from "@chakra-ui/react";
 
-const MetaImagePage: NextPage<ParamsMetaImage> = ({ title, pathURL }) => {
+const MetaImagePage = ({
+  title,
+  pathURL
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const theme = useTheme();
 
   return (
@@ -52,13 +53,13 @@ const MetaImagePage: NextPage<ParamsMetaImage> = ({ title, pathURL }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps<ParamsMetaImage> = async ({ query }) => {
+export async function getServerSideProps({ query }: GetServerSidePropsContext) {
   const title = (query.title as string) || "";
   const pathURL = (query.pathURL as string) || "";
 
   return {
     props: { title, pathURL }
   };
-};
+}
 
 export default MetaImagePage;

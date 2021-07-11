@@ -1,6 +1,5 @@
 import * as React from "react";
-import { Box, Grid, Flex, Text, List, ListItem, Link } from "@chakra-ui/react";
-import { useTheme } from "@chakra-ui/core";
+import { Box, Grid, Flex, Text, List, ListItem, Link, useTheme } from "@chakra-ui/react";
 import { Award, ExternalLink } from "react-feather";
 
 import { Page } from "@components";
