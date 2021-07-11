@@ -19,7 +19,7 @@ const Hr = () => {
       gridTemplateColumns="1fr max-content 1fr"
     >
       <LeftHr />
-      <Text color="azure.200">{"<hr />"}</Text>
+      <Text color="light.200">{"<hr />"}</Text>
       <RightHr />
     </Grid>
   );

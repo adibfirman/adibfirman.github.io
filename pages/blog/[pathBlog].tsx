@@ -30,13 +30,13 @@ function BlogPage({
       <Hr />
       <Flex justifyContent="space-between" alignItems="center">
         <Flex alignItems="center">
-          <Text fontSize="sm" color="azure.400">
+          <Text fontSize="sm" color="light.400">
             Diterbitkan pada:
           </Text>
         </Flex>
         <Flex alignItems="center">
-          <Icon as={Calendar} color="azure.400" justifySelf="center" mr={1} />
-          <Text fontSize="sm" color="azure.400">
+          <Icon as={Calendar} color="light.400" justifySelf="center" mr={1} />
+          <Text fontSize="sm" color="light.400">
             {formatDate(createdAt, "dd MMMM yyyy")}
           </Text>
         </Flex>

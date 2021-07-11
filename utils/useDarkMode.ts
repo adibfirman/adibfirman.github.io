@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useColorMode } from "@chakra-ui/core";
+import { useColorMode } from "@chakra-ui/react";
 
 export const useDarkMode = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -9,7 +9,7 @@ export const useDarkMode = () => {
 
   useEffect(() => {
     const titleText = { light: "unset", dark: "dark.text" }[colorMode];
-    const bg = { light: "azure.50", dark: "dark.bg" }[colorMode];
+    const bg = { light: "light.50", dark: "dark.bg" }[colorMode];
     setBG(bg);
     setColorText(titleText);
     setColorModeState(colorMode);

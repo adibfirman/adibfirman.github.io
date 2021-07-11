@@ -1,8 +1,7 @@
-import { theme as baseTheme } from "@chakra-ui/core";
+import { extendTheme, ThemeConfig } from "@chakra-ui/react";
 
 const colors = {
-  ...baseTheme.colors,
-  azure: {
+  light: {
     "50": "#f6f7f8",
     "100": "#d9d9da",
     "200": "#c0c1c2",
@@ -30,16 +29,15 @@ const colors = {
 };
 
 const fonts = {
-  ...baseTheme.fonts,
   grandstander: "'Grandstander', cursive",
   merriweather: "'Merriweather', serif",
   inputMono: "InputMono-Medium"
 };
 
-const theme = {
-  ...baseTheme,
-  colors,
-  fonts
+const config: ThemeConfig = {
+  initialColorMode: "light",
+  useSystemColorMode: false
 };
 
+const theme = extendTheme({ config, colors, fonts });
 export default theme;

@@ -7,7 +7,7 @@ const InlineCode: React.FC = ({ children }) => {
   const { colorMode } = useDarkMode();
 
   // === dark mode need's ===
-  const titleText = { light: "azure.700", dark: "dark.text" }[colorMode];
+  const titleText = { light: "light.700", dark: "dark.text" }[colorMode];
   const bgColor = { light: "#F6F8FA", dark: "dark.bg3" }[colorMode];
   // ========================
 

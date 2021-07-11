@@ -1,7 +1,16 @@
 import * as React from "react";
 import { GitHub, Twitter, Linkedin, Rss } from "react-feather";
-import { Link, useTheme, Box, Heading, Text, List, ListItem, Grid, Icon } from "@chakra-ui/react";
-import { useColorMode } from "@chakra-ui/core";
+import {
+  Link,
+  Box,
+  Heading,
+  Text,
+  List,
+  ListItem,
+  Grid,
+  Icon,
+  useColorMode
+} from "@chakra-ui/react";
 
 const SOCIAL_MEDIA = [
   {
@@ -28,7 +37,6 @@ const SOCIAL_MEDIA = [
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const theme = useTheme();
   const { colorMode } = useColorMode();
 
   // === dark mode need's ===

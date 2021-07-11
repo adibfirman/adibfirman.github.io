@@ -10,7 +10,7 @@ const MetaImagePage: NextPage<ParamsMetaImage> = ({ title, pathURL }) => {
   return (
     <Grid
       p="4"
-      backgroundColor="azure.50"
+      backgroundColor="light.50"
       height="100vh"
       gridTemplateRows="max-content 1fr max-content"
     >
@@ -32,7 +32,7 @@ const MetaImagePage: NextPage<ParamsMetaImage> = ({ title, pathURL }) => {
         p={10}
         alignItems="center"
       >
-        <Text color="azure.700" fontSize="6xl" maxWidth="74%">
+        <Text color="light.700" fontSize="6xl" maxWidth="74%">
           {title}
         </Text>
         <Box position="absolute" width="21%" right={16} top="5rem">

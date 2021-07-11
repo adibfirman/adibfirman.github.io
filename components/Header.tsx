@@ -1,12 +1,21 @@
-import React, { useEffect, useState } from "react";
+import type { BoxProps } from "@chakra-ui/react";
+
+import * as React from "react";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
-import { Text, BoxProps, Box, Flex, Grid, Link as UILink } from "@chakra-ui/react";
-import { useTheme, Switch, useColorMode, theme } from "@chakra-ui/core";
 import { Menu, X as CloseIcon } from "react-feather";
 import { AnimatePresence, motion } from "framer-motion";
+import {
+  Text,
+  Box,
+  Flex,
+  Grid,
+  Link as UILink,
+  useTheme,
+  useColorMode,
+  Switch
+} from "@chakra-ui/react";
 
-import { CustomDefaultTheme } from "@/next-env";
 import DesktopView from "@components/DesktopView";
 import MobileView from "@components/MobileView";
 
@@ -29,7 +38,7 @@ const LINKS_HEADER = [
 ];
 
 const Link: LinkProps = ({ children, noPadding = false, href, overWriteActive = false }) => {
-  const theme = useTheme() as CustomDefaultTheme;
+  const theme = useTheme();
   const { colorMode } = useColorMode();
   const router = useRouter();
   const regex = new RegExp(href, "gi");
@@ -38,7 +47,7 @@ const Link: LinkProps = ({ children, noPadding = false, href, overWriteActive = 
   // === dark mode need's ===
   const textColor = { light: isActive ? "gray.700" : "gray.500", dark: "dark.linkTxt" };
   const hoverableText = { light: "gray.600", dark: "dark.linkTxt" };
-  const bgActive = { light: "azure.200", dark: "unset" };
+  const bgActive = { light: "light.200", dark: "unset" };
   const borderBottom = { light: "unset", dark: `2px solid ${theme.colors.dark.bg1}` };
   // ========================
 
@@ -63,18 +72,18 @@ const Link: LinkProps = ({ children, noPadding = false, href, overWriteActive = 
 
 const Header = () => {
   const { toggleColorMode, colorMode } = useColorMode();
-  const [isScrolling, setIsScrolling] = useState(false);
-  const theme = useTheme() as CustomDefaultTheme;
-  const [showDraerMenu, setShowDrawerMenu] = useState(false);
+  const [isScrolling, setIsScrolling] = React.useState(false);
+  const theme = useTheme();
+  const [showDraerMenu, setShowDrawerMenu] = React.useState(false);
   const toggleShowDrawer = () => setShowDrawerMenu(val => !val);
 
   // === dark mode need's ===
-  const bg = { light: isScrolling ? "white" : "azure.50", dark: "dark.bg2" }[colorMode];
+  const bg = { light: isScrolling ? "white" : "light.50", dark: "dark.bg2" }[colorMode];
   const text = { light: "unset", dark: "dark.text" }[colorMode];
   const mobileText = { light: "#1A202C", dark: theme.colors.dark.text }[colorMode];
   // ========================
 
-  useEffect(() => {
+  React.useEffect(() => {
     const handleScrollBrowser = () => {
       if (window.pageYOffset > 0) setIsScrolling(true);
       else setIsScrolling(false);
@@ -196,7 +205,7 @@ const Header = () => {
               isChecked={colorMode === "dark"}
               size="sm"
               onChange={() => toggleColorMode()}
-              color="azure.50"
+              color="light.50"
             />
           </Grid>
         </DesktopView>

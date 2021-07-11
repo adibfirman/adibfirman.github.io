@@ -47,10 +47,10 @@ const HighlightCode: React.FC<Props> = ({ value, language }) => {
   const theme = { light: lightTheme, dark: darkTheme }[colorMode];
 
   // === dark mode need's ===
-  const bgHeader = { light: "azure.100", dark: "dark.bg2" }[colorMode];
-  const bordercolor = { light: "azure.200", dark: "dark.bg4" }[colorMode];
-  const headerText = { light: "azure.600", dark: "dark.text" }[colorMode];
-  const numberCode = { light: "azure.200", dark: "dark.text2" }[colorMode];
+  const bgHeader = { light: "light.100", dark: "dark.bg2" }[colorMode];
+  const bordercolor = { light: "light.200", dark: "dark.bg4" }[colorMode];
+  const headerText = { light: "light.600", dark: "dark.text" }[colorMode];
+  const numberCode = { light: "light.200", dark: "dark.text2" }[colorMode];
   // ========================
 
   return (

@@ -26,7 +26,7 @@ const BlogCard = (props: MapListBlogsPerYears[0][0]) => {
 
   // === dark mode need's ===
   const text = { light: "unset", dark: "dark.text" }[colorMode];
-  const spoilerText = { light: "azure.600", dark: "dark.text" }[colorMode];
+  const spoilerText = { light: "light.600", dark: "dark.text" }[colorMode];
   // ========================
 
   return (
@@ -59,7 +59,7 @@ const BlogCard = (props: MapListBlogsPerYears[0][0]) => {
             alignContent="center"
           >
             <Text color={text}>{props.monthCreated}</Text>
-            <Box borderColor="azure.300" borderBottomWidth="1px" borderBottomStyle="solid" />
+            <Box borderColor="light.300" borderBottomWidth="1px" borderBottomStyle="solid" />
             <Text textAlign="center" color={text}>
               {props.dayCreated}
             </Text>
@@ -100,7 +100,7 @@ const BlogPage = ({ mapListBlogsPerYears }: InferGetStaticPropsType<typeof getSt
             <Box
               mt={1}
               mb={2}
-              borderColor="azure.300"
+              borderColor="light.300"
               borderBottomWidth="1px"
               borderBottomStyle="solid"
             />

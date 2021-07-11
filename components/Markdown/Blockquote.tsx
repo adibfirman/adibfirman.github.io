@@ -17,9 +17,9 @@ const Blockquote: React.FC = ({ children }) => {
       fontStyle="italic"
     >
       <Grid justifyItems="center" gap={2}>
-        <Box h={10} w={1} borderRadius="md" backgroundColor="azure.400" />
-        <Icon as={Wind} color="azure.300" w={30} h={30} />
-        <Box h={10} w={1} borderRadius="md" backgroundColor="azure.400" />
+        <Box h={10} w={1} borderRadius="md" backgroundColor="light.400" />
+        <Icon as={Wind} color="light.300" w={30} h={30} />
+        <Box h={10} w={1} borderRadius="md" backgroundColor="light.400" />
       </Grid>
       {children}
     </Grid>
