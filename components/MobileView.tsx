@@ -1,7 +1,7 @@
 import React from "react";
 import { Box } from "@chakra-ui/react";
 
-const MobileView: React.FC = ({ children }) => {
+const MobileView = ({ children }: { children: React.ReactNode }) => {
   return <Box display={["unset", "none"]}>{children}</Box>;
 };
 

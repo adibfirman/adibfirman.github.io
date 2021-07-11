@@ -1,19 +1,25 @@
 import * as React from "react";
 import { useState } from "react";
-import NextDynamic from "next/dynamic";
-import { Text, Flex } from "@chakra-ui/react";
-import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/core";
 import { format } from "date-fns";
+import { ArrowLeft, ArrowRight } from "react-feather";
+import {
+  Text,
+  Flex,
+  Tabs,
+  TabList,
+  TabPanels,
+  Tab,
+  TabPanel,
+  Link,
+  Button
+} from "@chakra-ui/react";
 
 import { useDarkMode } from "@utils/useDarkMode";
 import { Page } from "@components";
 import { getPsiReportData, SpeedReport, SpeedReports } from "@utils/speed";
 
 import SpeedDetail from "@components/SpeedDetail";
-
-const Hr = NextDynamic(() => import("@components/Markdown/Hr"), { ssr: false });
-const Link = NextDynamic(() => import("@components/Markdown/Link"), { ssr: false });
-const Button = NextDynamic(() => import("@chakra-ui/core/dist/Button"), { ssr: false });
+import Hr from "@components/Markdown/Hr";
 
 type ReportsByDevices = { [device: string]: SpeedReport[] };
 
@@ -49,7 +55,7 @@ const SpeedPage = ({ newestData }: { newestData: SpeedReports }) => {
       <Flex my="6" justifyContent="space-between">
         <Button
           color={colorText}
-          leftIcon="arrow-left"
+          leftIcon={<ArrowLeft />}
           size="xs"
           variant="ghost"
           onClick={() => setActivePage(activePage - 1)}
@@ -59,7 +65,7 @@ const SpeedPage = ({ newestData }: { newestData: SpeedReports }) => {
         </Button>
         <Button
           color={colorText}
-          rightIcon="arrow-right"
+          rightIcon={<ArrowRight />}
           size="xs"
           variant="ghost"
           onClick={() => setActivePage(activePage + 1)}

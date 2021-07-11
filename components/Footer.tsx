@@ -9,7 +9,7 @@ import {
   ListItem,
   Grid,
   Icon,
-  useColorMode
+  useColorModeValue
 } from "@chakra-ui/react";
 
 const SOCIAL_MEDIA = [
@@ -37,15 +37,14 @@ const SOCIAL_MEDIA = [
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const { colorMode } = useColorMode();
 
-  // === dark mode need's ===
-  const bg = { light: "white", dark: "dark.bg2" };
-  const textColor = { light: "gray.600", dark: "dark.text" };
-  // ========================
+  /** @start dark mode data needed */
+  const bg = useColorModeValue("white", "dark.bg2");
+  const textColor = useColorModeValue("gray.600", "dark.text");
+  /** @end */
 
   return (
-    <Box backgroundColor={bg[colorMode]} boxShadow="#00000026 0px 1px 4px 0px" py="12">
+    <Box backgroundColor={bg} boxShadow="#00000026 0px 1px 4px 0px" py="12">
       <Grid
         gridAutoFlow={["row", "column"]}
         maxWidth={[null, "lg"]}
@@ -55,12 +54,12 @@ const Footer = () => {
         px={[4, 0]}
       >
         <Box display={["none", "block"]} alignSelf="center">
-          <Text fontSize="xs" color={textColor[colorMode]}>
+          <Text fontSize="xs" color={textColor}>
             © {currentYear}. All Rights Reserved.
           </Text>
         </Box>
         <Grid>
-          <Heading as="h2" fontSize="md" lineHeight="15px" mb="2" color={textColor[colorMode]}>
+          <Heading as="h2" fontSize="md" lineHeight="15px" mb="2" color={textColor}>
             Get In Touch.
           </Heading>
           <List>
@@ -72,14 +71,8 @@ const Footer = () => {
                   alignItems="center"
                   gridAutoColumns="max-content"
                 >
-                  <Icon as={media.customIcon} color={textColor[colorMode]} />
-                  <Link
-                    textAlign="left"
-                    color={textColor[colorMode]}
-                    isExternal
-                    href={media.link}
-                    rel="me"
-                  >
+                  <Icon as={media.customIcon} color={textColor} />
+                  <Link textAlign="left" color={textColor} isExternal href={media.link} rel="me">
                     {media.text}
                   </Link>
                 </Grid>

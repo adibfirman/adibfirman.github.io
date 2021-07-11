@@ -1,6 +1,6 @@
 import * as React from "react";
 import NextLink from "next/link";
-import { Grid, Text, Flex, Box, useTheme, useColorMode } from "@chakra-ui/react";
+import { Grid, Text, Flex, Box, useTheme, useColorModeValue } from "@chakra-ui/react";
 import { ArrowRight } from "react-feather";
 
 type Props = {
@@ -11,19 +11,18 @@ type Props = {
 
 const NavigationCard = ({ title, desc, href }: Props) => {
   const theme = useTheme();
-  const { colorMode } = useColorMode();
 
-  // === dark mode need's ===
-  const titleText = { light: "unset", dark: "dark.text" };
-  const icon = { light: "#000", dark: theme.colors.dark.text };
-  const bg = { light: "white", dark: "dark.bg2" };
-  // ========================
+  /** @start dark mode data needed */
+  const titleText = useColorModeValue("unset", "dark.text");
+  const icon = useColorModeValue(theme.colors.black, theme.colors.dark.text);
+  const bg = useColorModeValue("white", "dark.bg2");
+  /** @end */
 
   return (
     <NextLink href={href}>
       <Box
         role="group"
-        backgroundColor={bg[colorMode]}
+        backgroundColor={bg}
         borderRadius={4}
         boxShadow="xl"
         p={4}
@@ -39,11 +38,11 @@ const NavigationCard = ({ title, desc, href }: Props) => {
             style={{ textOverflow: "ellipsis" }}
             title={typeof title !== "string" ? "" : title}
             fontWeight={700}
-            color={titleText[colorMode]}
+            color={titleText}
           >
             {title}
           </Box>
-          <Text fontSize="sm" mb={6} color={titleText[colorMode]}>
+          <Text fontSize="sm" mb={6} color={titleText}>
             {desc}
           </Text>
           <Flex alignItems="center">
@@ -54,11 +53,11 @@ const NavigationCard = ({ title, desc, href }: Props) => {
               ml="auto"
               fontWeight={700}
               _groupHover={{ textDecoration: "underline" }}
-              color={titleText[colorMode]}
+              color={titleText}
             >
               See Detail
             </Box>
-            <ArrowRight color={icon[colorMode]} size={theme.fontSizes.lg} />
+            <ArrowRight color={icon} size={theme.fontSizes.lg} />
           </Flex>
         </Grid>
       </Box>

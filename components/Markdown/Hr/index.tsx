@@ -1,6 +1,5 @@
 import * as React from "react";
-import { Grid, Text, Box } from "@chakra-ui/react";
-import { useColorMode } from "@chakra-ui/core";
+import { Grid, Text, Box, useColorMode } from "@chakra-ui/react";
 
 import { RightHr, LeftHr } from "./style";
 

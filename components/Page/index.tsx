@@ -1,25 +1,12 @@
-import type { BoxProps } from "@chakra-ui/react";
-
 import * as React from "react";
 import { NextSeo } from "next-seo";
 import { Box, Heading, Text, Flex } from "@chakra-ui/react";
 import qs from "querystring";
-import { ParamsMetaImage } from "@/next-env";
 
-import { Header, Footer } from ".";
 import { URL as URLApp } from "next-seo.config";
 import { useDarkMode } from "@utils/useDarkMode";
 
-type PropsLayoutPage = {
-  path?: string;
-  title: string;
-  desc?: string;
-  bodyStyle?: BoxProps;
-  SEO: {
-    title: string;
-    desc: string;
-  };
-};
+import { Header, Footer } from "../";
 
 const LayoutPage: React.FC<PropsLayoutPage> = ({
   children,
@@ -34,7 +21,7 @@ const LayoutPage: React.FC<PropsLayoutPage> = ({
   const paramsMetaImage = qs.stringify({
     title: SEO.title,
     pathURL: host + (pathname === "/" ? "" : pathname)
-  } as ParamsMetaImage);
+  });
 
   return (
     <Box backgroundColor={bg}>

@@ -1,5 +1,3 @@
-import type { BoxProps } from "@chakra-ui/react";
-
 import * as React from "react";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
@@ -19,23 +17,7 @@ import {
 import DesktopView from "@components/DesktopView";
 import MobileView from "@components/MobileView";
 
-type LinkProps = React.FC<{ href: string; noPadding?: boolean; overWriteActive?: boolean }>;
-
-const transition = "all 350ms ease-in-out 0s";
-const textProps = {
-  transition,
-  position: "absolute",
-  fontFamily: "grandstander",
-  fontSize: "xl",
-  fontWeight: "normal"
-} as BoxProps;
-
-const LINKS_HEADER = [
-  { href: "/blog", name: "Blog" },
-  { href: "/talks", name: "Talks" },
-  { href: "/oss", name: "OSS" },
-  { href: "/speed", name: "Speed" }
-];
+import { transition, textProps, LINKS_HEADER } from "./constants";
 
 const Link: LinkProps = ({ children, noPadding = false, href, overWriteActive = false }) => {
   const theme = useTheme();
