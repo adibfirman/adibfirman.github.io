@@ -8,7 +8,7 @@ import { CacheProvider, Global } from "@emotion/core";
 import { cache } from "emotion";
 import { DefaultSeo } from "next-seo";
 
-import SEO from "../next-seo.config";
+import SEO from "~/next-seo.config";
 import theme from "@utils/theme";
 
 const globalStyle = css`

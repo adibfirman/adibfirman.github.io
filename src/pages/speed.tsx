@@ -41,7 +41,7 @@ const SpeedPage = ({ newestData }: { newestData: SpeedReports }) => {
     <Page
       path="/speed"
       title={`${TITLE_PAGE} ⚡️`}
-      desc={`This page it's just a report of performance for several page, so basically if you want to test a performance "just in case if you want 😅" just refer to this page.`}
+      desc={`This page it's just a report of performance for several page, so basically if you want to test a performance "just in case if you want 😅 " just refer to this page.`}
       SEO={{ title: TITLE_PAGE, desc: DESC_PAGE }}
     >
       <Hr />

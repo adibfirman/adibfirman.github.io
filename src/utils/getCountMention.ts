@@ -1,5 +1,5 @@
 import fetch from "isomorphic-fetch";
-import { URL as ownDomain } from "../next-seo.config";
+import { URL as ownDomain } from "../../next-seo.config";
 
 export default async function getCountMention(pathname: string) {
   const URLWeb = new URL(ownDomain);

@@ -13,12 +13,21 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "baseUrl": ".",
     "downlevelIteration": true,
+    "baseUrl": "./src",
     "paths": {
-      "@*": ["./*"]
+      "@*": ["./*"],
+      "~*": ["../*"]
     }
   },
   "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "next.config.js"]
+  "include": [
+    "env.d.ts",
+    "next-env.d.ts",
+    "**/*.js",
+    "**/*.json",
+    "**/*.jsx",
+    "**/*.ts",
+    "**/*.tsx"
+  ]
 }
