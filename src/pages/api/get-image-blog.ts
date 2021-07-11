@@ -1,10 +1,6 @@
 import type { NextApiHandler } from "next";
 import path from "path";
 import fs from "fs";
-import chrome from "chrome-aws-lambda";
-import pptr from "puppeteer";
-import qs from "querystring";
-import absoluteURL from "next-absolute-url";
 
 import { blogsFilePaths, BLOG_PATH } from "@utils/blogs";
 
