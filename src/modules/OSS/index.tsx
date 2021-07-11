@@ -1,13 +1,11 @@
 import * as React from "react";
-import { Flex, Box, Text, Grid, useTheme } from "@chakra-ui/react";
-import dynamic from "next/dynamic";
+import { Grid, useTheme } from "@chakra-ui/react";
 
 import { Page } from "@components";
 import { NavigationCard } from "@components/UI";
 
 import { DESC_PAGE, TITLE_PAGE, AUTHOR_LINK, OSS_LIST } from "./constants";
-
-const GHButton = dynamic(() => import("react-github-btn"), { ssr: false });
+import CardTitle from "./CardTitle";
 
 const OSSPage = () => {
   const theme = useTheme();
@@ -39,19 +37,5 @@ const OSSPage = () => {
     </Page>
   );
 };
-
-const CardTitle = ({ title, ...props }: { title: string; link?: string; ariaLabel?: string }) => (
-  <Flex alignItems="center" justifyContent="space-between">
-    <Text>{title}</Text>
-    <Box mb="-6px">
-      <GHButton
-        data-text="Star"
-        data-show-count
-        data-icon="octicon-star"
-        href={props?.link ?? `${AUTHOR_LINK}/${title}`}
-      />
-    </Box>
-  </Flex>
-);
 
 export default OSSPage;
