@@ -1,6 +1,6 @@
 import * as React from "react";
 import { format } from "date-fns";
-import { ArrowLeft, ArrowRight } from "react-feather";
+import { ChevronRight, ChevronLeft } from "react-feather";
 import {
   Text,
   Flex,
@@ -16,9 +16,9 @@ import {
 import { useDarkMode } from "@utils/useDarkMode";
 import { Page } from "@components";
 import { SpeedReports } from "@utils/speed";
-import SpeedDetail from "@components/SpeedDetail";
 import Hr from "@components/Markdown/Hr";
 
+import SpeedDetail from "./SpeedDetail";
 import { DESC_PAGE, TITLE_PAGE } from "./constants";
 import * as Types from "./types";
 
@@ -51,7 +51,7 @@ const SpeedPage = ({ newestData }: { newestData: SpeedReports }) => {
       <Flex my="6" justifyContent="space-between">
         <Button
           color={colorText}
-          leftIcon={<ArrowLeft />}
+          leftIcon={<ChevronLeft />}
           size="xs"
           variant="ghost"
           onClick={() => setActivePage(activePage - 1)}
@@ -61,7 +61,7 @@ const SpeedPage = ({ newestData }: { newestData: SpeedReports }) => {
         </Button>
         <Button
           color={colorText}
-          rightIcon={<ArrowRight />}
+          rightIcon={<ChevronRight />}
           size="xs"
           variant="ghost"
           onClick={() => setActivePage(activePage + 1)}
@@ -70,7 +70,7 @@ const SpeedPage = ({ newestData }: { newestData: SpeedReports }) => {
           Next Page
         </Button>
       </Flex>
-      <Tabs isFitted variant="enclosed" mx={[0, "-100px"]}>
+      <Tabs colorScheme="blue" isFitted variant="enclosed" mx={[0, "-100px"]}>
         <TabList mb="1em">
           <Tab color={colorText}>Mobile</Tab>
           <Tab color={colorText}>Desktop</Tab>

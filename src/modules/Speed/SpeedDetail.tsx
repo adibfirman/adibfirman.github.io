@@ -2,18 +2,12 @@ import * as React from "react";
 import { useMemo, Fragment } from "react";
 import { CircularProgress, CircularProgressLabel, Flex, Text, Grid } from "@chakra-ui/react";
 
-import { SpeedReport } from "@utils/speed";
 import { useDarkMode } from "@utils/useDarkMode";
 
-type Props = {
-  detailPage: SpeedReport;
-};
+import * as Types from "./types";
+import { POOR_COLOR, WARNING_COLOR, GOOD_COLOR } from "./constants";
 
-const GOOD_COLOR = "#09ce6c";
-const WARNING_COLOR = "#ffa403";
-const POOR_COLOR = "#ff4e42";
-
-const SpeedDetail = ({ detailPage }: Props) => {
+const SpeedDetail = ({ detailPage }: Types.SpeedDetailProps) => {
   const { colorText } = useDarkMode();
   const msToSecond = (sec: number) => Number(sec / 1000).toFixed(1);
 
