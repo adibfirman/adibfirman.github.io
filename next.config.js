@@ -7,5 +7,8 @@ module.exports = withMDX({
     domains: [],
     path: "/_next/image",
     loader: "default"
+  },
+  serverRuntimeConfig: {
+    PROJECT_ROOT: __dirname
   }
 });

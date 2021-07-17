@@ -4,8 +4,11 @@ import remark from "remark";
 import html from "remark-html";
 import { getUnixTime } from "date-fns";
 import matter from "gray-matter";
+import getConfig from "next/config";
 
-export const BLOG_PATH = path.join(process.cwd(), "_blog");
+const { serverRuntimeConfig } = getConfig();
+
+export const BLOG_PATH = path.join(serverRuntimeConfig.PROJECT_ROOT, "_blog");
 export const blogsFilePaths = fs.readdirSync(BLOG_PATH);
 
 export const markdownToHTML = async (markdown: string) => {
