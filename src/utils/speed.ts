@@ -23,7 +23,7 @@ export interface SpeedReports {
 }
 
 export function getPsiReportData(): SpeedReports[] {
-  const reportDir = join(process.cwd(), "psi-reports");
+  const reportDir = join(process.cwd(), "_psi-reports");
   const files = fs
     .readdirSync(reportDir)
     .filter((file: string) => file !== "LAST_UPDATED.txt" && file !== "available-reports.json")
