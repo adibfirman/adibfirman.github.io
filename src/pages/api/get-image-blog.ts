@@ -2,23 +2,14 @@ import type { NextApiHandler } from "next";
 import path from "path";
 import fs from "fs";
 
-import { blogsFilePaths, BLOG_PATH } from "@utils/blogs";
+import { BLOG_PATH } from "@utils/blogs";
 
 const handler: NextApiHandler = async (req, res) => {
   try {
     const fileName = req.query.fileName as string;
     const dirFolder = req.query.dirFolder as string;
-    let image;
-
-    blogsFilePaths.forEach(dirBlog => {
-      if (dirBlog === dirFolder) {
-        const removeSlashFileName = fileName.replace("./", "");
-        const pathImage = path.join(BLOG_PATH, dirBlog, removeSlashFileName);
-        const readImage = fs.readFileSync(pathImage);
-
-        image = readImage;
-      }
-    });
+    const pathImage = path.join(BLOG_PATH, dirFolder, fileName);
+    const image = fs.readFileSync(pathImage);
 
     res.setHeader("content-type", "image/png");
     res.setHeader("cache-control", "public, max-age=604800");
