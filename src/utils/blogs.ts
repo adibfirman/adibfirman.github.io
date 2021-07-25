@@ -18,7 +18,7 @@ export const markdownToHTML = async (markdown: string) => {
 
 export async function putImageIntoPublic(pathBlog: string) {
   const blogFolder = path.join(BLOG_PATH, pathBlog);
-  const publicPathImg = path.join(process.cwd(), `${IMAGES_PATH_NAME}/${pathBlog}`);
+  const publicPathImg = path.join(process.cwd(), `public/${IMAGES_PATH_NAME}/${pathBlog}`);
   const copyImages = () => {
     const readFolder = fs.readdirSync(blogFolder);
 
