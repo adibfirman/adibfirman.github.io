@@ -8,7 +8,7 @@ import { Calendar } from "react-feather";
 
 import { Page } from "@components";
 import { Hr } from "@components/UI";
-import { listBlogs, getPostByPath, putImageIntoPublic } from "@utils/blogs";
+import { listBlogs, getPostByPath } from "@utils/blogs";
 import markdownParser from "@utils/markdownParser";
 
 function BlogPage({
@@ -49,8 +49,6 @@ function BlogPage({
 export async function getStaticProps({ params }: GetStaticPropsContext) {
   const pathname = (params?.pathBlog ?? "") as string;
   const detailBlog = getPostByPath(pathname);
-
-  putImageIntoPublic(pathname);
 
   return {
     props: {

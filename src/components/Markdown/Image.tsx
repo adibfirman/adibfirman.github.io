@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 import { useRouter } from "next/router";
 import { Image as ChakraUiImage } from "@chakra-ui/react";
 import Zoom from "react-medium-image-zoom";
+import qs from "querystring";
 
 import { useDarkMode } from "@utils/useDarkMode";
 
@@ -22,7 +23,9 @@ const Image = (props: Props) => {
 
   const fileName = props.src;
   const dirFolder = router.query.pathBlog;
-  const srcImg = !isError ? `/images-blog/${dirFolder}/${fileName}` : "/not-found-img.png";
+  const params = qs.stringify({ fileName, dirFolder });
+  const urlImage = `/api/get-image-blog?${params}`;
+  const srcImg = !isError ? urlImage : "/not-found-img.png";
 
   return (
     <WrapperImg>

@@ -11,6 +11,15 @@ const handler: NextApiHandler = async (req, res) => {
     const pathImage = path.join(BLOG_PATH, dirFolder, fileName);
     const image = fs.readFileSync(pathImage);
 
+    const a = path.join(__dirname);
+    console.log(a);
+
+    const asa = fs.readdirSync(a);
+
+    asa.forEach(file => {
+      console.log(file);
+    });
+
     res.setHeader("content-type", "image/png");
     res.setHeader("cache-control", "public, max-age=604800");
     res.send(image);
