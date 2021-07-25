@@ -3,7 +3,7 @@ import { NextSeo } from "next-seo";
 import { Box, Heading, Text, Flex } from "@chakra-ui/react";
 import qs from "querystring";
 
-import { URL as URLApp } from "@/next-seo.config";
+import { URL as URLApp } from "~/next-seo.config";
 import { useDarkMode } from "@utils/useDarkMode";
 
 import { Header, Footer } from "..";
