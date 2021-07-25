@@ -1,6 +1,6 @@
 import type { NextPage, GetServerSideProps } from "next";
 import { listBlogs } from "@utils/blogs";
-import { URL as URLApp, title, description } from "~/next-seo.config";
+import { URL as URLApp, title, description } from "@/next-seo.config";
 
 const RSS: NextPage = () => null;
 
