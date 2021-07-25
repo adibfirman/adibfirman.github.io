@@ -11,7 +11,7 @@ const handler: NextApiHandler = async (req, res) => {
     // const pathImage = path.join(BLOG_PATH, dirFolder, fileName);
     // const image = fs.readFileSync(pathImage);
 
-    const a = path.join(process.cwd());
+    const a = path.join(process.cwd(), ".next");
     console.log(a);
 
     const asa = fs.readdirSync(a);
