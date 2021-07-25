@@ -2,7 +2,7 @@ import type { NextApiHandler } from "next";
 import path from "path";
 import fs from "fs";
 
-import { BLOG_PATH } from "@utils/blogs";
+// import { BLOG_PATH } from "@utils/blogs";
 
 const handler: NextApiHandler = async (req, res) => {
   try {
