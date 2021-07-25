@@ -28,3 +28,6 @@ yarn-error.log*
 /out_functions/
 
 .vercel
+
+# public images
+/public/images-blog/*
