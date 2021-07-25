@@ -17,6 +17,7 @@ export const markdownToHTML = async (markdown: string) => {
 
 export function getPostByPath(pathBlog: string) {
   const fullPath = path.join(BLOG_PATH, pathBlog, `index.md`);
+  console.log("dsa", fullPath);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
