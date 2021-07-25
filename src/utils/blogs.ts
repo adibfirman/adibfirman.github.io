@@ -20,34 +20,29 @@ export async function putImageIntoPublic(pathBlog: string) {
   const blogFolder = path.join(BLOG_PATH, pathBlog);
   const publicPathImg = path.join(process.cwd(), `public/${IMAGES_PATH_NAME}/${pathBlog}`);
   const copyImages = () => {
-    return new Promise<void>(resolve => {
-      const readFOlder = fs.readdirSync(blogFolder);
+    const readFolder = fs.readdirSync(blogFolder);
 
-      for (const file of readFOlder) {
-        if (file.match(/.*\.(gif|jpe?g|bmp|png)$/gim)) {
-          const fromDir = path.join(blogFolder, file);
-          const toDir = path.join(publicPathImg, file);
+    for (const file of readFolder) {
+      if (file.match(/.*\.(gif|jpe?g|bmp|png)$/gim)) {
+        const fromDir = path.join(blogFolder, file);
+        const toDir = path.join(publicPathImg, file);
 
-          fs.copyFile(fromDir, toDir, err => {
-            if (err) throw err;
-            else resolve();
-          });
-        }
+        fs.copyFileSync(fromDir, toDir);
       }
-    });
+    }
   };
 
   if (fs.existsSync(publicPathImg)) {
     console.log(`===== Public dir blog "${pathBlog}" exists, try put all images =====`);
 
-    await copyImages();
+    copyImages();
 
     console.log(`===== Images for blog "${pathBlog}" copied to public dir =====`);
   } else {
     console.log(`===== Public dir blog "${pathBlog}" doesn't exists, create it one =====`);
 
     fs.mkdirSync(publicPathImg);
-    await copyImages();
+    copyImages();
 
     console.log(`===== Public dir already created and all images already copied =====`);
   }
