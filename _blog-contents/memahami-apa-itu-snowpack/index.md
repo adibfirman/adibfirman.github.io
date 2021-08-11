@@ -4,10 +4,11 @@ date: "2021-01-24"
 spoiler: Pembelajaran mengenai apa itu dan bagaimana cara bekerjanya Snowpack
 ---
 
-Sebelum kita melompat membahas tentang apa itu dan bagaimana cara Snowpack bekerja, kita akan bahas sedikit bagaimana cara kita membangun sebuah website, pada dasarnya web dibuat berdasarkan 3 tiang utama yaitu, HTML, CSS, dan JAVASCRIPT, terlihat mudah dan tidak banyak yang diperlukan untuk membuat sebuah website bukan?
-\
-\
-Pada dasarnya kita tidak pernah membuat web yang benar - benar dari 0, artinya pada era sekarang banyak diantara kita meng-gantikan tiga tiang sudah kita sebutkan dengan,
+Sebelum kita melompat membahas tentang apa itu dan bagaimana cara Snowpack bekerja, kita akan bahas sedikit bagaimana cara kita membangun sebuah website.
+
+Pada dasarnya web dibuat berdasarkan 3 tiang utama yaitu, HTML, CSS, dan JAVASCRIPT, terlihat mudah dan tidak banyak yang diperlukan untuk membuat sebuah website bukan?
+
+Pada dasarnya kita tidak pernah membuat web yang benar - benar dari 0 artinya pada era sekarang banyak diantara kita menggantikan tiga tiang sudah kita sebutkan dengan;
 
 - HTML kita ganti dengan library/framework seperti Angular, React atau Vue
 - CSS kita ganti dengan SASS/LESS atau dengan metode css-in-js
@@ -23,11 +24,8 @@ Maka dari itu Module Bundler dibutuhkan untuk menyelesaikan error yang kita dapa
 
 Snowpack ialah salah satu Module Bundler seperti Webpack atau lainnya, tetapi Snowpack meng-klaim bahwa dia adalah sebuah Module Bundler yang ringan dan modern, konsep-nya seperti apa sih?
 
-## Konsep dasar
-
 Konsep yang diterapkan oleh Snowpack sendiri sangat unik, karena pada dasarnya sebuah Module Bundler seperti Webpack cara kerjanya ialah ketika ada satu file yang kita ubah, maka Webpack akan otomatis me-rebuild keseluruhan file dan itu akan selalu ada jeda waktu yang dibutuhkan didalam proses tersebut.
-\
-\
+
 Lain halnya dengan Snowpack, cara kerjanya ialah, pada saat pertama kali kita run sebuah script katakanlah `run build` Snowpack akan mem-build semua file terlebih dahulu lalu hasil file yang sudah di build akan di _cache_, lalu ketika kita merubah satu file Snowpack hanya me-rebuild file yang telah kita ubah saja, proses ini dinamakan oleh Snowpack yaitu _unbundled development_.
 
 ![process snowpack](./image-2.png)
@@ -37,14 +35,11 @@ Gambar diatas menjelaskan bahwa Snowpack akan men-split file kita dan akan di-re
 ## _Bundled_ vs _Unbundled development_
 
 _Bundled development_ ialah sebuah metode yang diterapkan oleh budler - bundler seperti sekarang seperti Webpack, Parcel, dll. metode ini sudah sedikit kita jelas diatas ketika ada satu file yang berubah maka bundler tersebut akan me-rebuild-nya ulang.
-\
-\
+
 Uniknya selama ini ketika kita dalam mode development kita bisa menggunakan ESM by default tanpa harus merubahnya ke commonjs (CJS), maksudnya ialah kita tidak perlu merubah syntax code dari sebuah library/dependency/kode kita ke dalam CJS, dan juga ada beberapa kode secara development kita tidak membutuhkannya.
-\
-\
+
 _Unbundled development_ ini sudah kita pahami sedikit pada section sebelum ini, intinya cara yang garap oleh Snowpack untuk mempercepat development kita dan menghindari proses re-build yang tidak dibutuhkan ketika development.
-\
-\
+
 Menarik-nya ialah jika kita memperhatikan gambar sebelumnya, dimana disitu ada beberapa file hasil build dari Snowpack yang menghasilnya ESM file, sebagai contoh akan seperti ini:
 
 ```console
@@ -67,7 +62,7 @@ Menarik bukan?
 
 ## Contoh penggunaan
 
-_Just show me the code_ terkadang ada beberapa orang yang agak susah untuk menerima sekedar teori belaka 😅, baiklan kita akan mencoba-nya, silahkan ikui instruksi dibawah ini,
+_Just show me the code_ terkadang ada beberapa orang yang agak susah untuk menerima sekedar teori belaka, baiklah kita akan mencoba-nya, silahkan untuk mengikuti instruksi dibawah ini
 
 ```console
 mkdir learning-snowpackjs
@@ -175,9 +170,8 @@ Kita akan buktikan apakah package `canvas-confetti` akan di bundle sendiri oleh 
 
 Kalian lihat? ternyata package yang sebelumnya kita install, Snowpack akan otomatis membundle-nya secara terpisah dan file tersebut akan di _cache_ tentunya, lalu ketika ada file yang kita ubah maka Snowpack akan me-rebuild file yang kita ubah saja dan akan di _cache_ ulang.
 
-## Penutup
+## Ikhtisar
 
 Snowpack memang sangat menarik dengan metode development yang dibawanya _unbundled development_ sebuah cara dimana kita akan membawa development mode secara asik dan cepat, baiklah itu saja catatan sedikit dari memahami dari module bundler Snowpack semoga bermanfaat.
-\
-\
+
 Terima Kasih.

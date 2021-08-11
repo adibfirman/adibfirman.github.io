@@ -3,21 +3,11 @@ import { Heading as ChakraUIReact } from "@chakra-ui/react";
 
 import { useDarkMode } from "@utils/useDarkMode";
 
-type MapHeading = {
-  [key: number]: { fontSize: string; fontWeight: string };
-};
-
 const MAP_HEADING = {
-  1: { fontSize: "3xl", fontWeight: "bold", borderBottom: "1px solid" },
-  2: {
-    fontSize: "2xl",
-    fontWeight: "bold",
-    borderBottom: "1px solid",
-    marginTop: "24px",
-    marginBottom: "16px"
-  },
-  3: { fontSize: "xl", fontWeight: "bold" }
-} as MapHeading;
+  1: { fontSize: "4xl" },
+  2: { fontSize: "3xl" },
+  3: { fontSize: "xl" }
+} as any;
 
 const Heading: React.FC<{ level: number }> = props => {
   const { colorMode, colorText } = useDarkMode();
@@ -30,12 +20,14 @@ const Heading: React.FC<{ level: number }> = props => {
 
   return (
     <ChakraUIReact
-      color={colorText}
       as={as}
-      my={4}
       {...defaultStyle}
-      borderColor={borderColor}
       {...props}
+      color={colorText}
+      marginTop="10"
+      marginBottom="0"
+      fontWeight="bold"
+      borderColor={borderColor}
     />
   );
 };

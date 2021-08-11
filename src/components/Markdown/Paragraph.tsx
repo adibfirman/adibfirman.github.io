@@ -13,8 +13,9 @@ const Paragraph: React.FC<{ as: React.ElementType }> = ({ children, as }) => {
       lineHeight="32px"
       wordBreak="break-word"
       fontFamily="merriweather"
-      fontSize="1.1rem"
+      fontSize="1em"
       color={colorText}
+      mt="8"
     >
       {children}
     </Text>
