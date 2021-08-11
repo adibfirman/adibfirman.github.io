@@ -16,38 +16,6 @@ export const markdownToHTML = async (markdown: string) => {
   return htmlContent;
 };
 
-export async function putImageIntoPublic(pathBlog: string) {
-  const blogFolder = path.join(BLOG_PATH, pathBlog);
-  const publicPathImg = path.join(process.cwd(), `public/${IMAGES_PATH_NAME}/${pathBlog}`);
-  const copyImages = () => {
-    const readFolder = fs.readdirSync(blogFolder);
-
-    for (const file of readFolder) {
-      if (file.match(/.*\.(gif|jpe?g|bmp|png)$/gim)) {
-        const fromDir = path.join(blogFolder, file);
-        const toDir = path.join(publicPathImg, file);
-
-        fs.copyFileSync(fromDir, toDir);
-      }
-    }
-  };
-
-  if (fs.existsSync(publicPathImg)) {
-    console.log(`===== Public dir blog "${pathBlog}" exists, try put all images =====`);
-
-    copyImages();
-
-    console.log(`===== Images for blog "${pathBlog}" copied to public dir =====`);
-  } else {
-    console.log(`===== Public dir blog "${pathBlog}" doesn't exists, create it one =====`);
-
-    fs.mkdirSync(publicPathImg);
-    copyImages();
-
-    console.log(`===== Public dir already created and all images already copied =====`);
-  }
-}
-
 export function getPostByPath(pathBlog: string) {
   const fullPath = path.join(BLOG_PATH, pathBlog, `index.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
