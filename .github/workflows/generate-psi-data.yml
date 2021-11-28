@@ -21,9 +21,9 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: main
           urls: |
-            https://adibfirman.space/
-            https://adibfirman.space/blog/
-            https://adibfirman.space/blog/memahami-apa-itu-snowpack
+            https://adibfirman.dev/
+            https://adibfirman.dev/blog/
+            https://adibfirman.dev/blog/memahami-apa-itu-snowpack
           devices: |
             mobile
             desktop

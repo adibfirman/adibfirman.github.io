@@ -2,7 +2,7 @@ import type { DefaultSeoProps } from "next-seo";
 
 export const description = "Web Development, Software Engineering and Jr Developer For Life";
 export const title = "Adib Firman";
-export const URL = "https://adibfirman.space";
+export const URL = "https://adibfirman.dev";
 
 export default {
   title,
