@@ -5,6 +5,13 @@ export const TITLE_PAGE = "Yeahh, I was in here..!!";
 
 export const LiST_TALK = [
   {
+    when: "October 30, 2021",
+    title: "Introduction to Frontend Framework",
+    at: "GDSC ITB University",
+    resource:
+      "https://docs.google.com/presentation/d/1zMsTw_iO-zrbRwQVw5IGhQyLLjA8U7ly9hEhAWfp0GU/edit?usp=sharing"
+  },
+  {
     when: "January 31, 2020",
     title: "Deep Dive with useCallback and useMemo",
     at: "Facebook Lab Innovation Indonesia",

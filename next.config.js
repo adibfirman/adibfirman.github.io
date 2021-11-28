@@ -1,7 +1,7 @@
 const withMDX = require("@next/mdx")({ extension: /\.mdx?$/ });
 
 module.exports = withMDX({
-  webpack5: false,
+  swcMinify: true,
   images: {
     deviceSizes: [420, 768, 1024, 1200],
     iconSizes: [],
