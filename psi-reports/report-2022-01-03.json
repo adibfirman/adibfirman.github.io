@@ -1,65 +1,65 @@
 {
-  "timestamp": "2021-12-21T02:54:22.907Z",
+  "timestamp": "2022-01-03T02:54:34.420Z",
   "reports": [
     {
       "url": "https://adibfirman.dev/",
       "device": "mobile",
-      "perf": 0.73,
+      "perf": 0.77,
       "fid": 0,
-      "lcp": 1018,
+      "lcp": 1889,
       "cls": 0,
-      "fcp": 1018,
+      "fcp": 997,
       "fci": 0,
-      "tbt": 1304,
-      "tti": 5159.5,
-      "si": 1972.42,
+      "tbt": 886.5,
+      "tti": 5163.5,
+      "si": 1794.44,
       "req": 31,
-      "size": 437316
+      "size": 437345
     },
     {
       "url": "https://adibfirman.dev/",
       "device": "desktop",
-      "perf": 0.94,
+      "perf": 0.97,
       "fid": 0,
-      "lcp": 549,
+      "lcp": 350,
       "cls": 0,
       "fcp": 299,
       "fci": 0,
-      "tbt": 198,
-      "tti": 1298,
-      "si": 386.84,
+      "tbt": 150,
+      "tti": 1240,
+      "si": 407.88,
       "req": 43,
-      "size": 524755
+      "size": 524739
     },
     {
       "url": "https://adibfirman.dev/blog/",
       "device": "mobile",
-      "perf": 0.68,
+      "perf": 0.73,
       "fid": 0,
-      "lcp": 1290,
+      "lcp": 1181,
       "cls": 0,
-      "fcp": 1263,
+      "fcp": 1181,
       "fci": 0,
-      "tbt": 2048,
-      "tti": 6703,
-      "si": 2348.02,
+      "tbt": 1212,
+      "tti": 6117.5,
+      "si": 1213.35,
       "req": 34,
-      "size": 472799
+      "size": 472814
     },
     {
       "url": "https://adibfirman.dev/blog/",
       "device": "desktop",
       "perf": 0.92,
       "fid": 0,
-      "lcp": 603,
+      "lcp": 678,
       "cls": 0,
-      "fcp": 367,
+      "fcp": 364,
       "fci": 0,
-      "tbt": 221,
-      "tti": 1978,
-      "si": 414.91,
+      "tbt": 222,
+      "tti": 2012,
+      "si": 486.65,
       "req": 49,
-      "size": 567417
+      "size": 567419
     },
     {
       "url": "https://adibfirman.dev/blog/memahami-apa-itu-snowpack",
@@ -70,26 +70,26 @@
       "cls": 0.0244,
       "fcp": 2160,
       "fci": 0,
-      "tbt": 3000,
-      "tti": 9961.5,
-      "si": 2539.34,
+      "tbt": 2754,
+      "tti": 9690.5,
+      "si": 2482.54,
       "req": 34,
-      "size": 1800300
+      "size": 1800321
     },
     {
       "url": "https://adibfirman.dev/blog/memahami-apa-itu-snowpack",
       "device": "desktop",
       "perf": 0.53,
       "fid": 0,
-      "lcp": 620,
+      "lcp": 660,
       "cls": 0.0279,
       "fcp": 620,
       "fci": 0,
-      "tbt": 4729,
-      "tti": 6163,
-      "si": 4578.14,
+      "tbt": 4445.5,
+      "tti": 6040,
+      "si": 4676.47,
       "req": 46,
-      "size": 1887737
+      "size": 1887728
     }
   ]
 }
