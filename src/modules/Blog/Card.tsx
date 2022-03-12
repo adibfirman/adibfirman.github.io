@@ -24,6 +24,7 @@ const BlogCard = (props: Types.MapListBlogsPerYears[0][0]) => {
               _groupHover={{ textDecoration: "underline" }}
               fontSize="lg"
               color={text}
+              isTruncated
             >
               {props.data.title}
             </Box>
