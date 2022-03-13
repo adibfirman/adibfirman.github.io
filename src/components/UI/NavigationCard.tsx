@@ -19,7 +19,7 @@ const NavigationCard = ({ title, desc, href }: Props) => {
   /** @end */
 
   return (
-    <NextLink href={href}>
+    <NextLink href={href + window.location.search}>
       <Box
         role="group"
         backgroundColor={bg}
