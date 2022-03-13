@@ -1,4 +1,4 @@
-import type { NextPageContext, InferGetServerSidePropsType } from "next";
+import type { NextPageContext } from "next";
 
 import * as React from "react";
 import { Heading, Box, Grid, useTheme, Radio, Stack } from "@chakra-ui/react";
@@ -11,7 +11,11 @@ import { getBlogs } from "@utils/blogs";
 const DESC_PAGE = `I'm Adib Firman, I'm software engineer from 🇮🇩 (Indonesia) day-by-day working and learn a fun things about Web Ecosystem, and occasionally planting seed on my own digital garden.`;
 const TITLE_PAGE = "Hello There...!!";
 
-const HomePage = ({ recentBlogs }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+type Props = {
+  recentBlogs: ReturnType<typeof getBlogs>;
+};
+
+const HomePage = ({ recentBlogs }: Props) => {
   const theme = useTheme();
   const router = useRouter();
   const param = router.query;
@@ -47,14 +51,16 @@ const HomePage = ({ recentBlogs }: InferGetServerSidePropsType<typeof getServerS
           gridTemplateColumns={[null, "repeat(3, minmax(1em, 1fr))"]}
           gap={4}
         >
-          {recentBlogs.map(({ data, pathname }, i) => (
-            <NavigationCard
-              key={i}
-              title={data.title}
-              desc={data.spoiler}
-              href={`/blog/${pathname}`}
-            />
-          ))}
+          {recentBlogs.map((blog, i) =>
+            blog ? (
+              <NavigationCard
+                key={i}
+                title={blog.data.title}
+                desc={blog.data.spoiler}
+                href={`/blog/${blog.pathname}`}
+              />
+            ) : null
+          )}
         </Grid>
       </Box>
     </Page>
