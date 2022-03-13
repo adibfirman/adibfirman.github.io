@@ -29,6 +29,47 @@ export function getPostByPath(pathBlog: string) {
   return { data, content } as Data;
 }
 
+export const getBlogs = (lang: string = "id") => {
+  let constructBlogs = blogsFilePaths
+    .map(blogFolder => {
+      const langExtension = lang === "id" ? "" : "." + lang;
+      const filePath = path.join(BLOG_PATH, blogFolder, `index${langExtension}.md`);
+      let source;
+
+      try {
+        source = fs.readFileSync(filePath);
+      } catch (err) {
+        source = "";
+      }
+
+      if (source) {
+        const { data, content } = matter(source);
+        const blogDate = new Date(data.date);
+
+        return {
+          content,
+          pathname: blogFolder,
+          data: {
+            title: data.title as string,
+            spoiler: data.spoiler as string,
+            date: blogDate.toDateString(),
+            timestamps: getUnixTime(blogDate)
+          }
+        };
+      }
+
+      return "";
+    })
+    .filter(Boolean);
+
+  constructBlogs = constructBlogs.sort((a, b) => {
+    if (a && b) return b.data.timestamps - a.data.timestamps;
+    return 0;
+  });
+
+  return constructBlogs;
+};
+
 // get list blogs
 export const listBlogs = blogsFilePaths
   .map(blogFolder => {
