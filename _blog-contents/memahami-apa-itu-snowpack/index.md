@@ -10,9 +10,9 @@ Pada dasarnya web dibuat berdasarkan 3 tiang utama yaitu, HTML, CSS, dan JAVASCR
 
 Pada dasarnya kita tidak pernah membuat web yang benar - benar dari 0 artinya pada era sekarang banyak diantara kita menggantikan tiga tiang sudah kita sebutkan dengan;
 
-- HTML kita ganti dengan library/framework seperti Angular, React atau Vue
+- HTML kita ganti dengan JSX atau sebagainya
 - CSS kita ganti dengan SASS/LESS atau dengan metode css-in-js
-- JS kita ganti dengan TypeScript
+- JS kita ganti dengan TypeScript atau sebuah tambahan _library_ React, Vue, atau Angular
 
 Hal - hal yang kita sebutkan diatas memang sudah hal yang biasa apalagi kita tidak bisa terlepas dari sebuah dependency, ketika kita menggunakan sebuah dependency/library kalau kita asal copy/paste kode untuk kita terapkan, tampaknya kita akan bertemu dengan error seperti ini
 
