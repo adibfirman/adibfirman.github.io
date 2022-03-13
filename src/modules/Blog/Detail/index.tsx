@@ -1,8 +1,9 @@
 import * as React from "react";
 import { format as formatDate } from "date-fns";
 import ReactMarkdown from "react-markdown";
-import { Flex, Text, Icon, useTheme } from "@chakra-ui/react";
+import { Flex, Text, Icon, useTheme, Link, Stack } from "@chakra-ui/react";
 import { Calendar } from "react-feather";
+import { useRouter } from "next/router";
 
 import { Page } from "@components";
 import { Hr } from "@components/UI";
@@ -10,9 +11,25 @@ import markdownParser from "@utils/markdownParser";
 
 import * as Types from "./types";
 
-function BlogPage({ frontMatter, source, pathname }: Types.Props) {
+function BlogPage({ frontMatter, source, pathname, availableTranslations }: Types.Props) {
   const theme = useTheme();
+  const router = useRouter();
   const createdAt = new Date(frontMatter.data.date || "2999");
+  const getCurrentLang = (router.query.content || "id") as string;
+  const publishedText = {
+    id: "Diterbitkan pada",
+    en: "Published at"
+  }[getCurrentLang];
+
+  const translationsText = {
+    id: "Terjemahan yang tersedia",
+    en: "Available Translations"
+  }[getCurrentLang];
+
+  const handleChangeTranslation = (lang: string) => {
+    router.query.content = lang;
+    router.push(router);
+  };
 
   return (
     <Page
@@ -25,7 +42,7 @@ function BlogPage({ frontMatter, source, pathname }: Types.Props) {
       <Flex justifyContent="space-between" alignItems="center">
         <Flex alignItems="center">
           <Text fontSize="sm" color="light.400">
-            Diterbitkan pada:
+            {publishedText}:
           </Text>
         </Flex>
         <Flex alignItems="center">
@@ -35,6 +52,30 @@ function BlogPage({ frontMatter, source, pathname }: Types.Props) {
           </Text>
         </Flex>
       </Flex>
+
+      {availableTranslations.length ? (
+        <Flex justifyContent="space-between" alignItems="center">
+          <Flex alignItems="center">
+            <Text fontSize="sm" color="light.400">
+              {translationsText}:
+            </Text>
+          </Flex>
+          <Stack ml="1" spacing={1} direction="row">
+            {availableTranslations.map(lang => (
+              <Link
+                key={lang}
+                fontSize="md"
+                color={lang === getCurrentLang ? "" : "light.600"}
+                fontWeight={lang === getCurrentLang ? "bold" : "unset"}
+                onClick={() => handleChangeTranslation(lang)}
+              >
+                {lang.toUpperCase()},
+              </Link>
+            ))}
+          </Stack>
+        </Flex>
+      ) : null}
+
       <Hr />
       <ReactMarkdown renderers={markdownParser}>{source}</ReactMarkdown>
     </Page>

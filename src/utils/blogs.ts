@@ -18,16 +18,28 @@ export const markdownToHTML = async (markdown: string) => {
 
 export function getPostByPath(pathBlog: string, contentLang: string) {
   const langExtension = contentLang === "id" ? "" : "." + contentLang;
-  const fullPath = path.join(BLOG_PATH, pathBlog, `index${langExtension}.md`);
+  const blogPathFolder = path.join(BLOG_PATH, pathBlog);
+  const fullPath = path.join(blogPathFolder, `index${langExtension}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
+  const availableTranslations = fs
+    .readdirSync(blogPathFolder)
+    .map(fileName => {
+      if (fileName.includes("md")) {
+        const getTranslation = fileName.replace(/(index.|md|.md)/gm, "");
 
-  type Data = {
-    content: string;
-    data: typeof listBlogs[0]["data"];
-  };
+        return getTranslation || "id";
+      }
 
-  return { data, content } as Data;
+      return "";
+    })
+    .filter(Boolean);
+
+  return {
+    data,
+    content,
+    availableTranslations: availableTranslations.length > 1 ? availableTranslations : []
+  } as const;
 }
 
 export const getBlogs = (lang: string = "id") => {

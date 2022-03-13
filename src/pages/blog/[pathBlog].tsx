@@ -12,13 +12,14 @@ function BlogPage(props: InferGetStaticPropsType<typeof getServerSideProps>) {
 export async function getServerSideProps({ params, query }: GetServerSidePropsContext) {
   const content = (query.content || "id") as string;
   const pathname = (params?.pathBlog ?? "") as string;
-  const detailBlog = getPostByPath(pathname, content);
+  const { availableTranslations, ...detailBlog } = getPostByPath(pathname, content);
 
   return {
     props: {
       source: detailBlog?.content ?? "",
       frontMatter: detailBlog,
-      pathname
+      pathname,
+      availableTranslations
     }
   };
 }
