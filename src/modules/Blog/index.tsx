@@ -12,7 +12,7 @@ import { DESC_PAGE, TITLE_PAGE } from "./constants";
 const Card = dynamic(() => import("./Card"), { ssr: false });
 
 const BlogPage = ({ mapListBlogsPerYears }: Types.Props) => {
-  const route = useRouter();
+  const router = useRouter();
   const theme = useTheme();
   const { colorMode } = useDarkMode();
   const years = Object.keys(mapListBlogsPerYears).sort((n1, n2) => {
@@ -26,7 +26,7 @@ const BlogPage = ({ mapListBlogsPerYears }: Types.Props) => {
   const text = { light: "unset", dark: "dark.text" }[colorMode];
   // ========================
 
-  const param = route.query;
+  const param = router.query;
   const getContent = param.content || "id";
   const languages = [
     { val: "en", text: "EN", isChecked: getContent === "en" },
@@ -48,7 +48,7 @@ const BlogPage = ({ mapListBlogsPerYears }: Types.Props) => {
           <Stack direction="row" justifySelf="end">
             {languages.map(language => (
               <Radio
-                onClick={() => route.replace({ query: { content: language.val } })}
+                onClick={() => router.replace({ query: { content: language.val } })}
                 key={language.val}
                 isChecked={language.isChecked}
                 value={language.val}
