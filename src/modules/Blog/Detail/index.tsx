@@ -12,7 +12,7 @@ import * as Types from "./types";
 
 function BlogPage({ frontMatter, source, pathname }: Types.Props) {
   const theme = useTheme();
-  const createdAt = new Date(frontMatter.data.date);
+  const createdAt = new Date(frontMatter.data.date || "2999");
 
   return (
     <Page

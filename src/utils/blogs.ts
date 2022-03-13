@@ -16,8 +16,9 @@ export const markdownToHTML = async (markdown: string) => {
   return htmlContent;
 };
 
-export function getPostByPath(pathBlog: string) {
-  const fullPath = path.join(BLOG_PATH, pathBlog, `index.md`);
+export function getPostByPath(pathBlog: string, contentLang: string) {
+  const langExtension = contentLang === "id" ? "" : "." + contentLang;
+  const fullPath = path.join(BLOG_PATH, pathBlog, `index${langExtension}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
@@ -44,7 +45,7 @@ export const getBlogs = (lang: string = "id") => {
 
       if (source) {
         const { data, content } = matter(source);
-        const blogDate = new Date(data.date);
+        const blogDate = new Date(data.date || "2999");
 
         return {
           content,

@@ -16,7 +16,7 @@ const BlogCard = (props: Types.MapListBlogsPerYears[0][0]) => {
 
   return (
     <Box role="group" cursor="pointer" py={2} px={[2, 8]}>
-      <NextLink href={`/blog/${props.pathname}`}>
+      <NextLink href={`/blog/${props.pathname + window.location.search}`}>
         <Grid gridAutoFlow="column" gridTemplateColumns="85% 1fr" gap="1">
           <Box>
             <Box

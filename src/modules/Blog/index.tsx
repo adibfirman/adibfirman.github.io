@@ -1,13 +1,15 @@
 import * as React from "react";
 import { Box, Stack, useTheme, Text, Radio, Grid } from "@chakra-ui/react";
 import { useRouter } from "next/router";
+import dynamic from "next/dynamic";
 
 import { Page } from "@components";
 import { useDarkMode } from "@utils/useDarkMode";
 
 import * as Types from "./types";
-import Card from "./Card";
 import { DESC_PAGE, TITLE_PAGE } from "./constants";
+
+const Card = dynamic(() => import("./Card"), { ssr: false });
 
 const BlogPage = ({ mapListBlogsPerYears }: Types.Props) => {
   const route = useRouter();

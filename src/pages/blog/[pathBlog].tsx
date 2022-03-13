@@ -1,17 +1,18 @@
-import type { GetStaticPropsContext, InferGetStaticPropsType } from "next";
+import type { GetServerSidePropsContext, InferGetStaticPropsType } from "next";
 
 import * as React from "react";
 
-import { listBlogs, getPostByPath } from "@utils/blogs";
+import { getPostByPath } from "@utils/blogs";
 import ModuleDetailBlog from "@modules/Blog/Detail";
 
-function BlogPage(props: InferGetStaticPropsType<typeof getStaticProps>) {
+function BlogPage(props: InferGetStaticPropsType<typeof getServerSideProps>) {
   return <ModuleDetailBlog {...props} />;
 }
 
-export async function getStaticProps({ params }: GetStaticPropsContext) {
+export async function getServerSideProps({ params, query }: GetServerSidePropsContext) {
+  const content = (query.content || "id") as string;
   const pathname = (params?.pathBlog ?? "") as string;
-  const detailBlog = getPostByPath(pathname);
+  const detailBlog = getPostByPath(pathname, content);
 
   return {
     props: {
@@ -21,11 +22,5 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
     }
   };
 }
-
-export const getStaticPaths = async () => {
-  const paths = listBlogs.map(blog => ({ params: { pathBlog: blog.pathname } }));
-
-  return { paths, fallback: false };
-};
 
 export default BlogPage;
