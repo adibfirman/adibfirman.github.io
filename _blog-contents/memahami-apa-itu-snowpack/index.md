@@ -42,7 +42,7 @@ _Unbundled development_ ini sudah kita pahami sedikit pada section sebelum ini, 
 
 Menarik-nya ialah jika kita memperhatikan gambar sebelumnya, dimana disitu ada beberapa file hasil build dari Snowpack yang menghasilnya ESM file, sebagai contoh akan seperti ini:
 
-```console
+```bash
 node_modules/react/**/*     -> http://localhost:3000/web_modules/react.js
 node_modules/react-dom/**/* -> http://localhost:3000/web_modules/react-dom.js
 ```
@@ -64,7 +64,7 @@ Menarik bukan?
 
 _Just show me the code_ terkadang ada beberapa orang yang agak susah untuk menerima sekedar teori belaka, baiklah kita akan mencoba-nya, silahkan untuk mengikuti instruksi dibawah ini
 
-```console
+```bash
 mkdir learning-snowpackjs
 cd learning-snowpackjs
 yarn init -y
@@ -147,7 +147,7 @@ Lalu, kita buka browser dan lihat _console_ browser maka kita akan melihat resul
 
 Yaps, menarik bukan? lalu hal yang akan kita lakukan selanjutnya adalah kita akan test _unbundled development_ yang sudah kita bicarakan sebelumnya, pertama-tama kita coba akan install package ini `canvas-confetti`,
 
-```console
+```bash
 yarn add canvas-confetti
 ```
 

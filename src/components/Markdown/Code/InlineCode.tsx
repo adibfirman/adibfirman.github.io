@@ -25,7 +25,7 @@ const InlineCode: React.FC = ({ children }) => {
       lineHeight={1}
       fontSize="sm"
     >
-      {children}
+      `{children}`
     </ChakraUICode>
   );
 };
