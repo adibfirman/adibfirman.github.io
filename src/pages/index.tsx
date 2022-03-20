@@ -30,7 +30,7 @@ const HomePage = ({ recentBlogs }: Props) => {
       <Box my={16}>
         <Grid gridAutoFlow="column" gridTemplateColumns="1fr 1fr" justifyContent="space-between">
           <Heading as="h2" mb={4} fontSize="xl">
-            Recents blogs
+            Recent blogs
           </Heading>
           <Stack direction="row" justifySelf="end">
             {languages.map(language => (
