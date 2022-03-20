@@ -20,10 +20,10 @@ const InlineCode: React.FC = ({ children }) => {
       borderColor={bgColor}
       borderRadius="md"
       color={titleText}
-      py="4px"
-      px="6px"
       lineHeight={1}
       fontSize="sm"
+      textColor="#ffcb8b"
+      py="3px"
     >
       `{children}`
     </ChakraUICode>

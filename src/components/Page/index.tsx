@@ -17,10 +17,10 @@ const LayoutPage: React.FC<PropsLayoutPage> = ({
   bodyStyle
 }) => {
   const { bg, colorText } = useDarkMode();
-  const { host, origin, pathname, href } = new URL(URLApp + path);
+  const { host, origin, pathname, href, search } = new URL(URLApp + path);
   const paramsMetaImage = qs.stringify({
     title: SEO.title,
-    pathURL: host + (pathname === "/" ? "" : pathname)
+    pathURL: host + (pathname === "/" ? "" : pathname) + search
   });
 
   return (

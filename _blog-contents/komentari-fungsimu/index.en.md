@@ -15,7 +15,7 @@ function setLocation(x, y) {
 }
 ```
 
-Basically the way to read a function is from the name of the function, namely: `setLocation` we will conclude that this function will set* a \_location*, but what _location_ question? and for what? so for the next we will see the contents of the function, namely
+Basically, how we read a function in JS just directly what function name that has been provided, in our case on above we named it as `setLocation` we will conclude that function will set a new location, but what kind of location? what the purpose for? in below we will try to understang bit-by-bit to knowing better that function.
 
 ```js
 window.location.href = `${x}://${y}`;

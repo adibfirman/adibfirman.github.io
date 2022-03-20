@@ -11,7 +11,7 @@ import markdownParser from "@utils/markdownParser";
 
 import * as Types from "./types";
 
-function BlogPage({ frontMatter, source, pathname, availableTranslations }: Types.Props) {
+function BlogPage({ frontMatter, source, availableTranslations }: Types.Props) {
   const theme = useTheme();
   const router = useRouter();
   const createdAt = new Date(frontMatter.data.date || "2999");
@@ -33,7 +33,7 @@ function BlogPage({ frontMatter, source, pathname, availableTranslations }: Type
 
   return (
     <Page
-      path={`/blog/${pathname}`}
+      path={router.asPath}
       title={frontMatter.data.title}
       SEO={{ title: frontMatter.data.title, desc: frontMatter.data.spoiler }}
       bodyStyle={{ mx: [null, `calc(-1*${theme.space[20]})`] }}
