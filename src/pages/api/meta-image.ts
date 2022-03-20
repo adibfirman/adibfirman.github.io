@@ -62,7 +62,6 @@ const handler: NextApiHandler = async (req, res) => {
     const bufferBase64 = Buffer.from(blobImg);
 
     res.setHeader("content-type", "image/png");
-    res.setHeader("cache-control", "public, max-age=86400");
     res.send(bufferBase64);
     res.send(getImage);
   } catch (error) {
