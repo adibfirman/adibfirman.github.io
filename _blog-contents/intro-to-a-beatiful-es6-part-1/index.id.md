@@ -55,7 +55,7 @@ kenapa bisa keluar `undefined`, karena variabel `var` ini cakupannya adalah sebu
 var x = 3;
 function func(getRandomNum) {
   if (getRandomNum) {
-    x = 10; // remove 'var'
+    x = 10; // replace 'var'
   }
 
   return x;
@@ -114,7 +114,7 @@ console.log(func(false)); // 3
 sebenarnya const ini sendiri tidak jauh berbeda juga dengan si `let` dia juga setia kok, tetapi `const` ini harus di-inisialisasi dulu isinya, maksudnya apa? contoh seperti ini
 
 ```jsx
-const abc // Error: Missing initializer in const declaration
+const abc; // Error: Missing initializer in const declaration
 ```
 
 kita akan mendapatkan sebuah error dimana isinya “coyy, const ini kagak ada isinya, lu harus isi dulu” jadi const ini harus mempunyai sebuah `default value`, tidak seperti `let` atau `var` yang bisa di deklarasikan seperti itu tanpa `default value`, dan juga `const` tidak bisa mengganti nilai yang sudah di deklarasikan, contohnya
