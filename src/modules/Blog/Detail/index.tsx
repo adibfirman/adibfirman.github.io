@@ -61,7 +61,7 @@ function BlogPage({ frontMatter, source, availableTranslations }: Types.Props) {
             </Text>
           </Flex>
           <Stack ml="1" spacing={1} direction="row">
-            {availableTranslations.map(lang => (
+            {availableTranslations.map((lang, i) => (
               <Link
                 key={lang}
                 fontSize="md"
@@ -69,7 +69,8 @@ function BlogPage({ frontMatter, source, availableTranslations }: Types.Props) {
                 fontWeight={lang === getCurrentLang ? "bold" : "unset"}
                 onClick={() => handleChangeTranslation(lang)}
               >
-                {lang.toUpperCase()},
+                {lang.toUpperCase()}
+                {i === availableTranslations.length - 1 ? "" : ","}
               </Link>
             ))}
           </Stack>

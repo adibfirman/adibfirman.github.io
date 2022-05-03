@@ -10,7 +10,7 @@ function BlogPage(props: InferGetStaticPropsType<typeof getServerSideProps>) {
 }
 
 export async function getServerSideProps({ params, query }: GetServerSidePropsContext) {
-  const content = (query.content || "id") as string;
+  const content = (query.content || "en") as string;
   const pathname = (params?.pathBlog ?? "") as string;
   const { availableTranslations, ...detailBlog } = getPostByPath(pathname, content);
 

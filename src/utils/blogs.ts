@@ -17,8 +17,9 @@ export const markdownToHTML = async (markdown: string) => {
 };
 
 export function getPostByPath(pathBlog: string, contentLang: string) {
-  const langExtension = contentLang === "id" ? "" : "." + contentLang;
+  const langExtension = contentLang === "en" ? "" : "." + contentLang;
   const blogPathFolder = path.join(BLOG_PATH, pathBlog);
+  console.log("langExtension:", langExtension);
   const fullPath = path.join(blogPathFolder, `index${langExtension}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
@@ -28,7 +29,7 @@ export function getPostByPath(pathBlog: string, contentLang: string) {
       if (fileName.includes("md")) {
         const getTranslation = fileName.replace(/(index.|md|.md)/gm, "");
 
-        return getTranslation || "id";
+        return getTranslation || "en";
       }
 
       return "";
@@ -41,47 +42,6 @@ export function getPostByPath(pathBlog: string, contentLang: string) {
     availableTranslations: availableTranslations.length > 1 ? availableTranslations : []
   } as const;
 }
-
-export const getBlogs = (lang: string = "id") => {
-  let constructBlogs = blogsFilePaths
-    .map(blogFolder => {
-      const langExtension = lang === "id" ? "" : "." + lang;
-      const filePath = path.join(BLOG_PATH, blogFolder, `index${langExtension}.md`);
-      let source;
-
-      try {
-        source = fs.readFileSync(filePath);
-      } catch (err) {
-        source = "";
-      }
-
-      if (source) {
-        const { data, content } = matter(source);
-        const blogDate = new Date(data.date || "2999");
-
-        return {
-          content,
-          pathname: blogFolder,
-          data: {
-            title: data.title as string,
-            spoiler: data.spoiler as string,
-            date: blogDate.toDateString(),
-            timestamps: getUnixTime(blogDate)
-          }
-        };
-      }
-
-      return "";
-    })
-    .filter(Boolean);
-
-  constructBlogs = constructBlogs.sort((a, b) => {
-    if (a && b) return b.data.timestamps - a.data.timestamps;
-    return 0;
-  });
-
-  return constructBlogs;
-};
 
 // get list blogs
 export const listBlogs = blogsFilePaths
