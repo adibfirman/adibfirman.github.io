@@ -15,7 +15,7 @@ function BlogPage({ frontMatter, source, availableTranslations }: Types.Props) {
   const theme = useTheme();
   const router = useRouter();
   const createdAt = new Date(frontMatter.data.date || "2999");
-  const getCurrentLang = (router.query.content || "id") as string;
+  const getCurrentLang = (router.query.content || "en") as string;
   const publishedText = {
     id: "Diterbitkan pada",
     en: "Published at"
