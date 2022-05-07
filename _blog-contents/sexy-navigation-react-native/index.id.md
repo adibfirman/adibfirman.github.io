@@ -83,11 +83,11 @@ setalah klik add kita harus menyambungkan RNN dengan app kita, dengan cara, klik
 
 ![](./image-8.png)
 
-lalu masuk ke tab __Build Phases__ dan kita klik __Link Binary With Libraries__, akan terlihat seperti ini
+lalu masuk ke tab **Build Phases** dan kita klik **Link Binary With Libraries**, akan terlihat seperti ini
 
 ![](./image-9.png)
 
-lalu kita kita sambung RNN dengan app kita, klik tombol `+`, dan cari __react native navigation__, lalu cari `libReactNativeNavigation.a` dan klik tombol __Add__
+lalu kita kita sambung RNN dengan app kita, klik tombol `+`, dan cari **react native navigation**, lalu cari `libReactNativeNavigation.a` dan klik tombol **Add**
 
 ![](./image-10.png)
 
@@ -95,7 +95,7 @@ lalu pastikan juga `libReactNativeNavigation.a` berhasil kita tambahkan terihat 
 
 ![](./image-11.png)
 
-yaa akhirnya RNN telah tersambung dengan app kita, apa tahapan ini sudah selesai? aishh belum mas dan mbaee sekalian, oke lanjut. Step selanjutnya adalah yang menentukan apakah library mau dipanggil dari native thread apa JS thread itu sendiri, nah karena kita ingin dipanggil dari native thread, kita harus menambahkan ini. Masuk ke bagian tab __Build Settings__ lalu cari __“Header Search Path”__
+yaa akhirnya RNN telah tersambung dengan app kita, apa tahapan ini sudah selesai? aishh belum mas dan mbaee sekalian, oke lanjut. Step selanjutnya adalah yang menentukan apakah library mau dipanggil dari native thread apa JS thread itu sendiri, nah karena kita ingin dipanggil dari native thread, kita harus menambahkan ini. Masuk ke bagian tab **Build Settings** lalu cari **“Header Search Path”**
 
 ![](./image-12.png)
 
@@ -113,7 +113,7 @@ lalu klik tombol + lalu tambahkan path ini dengan tipe pathnya _recursive_
 $(SRCROOT)/../node_modules/react-native-navigation/ios
 ```
 
-jika sudah kita akan mengedit sebuah file, kita lihat lagi sidebar sebelah kiri lalu cari sebuah file `AppDelegate.m`, file tersebut terletak di bawah folder __[nama_app_kita]__
+jika sudah kita akan mengedit sebuah file, kita lihat lagi sidebar sebelah kiri lalu cari sebuah file `AppDelegate.m`, file tersebut terletak di bawah folder **[nama_app_kita]**
 
 ![](./image-15.png)
 
@@ -122,7 +122,7 @@ Ketika kita ubah semua kode didalamnya maka kita akan mendapatkan error seperti 
 
 ![](./image-16.png)
 
-no problem sob kita akan memperbaikinya buka __Product -> Scheme -> Manage Scheme__
+no problem sob kita akan memperbaikinya buka **Product -> Scheme -> Manage Scheme**
 
 ![](./image-17.png)
 
@@ -138,49 +138,6 @@ dan kita re-build lagi app kita, dan pastika juga aplikasi berjalan dengan lanca
 
 ![](./image-20.png)
 
-oke integrasi pada platform IOS sudah selesai, lanjut kita ke Android
+oke integrasi pada platform IOS sudah selesai.
 
-## ANDROID
-
-disini saya akan menggunakan android studio untuk mengubah native codenya, ini hanya optional saja jika masih ingin menggunakan editor yang sama tidak masalah. Pertama buka file `Android/settings`.gradle lalu tambahkan ini
-
-jika sudah lanjut kita akan mengedit file `Android/app/build.gradle` lalu scroll kebawah dan lihat pada bagian __depedencies__ tambahkan ini didalamnya
-
-jika sudah kita akan mengubah file lagi di `Android/app/src/main/java/com/testingrnn/MainActivity.java` jika sudah buka file tersebut dan ubah menjadi seperti ini
-
-nahh untuk tahap akhir pengeditan masih di path yang sama buka file __MainApplication.java__ ubah semuanya seperti ini
-
-okeee untuk semua persiapan di android sudah kita lakukan, lanjut kita build app kita dengan cara seperti biasa `react-natve run-android` jika sudah maka kita akan lihat hasilnya seperti ini
-
-![](./image-21.png)
-
-mantap betul guyss, lanjut kita akan testing juga cara navigasi pada RNN, nah navigasi pada RNN ini menurut saya gampang banget. Duplikat saja file `App.js` lalu jika sudah di duplikat maka kita register filenya `index.js` contoh seperti ini
-
-```js
-import App from './app'
-import NewApp from './NewApp'
-
-// register screen
-Navigation.registerComponent(appNamem () => App)
-Navigation.registerComponent('NewApp', () => NewApp)
-```
-
-terlihat code dimana kita menggunakan `Navigation.registerComponent` ini digunakan untuk mendaftarkan sebuah screen baru, nah didalamnya terdapat 2 parameter, yaitu:
-
-- __uniqueID__: ini istilahnya adalah nama unik screennya, jadi ini nanti fungsinya jika kita ingin pindah ke screen ini, kita harus panggil uniqueID ini.
-- __generator__: ini harus berupa function, jadi bisa dibilang ini kita manggil filenya didalam sini, code diatas saya menggunakan import terlebih dahulu, jika kalian tidak ingin seperti itu bisa langsung panggil filenya dengan cara `require(./App).default`
-
-jika sudah kita daftarkan selanjutnya buka file App.js kita akan membuat sebuah button, dan didalamnya kita masukkan props onPress yang isinya seperti dibawah ini
-
-![](./image-22.png)
-
-oke kita fokus pada props `onPress` saja, nah disitu kita panggil `this.props.navigator` dimana props navigator ini sudah otomatis ada karena kita tadi sudah mengregisterkan file `App.js` kita. Lalu pada props `navigator` ada sebuah fungsi yang bernama push dimana fungsi ini berguna untuk pindah dari screen satu menuju screen lainnya jika kurang jelas bisa liat [dokumentasinya](https://wix.github.io/react-native-navigation/docs/before-you-start/)
-
-nah jika sudah maka hasilnya akan seperti ini
-
-![](./image-23.gif)
-
-pada kesempatan ini kita hanya sampai sini dulu, next kita akan mengintegrasikan dengan redux dan redux persist pada navigasi kita.
-\
-\
 Terima Kasih
