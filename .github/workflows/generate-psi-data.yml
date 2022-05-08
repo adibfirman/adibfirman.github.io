@@ -23,7 +23,7 @@ jobs:
           urls: |
             https://adibfirman.dev/
             https://adibfirman.dev/blog/
-            https://adibfirman.dev/blog/memahami-apa-itu-snowpack
+            https://adibfirman.dev/blog/context-api-in-react
           devices: |
             mobile
             desktop
