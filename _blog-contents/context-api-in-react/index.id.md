@@ -4,7 +4,7 @@ date: "2018-12-28"
 spoiler: Ringkasan penggunaan context API React
 ---
 
-### TL'DR
+## Pengenalan
 
 Sebelum kita langsung ke context api saya curhat sedikit tentang “Kenapa Saya Belajar Context API?”. Jadi selama ini jika berbicara yang namanya state management pada react, saya selalu tertuju sama REDUX yang menurut saya ini keren banget untuk komunikasi component jika app yang kita gunakan sudah complex, masalahnya jika kita berhubungan sama redux kita harus siap — siap beruurusan dengan `switch-case` dan ini yang menurut saya pribadi **RIBET** untuk sekedar menyimpan sebuah data, tetapi ada sebuah helper yang namanya **Rematch** yang menurut saya pribadi ini juga keren banget, jadi kita tidak perlu berurusan dengan switch-case, tapi…. menurut saya masih susah juga walau hanya sekedar simpan data dan dipakai secara global, lalu saya menemukan sang pujaan hati si Context API. Sebenarnya dia ini sudah ada sejak React versi 16.3.0 (haduhh kenapa saya baru belajar sekarang), oke tanpa basa — basi lagi langsung mulai.
 
