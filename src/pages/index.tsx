@@ -15,6 +15,16 @@ type Props = {
 const HomePage = ({ recentBlogs }: Props) => {
   const theme = useTheme();
 
+  React.useEffect(() => {
+    if (window !== undefined) {
+      const script = document.createElement("script");
+      script.src =
+        "https://assets.tokopedia.net/SDK/external-topads/production/TDN-v1.0.1/index.js";
+
+      document.body.append(script);
+    }
+  }, []);
+
   return (
     <Page title={TITLE_PAGE + "👋"} desc={DESC_PAGE} SEO={{ title: TITLE_PAGE, desc: DESC_PAGE }}>
       <Box my={16}>
@@ -41,6 +51,16 @@ const HomePage = ({ recentBlogs }: Props) => {
           )}
         </Grid>
       </Box>
+      <div style={{ marginTop: "100vh" }} />
+      <el
+        className="tdn-external-banner"
+        data-external-id="1"
+        data-inventory-id="203"
+        data-dimen-id="3"
+        data-keywords="car charger bluetooth"
+        data-tracking-click="https://adclick.g.doubleclick.net/pcs/click?xai=AKAOjsvuGckE1o1x3QqyL-igjSQJniKMiA5aJAhanAmGS1eX8L4tu2K2DzIXZXRE4OpUGVGmvxfGTK01XxDAqS-sq-fkMqXeJJ0-aADjWrH9U4dEHmljKGLMvyDWE3gnuVyH1T3Km3l3pXG0_AYWBpUnodudH1RP5ietsuLVlPUMLbcnaYW-fAziVw3z&amp;sig=Cg0ArKJSzN_DTPYNxbLLEAE&amp;fbs_aeid=[gw_fbsaeid]&amp;urlfix=1&amp;adurl="
+        data-tracking-impression=""
+      ></el>
     </Page>
   );
 };
