@@ -7,7 +7,7 @@ const TestAd = () => (
     data-inventory-id="203"
     data-dimen-id="3"
     data-keywords="car charger bluetooth"
-    data-custom-domain="https://1037-staging-feature.tokopedia.com/"
+    data-custom-domain="https://ta-staging.tokopedia.com/"
     data-tracking-impression=""
   ></el>
 );
