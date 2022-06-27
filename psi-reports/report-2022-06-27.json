@@ -1,65 +1,65 @@
 {
-  "timestamp": "2022-06-14T04:00:12.394Z",
+  "timestamp": "2022-06-27T03:59:44.070Z",
   "reports": [
     {
       "url": "https://adibfirman.dev/",
       "device": "mobile",
-      "perf": 0.75,
+      "perf": 0.73,
       "fid": 0,
-      "lcp": 1890,
+      "lcp": 1020,
       "cls": 0,
-      "fcp": 997,
+      "fcp": 1020,
       "fci": 0,
-      "tbt": 818.5,
-      "tti": 4931.5,
-      "si": 4504.78,
+      "tbt": 983.5,
+      "tti": 4891.5,
+      "si": 4531.52,
       "req": 27,
-      "size": 427736
+      "size": 427785
     },
     {
       "url": "https://adibfirman.dev/",
       "device": "desktop",
-      "perf": 1,
+      "perf": 0.99,
       "fid": 0,
-      "lcp": 350,
+      "lcp": 565,
       "cls": 0,
-      "fcp": 292,
+      "fcp": 300,
       "fci": 0,
-      "tbt": 75,
-      "tti": 1125,
-      "si": 532.7,
+      "tbt": 114,
+      "tti": 1169,
+      "si": 368.21,
       "req": 38,
-      "size": 478964
+      "size": 479045
     },
     {
       "url": "https://adibfirman.dev/blog/",
       "device": "mobile",
-      "perf": 0.71,
+      "perf": 0.72,
       "fid": 0,
-      "lcp": 1290,
+      "lcp": 1340,
       "cls": 0.0484,
-      "fcp": 1206,
+      "fcp": 1181,
       "fci": 0,
-      "tbt": 1305.5,
-      "tti": 6441.5,
-      "si": 2138.76,
+      "tbt": 1100.5,
+      "tti": 6624,
+      "si": 1339.32,
       "req": 30,
-      "size": 439660
+      "size": 439732
     },
     {
       "url": "https://adibfirman.dev/blog/",
       "device": "desktop",
-      "perf": 0.93,
+      "perf": 0.95,
       "fid": 0,
-      "lcp": 618,
+      "lcp": 633,
       "cls": 0.02286,
       "fcp": 357,
       "fci": 0,
-      "tbt": 209,
-      "tti": 1755,
-      "si": 598.52,
+      "tbt": 168,
+      "tti": 1811.5,
+      "si": 553.68,
       "req": 39,
-      "size": 483802
+      "size": 483902
     },
     {
       "url": "https://adibfirman.dev/blog/context-api-in-react",
@@ -70,11 +70,11 @@
       "cls": 0.0326,
       "fcp": 1860,
       "fci": 0,
-      "tbt": 2806,
-      "tti": 7609,
-      "si": 3798.59,
+      "tbt": 2896.5,
+      "tti": 7622.5,
+      "si": 3815.37,
       "req": 29,
-      "size": 489968
+      "size": 490022
     },
     {
       "url": "https://adibfirman.dev/blog/context-api-in-react",
@@ -85,11 +85,11 @@
       "cls": 0.09159,
       "fcp": 540,
       "fci": 0,
-      "tbt": 786,
-      "tti": 1866,
-      "si": 1169.15,
+      "tbt": 760,
+      "tti": 1840,
+      "si": 1296.32,
       "req": 40,
-      "size": 541185
+      "size": 541285
     }
   ]
 }
