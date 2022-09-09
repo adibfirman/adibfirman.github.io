@@ -64,6 +64,7 @@ const CustomizeApp = ({ Component, pageProps }: AppProps) => {
           )}
         </Head>
         <DefaultSeo {...SEO} />
+        {/* @ts-ignore */}
         <Component {...pageProps} />
       </ChakraProvider>
     </CacheProvider>

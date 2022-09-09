@@ -26,6 +26,7 @@ const OSSPage = () => {
         justifyContent="center"
       >
         {OSS_LIST.map((oss, i) => (
+          // @ts-ignore
           <NavigationCard
             key={i}
             desc={oss.desc}

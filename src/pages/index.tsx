@@ -44,6 +44,7 @@ const HomePage = ({ recentBlogs }: Props) => {
         >
           {recentBlogs.map((blog, i) =>
             blog ? (
+              // @ts-ignore
               <NavigationCard
                 key={i}
                 title={blog.data.title}
@@ -55,6 +56,7 @@ const HomePage = ({ recentBlogs }: Props) => {
         </Grid>
       </Box>
       <div style={{ marginTop: "100vh" }} />
+      {/* @ts-ignore */}
       <Card />
     </Page>
   );

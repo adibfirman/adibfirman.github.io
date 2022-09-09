@@ -42,6 +42,7 @@ const LayoutPage: React.FC<PropsLayoutPage> = ({
         }}
       />
       <Box maxWidth="lg" m="0 auto" px="4" pt="16">
+        {/* @ts-ignore */}
         <Header />
         <Flex
           flexDirection="column"
@@ -60,6 +61,7 @@ const LayoutPage: React.FC<PropsLayoutPage> = ({
           {children}
         </Flex>
       </Box>
+      {/* @ts-ignore */}
       <Footer />
     </Box>
   );

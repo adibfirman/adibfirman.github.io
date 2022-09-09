@@ -10,6 +10,7 @@ const CardTitle = ({ title, ...props }: { title: string; link?: string; ariaLabe
   <Flex alignItems="center" justifyContent="space-between">
     <Text>{title}</Text>
     <Box mb="-6px">
+      {/* @ts-ignore */}
       <GHButton
         data-text="Star"
         data-show-count

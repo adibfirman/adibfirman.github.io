@@ -46,6 +46,7 @@ const BlogPage = ({ mapListBlogsPerYears }: Types.Props) => {
             />
             <Stack spacing={3}>
               {mapListBlogsPerYears[year].map((blog, i) => (
+                // @ts-ignore
                 <Card {...blog} key={i} />
               ))}
             </Stack>
