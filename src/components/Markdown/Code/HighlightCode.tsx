@@ -54,6 +54,7 @@ const HighlightCode: React.FC<Props> = ({ value, language }) => {
   // ========================
 
   return (
+    // @ts-ignore
     <Highlight {...defaultProps} theme={theme} code={value} language={langName}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => {
         const lengthTokens = tokens.length;
