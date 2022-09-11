@@ -8,7 +8,7 @@ const TestAd = () => {
       const _data = e.data;
       const source = _data.source;
 
-      if (source === "tkpd-tdn-banner") setCookies(_data.cookies);
+      if (source === "tkpd-tdn-banner-cookies") setCookies(_data.cookies);
     });
   }, []);
 
