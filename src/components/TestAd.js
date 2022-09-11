@@ -1,8 +1,16 @@
 import React from "react";
-import { useCookies } from "react-cookie";
 
 const TestAd = () => {
-  const [cookies] = useCookies();
+  const [cookies, setCookies] = React.useState({});
+
+  React.useLayoutEffect(() => {
+    window.addEventListener("message", function (e) {
+      const _data = e.data;
+      const source = _data.source;
+
+      if (source === "tkpd-tdn-banner") setCookies(_data.cookies);
+    });
+  }, []);
 
   return (
     <div>
