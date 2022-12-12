@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Heading, Box, Grid, useTheme } from "@chakra-ui/react";
-// import dynamic from "next/dynamic";
+import dynamic from "next/dynamic";
 
 import { Page } from "@components";
 import { NavigationCard } from "@components/UI";
@@ -9,7 +9,7 @@ import { listBlogs } from "@utils/blogs";
 const DESC_PAGE = `I'm Adib Firman, I'm software engineer from 🇮🇩 (Indonesia) day-by-day working and learn a fun things about Web Ecosystem, and occasionally planting seed on my own digital garden.`;
 const TITLE_PAGE = "Hello There...!!";
 
-// const Card = dynamic(() => import("@components/TestAd"), { ssr: false });
+const TestAd = dynamic(() => import("@components/TestAd"), { ssr: false });
 
 type Props = {
   recentBlogs: typeof listBlogs;
@@ -17,14 +17,14 @@ type Props = {
 
 const HomePage = ({ recentBlogs }: Props) => {
   const theme = useTheme();
-  const [adm, setAdm] = React.useState("");
+  // const [adm, setAdm] = React.useState("");
 
-  React.useEffect(() => {
-    (async function gettingADM() {
-      const fetching = await (await fetch("/api/testing")).json();
-      setAdm(fetching.data.adm);
-    })();
-  }, []);
+  // React.useEffect(() => {
+  //   (async function gettingADM() {
+  //     const fetching = await (await fetch("/api/testing")).json();
+  //     setAdm(fetching.data.adm);
+  //   })();
+  // }, []);
 
   React.useEffect(() => {
     if (window !== undefined) {
@@ -64,8 +64,8 @@ const HomePage = ({ recentBlogs }: Props) => {
         </Grid>
       </Box>
       <div style={{ marginTop: "100vh" }} />
-      {/* <Card /> */}
-      <div dangerouslySetInnerHTML={{ __html: adm }} />
+      <TestAd />
+      {/* <div dangerouslySetInnerHTML={{ __html: adm }} /> */}
     </Page>
   );
 };
