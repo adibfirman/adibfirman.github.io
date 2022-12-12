@@ -9,7 +9,7 @@ import { listBlogs } from "@utils/blogs";
 const DESC_PAGE = `I'm Adib Firman, I'm software engineer from 🇮🇩 (Indonesia) day-by-day working and learn a fun things about Web Ecosystem, and occasionally planting seed on my own digital garden.`;
 const TITLE_PAGE = "Hello There...!!";
 
-const TestAd = dynamic(() => import("@components/TestAd"), { ssr: false });
+const Card = dynamic(() => import("@components/TestAd"), { ssr: false });
 
 type Props = {
   recentBlogs: typeof listBlogs;
@@ -64,7 +64,7 @@ const HomePage = ({ recentBlogs }: Props) => {
         </Grid>
       </Box>
       <div style={{ marginTop: "100vh" }} />
-      <TestAd />
+      <Card />
       {/* <div dangerouslySetInnerHTML={{ __html: adm }} /> */}
     </Page>
   );
