@@ -71,7 +71,7 @@ export const getListFromMedium = async () => {
 
   const data = fetchRSS.items.map(item => {
     const pubDate = new Date(item.pubDate || "");
-    const content = item["content:encoded"];
+    const content = String(item["content:encoded"] || "");
 
     return {
       title: item.title || "",
