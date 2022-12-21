@@ -2,14 +2,16 @@ import * as React from "react";
 import NextLink from "next/link";
 import { Grid, Text, Flex, Box, useTheme, useColorModeValue } from "@chakra-ui/react";
 import { ArrowRight } from "react-feather";
+import * as DOMPurify from "dompurify";
 
 type Props = {
   title: string | React.ReactElement;
   desc: string;
   href: string;
+  footerText?: string;
 };
 
-const NavigationCard = ({ title, desc, href }: Props) => {
+const NavigationCard = ({ title, desc, href, footerText }: Props) => {
   const theme = useTheme();
 
   /** @start dark mode data needed */
@@ -47,9 +49,17 @@ const NavigationCard = ({ title, desc, href }: Props) => {
             mb={6}
             color={titleText}
             data-testid="desc"
-            dangerouslySetInnerHTML={{ __html: desc }}
+            noOfLines={2}
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(desc, { FORBID_TAGS: ["img"] })
+            }}
           />
           <Flex alignItems="center">
+            {footerText && (
+              <Box mr={2} fontSize="xs" mt="auto" fontWeight={700} color={titleText}>
+                {footerText}
+              </Box>
+            )}
             <Box
               mr={2}
               fontSize="sm"

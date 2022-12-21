@@ -10,7 +10,6 @@ const BlogPage = (props: InferGetStaticPropsType<typeof getServerSideProps>) => 
 
 export async function getServerSideProps() {
   const getBlogs = await getListFromMedium();
-  console.log("getBlogs:", getBlogs);
 
   return { props: { blogs: getBlogs } };
 }
