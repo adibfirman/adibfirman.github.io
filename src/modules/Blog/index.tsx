@@ -1,13 +1,15 @@
 import * as React from "react";
+import { InferGetServerSidePropsType } from "next";
 import { useTheme, Grid } from "@chakra-ui/react";
 
 import { NavigationCard } from "@components/UI";
 import { Page } from "@components";
 
-import * as Types from "./types";
+import { getServerSideProps } from "@pages/blog/index";
+
 import { DESC_PAGE, TITLE_PAGE } from "./constants";
 
-const BlogPage = ({ blogs }: Types.Props) => {
+const BlogPage = ({ blogs }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const theme = useTheme();
 
   return (
