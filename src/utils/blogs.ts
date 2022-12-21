@@ -2,8 +2,9 @@ import fs from "fs";
 import path from "path";
 import remark from "remark";
 import html from "remark-html";
-import { getUnixTime } from "date-fns";
+import { getUnixTime, format as formatDate } from "date-fns";
 import matter from "gray-matter";
+import RSSParser from "rss-parser";
 
 export const BLOG_PATH = path.join(process.cwd(), "_blog-contents");
 export const blogsFilePaths = fs.readdirSync(BLOG_PATH);
@@ -63,3 +64,22 @@ export const listBlogs = blogsFilePaths
     };
   })
   .sort((a, b) => b.data.timestamps - a.data.timestamps);
+
+export const getListFromMedium = async () => {
+  const parser = new RSSParser();
+  const fetchRSS = await parser.parseURL("https://medium.com/feed/@adibfirman");
+
+  const data = fetchRSS.items.map(item => {
+    const pubDate = new Date(item.pubDate || "");
+    const content = item["content:encoded"];
+
+    return {
+      title: item.title || "",
+      link: item.link || "",
+      published: formatDate(pubDate, "MMM dd, yyyy"),
+      content
+    };
+  });
+
+  return data;
+};

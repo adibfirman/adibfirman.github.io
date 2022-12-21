@@ -42,9 +42,13 @@ const NavigationCard = ({ title, desc, href }: Props) => {
           >
             {title}
           </Box>
-          <Text fontSize="sm" mb={6} color={titleText}>
-            {desc}
-          </Text>
+          <Text
+            fontSize="sm"
+            mb={6}
+            color={titleText}
+            data-testid="desc"
+            dangerouslySetInnerHTML={{ __html: desc }}
+          />
           <Flex alignItems="center">
             <Box
               mr={2}

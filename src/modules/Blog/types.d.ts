@@ -1,7 +1,7 @@
-export type MapListBlogsPerYears = {
-  [year: string]: Array<{ monthCreated: string; dayCreated: string } & typeof listBlogs[0]>;
-};
+import { getListFromMedium } from "@utils/blogs";
+
+type GetListFromMedium = typeof getListFromMedium;
 
 export type Props = {
-  mapListBlogsPerYears: MapListBlogsPerYears;
+  blogs: Awaited<ReturnType<GetListFromMedium>>;
 };
