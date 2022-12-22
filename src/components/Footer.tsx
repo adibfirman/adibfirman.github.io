@@ -29,7 +29,7 @@ const SOCIAL_MEDIA = [
     customIcon: Linkedin
   },
   {
-    link: "/rss",
+    link: "https://adibfirman.medium.com/feed",
     text: "Subscribe with RSS Feed",
     customIcon: Rss
   }
