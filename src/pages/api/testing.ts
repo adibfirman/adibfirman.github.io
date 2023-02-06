@@ -2,10 +2,18 @@ import type { NextApiHandler } from "next";
 
 const handler: NextApiHandler = async (req, res) => {
   try {
+    const { pid, trackingClick, trackingImpression, publisherID, design } = req.query;
+    const [width, height] = (design as string).split("x");
+
     res.json({
       data: {
-        adm:
-          '<iframe src="/test-iframe?design=320x100&publisher_id=123&product_id=123" width="320px" height="100px"></iframe><script id="tkpd-ta-products-123" type="application/json">{ "imgURL": "https://via.placeholder.com/320x100", "title": "Samsung Galaxy S22 - Green", "disc": 50, "price": 100000, "rating": 4.6, "isFreeShipping": true, "trackingClick": "https://ta.tokoshorten/aFJK7", "trackingImpression": "https://ta.tokoshorten/aFJK7" }</script>'
+        adm: `
+          <iframe
+            onload="this.contentWindow.postMessage(JSON.stringify({ message: 'tkpd-products-${pid}', data: { trackingClick: '${trackingClick}', trackingImpression: '${trackingImpression}' } }), '*')"
+            src="https://lite-dev9.tokopedia.com/external/product?design=${design}&publisher_id=${publisherID}&product_id=${pid}"
+            width="${width}"
+            height="${height}"
+          ></iframe>`
       }
     });
   } catch (err) {
