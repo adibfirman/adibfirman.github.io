@@ -10,7 +10,7 @@ const handler: NextApiHandler = async (req, res) => {
         adm: `
           <iframe
             onload="this.contentWindow.postMessage(JSON.stringify({ message: 'tkpd-products-${pid}', data: { trackingClick: '${trackingClick}', trackingImpression: '${trackingImpression}' } }), '*')"
-            src="https://lite-dev9.tokopedia.com/external/product?design=${design}&publisher_id=${publisherID}&product_id=${pid}"
+            src="https://93-staging-feature.tokopedia.com/product?design=${design}&publisher_id=${publisherID}&product_id=${pid}"
             width="${width}"
             height="${height}"
           ></iframe>`
