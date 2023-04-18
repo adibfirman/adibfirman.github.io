@@ -10,7 +10,7 @@ const handler: NextApiHandler = async (req, res) => {
         adm: `
           <iframe
             onload="window.addEventListener('message', e => {if (e.data.variant === 'tkpd-pid-${pid}-design-${design}-ready') this.contentWindow.postMessage(JSON.stringify({ variant: 'tkpd-pid-${pid}-design-${design}', data: { trackingClick: '${trackingClick}', trackingImpression: '${trackingImpression}' } }), '*'); })"
-            src="https://midas-dev.tokopedia.com/external/product?design=${design}&publisher_id=${publisherID}&product_id=${pid}"
+            src="https://63-staging-feature.tokopedia.com/external/product?design=${design}&publisher_id=${publisherID}&product_id=${pid}"
             width="${width}"
             height="${height}"
           ></iframe>`
