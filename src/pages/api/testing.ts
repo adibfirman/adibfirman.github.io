@@ -9,8 +9,8 @@ const handler: NextApiHandler = async (req, res) => {
       data: {
         adm: `
           <iframe
-            onload="window.addEventListener('message', e => {if (e.data.variant === 'tkpd-pid-${pid}-design-${design}-ready') this.contentWindow.postMessage(JSON.stringify({ variant: 'tkpd-pid-${pid}-design-${design}', data: { trackingClick: '${trackingClick}', trackingImpression: '${trackingImpression}' } }), '*'); if(e.data.type === 'app-check-result') alert(JSON.stringify(e.data)) })"
-            src="https://63-staging-feature.tokopedia.com/external/product?design=${design}&publisher_id=${publisherID}&product_id=${pid}"
+            onload="window.addEventListener('message', e => {if (e.data.variant === 'tkpd-pid-${pid}-design-${design}-ready') this.contentWindow.postMessage(JSON.stringify({ variant: 'tkpd-pid-${pid}-design-${design}', data: { trackingClick: '${trackingClick}', trackingImpression: '${trackingImpression}' } }), '*'); var isAppInstalled=function(){var e=navigator.userAgent||navigator.vendor||window.opera;if(/iPad|iPhone|iPod/.test(e)&&!window.MSStream)return!!window.webkit.messageHandlers.tokopedia;else return!!window.tokopedia;}; alert(navigator.userAgent + ' || ' + navigator.vendor + ' || ' + window.opera + ' || ' + window.MSStream + ' || ' + window.webkit + ' || ' + window.tokopedia + ' || ' + isAppInstalled()); })"
+            src="https://midas-dev.tokopedia.com/external/product?design=${design}&publisher_id=${publisherID}&product_id=${pid}"
             width="${width}"
             height="${height}"
           ></iframe>`
