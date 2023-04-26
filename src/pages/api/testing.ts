@@ -2,8 +2,11 @@ import type { NextApiHandler } from "next";
 
 const handler: NextApiHandler = async (req, res) => {
   try {
-    const { pid, trackingClick, trackingImpression, publisherID, design } = req.query;
+    const { pid, trackingImpression, publisherID, design } = req.query;
     const [width, height] = (design as string).split("x");
+
+    const trackingClick =
+      "https://ta-staging.tokopedia.com/promo/v1/clicks/token-token?dv=android&r=https%3A%2F%2Fstaging.tokopedia.com%2Frainbowsstore%2Fproduk-wiena-baru-03a%3Fsrc%3Dtopads&src=recom_widget_pdp_3";
 
     res.json({
       data: {
