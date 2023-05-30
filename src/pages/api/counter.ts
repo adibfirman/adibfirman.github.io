@@ -1,4 +1,5 @@
 import type { NextApiHandler } from "next";
+import NextCors from "nextjs-cors";
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, child, get, set } from "firebase/database";
 
@@ -29,6 +30,12 @@ const handler: NextApiHandler = async (req, res) => {
     const newValue = { ...val, [getKey]: oldCount + 1 };
     await set(dbRef, newValue);
 
+    await NextCors(req, res, {
+      // Options
+      methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
+      origin: "*",
+      optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+    });
     res.json({ message: "success", data: newValue });
   } catch (error) {
     const err = error as Error;
