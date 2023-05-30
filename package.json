@@ -46,6 +46,7 @@
     "dompurify": "^2.4.1",
     "emotion": "^10.0.27",
     "emotion-server": "^10.0.27",
+    "firebase": "^9.22.1",
     "framer-motion": "^4",
     "gray-matter": "^4.0.2",
     "isomorphic-fetch": "^3.0.0",
