@@ -33,8 +33,9 @@ const handler: NextApiHandler = async (req, res) => {
     await NextCors(req, res, {
       // Options
       methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
-      origin: "https://242-beta-feature.tokopedia.com",
-      optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+      origin: "*",
+      optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+      credentials: true
     });
 
     res.json({ message: "success", data: newValue });
