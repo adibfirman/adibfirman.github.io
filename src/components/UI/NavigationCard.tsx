@@ -1,8 +1,9 @@
 import * as React from "react";
 import NextLink from "next/link";
-import { Grid, Text, Flex, Box, useTheme, useColorModeValue } from "@chakra-ui/react";
-import { ArrowRight } from "react-feather";
 import * as DOMPurify from "dompurify";
+
+import { Grid, Text, Flex, Box, useTheme, useColorModeValue } from "@chakra-ui/react";
+import { ArrowRight as IconArrowRight } from "react-feather";
 
 type Props = {
   title: string | React.ReactElement;
@@ -51,7 +52,7 @@ const NavigationCard = ({ title, desc, href, footerText }: Props) => {
             data-testid="desc"
             noOfLines={2}
             dangerouslySetInnerHTML={{
-              __html: DOMPurify.sanitize(desc, { FORBID_TAGS: ["img"] })
+              __html: DOMPurify.sanitize(desc, { USE_PROFILES: { html: false } })
             }}
           />
           <Flex alignItems="center">
@@ -71,7 +72,7 @@ const NavigationCard = ({ title, desc, href, footerText }: Props) => {
             >
               See Detail
             </Box>
-            <ArrowRight color={icon} size={theme.fontSizes.lg} />
+            <IconArrowRight color={icon} size={theme.fontSizes.lg} />
           </Flex>
         </Grid>
       </Box>
