@@ -1,11 +1,11 @@
-import type { GetServerSidePropsContext, InferGetStaticPropsType } from "next";
+import type { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 
 import * as React from "react";
 
 import { getPostByPath } from "@utils/blogs";
 import ModuleDetailBlog from "@modules/Blog/Detail";
 
-function BlogPage(props: InferGetStaticPropsType<typeof getServerSideProps>) {
+function BlogPage(props: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return <ModuleDetailBlog {...props} />;
 }
 

@@ -1,5 +1,7 @@
-import * as React from "react";
 import type { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
+import * as React from "react";
+import Image from "next/image";
+
 import { Heading, Flex, Text, Grid, Box, useTheme } from "@chakra-ui/react";
 
 const MetaImagePage = ({
@@ -37,7 +39,7 @@ const MetaImagePage = ({
           {title}
         </Text>
         <Box position="absolute" width="21%" right={16} top="5rem">
-          <img src="/character.png" />
+          <Image src="/character.png" alt="character" />
         </Box>
       </Flex>
       <Heading

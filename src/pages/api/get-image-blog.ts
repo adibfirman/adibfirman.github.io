@@ -14,7 +14,8 @@ const handler: NextApiHandler = async (req, res) => {
     res.setHeader("content-type", "image/png");
     res.setHeader("cache-control", "public, max-age=604800");
     res.send(image);
-  } catch (err) {
+  } catch (error) {
+    const err = error as Error;
     res.status(500).json({ error: err.message });
   }
 };

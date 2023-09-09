@@ -29,8 +29,7 @@ const SpeedDetail = ({ detailPage }: Types.SpeedDetailProps) => {
       },
       {
         title: "Time to Interactive",
-        desc:
-          "Time to interactive is the amount of time it takes for the page to become fully interactive.",
+        desc: "Time to interactive is the amount of time it takes for the page to become fully interactive.",
         value: `${msToSecond(detailPage.tti)} s`
       },
       {

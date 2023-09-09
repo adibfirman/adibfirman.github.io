@@ -2,6 +2,8 @@ import type { AppProps } from "next/app";
 
 import * as React from "react";
 import Head from "next/head";
+import Script from "next/script";
+
 import { ChakraProvider } from "@chakra-ui/react";
 import { css } from "@emotion/core";
 import { CacheProvider, Global } from "@emotion/core";
@@ -48,7 +50,7 @@ const CustomizeApp = ({ Component, pageProps }: AppProps) => {
           {process.env.NODE_ENV === "production" && (
             <>
               {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
-              <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135917039-1" />
+              <Script async src="https://www.googletagmanager.com/gtag/js?id=UA-135917039-1" />
               <script
                 dangerouslySetInnerHTML={{
                   __html: `
