@@ -10,7 +10,7 @@ export const textProps = {
 } as BoxProps;
 
 export const LINKS_HEADER = [
-  { href: "/blog", name: "Blog" },
+  { href: "https://blog.adibfirman.dev", name: "Blog" },
   { href: "/talks", name: "Talks" },
   { href: "/oss", name: "OSS" },
   { href: "/speed", name: "Speed" }
