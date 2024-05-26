@@ -16,14 +16,14 @@ export function AccordionMenu({ title, isOpened, menus }: Props) {
     <div className="py-2">
       <button
         onClick={() => setAccordionOpen(!accordionOpen)}
-        className="grid grid-cols-[0.58fr_1fr] content-center items-center justify-items-start justify-start pb-1.5 gap-x-1.5"
+        className="flex flex-row items-center rpb-1.5"
       >
         {accordionOpen ? (
           <ChevronDown width={16} height={16} color="#b2b2bc" />
         ) : (
           <ChevronRight width={16} height={16} color="#b2b2bc" />
         )}
-        <p className="text-[#b2b2bc] text-lg font-grandstander ">{title}</p>
+        <p className="text-[#b2b2bc] text-lg font-grandstander ml-1">{title}</p>
       </button>
       <div
         className={`grid overflow-hidden transition-all duration-300 ease-in-out text-slate-600 text-sm ${

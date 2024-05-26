@@ -16,7 +16,7 @@ export function Container({ children, title }: Props) {
           {/* body  */}
           <section className="relative">
             <Header title={title} />
-            <section className="py-2 px-4 overflow-auto max-h-[80vh]">
+            <section className="py-2 px-4 overflow-auto h-[80vh]">
               {children}
             </section>
           </section>
