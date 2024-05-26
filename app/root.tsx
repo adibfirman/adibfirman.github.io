@@ -12,6 +12,12 @@ import morphingBackground from "~/css/morphing-background.css?url";
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
   { rel: "stylesheet", href: morphingBackground },
+  { rel: "preconnect", href: "https://fonts.googleapis.com" },
+  { rel: "preconnect", href: "https://fonts.gstatic.com" },
+  {
+    rel: "stylesheet",
+    href: "https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@0,100..900;1,100..900&family=Lexend+Mega:wght@600&display=swap",
+  },
 ];
 
 export const meta: MetaFunction = () => {

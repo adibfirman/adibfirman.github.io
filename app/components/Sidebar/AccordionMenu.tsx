@@ -21,7 +21,7 @@ export function AccordionMenu({ title, isOpened, menus }: Props) {
         ) : (
           <ChevronRight width={16} height={16} color="#b2b2bc" />
         )}
-        <p className="text-[#b2b2bc] text-lg">{title}</p>
+        <p className="text-[#b2b2bc] text-lg font-grandstander">{title}</p>
       </button>
       <div
         className={`grid overflow-hidden transition-all duration-300 ease-in-out text-slate-600 text-sm ${
