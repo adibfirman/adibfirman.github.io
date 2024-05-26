@@ -1,11 +1,11 @@
 html,
 body {
-  overflow-x: none;
+  overflow-x: hidden;
 }
 
 :root {
-  --color-bg1: rgb(108, 0, 162);
-  --color-bg2: rgb(0, 17, 82);
+  --color-bg1: rgb(5, 5, 32);
+  --color-bg2: rgb(38 14 55);
   --color1: 18, 113, 255;
   --color2: 221, 74, 255;
   --color3: 100, 220, 255;
@@ -61,7 +61,7 @@ body {
   top: 0;
   left: 0;
 
-  svg {
+  > svg {
     display: none;
   }
 
