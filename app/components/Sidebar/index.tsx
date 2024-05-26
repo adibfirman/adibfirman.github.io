@@ -24,11 +24,11 @@ export function Sidebar() {
           title="Channel"
           isOpened
           menus={[
-            { title: "home", path: "/", isActivated: true },
+            { title: "home", path: "/" },
             { title: "open-source", path: "/open-source" },
           ]}
         />
-        <AccordionMenu title="Blog" isOpened={false} menus={[]} />
+        <AccordionMenu title="Posts" isOpened={false} menus={[]} />
       </div>
     </div>
   );
