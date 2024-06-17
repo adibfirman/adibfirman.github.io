@@ -21,8 +21,10 @@ export function PersonChat({ messages, time }: Props) {
         </div>
 
         <section>
-          {messages.map((message) => (
-            <p className="text-sky-100">{message}</p>
+          {messages.map((message, index) => (
+            <p key={index} className="text-sky-100">
+              {message}
+            </p>
           ))}
         </section>
       </div>

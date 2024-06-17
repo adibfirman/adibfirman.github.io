@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "adibfirman.dev",
   "private": true,
   "sideEffects": false,
   "type": "module",
@@ -15,12 +15,14 @@
     "@remix-run/react": "^2.9.2",
     "@remix-run/serve": "^2.9.2",
     "isbot": "^4.1.0",
+    "jsdom": "24.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-feather": "^2.0.10"
   },
   "devDependencies": {
     "@remix-run/dev": "^2.9.2",
+    "@types/jsdom": "21.1.7",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.7.4",

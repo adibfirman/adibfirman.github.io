@@ -1,2 +1,2 @@
-export const wait = (time: number) =>
+export const createMockTime = (time: number) =>
   new Promise((resolve) => setTimeout(resolve, time));

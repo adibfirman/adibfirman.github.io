@@ -34,3 +34,8 @@ Make sure to deploy the output of `npm run build`
 
 - `build/server`
 - `build/client`
+
+# Credits
+
+- <a href="https://www.flaticon.com/free-icons/linkedin" title="linkedin icons">Linkedin icons created by riajulislam - Flaticon</a>
+- <a href="https://www.flaticon.com/free-icons/twitter-x" title="twitter x icons">Twitter x icons created by khulqi Rosyid - Flaticon</a>

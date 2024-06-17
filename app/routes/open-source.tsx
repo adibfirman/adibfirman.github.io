@@ -1,11 +1,18 @@
 import { Container } from "~/components/Container";
+import { PersonChat } from "~/components/PersonChat";
+import { PersonIsTyping } from "~/components/PersonIsTyping";
+
+import { useCreateMessagesOnOpenSource } from "~/hooks/useCreateMessagesOnOpenSource";
 
 export default function Index() {
+  const { messages, time, isTyping } = useCreateMessagesOnOpenSource();
+
   return (
     <Container title="open-source">
-      <div className="px-2.5 py-0">
-        <h1 className="text-[red]">WIP Open Source</h1>
+      <div className="pt-0 pb-4 px-2">
+        <PersonChat messages={messages} time={time} />
       </div>
+      {isTyping && <PersonIsTyping />}
     </Container>
   );
 }
