@@ -1,0 +1,9 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "adibfirman-dev",
+  // Update to today's date
+  "compatibility_date": "2025-05-12",
+  "assets": {
+    "directory": "./dist"
+  }
+}

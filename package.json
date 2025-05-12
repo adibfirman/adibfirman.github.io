@@ -6,9 +6,12 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "cloudflare:dev": "wrangler dev",
+    "cloudflare:deploy": "wrangler deploy"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^12.5.2",
     "astro": "^5.7.12"
   },
   "devDependencies": {
