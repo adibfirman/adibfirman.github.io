@@ -1,5 +1,43 @@
 ---
+import { ArrowRight } from "lucide-react";
 import Layout from "@/layouts/Layout.astro";
+import { blogPosts } from "@/lib/blog-data";
+import { formatDate } from "@/lib/utils";
 ---
 
-<Layout> blog page </Layout>
+<Layout>
+  <div class="transition-opacity duration-500 max-w-2xl w-full">
+    <h2 class="text-2xl md:text-3xl mb-3 tracking-wide">Piece of mind</h2>
+    <p class="text-gray-300 mb-6 text-sm md:text-base">
+      Thoughts, ideas, who knows? it's just an open space where I share my
+      knowledge and my opinion about what I've learn something about.
+    </p>
+    <div class="space-y-8">
+      {
+        blogPosts.map((post) => (
+          <article class="border border-white/20 p-6 rounded-sm">
+            <div class="text-sm text-gray-400 mb-2">
+              {formatDate(post.date)}
+            </div>
+            <h3 class="text-xl mb-3">{post.title}</h3>
+            <p class="text-gray-300 mb-4">{post.excerpt}</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              {post.tags.map((tag) => (
+                <span class="text-xs border border-white/30 px-2 py-1 rounded-sm">
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <a
+              href={`/blog/${post.slug}`}
+              class="inline-flex items-center hover:text-gray-300 transition-colors group"
+            >
+              Read More
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</Layout>
