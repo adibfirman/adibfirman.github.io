@@ -1,1 +1,45 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: "Chalk";
+  src: url("/fonts/chalk.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ChalkHand";
+  src: url("/fonts/chalk-hand.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --background: 0 0% 0%;
+  --foreground: 0 0% 100%;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+.font-chalk {
+  font-family: "ChalkHand", "Courier New", monospace;
+  letter-spacing: 0.05em;
+}
+
+.font-chalk-original {
+  font-family: "Chalk", "Courier New", monospace;
+  letter-spacing: 0.05em;
+}
+
+.bg-radial-gradient {
+  background: radial-gradient(
+    circle at 50% 0%,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(0, 0, 0, 0) 70%
+  );
+}

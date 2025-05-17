@@ -1,5 +1,6 @@
 ---
 import "@/styles/global.css";
+import Header from "@/components/Header.astro";
 ---
 
 <!doctype html>
@@ -12,15 +13,23 @@ import "@/styles/global.css";
     <title>Hi There...!!! - @adibfirman</title>
   </head>
   <body>
-    <slot />
+    <main
+      class="min-h-screen bg-black text-white font-chalk relative overflow-hidden"
+    >
+      {/* Spotlight effect */}
+      <div
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-[150%] h-[150%] bg-radial-gradient opacity-20 pointer-events-none"
+      >
+      </div>
+
+      <div
+        class="container mx-auto px-4 py-16 md:py-24 flex flex-col min-h-screen"
+      >
+        <Header />
+        <div class="flex-1 flex items-start justify-center">
+          <slot />
+        </div>
+      </div>
+    </main>
   </body>
 </html>
-
-<style>
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-  }
-</style>

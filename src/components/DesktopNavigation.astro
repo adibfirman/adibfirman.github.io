@@ -1,0 +1,22 @@
+---
+import { cn } from "@/lib/utils";
+import { MENUS } from "@/lib/menus";
+
+const activePathname = Astro.url.pathname;
+---
+
+<nav class="hidden md:flex justify-center space-x-12 mb-16">
+  {
+    MENUS.map((section) => (
+      <a
+        href={section.path}
+        class={cn(
+          "text-xl tracking-wider hover:text-gray-300 transition-colors duration-300",
+          activePathname === section.path ? "border-b border-white pb-1" : "",
+        )}
+      >
+        {section.label}
+      </a>
+    ))
+  }
+</nav>
