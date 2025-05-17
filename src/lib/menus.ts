@@ -1,5 +1,5 @@
 export const MENUS = [
-  { path: "/", label: "Home" },
+  { path: "/", label: "About" },
   // { path: "/talks-and-oss", label: "Talks and OSS" },
   { path: "/blog", label: "Blog" },
   // { path: "/til", label: "T.I.L" },
