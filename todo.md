@@ -1,0 +1,4 @@
+- remove TIL (for now) change to talks first
+- add talks page
+- add OSS page
+- add detail of blog page
