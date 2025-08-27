@@ -1,13 +1,62 @@
 @import "tailwindcss";
 
+/*
+ *
+  🎨 Extended Palette (based on your 4 colors)
+  🌑 Darks / Backgrounds
+
+  #1B1E34 – Deeper indigo (for body background)
+
+  #2D3250 – Dark slate blue (your base)
+
+  #424769 – Steel blue-grey (secondary surface)
+
+  🔵 Midtones / Neutrals
+
+  #5A5F85 – Muted desaturated indigo
+
+  #7077A1 – Cool lavender-grey (your base mid)
+
+  #9AA0C2 – Softer neutral (for borders, muted text)
+
+  ✨ Accents
+
+  #F6B17A – Warm sunset peach (your base accent)
+
+  #E88D4A – Stronger orange-peach (hover states)
+
+  #FFD9B3 – Pale warm highlight (subtle background accents)
+
+  ⚪ Light / Texts
+
+  #F7F7FA – Mist white (body text on dark)
+
+  #E1E1EC – Soft grey (secondary text)
+ * */
+
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans:
+    "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  --color-mystic-bg: #1b1e34;
+  --color-mystic-dark: #2d3250;
+  --color-mystic-surface: #424769;
+
+  --color-mystic-mid: #7077a1;
+  --color-mystic-soft: #9aa0c2;
+
+  --color-mystic-accent: #f6b17a;
+  --color-mystic-accent-hover: #e88d4a;
+  --color-mystic-accent-light: #ffd9b3;
+
+  --color-mystic-text-primary: #f7f7fa;
+  --color-mystic-text-secondary: #e1e1ec;
 }
 
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
+  @apply bg-mystic-bg text-mystic-text-primary;
 
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
