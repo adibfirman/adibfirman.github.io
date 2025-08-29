@@ -243,6 +243,20 @@ export function SubHeader() {
         className="absolute inset-0 w-full h-full block"
         style={{ width: "100%", height: "100%", display: "block" }}
       />
+      {/* Content overlay */}
+      <div className="absolute inset-0 flex items-center justify-left z-10 max-w-3xl mx-auto">
+        <div className="text-left pr-6 xs:mt-20 sm:pr-8 md:pr-12 max-w-4xl">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 font-heading">
+            Hello, I'm Adib! 👋
+          </h1>
+          <p className="text-lg sm:text-xl md:text-lg text-gray-300 leading-relaxed font-body">
+            A passionate software developer crafting digital experiences with
+            modern web technologies. Welcome to my corner of the internet where
+            I share my journey, projects, and thoughts on development.
+          </p>
+        </div>
+      </div>
+
       {/* Linear gradient overlay at bottom */}
       <div
         className="absolute bottom-0 left-0 w-full h-32 z-5"
