@@ -1,6 +1,8 @@
 import { Link } from "react-router";
 import { useState, useEffect } from "react";
 
+import profileIMG from "@/assets/profile.JPG";
+
 const MENU_ITEMS = [
   { label: "Projects", href: "/projects" },
   { label: "Talks", href: "/talks" },
@@ -43,7 +45,7 @@ export function Header({ className = "" }: HeaderProps) {
             <div className="w-8 h-8 bg-mystic-accent rounded-full flex items-center justify-center">
               <img
                 className="rounded-full w-8 h-8 object-cover"
-                src="./profile.JPG"
+                src={profileIMG}
               />
             </div>
             <span className="block">adibfirman.dev</span>

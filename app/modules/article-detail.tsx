@@ -1,8 +1,11 @@
-import { useLoaderData } from "react-router";
 import { useMemo } from "react";
-import type { Route } from "./+types/article";
-import { getArticles, type Article } from "../utils/articles";
+
+import { type Article } from "@/utils/articles";
 import { SubHeader } from "@/components";
+
+type Props = {
+  article: Article;
+};
 
 interface TOCItem {
   id: string;
@@ -10,20 +13,7 @@ interface TOCItem {
   level: number;
 }
 
-export async function loader({ params }: Route.LoaderArgs) {
-  const articles = getArticles();
-  const article = articles.find((a) => a.slug === params.slug);
-
-  if (!article) {
-    throw new Response("Article not found", { status: 404 });
-  }
-
-  return { article };
-}
-
-export default function ArticleDetail() {
-  const { article } = useLoaderData<typeof loader>();
-
+export function ArticleDetail({ article }: Props) {
   const readingTime = useMemo(() => {
     if (!article) return 0;
     const wordsPerMinute = 200;
@@ -55,7 +45,7 @@ export default function ArticleDetail() {
     let content = article.content;
 
     // Convert markdown headings to HTML with ids for navigation
-    content = content.replace(/^(#{1,6})\s+(.+)$/gm, (match, hashes, title) => {
+    content = content.replace(/^(#{1,6})\s+(.+)$/gm, (_, hashes, title) => {
       const level = hashes.length;
       const id = title.toLowerCase().replace(/[^a-z0-9]+/g, "-");
       return `<h${level} id="${id}">${title}</h${level}>`;
@@ -105,7 +95,6 @@ export default function ArticleDetail() {
   return (
     <>
       <SubHeader />
-
       <main className="bg-gray-900 text-mystic-text-primary min-h-screen">
         <div className="max-w-4xl mx-auto px-6 py-8">
           <article>
@@ -248,4 +237,3 @@ export default function ArticleDetail() {
     </>
   );
 }
-
