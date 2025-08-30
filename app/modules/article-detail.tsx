@@ -1,4 +1,6 @@
 import { useMemo } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 import { type Article } from "@/utils/articles";
 import { SubHeader } from "@/components";
@@ -42,54 +44,51 @@ export function ArticleDetail({ article }: Props) {
   }, [article.content]);
 
   const renderContent = () => {
-    let content = article.content;
-
-    // Convert markdown headings to HTML with ids for navigation
-    content = content.replace(/^(#{1,6})\s+(.+)$/gm, (_, hashes, title) => {
-      const level = hashes.length;
-      const id = title.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-      return `<h${level} id="${id}">${title}</h${level}>`;
-    });
-
-    // Convert markdown links
-    content = content.replace(
-      /\[([^\]]+)\]\(([^)]+)\)/g,
-      '<a href="$2">$1</a>',
+    return (
+      <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
+        components={{
+          h1: ({ node, ...props }) => {
+            const id = typeof props.children === 'string' 
+              ? props.children.toLowerCase().replace(/[^a-z0-9]+/g, "-")
+              : String(props.children).toLowerCase().replace(/[^a-z0-9]+/g, "-");
+            return <h1 id={id} {...props} />;
+          },
+          h2: ({ node, ...props }) => {
+            const id = typeof props.children === 'string' 
+              ? props.children.toLowerCase().replace(/[^a-z0-9]+/g, "-")
+              : String(props.children).toLowerCase().replace(/[^a-z0-9]+/g, "-");
+            return <h2 id={id} {...props} />;
+          },
+          h3: ({ node, ...props }) => {
+            const id = typeof props.children === 'string' 
+              ? props.children.toLowerCase().replace(/[^a-z0-9]+/g, "-")
+              : String(props.children).toLowerCase().replace(/[^a-z0-9]+/g, "-");
+            return <h3 id={id} {...props} />;
+          },
+          h4: ({ node, ...props }) => {
+            const id = typeof props.children === 'string' 
+              ? props.children.toLowerCase().replace(/[^a-z0-9]+/g, "-")
+              : String(props.children).toLowerCase().replace(/[^a-z0-9]+/g, "-");
+            return <h4 id={id} {...props} />;
+          },
+          h5: ({ node, ...props }) => {
+            const id = typeof props.children === 'string' 
+              ? props.children.toLowerCase().replace(/[^a-z0-9]+/g, "-")
+              : String(props.children).toLowerCase().replace(/[^a-z0-9]+/g, "-");
+            return <h5 id={id} {...props} />;
+          },
+          h6: ({ node, ...props }) => {
+            const id = typeof props.children === 'string' 
+              ? props.children.toLowerCase().replace(/[^a-z0-9]+/g, "-")
+              : String(props.children).toLowerCase().replace(/[^a-z0-9]+/g, "-");
+            return <h6 id={id} {...props} />;
+          },
+        }}
+      >
+        {article.content}
+      </ReactMarkdown>
     );
-
-    // Convert markdown bold
-    content = content.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
-
-    // Convert markdown italic
-    content = content.replace(/\*([^*]+)\*/g, "<em>$1</em>");
-
-    // Convert markdown code blocks
-    content = content.replace(
-      /```(\w+)?\n([\s\S]*?)```/g,
-      '<pre><code class="language-$1">$2</code></pre>',
-    );
-
-    // Convert inline code
-    content = content.replace(/`([^`]+)`/g, "<code>$1</code>");
-
-    // Convert markdown paragraphs
-    content = content
-      .split("\n\n")
-      .map((paragraph) => {
-        if (
-          paragraph.trim().startsWith("<h") ||
-          paragraph.trim().startsWith("<pre")
-        ) {
-          return paragraph;
-        }
-        if (paragraph.trim()) {
-          return `<p>${paragraph.trim()}</p>`;
-        }
-        return "";
-      })
-      .join("\n");
-
-    return <div dangerouslySetInnerHTML={{ __html: content }} />;
   };
 
   return (
@@ -225,6 +224,34 @@ export function ArticleDetail({ article }: Props) {
                 .prose em {
                   color: var(--color-mystic-text-secondary);
                   font-style: italic;
+                }
+                .prose ul, .prose ol {
+                  color: var(--color-mystic-text-secondary);
+                  font-family: var(--font-body);
+                }
+                .prose li {
+                  margin-bottom: 0.5rem;
+                }
+                .prose blockquote {
+                  border-left: 4px solid var(--color-mystic-accent);
+                  padding-left: 1rem;
+                  margin: 1.5rem 0;
+                  font-style: italic;
+                  color: var(--color-mystic-text-secondary);
+                }
+                .prose table {
+                  border-collapse: collapse;
+                  margin: 1.5rem 0;
+                }
+                .prose th, .prose td {
+                  border: 1px solid var(--color-mystic-mid);
+                  padding: 0.75rem;
+                  text-align: left;
+                }
+                .prose th {
+                  background-color: var(--color-mystic-surface);
+                  font-weight: 600;
+                  color: var(--color-mystic-text-primary);
                 }
               `,
                 }}

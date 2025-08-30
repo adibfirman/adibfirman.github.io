@@ -1,10 +1,13 @@
-import { useLoaderData } from "react-router";
-import type { Route } from "./+types/article";
+import {
+  useLoaderData,
+  type LoaderFunctionArgs,
+  type MetaFunction,
+} from "react-router";
 
 import { getArticles } from "@/utils/articles";
 import { ArticleDetail as ArticleDetailModule } from "@/modules/article-detail";
 
-export async function loader({ params }: Route.LoaderArgs) {
+export async function loader({ params }: LoaderFunctionArgs) {
   const articles = getArticles();
   const article = articles.find((a) => a.slug === params.slug);
 
@@ -14,6 +17,10 @@ export async function loader({ params }: Route.LoaderArgs) {
 
   return { article };
 }
+
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
+  return [{ title: `${data?.article.title} - Adib Firman` }];
+};
 
 export default function ArticleDetail() {
   const { article } = useLoaderData<typeof loader>();
