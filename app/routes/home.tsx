@@ -1,6 +1,6 @@
 import type { Route } from "./+types/home";
 import { Home as HomeModule } from "@/modules/home";
-import { getArticles } from "@/utils/articles";
+import { getArticles, getFolderStructure } from "@/utils/articles";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -11,9 +11,15 @@ export function meta({}: Route.MetaArgs) {
 
 export function loader() {
   const articles = getArticles();
-  return { articles };
+  const folderStructureArticles = getFolderStructure();
+  return { articles, folderStructureArticles };
 }
 
 export default function Home({ loaderData }: Route.ComponentProps) {
-  return <HomeModule articles={loaderData.articles} />;
+  return (
+    <HomeModule
+      articles={loaderData.articles}
+      treeStructureArticles={loaderData.folderStructureArticles}
+    />
+  );
 }

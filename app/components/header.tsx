@@ -3,11 +3,7 @@ import { useState, useEffect } from "react";
 
 import profileIMG from "@/assets/profile.JPG";
 
-const MENU_ITEMS = [
-  { label: "Projects", href: "/projects" },
-  { label: "Talks", href: "/talks" },
-  { label: "About", href: "/about" },
-];
+const MENU_ITEMS = [{ label: "/about", href: "/about" }];
 
 type HeaderProps = {
   className?: string;
@@ -45,7 +41,7 @@ export function Header({ className = "" }: HeaderProps) {
             <div className="w-8 h-8 bg-mystic-accent rounded-full flex items-center justify-center">
               <img
                 className="rounded-full w-8 h-8 object-cover"
-                src={profileIMG}
+                src="/profile.jpg"
               />
             </div>
             <span className="block">adibfirman.dev</span>
@@ -58,7 +54,7 @@ export function Header({ className = "" }: HeaderProps) {
             <Link
               key={item.href}
               to={item.href}
-              className="text-mystic-text-secondary hover:text-mystic-text-primary transition-colors font-body"
+              className="text-mystic-text-secondary hover:text-mystic-accent transition-colors font-body"
             >
               {item.label}
             </Link>

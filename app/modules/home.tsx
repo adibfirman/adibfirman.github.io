@@ -1,16 +1,12 @@
-import type { Article } from "@/utils/articles";
-import { SubHeader } from "@/components";
+import type { Article, TreeArticlesStructure } from "@/utils/articles";
+import { SubHeader, TreeTags } from "@/components";
 
 interface HomeProps {
   articles: Article[];
+  treeStructureArticles: TreeArticlesStructure;
 }
 
-export function Home({ articles }: HomeProps) {
-  // Extract unique tags from articles
-  const allTags = articles.flatMap((article) => article.tags);
-  const uniqueTags = Array.from(new Set(allTags)).sort();
-
-  // Get popular articles (by recent date for now)
+export function Home({ articles, treeStructureArticles }: HomeProps) {
   const popularArticles = articles.slice(0, 3);
 
   return (
@@ -107,22 +103,13 @@ export function Home({ articles }: HomeProps) {
                 </div>
               </div>
 
-              {/* Tags */}
-              <div>
-                <h3 className="text-lg font-semibold mb-4 text-gray-200">
-                  Tags
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {uniqueTags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-1 bg-gray-800 text-gray-300 text-xs rounded hover:bg-gray-700 cursor-pointer transition-colors font-body"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              {/* Folder Structure Tree */}
+              <TreeTags
+                folderStructure={treeStructureArticles}
+                onFolderClick={(folderPath) => {
+                  console.log("Folder clicked:", folderPath);
+                }}
+              />
             </div>
           </div>
 

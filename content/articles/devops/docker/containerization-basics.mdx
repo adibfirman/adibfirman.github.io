@@ -1,0 +1,32 @@
+---
+title: "Docker Containerization Basics"
+date: "2024-02-20"
+excerpt: "Understanding containerization and how to use Docker for application deployment."
+---
+
+# Docker Containerization Basics
+
+Docker has transformed how we deploy and run applications. Let's explore the fundamentals of containerization.
+
+## What is Docker?
+
+Docker is a platform that uses OS-level virtualization to deliver software in packages called containers.
+
+## Basic Commands
+
+```bash
+# Build an image
+docker build -t myapp .
+
+# Run a container
+docker run -p 3000:3000 myapp
+
+# List containers
+docker ps
+```
+
+## Benefits
+
+- Consistency across environments
+- Lightweight compared to VMs
+- Easy scaling and deployment

@@ -1,0 +1,31 @@
+---
+title: "Express.js Fundamentals"
+date: "2024-02-10"
+excerpt: "Learn the basics of building web APIs with Express.js and Node.js."
+---
+
+# Express.js Fundamentals
+
+Express.js is a fast, unopinionated, minimalist web framework for Node.js. In this article, we'll explore the core concepts of Express.js.
+
+## Getting Started
+
+```javascript
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+
+app.listen(3000, () => {
+  console.log('Server running on port 3000');
+});
+```
+
+## Key Concepts
+
+- Routing
+- Middleware
+- Request/Response objects
+- Error handling
