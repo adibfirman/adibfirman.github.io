@@ -1,8 +1,6 @@
 import { Link } from "react-router";
 import { useState, useEffect } from "react";
 
-import profileIMG from "@/assets/profile.JPG";
-
 const MENU_ITEMS = [{ label: "/about", href: "/about" }];
 
 type HeaderProps = {

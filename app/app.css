@@ -19,7 +19,7 @@
 
 html,
 body {
-  @apply bg-mystic-bg text-mystic-text-primary;
+  @apply bg-gray-900 text-mystic-text-primary;
 
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;

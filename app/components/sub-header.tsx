@@ -1,8 +1,12 @@
 "use client";
 
+import { DEFAULT_META } from "@/utils/constants";
 import { useEffect, useRef } from "react";
 
-export function SubHeader() {
+export function SubHeader({
+  title = "Hello, I'm Adib! 👋",
+  desc = DEFAULT_META.description,
+}) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -244,15 +248,13 @@ export function SubHeader() {
         style={{ width: "100%", height: "100%", display: "block" }}
       />
       {/* Content overlay */}
-      <div className="absolute inset-0 flex items-center justify-left z-10 max-w-3xl mx-auto">
+      <div className="absolute inset-0 flex items-center justify-left z-10 max-w-4xl mx-auto px-8">
         <div className="text-left pr-6 xs:mt-20 sm:pr-8 md:pr-12 max-w-4xl">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 font-heading">
-            Hello, I'm Adib! 👋
+          <h1 className="hidden lg:block text-6xl font-bold text-white mb-6 font-heading">
+            {title}
           </h1>
-          <p className="text-lg sm:text-xl md:text-lg text-gray-300 leading-relaxed font-body">
-            A passionate software developer crafting digital experiences with
-            modern web technologies. Welcome to my corner of the internet where
-            I share my journey, projects, and thoughts on development.
+          <p className="text-base lg:text-lg mt-20 lg:mt-0 text-center lg:text-left text-gray-300 leading-relaxed font-body">
+            {desc}
           </p>
         </div>
       </div>
