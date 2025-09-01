@@ -5,11 +5,13 @@ import matter from "gray-matter";
 export type Article = {
   slug: string;
   title: string;
-  date: string;
+  createdAt: string;
+  updatedAt: string;
   excerpt: string;
   tags: string[];
   content: string;
   folderPath: string[];
+  copyrightCover: string;
 };
 
 export type TreeArticlesStructure = { [key: string]: number };
@@ -64,6 +66,7 @@ export function getArticles(): Article[] {
     const articles = allFiles
       .map(({ filePath, folderPath }) => {
         const fileContents = fs.readFileSync(filePath, "utf8");
+        const fileStats = fs.statSync(filePath);
         const { data, content } = matter(fileContents);
 
         const fileName = path.basename(filePath, ".mdx");
@@ -76,17 +79,24 @@ export function getArticles(): Article[] {
         const manualTags = data.tags || [];
         const allTags = [...folderTags, ...manualTags];
 
-        return {
+        const articleData: Article = {
           slug: fileName,
           title: data.title,
-          date: data.date,
           excerpt: data.excerpt,
           tags: allTags,
           content,
           folderPath,
+          copyrightCover: data.copyrightCover,
+          createdAt: data.date,
+          updatedAt: fileStats.mtime.toString(),
         };
+
+        return articleData;
       })
-      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+      .sort(
+        (a, b) =>
+          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+      );
 
     return articles;
   } catch (error) {
@@ -113,4 +123,13 @@ export function getFolderStructure(): TreeArticlesStructure {
     console.error("Error getting folder structure:", error);
     return {};
   }
+}
+
+export function normalizeDate(date: string) {
+  const toDate = new Date(date);
+  return new Intl.DateTimeFormat("en-US", {
+    month: "long",
+    year: "numeric",
+    day: "2-digit",
+  }).format(toDate);
 }

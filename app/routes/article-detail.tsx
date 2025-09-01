@@ -19,7 +19,10 @@ export async function loader({ params }: LoaderFunctionArgs) {
 }
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
-  return [{ title: `${data?.article.title} - Adib Firman` }];
+  return [
+    { title: `${data?.article.title} - Adib Firman` },
+    { name: "description", content: data?.article.excerpt },
+  ];
 };
 
 export default function ArticleDetail() {

@@ -1,12 +1,18 @@
 "use client";
 
+import { useEffect, useRef, type PropsWithChildren } from "react";
 import { DEFAULT_META } from "@/utils/constants";
-import { useEffect, useRef } from "react";
+
+type Props = Partial<{
+  title: string;
+  desc: string;
+}>;
 
 export function SubHeader({
   title = "Hello, I'm Adib! 👋",
   desc = DEFAULT_META.description,
-}) {
+  children,
+}: PropsWithChildren<Props>) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -244,24 +250,25 @@ export function SubHeader({
     >
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 w-full h-full block"
-        style={{ width: "100%", height: "100%", display: "block" }}
+        className={`absolute inset-0 w-full h-full block ${children ? "z-5" : ""}`}
       />
       {/* Content overlay */}
-      <div className="absolute inset-0 flex items-center justify-left z-10 max-w-4xl mx-auto px-8">
-        <div className="text-left pr-6 xs:mt-20 sm:pr-8 md:pr-12 max-w-4xl">
-          <h1 className="hidden lg:block text-6xl font-bold text-white mb-6 font-heading">
-            {title}
-          </h1>
-          <p className="text-base lg:text-lg mt-20 lg:mt-0 text-center lg:text-left text-gray-300 leading-relaxed font-body">
-            {desc}
-          </p>
+      {children || (
+        <div className="absolute inset-0 flex items-center justify-left z-10 max-w-4xl mx-auto px-8">
+          <div className="text-left pr-6 xs:mt-20 sm:pr-8 md:pr-12 max-w-4xl">
+            <h1 className="hidden lg:block text-6xl font-bold text-white mb-6 font-heading">
+              {title}
+            </h1>
+            <p className="text-base lg:text-lg mt-20 lg:mt-0 text-center lg:text-left text-gray-300 leading-relaxed font-body">
+              {desc}
+            </p>
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Linear gradient overlay at bottom */}
       <div
-        className="absolute bottom-0 left-0 w-full h-32 z-5"
+        className="absolute bottom-0 left-0 w-full h-32 z-10"
         style={{
           background: `linear-gradient(180deg, transparent 0%, hsla(210, 20%, 8%, 0.3) 30%, hsla(220, 25%, 10%, 0.6) 50%, #101828 100%)`,
         }}
