@@ -15,6 +15,18 @@
   --color-mystic-accent-light: #ffd9b3;
   --color-mystic-text-primary: #f7f7fa;
   --color-mystic-text-secondary: #e1e1ec;
+
+  /* 🌸 Mystic Bright Purple Variant */
+  --color-mystic-purple-bg: #f5f3fa; /* soft lavender background */
+  --color-mystic-purple-dark: #cbbde9; /* dusty purple (darker indigo-lavender) */
+  --color-mystic-purple-surface: #ded4f3; /* lighter surface lavender */
+  --color-mystic-purple-mid: #a48ccf; /* muted mid purple */
+  --color-mystic-purple-soft: #b8a7da; /* pastel soft purple */
+  --color-mystic-purple-accent: #d98cf6; /* purple accent (brighter but soft) */
+  --color-mystic-purple-accent-hover: #c472eb; /* hover accent, richer purple */
+  --color-mystic-purple-accent-light: #edc7fa; /* pastel lilac accent */
+  --color-mystic-purple-text-primary: #2a213a; /* deep plum text */
+  --color-mystic-purple-text-secondary: #524460; /* muted text */
 }
 
 html,
