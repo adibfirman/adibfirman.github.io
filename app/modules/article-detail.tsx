@@ -44,20 +44,17 @@ export function ArticleDetail({ article }: Props) {
         </div>
       </SubHeader>
 
-      <TableOfContents article={article} />
-
-      <main className="text-mystic-text-primary min-h-screen">
-        <div className="max-w-4xl mx-auto px-6 py-8">
-          <article className="text-mystic-text-primary/85">
-            <ReactMarkdown
-              rehypePlugins={[rehypeRaw]}
-              remarkPlugins={[remarkGfm]}
-              components={MarkdownParser}
-            >
-              {article.content}
-            </ReactMarkdown>
-          </article>
-        </div>
+      <main className="flex lg:max-w-5xl lg:mx-auto lg:px-6 lg:py-8">
+        <article className="text-mystic-text-primary/85 px-2.5 lg:pr-3.5 w-screen lg:w-full">
+          <ReactMarkdown
+            rehypePlugins={[rehypeRaw]}
+            remarkPlugins={[remarkGfm]}
+            components={MarkdownParser}
+          >
+            {article.content}
+          </ReactMarkdown>
+        </article>
+        <TableOfContents article={article} />
       </main>
     </>
   );
