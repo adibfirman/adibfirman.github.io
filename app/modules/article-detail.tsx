@@ -49,7 +49,7 @@ export function ArticleDetail({ article }: Props) {
           <ReactMarkdown
             rehypePlugins={[rehypeRaw]}
             remarkPlugins={[remarkGfm]}
-            components={MarkdownParser}
+            components={MarkdownParser({ article })}
           >
             {article.content}
           </ReactMarkdown>
