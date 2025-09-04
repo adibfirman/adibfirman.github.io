@@ -1,5 +1,4 @@
 import type { Article } from "@/utils/articles";
-import { useMemo } from "react";
 
 type Props = {
   article: Article;
@@ -39,7 +38,7 @@ export function TableOfContents({ article }: Props) {
   })();
 
   return (
-    <div className="hidden lg:block sticky top-32 self-start mt-16">
+    <div className="hidden lg:block sticky top-32 self-start">
       {tocItems.length > 0 && (
         <div className="w-max">
           <h2 className="text-base font-semibold text-shadow-mystic-purple-surface/85 mb-4 flex items-center gap-2 font-heading uppercase">
