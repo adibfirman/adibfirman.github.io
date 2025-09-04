@@ -54,14 +54,9 @@ export function Home({ articles, treeStructureArticles }: HomeProps) {
             </div>
 
             {/* Right sidebar */}
-            <div className="lg:col-span-1 space-y-8">
+            <div className="hidden lg:block lg:col-span-1 space-y-8 sticky top-24 h-max">
               {/* Folder Structure Tree */}
-              <TreeTags
-                folderStructure={treeStructureArticles}
-                onFolderClick={(folderPath) => {
-                  console.log("Folder clicked:", folderPath);
-                }}
-              />
+              <TreeTags folderStructure={treeStructureArticles} />
             </div>
           </div>
 
