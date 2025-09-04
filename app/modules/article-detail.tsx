@@ -44,8 +44,8 @@ export function ArticleDetail({ article }: Props) {
         </div>
       </SubHeader>
 
-      <main className="flex lg:max-w-5xl lg:mx-auto lg:px-6 lg:py-8">
-        <article className="text-mystic-text-primary/85 px-2.5 lg:pr-3.5 w-screen lg:w-full">
+      <main className="grid grid-cols-12 gap-4 lg:max-w-5xl lg:mx-auto px-6 py-8">
+        <article className="text-mystic-text-primary/85 px-2.5 lg:px-0 col-start-1 col-end-12 lg:col-end-11">
           <ReactMarkdown
             rehypePlugins={[rehypeRaw]}
             remarkPlugins={[remarkGfm]}
@@ -54,7 +54,10 @@ export function ArticleDetail({ article }: Props) {
             {article.content}
           </ReactMarkdown>
         </article>
-        <TableOfContents article={article} />
+
+        <div className="hidden lg:block col-start-11 col-end-12">
+          <TableOfContents article={article} />
+        </div>
       </main>
     </>
   );

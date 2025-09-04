@@ -131,7 +131,7 @@ export function TreeTags({ folderStructure, onFolderClick }: TreeTagsProps) {
       <h3 className="text-base font-semibold mb-3 font-heading uppercase text-mystic-accent">
         filter by category 🔎
       </h3>
-      <div className="space-y-1 max-h-64 overflow-y-auto">
+      <div className="space-y-1">
         {folderTree.length > 0 ? (
           folderTree.map((node) => renderFolderNode(node))
         ) : (

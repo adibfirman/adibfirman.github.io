@@ -136,7 +136,7 @@ export function MarkdownParser({ article }: Props) {
       <img
         {...props}
         src={`${article.slug}/${props.src}`}
-        className="max-w-full rounded-md shadow-sm my-7 mx-auto"
+        className="rounded-md shadow-sm my-7 mx-auto max-w-1/2"
       />
     ),
   } as Components;
