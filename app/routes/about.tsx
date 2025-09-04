@@ -3,7 +3,7 @@ import { About as AboutModule } from "@/modules/about";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "About | Adib Firman" },
+    { title: "Adib Firman" },
     { name: "description", content: "Learn more about me and my journey" },
   ];
 }
@@ -11,3 +11,4 @@ export function meta({}: Route.MetaArgs) {
 export default function About() {
   return <AboutModule />;
 }
+
