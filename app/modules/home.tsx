@@ -25,6 +25,11 @@ export function Home({ articles, treeStructureArticles }: HomeProps) {
                     <article key={article.slug}>
                       {/* Article content */}
                       <div className="pb-6">
+                        {article.isRegional && (
+                          <span className="text-xs font-semibold font-heading italic text-mystic-mid">
+                            *Regional / (Indonesian Content)
+                          </span>
+                        )}
                         <h2 className="text-xl font-bold hover:underline hover:decoration-mystic-accent-hover font-body">
                           <Link to={`/articles/${article.slug}`}>
                             {article.title}

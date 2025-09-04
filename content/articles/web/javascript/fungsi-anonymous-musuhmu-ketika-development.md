@@ -4,6 +4,7 @@ date: "2020-06-14"
 updatedAt: "2020-06-14"
 excerpt: Jangan pernah menulis fungsi anonymous di JavaScript
 copyrightCover: 'Photo by <a href="https://unsplash.com/@cbpsc1?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Clint Patterson</a> on <a href="https://unsplash.com/photos/man-siting-facing-laptop-dYEuFB8KQJk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>'
+isRegional: true
 ---
 
 Anonymous sendiri sudah tidak asing ditelinga kita yaitu seseorang yang kita tidak ketahui siapa identitas asli sebenarnya, lalu apa hubungannya dengan JavaScript? dan apa hubungannya dengan development kita?

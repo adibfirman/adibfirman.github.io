@@ -12,6 +12,7 @@ export type Article = {
   content: string;
   folderPath: string[];
   copyrightCover: string;
+  isRegional: boolean;
 };
 
 export type TreeArticlesStructure = { [key: string]: number };
@@ -69,8 +70,7 @@ export function getArticles(): Article[] {
         const fileStats = fs.statSync(filePath);
         const { data, content } = matter(fileContents);
 
-        const fileName =
-          path.basename(filePath, ".md") || path.basename(filePath, ".mdx");
+        const fileName = path.basename(filePath).replace(/(.mdx|.md)/i, "");
         // const slug =
         //   folderPath.length > 0
         //     ? `${folderPath.join("/")}/${fileName}`
@@ -90,6 +90,7 @@ export function getArticles(): Article[] {
           copyrightCover: data.copyrightCover,
           createdAt: data.date,
           updatedAt: data.updatedAt || fileStats.mtime.toString(),
+          isRegional: Boolean(data.isRegional),
         };
 
         return articleData;

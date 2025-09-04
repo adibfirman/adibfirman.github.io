@@ -3,7 +3,8 @@ title: Mengenal Si-Cantik ES6 (Part 1)
 date: "2018-05-17"
 updatedAt: "2018-05-17"
 excerpt: Pengenalan EcmaScript (ES6) bagian 1/2
-copyrightCover: 'Photo by <a href="https://unsplash.com/@growtika?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Growtika</a> on <a href="https://unsplash.com/photos/graphical-user-interface-qaedPly-Uro?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> '
+copyrightCover: 'Photo by <a href="https://unsplash.com/@growtika?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Growtika</a> on <a href="https://unsplash.com/photos/graphical-user-interface-qaedPly-Uro?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>'
+isRegional: true
 ---
 
 Sebenarnya judulnya sih agak _lebay_, cuman ada benarnya juga kenapa kita bilang dia sicantik-nya Javascript, oke langsung saja kita perkenalan dengan dia, beeerrraanggkaattt…..

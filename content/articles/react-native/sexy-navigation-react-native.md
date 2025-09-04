@@ -4,6 +4,7 @@ date: "2018-10-29"
 updatedAt: "2018-10-29"
 excerpt: Merasakan navigasi seperti native navigasi di React Native
 copyrightCover: 'Photo by <a href="https://unsplash.com/@hckmstrrahul?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Rahul Chakraborty</a> on <a href="https://unsplash.com/photos/white-smartphone-near-laptop-xsGxhtAsfSA?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>'
+isRegional: true
 ---
 
 Pada tahap ini saya akan melakukan cara instalasi pada _React Native Navigation WIX_, karena sering sekali gosip yang mencerikan kalau RNN ini susah sekali untuk di instal pada app kita, padahal ini semua sudah lengkap di kitab onlen RNN [(dokumentasinya)](https://wix.github.io/react-native-navigation/#/), sebelum tahap klimaks-nya saya akan menjelaskan jenis navigasi yang disediakan oleh **React Native**, yaitu:

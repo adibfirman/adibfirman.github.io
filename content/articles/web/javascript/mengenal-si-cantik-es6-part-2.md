@@ -4,6 +4,7 @@ date: "2018-10-23"
 updatedAt: "2018-10-23"
 excerpt: Pengenalan EcmaScript (ES6) bagian 2/2
 copyrightCover: 'Photo by <a href="https://unsplash.com/@growtika?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Growtika</a> on <a href="https://unsplash.com/photos/a-computer-screen-with-a-keyboard-and-a-box-with-a-logo-YOEHA0Ou8ZY?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> '
+isRegional: true
 ---
 
 Pada part [sebelumnya](/articles/mengenal-si-cantik-es6-part-1) kita sudah berkenalan dengan ES6 dan juga beberapa fungsi pada ES6 contohnya pendeklarasian variabel, lalu pada part kali ini kita akan mengupas tuntaskan tentang si-cantik ES6 ini, langsung saja beeraaanggkaattt….
