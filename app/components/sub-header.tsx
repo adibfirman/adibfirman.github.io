@@ -6,12 +6,14 @@ import { DEFAULT_META } from "@/utils/constants";
 type Props = Partial<{
   title: string;
   desc: string;
+  className: string;
 }>;
 
 export function SubHeader({
   title = "Hello, I'm Adib! 👋",
   desc = DEFAULT_META.description,
   children,
+  className,
 }: PropsWithChildren<Props>) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -237,7 +239,7 @@ export function SubHeader({
 
   return (
     <div
-      className="relative min-h-[40svh] sm:min-h-[50svh] w-full overflow-hidden"
+      className={`relative min-h-[40svh] sm:min-h-[50svh] w-full overflow-hidden ${className}`}
       style={{
         background: `linear-gradient(135deg, 
           hsl(220, 30%, 8%) 0%, 
