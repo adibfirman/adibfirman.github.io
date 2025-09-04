@@ -31,7 +31,7 @@ function getAllMdxFiles(
       if (item.isDirectory()) {
         const nestedFiles = getAllMdxFiles(fullPath, baseDir);
         files.push(...nestedFiles);
-      } else if (item.name.endsWith(".mdx")) {
+      } else if (item.name.endsWith(".mdx") || item.name.endsWith(".md")) {
         const relativePath = path.relative(baseDir, dir);
         const folderPath = relativePath ? relativePath.split(path.sep) : [];
         files.push({ filePath: fullPath, folderPath });
@@ -69,7 +69,8 @@ export function getArticles(): Article[] {
         const fileStats = fs.statSync(filePath);
         const { data, content } = matter(fileContents);
 
-        const fileName = path.basename(filePath, ".mdx");
+        const fileName =
+          path.basename(filePath, ".md") || path.basename(filePath, ".mdx");
         // const slug =
         //   folderPath.length > 0
         //     ? `${folderPath.join("/")}/${fileName}`
@@ -88,7 +89,7 @@ export function getArticles(): Article[] {
           folderPath,
           copyrightCover: data.copyrightCover,
           createdAt: data.date,
-          updatedAt: fileStats.mtime.toString(),
+          updatedAt: data.updatedAt || fileStats.mtime.toString(),
         };
 
         return articleData;
