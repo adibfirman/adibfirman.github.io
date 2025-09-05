@@ -32,8 +32,8 @@ export function Header({ className = "" }: HeaderProps) {
       <div className="max-w-4xl mx-auto flex items-center justify-between px-4 md:px-8 py-8">
         {/* Left side - Logo/Site name */}
         <div className="flex items-center space-x-4 md:space-x-6">
-          <Link
-            to="/"
+          <a
+            href="/"
             className="flex items-center space-x-2 text-mystic-text-primary font-heading font-semibold hover:text-mystic-accent transition-colors"
           >
             <div className="w-8 h-8 bg-mystic-accent rounded-full flex items-center justify-center">
@@ -43,7 +43,7 @@ export function Header({ className = "" }: HeaderProps) {
               />
             </div>
             <span className="block">adibfirman.dev</span>
-          </Link>
+          </a>
         </div>
 
         {/* Navigation */}

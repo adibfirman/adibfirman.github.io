@@ -10,7 +10,7 @@ interface HomeProps {
 export function Home({ articles, treeStructureArticles }: HomeProps) {
   return (
     <>
-      <SubHeader className="min-h-[60svh] sm:min-h-[50svh]" />
+      <SubHeader className="min-h-[60vh] lg:min-h-[50svh]" />
       <main className="text-white min-h-screen">
         <div className="max-w-5xl mx-auto px-6 py-8">
           <div className="grid lg:grid-cols-4 gap-8">
