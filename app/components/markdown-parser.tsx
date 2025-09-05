@@ -70,7 +70,7 @@ export function MarkdownParser({ article }: Props) {
       <blockquote
         {...props}
         children={children}
-        className="border-l-4 border-slate-700 pl-4 text-slate-300 bg-slate-900/30 rounded-md py-2"
+        className="border-l-4 border-slate-700 pl-4 text-slate-300 bg-slate-900/30 rounded-md py-2 my-5"
       />
     ),
 
