@@ -1,0 +1,68 @@
+import type { Article } from "@/utils/articles";
+
+type Props = {
+  article: Article;
+};
+
+type Item = {
+  id: string;
+  title: string;
+  level: number;
+};
+
+export function TableOfContents({ article }: Props) {
+  const tocItems = (() => {
+    const headingRegex = /^(#{1,6})\s+(.+)$/gm;
+    const items: Item[] = [];
+    let match;
+
+    while ((match = headingRegex.exec(article.content)) !== null) {
+      const level = match[1].length;
+      const title = match[2].trim();
+      const id = title.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+
+      items.push({
+        id,
+        title,
+        level,
+      });
+    }
+
+    return items;
+  })();
+
+  const minLevelToc = (() => {
+    return tocItems.reduce((acc, item) => {
+      return Math.min(acc, item.level);
+    }, 6);
+  })();
+
+  return (
+    <div className="hidden lg:block sticky top-32 self-start">
+      {tocItems.length > 0 && (
+        <div className="w-max">
+          <h2 className="text-base font-semibold text-shadow-mystic-purple-surface/85 mb-4 flex items-center gap-2 font-heading uppercase">
+            Table of Contents
+          </h2>
+          <nav>
+            <ul className="space-y-1">
+              {tocItems.map((item, index) => (
+                <li key={index}>
+                  <a
+                    href={`#${item.id}`}
+                    className="text-mystic-accent/80 hover:text-mystic-accent-hover hover:underline transition-colors block py-1 font-body text-xs font-semibold"
+                    style={{
+                      paddingLeft: `${(item.level - minLevelToc) * 0.75}rem`,
+                    }}
+                  >
+                    {item.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+      )}
+    </div>
+  );
+}
