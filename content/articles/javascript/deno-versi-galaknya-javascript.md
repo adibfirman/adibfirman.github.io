@@ -1,7 +1,10 @@
 ---
 title: Deno-saurus versi galaknya JavaScript?
 date: "2020-05-17"
-spoiler: Bermain dengan Deno, a secure runtime untuk JavaScript dan TypeScript
+updatedAt: "2020-05-17"
+excerpt: Bermain dengan Deno, a secure runtime untuk JavaScript dan TypeScript
+copyrightCover: 'Photo by <a href="https://unsplash.com/@proskurovskiy?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Volodymyr Proskurovskyi</a> on <a href="https://unsplash.com/photos/a-blurry-photo-of-a-subway-train-p6K8ar-gCf8?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> '
+isRegional: true
 ---
 
 Beberapa hari lalu deno akhirnya release dengan versi stablenya **v1.0.0** dan deno sendiri sudah di mention tahun lalu oleh mas **Ryan Dahl** seseorang yang super jenius yang membuat NodeJS juga. Secara garis besar ketika kita melihat halaman dokumentasi resminya deno, deno sendiri bisa di dibilang seperti ini.
@@ -85,7 +88,9 @@ lalu menariknya deno menggunakan ES6 dan pastinya ada ES Modules nah, maksudnya 
 ```ts
 import * as base64 from "https://denopkg.com/chiefbiiko/base64/mod.ts";
 
-const myPass: string = base64.fromUint8Array(new TextEncoder().encode("password 123"));
+const myPass: string = base64.fromUint8Array(
+  new TextEncoder().encode("password 123"),
+);
 
 console.log(myPass);
 ```

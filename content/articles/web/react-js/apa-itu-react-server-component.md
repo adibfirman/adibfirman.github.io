@@ -1,7 +1,10 @@
 ---
 title: Apa itu React Server Component..?
 date: "2021-01-17"
-spoiler: Sebuah rangkuman pembelajaran mengenai React Server Component
+updatedAt: "2021-01-17"
+excerpt: Sebuah rangkuman pembelajaran mengenai React Server Component
+isRegional: true
+copyrightCover: 'Photo by <a href="https://unsplash.com/@floriankrumm?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Florian Krumm</a> on <a href="https://unsplash.com/photos/a-close-up-of-a-computer-motherboard-with-wires-yLDabpoCL3s?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> '
 ---
 
 Pada akhir tahun 2020 kemarin, _core team_ dari ReactJS telah mengeluarkan sebuah berita tentang _React Server Component_ tentu saja ini belum compatible dengan production yaa.. sekilas dari nama yang diberikan kita akan menyimpulkan secara tidak langsung ini adalah component yang berjalan pada server, ya betul kalian bisa melihat lengkap-nya ada [disini](https://reactjs.org/blog/2020/12/21/data-fetching-with-react-server-components.html).
@@ -23,11 +26,11 @@ Hal yang paling menarik dari RSC ini ialah, ada 3 tipe file yang bisa kalian gun
 - .client.js
 - .js [shared]
 
-### .client.js
+## .client.js
 
 Yak, extension / tambahan `.client.js` tidak akan memberikan kesan yang spesial karena file ini sering kita gunakan seperti sekarang tetapi ingat pada file ini kita tidak bisa meng-import file `.server.js` dan terakhir kita bisa meng-konsumsi data dari server component (penjelasan ada dibawah).
 
-### .server.js
+## .server.js
 
 Berikut adalah contoh file-nya:
 
@@ -101,7 +104,7 @@ function NoteWithMarkdown({ text }) {
 
 Memang, pada file `.server.js` user akan disuguhi _zero-bundle size_ tetapi, ketika kita meng-import file dengan `.client.js` file tersebut akan tetap ter-download oleh user.
 
-### .js (shared)
+## .js (shared)
 
 Ekstensi file ini adalah yang sering kita gunakan, tetapi ketika nanti RSC sudah rilis di production file ini akan menjadi otomatis terbaca menjadi server file, maksudnya secara otomatis akan dibaca menjadi `.server.js` file.
 \
