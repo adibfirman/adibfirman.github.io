@@ -1,7 +1,10 @@
 ---
 title: Kumpulan Sampah di Javascript
 date: "2019-10-11"
-spoiler: Kumpulan Sampah di javascript?
+updatedAt: "2019-10-11"
+excerpt: Kumpulan Sampah di javascript?
+copyrightCover: 'Photo by <a href="https://unsplash.com/@zibik?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">zibik</a> on <a href="https://unsplash.com/photos/people-collecting-trash-in-garbage-truck-iR4mClggzEU?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> '
+isRegional: true
 ---
 
 ## Pendahuluan
@@ -57,8 +60,8 @@ nah seperti kode diatas jika kita masih punya sebuah referensi data, **GC** tida
  */
 var x = {
   a: {
-    b: 2
-  }
+    b: 2,
+  },
 };
 
 /**
