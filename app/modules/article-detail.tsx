@@ -19,7 +19,7 @@ export function ArticleDetail({ article }: Props) {
         >
           <div className="w-full h-full bg-gray-900/30 backdrop-blur-md" />
         </div>
-        <div className="absolute inset-0 flex items-end pb-28 lg:pb-36 justify-left z-10 max-w-4xl mx-auto px-8">
+        <div className="absolute inset-0 flex items-center pt-7 lg:pt-0 lg:items-end lg:pb-36 justify-left z-10 max-w-4xl mx-auto px-8">
           <div className="text-left pr-6 xs:mt-20 sm:pr-8 md:pr-12 max-w-4xl">
             <h1 className="text-xl lg:text-4xl mb-2 font-bold font-heading text-mystic-text-secondary text-shadow-mystic-bg text-shadow-2xs">
               {article.title}

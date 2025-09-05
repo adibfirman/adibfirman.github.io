@@ -13,7 +13,7 @@ export function MarkdownParser({ article }: Props) {
     h1: ({ node, ...props }) => (
       <h1
         {...props}
-        className="text-4xl font-extrabold mt-2 mb-4 leading-tight text-mystic-purple-surface font-heading"
+        className="text-4xl font-extrabold mt-10 mb-8 leading-tight text-mystic-purple-surface font-heading"
       />
     ),
     h2: ({ node, ...props }) => (
@@ -48,14 +48,19 @@ export function MarkdownParser({ article }: Props) {
 
     // Lists
     ul: ({ node, ...props }) => (
-      <ul {...props} className="list-disc pl-6 space-y-1 text-lg leading-7" />
+      <ul
+        {...props}
+        className="list-disc pl-10 my-4 space-y-1 text-lg leading-7"
+      />
     ),
+
     ol: ({ node, ...props }) => (
       <ol
         {...props}
-        className="list-decimal pl-6 space-y-1 text-lg leading-7"
+        className="list-decimal pl-10 my-4 space-y-1 text-lg leading-7"
       />
     ),
+
     li: ({ node, ...props }) => (
       <li {...props} className="my-1 text-lg leading-7" />
     ),
@@ -80,6 +85,7 @@ export function MarkdownParser({ article }: Props) {
             customStyle={{
               fontFamily: "var(--font-mono)",
               fontSize: "var(--text-base)",
+              margin: "21px 0",
             }}
             codeTagProps={{
               style: {
@@ -136,7 +142,7 @@ export function MarkdownParser({ article }: Props) {
       <img
         {...props}
         src={`${article.slug}/${props.src}`}
-        className="rounded-md shadow-sm my-7 mx-auto max-w-1/2"
+        className="rounded-md shadow-sm my-7 mx-auto max-w-10/12"
       />
     ),
   } as Components;

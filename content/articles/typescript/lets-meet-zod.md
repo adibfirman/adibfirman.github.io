@@ -313,8 +313,7 @@ Zod, it’s totally game-changer if we need to make sure our type on our functio
 
 Apart from writing it on TypeScript, Zod will also help you too on your app if already written with JavaScript in my perspective.
 
-Also, there’s so much API that we did not mention here you can take a look by yourself from the documentation Zod.
-
-[https://github.com/colinhacks/zod#optional](https://github.com/colinhacks/zod#optional)
-
+Also, there’s so much API that we did not mention here you can take a look by yourself from the [official documentation](https://github.com/colinhacks/zod#optional).
+\
+\
 Thank you.

@@ -10,7 +10,7 @@ interface HomeProps {
 export function Home({ articles, treeStructureArticles }: HomeProps) {
   return (
     <>
-      <SubHeader />
+      <SubHeader className="min-h-[60svh] sm:min-h-[50svh]" />
       <main className="text-white min-h-screen">
         <div className="max-w-5xl mx-auto px-6 py-8">
           <div className="grid lg:grid-cols-4 gap-8">
@@ -27,7 +27,7 @@ export function Home({ articles, treeStructureArticles }: HomeProps) {
                       <div className="pb-6">
                         {article.isRegional && (
                           <span className="text-xs font-semibold font-heading italic text-mystic-mid">
-                            *Regional / (Indonesian Content)
+                            *Regional / (Indonesian Article)
                           </span>
                         )}
                         <h2 className="text-xl font-bold hover:underline hover:decoration-mystic-accent-hover font-body">
