@@ -102,7 +102,7 @@ export function TreeTags({ folderStructure, onFolderClick }: TreeTagsProps) {
             )}
           </div>
 
-          <span className="capitalize text-sm text-gray-300 hover:text-white transition-colors flex-1">
+          <span className="capitalize text-sm text-gray-300 hover:text-white transition-colors flex-1 font-semibold">
             {node.name.replace("-", " ")}
           </span>
 
