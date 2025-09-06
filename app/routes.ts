@@ -6,4 +6,5 @@ export default [
   route("talks", "routes/talks.tsx"),
   route("about", "routes/about.tsx"),
   route("articles/:slug", "routes/article-detail.tsx"),
+  route("articles", "routes/articles.tsx"),
 ] satisfies RouteConfig;
