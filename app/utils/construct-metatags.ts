@@ -45,6 +45,6 @@ export function constructMetaTags(options: Options) {
     { property: "og:site_name", content: DEFAULT_META.TITLE },
     { property: "og:locale", content: locale },
     { property: "og:description", content: description },
-    { property: "og:url", content: DEFAULT_META.URL },
+    { property: "og:url", content: `${DEFAULT_META.URL}${url || "/"}` },
   ];
 }

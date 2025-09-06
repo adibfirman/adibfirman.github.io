@@ -10,8 +10,8 @@ export function loader() {
   return { articles, folderStructureArticles };
 }
 
-export function meta() {
-  return constructMetaTags({});
+export function meta(args: Route.MetaArgs) {
+  return constructMetaTags({ url: args.location.pathname });
 }
 
 export default function Home({ loaderData }: Route.ComponentProps) {
