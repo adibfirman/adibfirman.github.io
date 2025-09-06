@@ -34,6 +34,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>{DEFAULT_META.title}</title>
         <meta name="description" content={DEFAULT_META.description} />
+        <meta
+          property="twitter:description"
+          content={DEFAULT_META.description}
+        />
         <Meta />
         <Links />
       </head>
