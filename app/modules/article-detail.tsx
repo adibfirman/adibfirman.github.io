@@ -44,8 +44,8 @@ export function ArticleDetail({ article }: Props) {
         </div>
       </SubHeader>
 
-      <main className="grid grid-cols-12 gap-4 lg:max-w-5xl lg:mx-auto px-6 py-8">
-        <article className="text-mystic-text-primary/85 px-2.5 lg:px-0 col-start-1 col-end-12 lg:col-end-11">
+      <main className="grid grid-cols-12 gap-4 lg:max-w-5xl lg:mx-auto px-5 lg:px-6 py-8">
+        <article className="text-mystic-text-primary/85 pr-2.5 lg:px-0 col-start-1 col-end-12 lg:col-end-11">
           <ReactMarkdown
             rehypePlugins={[rehypeRaw]}
             remarkPlugins={[remarkGfm]}

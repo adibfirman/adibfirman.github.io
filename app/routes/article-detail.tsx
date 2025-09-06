@@ -6,6 +6,7 @@ import {
 
 import { getArticles } from "@/utils/articles";
 import { ArticleDetail as ArticleDetailModule } from "@/modules/article-detail";
+import { constructMetaTags } from "@/utils/construct-metatags";
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const articles = getArticles();
@@ -19,10 +20,13 @@ export async function loader({ params }: LoaderFunctionArgs) {
 }
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
-  return [
-    { title: `${data?.article.title} - Adib Firman` },
-    { name: "description", content: data?.article.excerpt },
-  ];
+  const metaTags = constructMetaTags({
+    title: `${data?.article.title} - Adib Firman`,
+    description: data?.article.excerpt,
+    locale: data?.article.isRegional ? "id_ID" : "en",
+  });
+
+  return metaTags;
 };
 
 export default function ArticleDetail() {

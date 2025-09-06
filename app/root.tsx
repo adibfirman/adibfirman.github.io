@@ -8,7 +8,6 @@ import {
 } from "react-router";
 
 import { Header } from "@/components";
-import { DEFAULT_META } from "@/utils/constants";
 
 import type { Route } from "./+types/root";
 import "./app.css";
@@ -32,12 +31,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>{DEFAULT_META.title}</title>
-        <meta name="description" content={DEFAULT_META.description} />
-        <meta
-          property="twitter:description"
-          content={DEFAULT_META.description}
-        />
         <Meta />
         <Links />
       </head>

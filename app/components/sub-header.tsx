@@ -11,9 +11,9 @@ type Props = Partial<{
 
 export function SubHeader({
   title = "Hello, I'm Adib! 👋",
-  desc = DEFAULT_META.description,
+  desc = DEFAULT_META.DESCRIPTION,
   children,
-  className,
+  className = "",
 }: PropsWithChildren<Props>) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
