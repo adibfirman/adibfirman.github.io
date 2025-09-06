@@ -31,7 +31,7 @@ export function constructMetaTags(options: Options) {
     ...returnSafeArray(keywords, [
       { name: "keywords", content: keywords?.join(", ") },
     ]),
-    ...returnSafeArray(url, [{ property: "og:url", content: url }]),
+    ...returnSafeArray(url, []),
     ...returnSafeArray(image, [
       { property: "og:image", content: image },
       { property: "twitter:image", content: image },
@@ -45,5 +45,6 @@ export function constructMetaTags(options: Options) {
     { property: "og:site_name", content: DEFAULT_META.TITLE },
     { property: "og:locale", content: locale },
     { property: "og:description", content: description },
+    { property: "og:url", content: DEFAULT_META.URL },
   ];
 }

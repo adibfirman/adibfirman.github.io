@@ -1,7 +1,6 @@
 import type { Route } from "./+types/home";
 import { Home as HomeModule } from "@/modules/home";
 import { getArticles, getFolderStructure } from "@/utils/articles";
-import { DEFAULT_META } from "@/utils/constants";
 import { constructMetaTags } from "@/utils/construct-metatags";
 
 export function loader() {
