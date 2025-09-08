@@ -28,7 +28,10 @@ function renderDefaultBody() {
 
 export async function constructDefaultHTML(params: Props) {
   try {
-    const pathBgCover = params?.customCoverPath || "content/og-cover.svg";
+    const defaultCover = import.meta.env.PROD
+      ? "og-cover.svg"
+      : "public/og-cover.svg";
+    const pathBgCover = params?.customCoverPath || defaultCover;
     const bgCoverBase64 = await getImageAsBase64(pathBgCover);
 
     return (
