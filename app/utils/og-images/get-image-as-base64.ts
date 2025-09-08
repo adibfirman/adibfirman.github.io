@@ -14,12 +14,12 @@ function getExtensionFromPath(path: string): string | null {
   return parts.length > 1 ? (parts.pop() ?? null) : null;
 }
 
-export function getImageAsBase64(imagePath: string) {
+export async function getImageAsBase64(url: string) {
   try {
-    const getPath = path.join(process.cwd(), imagePath);
-    const imageData = fs.readFileSync(getPath);
+    // const getPath = path.join(process.cwd(), imagePath);
+    // const imageData = fs.readFileSync(getPath);
     const imageType = (() => {
-      const extension = getExtensionFromPath(imagePath);
+      const extension = getExtensionFromPath(url);
 
       switch (extension) {
         case "svg":
@@ -42,7 +42,11 @@ export function getImageAsBase64(imagePath: string) {
       }
     })();
 
-    const imageBase64 = Buffer.from(imageData).toString("base64");
+    console.log("url", url);
+
+    const getImage = await fetch(url);
+    const bufferImage = await getImage.arrayBuffer();
+    const imageBase64 = Buffer.from(bufferImage).toString("base64");
     const imageBase64Url = `data:${imageType};base64,${imageBase64}`;
 
     return imageBase64Url;

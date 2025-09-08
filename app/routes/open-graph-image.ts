@@ -8,11 +8,12 @@ import { getImageAsBase64 } from "@/utils/og-images/get-image-as-base64";
 
 export async function loader({ request: req }: Route.LoaderArgs) {
   try {
-    const search = new URLSearchParams(new URL(req.url).searchParams);
+    const url = new URL(req.url);
+    const search = new URLSearchParams(url.searchParams);
     const customCoverPath = search.get("customCoverPath") || "";
-    const pathBgCover = customCoverPath || "content/og-cover.svg";
+    const pathBgCover = customCoverPath || "/og-cover.svg";
 
-    const bgCoverBase64 = getImageAsBase64(pathBgCover);
+    const bgCoverBase64 = await getImageAsBase64(`${url.origin}${pathBgCover}`);
     const html = await constructDefaultHTML({
       cover: bgCoverBase64,
       useDefaultStyle: Boolean(customCoverPath),
