@@ -1,6 +1,3 @@
-import fs from "fs";
-import path from "path";
-
 const AVIF = "image/avif";
 const WEBP = "image/webp";
 const APNG = "image/apng";
@@ -16,8 +13,6 @@ function getExtensionFromPath(path: string): string | null {
 
 export async function getImageAsBase64(url: string) {
   try {
-    // const getPath = path.join(process.cwd(), imagePath);
-    // const imageData = fs.readFileSync(getPath);
     const imageType = (() => {
       const extension = getExtensionFromPath(url);
 
