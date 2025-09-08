@@ -10,9 +10,9 @@ export async function loader({ request: req }: Route.LoaderArgs) {
   try {
     const search = new URLSearchParams(new URL(req.url).searchParams);
     const customCoverPath = search.get("customCoverPath") || "";
-    const pathBgCover = customCoverPath || "/public/og-cover.svg";
+    const pathBgCover = customCoverPath || "public/og-cover.svg";
 
-    const bgCoverBase64 = await getImageAsBase64(pathBgCover);
+    const bgCoverBase64 = getImageAsBase64(pathBgCover);
     const html = await constructDefaultHTML({
       cover: bgCoverBase64,
       useDefaultStyle: Boolean(customCoverPath),

@@ -1,4 +1,4 @@
-import fs from "fs/promises";
+import fs from "fs";
 import path from "path";
 
 const AVIF = "image/avif";
@@ -9,15 +9,17 @@ const JPEG = "image/jpeg";
 const GIF = "image/gif";
 const SVG = "image/svg+xml";
 
-export async function getImageAsBase64(imagePath: string) {
+function getExtensionFromPath(path: string): string | null {
+  const parts = path.split(".");
+  return parts.length > 1 ? (parts.pop() ?? null) : null;
+}
+
+export function getImageAsBase64(imagePath: string) {
   try {
     const getPath = path.join(process.cwd(), imagePath);
-    const imageData = await fs.readFile(getPath);
+    const imageData = fs.readFileSync(getPath);
     const imageType = (() => {
-      const extension = path
-        .extname(imagePath)
-        .toLocaleLowerCase()
-        .replace(".", "");
+      const extension = getExtensionFromPath(imagePath);
 
       switch (extension) {
         case "svg":
