@@ -12,22 +12,22 @@ const ABSOLUTE_STYLE: CSSProperties = {
   position: "absolute",
 };
 
-function renderDefaultBody() {
-  return (
-    <div tw="relative flex flex-col justify-center w-2/5 h-full text-[#e1e1ec] px-14">
-      <h1 tw="text-5xl m-0 text-left" style={{ fontFamily: "Montserrat" }}>
-        Adib Firman
-      </h1>
-      <p tw="text-base mt-4" style={{ fontFamily: "Lato" }}>
-        Welcome to my corner of the internet where I share my journey, projects,
-        and thoughts on development.
-      </p>
-    </div>
-  );
-}
-
 export async function constructDefaultHTML({ cover, useDefaultStyle }: Props) {
   try {
+    const renderDefaultBody = (() => {
+      return (
+        <div tw="relative flex flex-col justify-center w-2/3 h-full text-[#e1e1ec] px-14">
+          <h1 tw="text-4xl m-0 text-left" style={{ fontFamily: "Montserrat" }}>
+            Hi There, I'm Adib Firman..!!
+          </h1>
+          <p tw="text-2xl mt-4" style={{ fontFamily: "Lato" }}>
+            Welcome to my corner of the internet where I share my journey,
+            projects, and thoughts on development.
+          </p>
+        </div>
+      );
+    })();
+
     return (
       <div
         tw="relative flex items-start justify-start w-full h-full overflow-hidden"
@@ -59,7 +59,7 @@ export async function constructDefaultHTML({ cover, useDefaultStyle }: Props) {
           }}
         />
 
-        {renderDefaultBody()}
+        {renderDefaultBody}
       </div>
     );
   } catch (err) {
