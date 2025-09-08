@@ -7,5 +7,5 @@ export default [
   route("about", "routes/about.tsx"),
   route("articles/:slug", "routes/article-detail.tsx"),
   route("articles", "routes/articles.tsx"),
-  route("api/meta-tags-images", "routes/meta-tags-images.tsx"),
+  route("api/open-graph-image", "routes/open-graph-image.ts"),
 ] satisfies RouteConfig;

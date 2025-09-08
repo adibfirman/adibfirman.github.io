@@ -10,6 +10,7 @@ import {
 import { Header } from "@/components";
 
 import type { Route } from "./+types/root";
+import { FONT_URL } from "./utils/constants";
 import "./app.css";
 
 export const links: Route.LinksFunction = () => [
@@ -21,7 +22,7 @@ export const links: Route.LinksFunction = () => [
   },
   {
     rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Lato:wght@400;700&family=Montserrat:wght@600;700&display=swap",
+    href: FONT_URL,
   },
 ];
 
