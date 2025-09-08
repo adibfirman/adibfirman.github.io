@@ -1,9 +1,9 @@
 import type { CSSProperties } from "react";
-import { getImageAsBase64 } from "./get-image-as-base64";
 
-type Props = Partial<{
-  customCoverPath: string;
-}>;
+type Props = {
+  cover: string;
+  useDefaultStyle: boolean;
+};
 
 const BACKGROUND_COLOR = "#101828";
 const ABSOLUTE_STYLE: CSSProperties = {
@@ -26,22 +26,16 @@ function renderDefaultBody() {
   );
 }
 
-export async function constructDefaultHTML(params: Props) {
+export async function constructDefaultHTML({ cover, useDefaultStyle }: Props) {
   try {
-    const defaultCover = import.meta.env.PROD
-      ? "og-cover.svg"
-      : "public/og-cover.svg";
-    const pathBgCover = params?.customCoverPath || defaultCover;
-    const bgCoverBase64 = await getImageAsBase64(pathBgCover);
-
     return (
       <div
         tw="relative flex items-start justify-start w-full h-full overflow-hidden"
         style={{ backgroundColor: BACKGROUND_COLOR }}
       >
-        {params?.customCoverPath ? (
+        {useDefaultStyle ? (
           <img
-            src={bgCoverBase64}
+            src={cover}
             style={{
               ...ABSOLUTE_STYLE,
               objectFit: "cover",
@@ -52,7 +46,7 @@ export async function constructDefaultHTML(params: Props) {
           <div
             style={{
               ...ABSOLUTE_STYLE,
-              backgroundImage: `url("${bgCoverBase64}")`,
+              backgroundImage: `url("${cover}")`,
               backgroundColor: BACKGROUND_COLOR,
             }}
           />

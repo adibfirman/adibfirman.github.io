@@ -4,14 +4,25 @@ import { Resvg } from "@resvg/resvg-js";
 import type { Route } from "./+types/open-graph-image";
 import { loadGoogleFonts } from "@/utils/og-images/load-google-fonts";
 import { constructDefaultHTML } from "@/utils/og-images/construct-default-html";
+import { getImageAsBase64 } from "@/utils/og-images/get-image-as-base64";
 
 export async function loader({ request: req }: Route.LoaderArgs) {
   try {
     const search = new URLSearchParams(new URL(req.url).searchParams);
     const customCoverPath = search.get("customCoverPath") || "";
+    const defaultCover = import.meta.env.PROD
+      ? "og-cover.svg"
+      : "public/og-cover.svg";
+
+    const pathBgCover = customCoverPath || defaultCover;
+    const bgCoverBase64 = await getImageAsBase64(pathBgCover);
+
+    const html = await constructDefaultHTML({
+      cover: bgCoverBase64,
+      useDefaultStyle: Boolean(customCoverPath),
+    });
 
     const fonts = await loadGoogleFonts();
-    const html = await constructDefaultHTML({ customCoverPath });
     const svg = await satori(html, {
       width: 1200,
       height: 628,
