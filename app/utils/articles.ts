@@ -107,6 +107,17 @@ export function getArticles(): Article[] {
   }
 }
 
+export function getSingleArticles({ slug }: Pick<Article, "slug">) {
+  try {
+    const articles = getArticles();
+    const article = articles.find((a) => a.slug === slug);
+
+    return article;
+  } catch (err) {
+    throw err;
+  }
+}
+
 export function getFolderStructure(): TreeArticlesStructure {
   try {
     const articlesDirectory = getArticlesDir();

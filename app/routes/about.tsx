@@ -1,11 +1,11 @@
 import { constructMetaTags } from "@/utils/construct-metatags";
-import { constructUrlToview } from "@/utils/og-images/construct-url-to-view";
+import { constructOgImageAPI } from "@/utils/og-images/construct-og-image-api";
 import { About as AboutModule } from "@/modules/about";
 
 import type { Route } from "./+types/about";
 
 export function loader({ request }: Route.LoaderArgs) {
-  const metaImage = constructUrlToview(request.url);
+  const metaImage = constructOgImageAPI(request.url);
   return { metaImage };
 }
 

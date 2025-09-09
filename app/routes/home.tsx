@@ -1,14 +1,14 @@
 import { Home as HomeModule } from "@/modules/home";
 import { getArticles, getFolderStructure } from "@/utils/articles";
 import { constructMetaTags } from "@/utils/construct-metatags";
-import { constructUrlToview } from "@/utils/og-images/construct-url-to-view";
+import { constructOgImageAPI } from "@/utils/og-images/construct-og-image-api";
 
 import type { Route } from "./+types/home";
 
 export function loader({ request }: Route.LoaderArgs) {
   const articles = getArticles();
   const folderStructureArticles = getFolderStructure();
-  const metaImage = constructUrlToview(request.url);
+  const metaImage = constructOgImageAPI(request.url);
 
   return { articles, folderStructureArticles, metaImage };
 }

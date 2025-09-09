@@ -8,15 +8,16 @@ import { SubHeader, MarkdownParser, TableOfContents } from "@/components";
 type Props = {
   article: Article;
   totalViews: number;
+  coverIMG: string;
 };
 
-export function ArticleDetail({ article, totalViews }: Props) {
+export function ArticleDetail({ article, totalViews, coverIMG }: Props) {
   return (
     <>
       <SubHeader>
         <div
           className={`absolute top-0 left-0 w-full h-[99%] bg-cover bg-center`}
-          style={{ backgroundImage: `url(${article.slug}/cover.jpg)` }}
+          style={{ backgroundImage: `url(${coverIMG})` }}
         >
           <div className="w-full h-full bg-gray-900/30 backdrop-blur-md" />
         </div>

@@ -37,7 +37,7 @@ export async function getImageAsBase64(url: string) {
       }
     })();
 
-    console.log("url", url);
+    console.log("----url----", url);
 
     const getImage = await fetch(url);
     const bufferImage = await getImage.arrayBuffer();
