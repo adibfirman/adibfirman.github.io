@@ -30,5 +30,5 @@ export function meta({ loaderData, location }: Route.MetaArgs) {
 export default function ArticleDetail() {
   const { article } = useLoaderData<typeof loader>();
 
-  return <ArticleDetailModule article={article} />;
+  return <ArticleDetailModule totalViews={0} article={article} />;
 }

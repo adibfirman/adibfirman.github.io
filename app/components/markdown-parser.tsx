@@ -36,7 +36,9 @@ export function MarkdownParser({ article }: Props) {
     ),
 
     // Paragraph
-    p: ({ node, ...props }) => <p {...props} className="text-lg leading-7" />,
+    p: ({ node, ...props }) => (
+      <p {...props} className="text-lg leading-7 text-justify lg:text-left" />
+    ),
 
     // Links
     a: ({ node, ...props }) => (

@@ -114,5 +114,5 @@ Yaa, terima kasih sudah berkunjung, saya harap saya membuat anda penasaran denga
 \
 Referensi terkait:
 
-- [https://github.com/josephsavona/rfcs/blob/server-components/text/0000-server-components.md](https://github.com/josephsavona/rfcs/blob/server-components/text/0000-server-components.md)
-- [https://reactjs.org/blog/2020/12/21/data-fetching-with-react-server-components.html](https://reactjs.org/blog/2020/12/21/data-fetching-with-react-server-components.html)
+- [server-components.md](https://github.com/josephsavona/rfcs/blob/server-components/text/0000-server-components.md)
+- [react-server-component.html](https://reactjs.org/blog/2020/12/21/data-fetching-with-react-server-components.html)

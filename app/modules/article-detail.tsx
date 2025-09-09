@@ -7,9 +7,10 @@ import { SubHeader, MarkdownParser, TableOfContents } from "@/components";
 
 type Props = {
   article: Article;
+  totalViews: number;
 };
 
-export function ArticleDetail({ article }: Props) {
+export function ArticleDetail({ article, totalViews }: Props) {
   return (
     <>
       <SubHeader>
@@ -36,6 +37,7 @@ export function ArticleDetail({ article }: Props) {
             </p>
           </div>
         </div>
+
         <div className="absolute bottom-0 right-0 z-20 max-w-4xl flex mr-3 mb-3">
           <p
             className="text-[9px] text-gray-300 leading-relaxed font-heading [&>a]:italic [&>a]:text-mystic-accent [&>a]:hover:underline"
@@ -44,8 +46,30 @@ export function ArticleDetail({ article }: Props) {
         </div>
       </SubHeader>
 
-      <main className="grid grid-cols-12 gap-4 lg:max-w-5xl lg:mx-auto px-5 lg:px-6 py-8">
-        <article className="text-mystic-text-primary/85 pr-2.5 lg:px-0 col-start-1 col-end-12 lg:col-end-11">
+      <main className="grid grid-cols-12 gap-4 lg:max-w-5xl lg:mx-auto px-4 lg:px-6 py-8">
+        <div className="flex text-xs col-start-1 col-end-12">
+          <div className="flex flex-row items-center justify-center">
+            <p className="text-gray-300 leading-relaxed font-body font-semibold">
+              <span className="text-mystic-accent-light mr-1">
+                {totalViews}
+              </span>
+              views
+            </p>
+          </div>
+          <span className="mx-1 text-gray-300 pt-[3px]">|</span>
+          {article.isRegional && (
+            <p className="text-gray-300 leading-relaxed font-body font-semibold">
+              You are reading
+              <span className="italic ml-1 text-mystic-accent-light">
+                Regional / Indonesian article
+              </span>
+            </p>
+          )}
+        </div>
+
+        <article className="text-mystic-text-primary/85 lg:pr-2.5 lg:px-0 col-start-1 col-end-13 lg:col-end-11">
+          <hr className="w-full col-start-1 col-end-13 mb-14 border-mystic-purple-soft" />
+
           <ReactMarkdown
             rehypePlugins={[rehypeRaw]}
             remarkPlugins={[remarkGfm]}
