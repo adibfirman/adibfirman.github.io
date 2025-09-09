@@ -22,6 +22,7 @@ export async function constructDefaultHTML({
   excerpt,
   createdAt,
   avatarImg,
+  isRegionalContent,
 }: Props) {
   const title = _title || "Hi There, I'm Adib Firman..!!";
   const desc =
@@ -35,7 +36,7 @@ export async function constructDefaultHTML({
           tw={`relative flex flex-col justify-center w-2/3 h-full text-[#e1e1ec] pt-5 ${customCoverPath ? "px-10 py-12" : "px-14"}`}
         >
           {useArticleDetailStyle && (
-            <div tw="flex align-center">
+            <div tw="flex">
               <img
                 src={avatarImg}
                 tw="w-14 h-14 rounded-full"
@@ -103,6 +104,15 @@ export async function constructDefaultHTML({
         />
 
         {renderDefaultBody}
+
+        {isRegionalContent && (
+          <p
+            tw="relative text-xl mt-auto text-[#e1e1ec] mb-12"
+            style={{ fontFamily: "Lato", marginLeft: 70, whiteSpace: "pre" }}
+          >
+            This is Regional / Indonesian Article
+          </p>
+        )}
       </div>
     );
   } catch (err) {

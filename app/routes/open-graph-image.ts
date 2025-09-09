@@ -16,6 +16,8 @@ export async function loader({ request: req }: Route.LoaderArgs) {
     const title = search.get(PARAMS_CUSTOM_OG_IMAGE.title) || "";
     const excerpt = search.get(PARAMS_CUSTOM_OG_IMAGE.excerpt) || "";
     const createdAt = search.get(PARAMS_CUSTOM_OG_IMAGE.createdAt) || "";
+    const isRegionalContent =
+      search.get(PARAMS_CUSTOM_OG_IMAGE.isRegionalContent) || "";
     const customCoverPath =
       search.get(PARAMS_CUSTOM_OG_IMAGE.customCoverPath) || "";
 
@@ -33,6 +35,7 @@ export async function loader({ request: req }: Route.LoaderArgs) {
       excerpt,
       createdAt,
       avatarImg,
+      isRegionalContent,
     });
 
     const fonts = await loadGoogleFonts();

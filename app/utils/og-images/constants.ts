@@ -3,4 +3,5 @@ export const PARAMS_CUSTOM_OG_IMAGE = {
   title: "title",
   excerpt: "excerpt",
   createdAt: "createdAt",
+  isRegionalContent: "isRegionalContent",
 };

@@ -23,6 +23,7 @@ export async function loader({ params, request }: Route.LoaderArgs) {
     title: article.title,
     excerpt: article.excerpt,
     createdAt: article.createdAt,
+    isRegionalContent: String(article.isRegional),
   });
 
   if (import.meta.env.PROD) {

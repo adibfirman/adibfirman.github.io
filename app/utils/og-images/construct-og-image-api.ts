@@ -1,7 +1,9 @@
 import { PARAMS_CUSTOM_OG_IMAGE } from "./constants";
 
-type KeyParamsCustomOgImage = keyof typeof PARAMS_CUSTOM_OG_IMAGE;
-type ExtraParams = Record<KeyParamsCustomOgImage, string>;
+type ParamsCustomOgImage = typeof PARAMS_CUSTOM_OG_IMAGE;
+type KeyParamsCustomOgImage = keyof ParamsCustomOgImage;
+type ValueOf<T> = T[keyof T];
+type ExtraParams = Record<KeyParamsCustomOgImage, ValueOf<ParamsCustomOgImage>>;
 
 export function constructOgImageAPI(url: string, extraParams?: ExtraParams) {
   const urlConstructor = new URL(url);
