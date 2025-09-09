@@ -1,5 +1,6 @@
-import { SubHeader } from "@/components";
 import type { PropsWithChildren } from "react";
+import { EnvelopeSimple, LinkedinLogo, GithubLogo } from "phosphor-react";
+import { SubHeader } from "@/components";
 
 const TALKS = [
   {
@@ -23,6 +24,49 @@ const TALKS = [
     slideLink: "https://avoid-these-when-using-hooks.netlify.app/",
   },
 ];
+
+const SOCIAL_CONNECT = [
+  {
+    Icon: EnvelopeSimple,
+    name: "Mail",
+    href: "mainto:dib.firman@gmail.com",
+  },
+  {
+    Icon: LinkedinLogo,
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/adibfirman",
+  },
+  {
+    Icon: GithubLogo,
+    name: "GitHub",
+    href: "https://github.com/adibfirman",
+  },
+  {
+    Icon: () => (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="32"
+        height="32"
+        fill="#ded4f3"
+        viewBox="0 0 256 256"
+      >
+        <path d="M214.75,211.71l-62.6-98.38,61.77-67.95a8,8,0,0,0-11.84-10.76L143.24,99.34,102.75,35.71A8,8,0,0,0,96,32H48a8,8,0,0,0-6.75,12.3l62.6,98.37-61.77,68a8,8,0,1,0,11.84,10.76l58.84-64.72,40.49,63.63A8,8,0,0,0,160,224h48a8,8,0,0,0,6.75-12.29ZM164.39,208,62.57,48h29L193.43,208Z"></path>
+      </svg>
+    ),
+    name: "X (formerly Twitter)",
+    href: "https://x.com/adibfirman_",
+  },
+];
+
+const YOE_COUNT = (() => {
+  const start = new Date("2017-05-01");
+  const now = new Date();
+
+  const diffInMs = now.getTime() - start.getTime();
+  const diffInYears = diffInMs / (1000 * 60 * 60 * 24 * 365.25);
+
+  return Math.floor(diffInYears);
+})();
 
 function Card({
   children,
@@ -70,30 +114,31 @@ export function About() {
 
       <main className="min-h-screen max-w-3xl mx-auto px-6 py-8">
         <section className="grid grid-cols-16 gap-4">
-          <Card className="col-start-1 col-end-16 lg:col-start-1 lg:col-end-10">
-            <img className="w-40 mx-auto" src="./neovim-logo.png" />
-            <p className="text-white/80 text-center text-sm mt-2 font-body font-semibold">
-              As my daily-driver editor{" "}
-              <span className="italic font-mono">"I use Neovim btw"</span>.{" "}
-              <br />
-              Check my{" "}
-              <a
-                href="https://github.com/adibfirman/dotfiles"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-mystic-accent font-semibold underline hover:no-underline"
-              >
-                dotfiles config here
-              </a>
-            </p>
+          <Card className="col-start-1 col-end-16 lg:col-start-1 lg:col-end-11">
+            <p className="font-mono text-center text-2xl">Let's Connect</p>
+            <div className="flex flex-row gap-4 mt-2 justify-center">
+              {SOCIAL_CONNECT.map(({ Icon, ...social }) => (
+                <a
+                  href={social.href}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  key={social.name}
+                  className="w-max flex flex-col items-center hover:underline"
+                >
+                  <Icon />
+                </a>
+              ))}
+            </div>
           </Card>
 
-          <Card className="col-start-1 col-end-16 lg:col-start-10 lg:col-end-16">
-            <p className="font-mono text-center text-2xl">`Adib Firman`</p>
+          <Card className="col-start-1 col-end-16 lg:col-start-11 lg:col-end-16">
+            <p className="font-mono text-center text-xl text-mystic-purple-soft">
+              `Adib Firman`
+            </p>
             <p className="text-white/80 text-center text-sm mt-2 font-body font-semibold">
               You can call me with my prenounce is{" "}
               <span className="font-mono font-bold text-mystic-purple-surface italic">
-                "ey-deep"
+                "ah-deep"
               </span>
             </p>
           </Card>
@@ -130,6 +175,31 @@ export function About() {
                 </li>
               ))}
             </ul>
+          </Card>
+
+          <Card className="col-start-1 col-end-16 lg:col-start-1 lg:col-end-10">
+            <img className="w-40 mx-auto" src="./neovim-logo.png" />
+            <p className="text-white/80 text-center text-sm mt-2 font-body font-semibold">
+              As my daily-driver editor{" "}
+              <span className="italic font-mono">"I use Neovim btw"</span>.{" "}
+              <br />
+              Check my{" "}
+              <a
+                href="https://github.com/adibfirman/dotfiles"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-mystic-accent font-semibold underline hover:no-underline"
+              >
+                dotfiles config here
+              </a>
+            </p>
+          </Card>
+
+          <Card className="col-start-1 col-end-16 lg:col-start-10 lg:col-end-16">
+            <p className="font-mono text-center text-md text-white/80">
+              Years of Experience
+            </p>
+            <p className="font-mono text-center mt-3 text-2xl">{YOE_COUNT}</p>
           </Card>
         </section>
       </main>

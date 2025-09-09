@@ -32,6 +32,9 @@ importers:
       isbot:
         specifier: ^5.1.27
         version: 5.1.30
+      phosphor-react:
+        specifier: ^1.4.1
+        version: 1.4.1(react@19.1.1)
       react:
         specifier: ^19.1.0
         version: 19.1.1
@@ -1818,6 +1821,12 @@ packages:
 
   periscopic@4.0.2:
     resolution: {integrity: sha512-sqpQDUy8vgB7ycLkendSKS6HnVz1Rneoc3Rc+ZBUCe2pbqlVuCC5vF52l0NJ1aiMg/r1qfYF9/myz8CZeI2rjA==}
+
+  phosphor-react@1.4.1:
+    resolution: {integrity: sha512-gO5j7U0xZrdglTAYDYPACU4xDOFBTJmptrrB/GeR+tHhCZF3nUMyGmV/0hnloKjuTrOmpSFlbfOY78H39rgjUQ==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: '>=16'
 
   picocolors@1.1.1:
     resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
@@ -4358,6 +4367,10 @@ snapshots:
       '@types/estree': 1.0.8
       is-reference: 3.0.3
       zimmerframe: 1.1.2
+
+  phosphor-react@1.4.1(react@19.1.1):
+    dependencies:
+      react: 19.1.1
 
   picocolors@1.1.1: {}
 

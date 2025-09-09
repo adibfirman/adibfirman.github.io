@@ -6,6 +6,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
+import { IconContext } from "phosphor-react";
 
 import { Header } from "@/components";
 
@@ -53,7 +54,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <IconContext.Provider
+      value={{
+        color: "#ded4f3",
+        size: 32,
+        weight: "duotone",
+      }}
+    >
+      <Outlet />
+    </IconContext.Provider>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
