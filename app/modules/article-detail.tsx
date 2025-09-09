@@ -47,29 +47,28 @@ export function ArticleDetail({ article, totalViews }: Props) {
       </SubHeader>
 
       <main className="grid grid-cols-12 gap-4 lg:max-w-5xl lg:mx-auto px-4 lg:px-6 py-8">
-        <div className="flex text-xs col-start-1 col-end-12">
-          <div className="flex flex-row items-center justify-center">
+        <article className="text-mystic-text-primary/85 lg:pr-2.5 lg:px-0 col-start-1 col-end-13 lg:col-end-11">
+          {/* article header */}
+          <div className="flex justify-between text-xs col-start-1 col-end-11 pb-2">
             <p className="text-gray-300 leading-relaxed font-body font-semibold">
               <span className="text-mystic-accent-light mr-1">
                 {totalViews}
               </span>
               views
             </p>
+            {article.isRegional && (
+              <p className="text-gray-300 leading-relaxed font-body font-semibold">
+                You are reading
+                <span className="italic ml-1 text-mystic-accent-light">
+                  Regional / Indonesian article
+                </span>
+              </p>
+            )}
           </div>
-          <span className="mx-1 text-gray-300 pt-[3px]">|</span>
-          {article.isRegional && (
-            <p className="text-gray-300 leading-relaxed font-body font-semibold">
-              You are reading
-              <span className="italic ml-1 text-mystic-accent-light">
-                Regional / Indonesian article
-              </span>
-            </p>
-          )}
-        </div>
 
-        <article className="text-mystic-text-primary/85 lg:pr-2.5 lg:px-0 col-start-1 col-end-13 lg:col-end-11">
           <hr className="w-full col-start-1 col-end-13 mb-14 border-mystic-purple-soft" />
 
+          {/* article content */}
           <ReactMarkdown
             rehypePlugins={[rehypeRaw]}
             remarkPlugins={[remarkGfm]}

@@ -1,7 +1,8 @@
-import type { Article } from "@/utils/articles";
 import { type Components } from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+
+import type { Article } from "@/utils/articles";
 
 type Props = {
   article: Article;
@@ -42,10 +43,12 @@ export function MarkdownParser({ article }: Props) {
 
     // Links
     a: ({ node, ...props }) => (
-      <a
-        {...props}
-        className="font-semibold decoration-2 underline hover:no-underline decoration-mystic-purple-bg inline-block w-max"
-      />
+      <>
+        <a
+          {...props}
+          className="font-semibold decoration-2 underline hover:no-underline decoration-mystic-purple-bg inline-block w-max"
+        />
+      </>
     ),
 
     // Lists

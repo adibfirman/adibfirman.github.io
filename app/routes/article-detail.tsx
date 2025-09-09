@@ -4,6 +4,8 @@ import type { Route } from "./+types/article-detail";
 import { getArticles } from "@/utils/articles";
 import { ArticleDetail as ArticleDetailModule } from "@/modules/article-detail";
 import { constructMetaTags } from "@/utils/construct-metatags";
+import { selectTotalViewsArticle } from "@/utils/db/select-total-views-article";
+import { insertAndUpdateTotalViewsArticle } from "@/utils/db/insert-and-update-total-views-article";
 
 export async function loader({ params }: Route.LoaderArgs) {
   const articles = getArticles();
@@ -13,7 +15,13 @@ export async function loader({ params }: Route.LoaderArgs) {
     throw new Response("Article not found", { status: 404 });
   }
 
-  return { article };
+  if (import.meta.env.PROD) {
+    await insertAndUpdateTotalViewsArticle(article);
+  }
+
+  const totalViews = await selectTotalViewsArticle(article);
+
+  return { article, totalViews };
 }
 
 export function meta({ loaderData, location }: Route.MetaArgs) {
@@ -28,7 +36,7 @@ export function meta({ loaderData, location }: Route.MetaArgs) {
 }
 
 export default function ArticleDetail() {
-  const { article } = useLoaderData<typeof loader>();
+  const { article, totalViews } = useLoaderData<typeof loader>();
 
-  return <ArticleDetailModule totalViews={0} article={article} />;
+  return <ArticleDetailModule totalViews={totalViews} article={article} />;
 }
