@@ -32,7 +32,7 @@ export async function constructDefaultHTML({
     const renderDefaultBody = (() => {
       return (
         <div
-          tw={`relative flex flex-col justify-center w-2/3 h-full text-[#e1e1ec] pt-5 ${customCoverPath ? "px-10" : "px-14"}`}
+          tw={`relative flex flex-col justify-center w-2/3 h-full text-[#e1e1ec] pt-5 ${customCoverPath ? "px-10 py-12" : "px-14"}`}
         >
           {useArticleDetailStyle && (
             <div tw="flex align-center">
@@ -53,7 +53,7 @@ export async function constructDefaultHTML({
           )}
 
           <h1
-            tw={`text-4xl m-0 text-left ${useArticleDetailStyle && "mt-16"}`}
+            tw={`text-4xl m-0 text-left ${useArticleDetailStyle && "mt-10"}`}
             style={{ fontFamily: "Montserrat" }}
           >
             {title}
