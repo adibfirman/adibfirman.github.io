@@ -1,7 +1,6 @@
 ---
 title: A Short Tips to Create an Established React Web App
 date: "2024-01-01"
-updatedAt: "2024-01-01"
 excerpt: Practical tips and some of my thoughts on how to create a maintainable React web app.
 copyrightCover: 'Photo by <a href="https://unsplash.com/@sam_truong?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Sam Dan Truong</a> on <a href="https://unsplash.com/photos/clear-glass-jar--rF4kuvgHhU?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>'
 ---
@@ -92,7 +91,7 @@ src/
 
 This is just a preference for the file under the `use-list-product` you can put whatever you want in there, but the point is in this step you just need to separate the remote data first.
 
-# Step No.2 (The Component)
+# Step No.3 (The Component)
 
 We in the interesting step, because somehow when we do this step, there are several questions come into our mind like
 
@@ -226,7 +225,7 @@ export default function Summary() {
 
 You can apply the same thing to the product list containers.
 
-# Step No. 3 (Business Needs)
+# Step No. 4 (Business Needs)
 
 Glad that you are still with me until these final steps, so here are the final steps. This is where the business logic is created from the product needed, which is coming from the user story that we already wrote above. So let's move to the folder structure.
 
@@ -299,7 +298,7 @@ src/
 
 The important things of each of the functions should be _pure_ which is wherever you import it and use it the value will remain the same.
 
-# Step No.4 (Tidy up)
+# Step No.5 (Tidy up)
 
 Here we go in the final steps, where we want to collect all those steps from No.1-3 and then combine them in our containers here I want to create an example from `ProductList` container.
 
