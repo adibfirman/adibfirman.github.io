@@ -41,7 +41,7 @@ export function TableOfContents({ article }: Props) {
     <div className="hidden lg:block sticky top-32 self-start">
       {tocItems.length > 0 && (
         <div className="w-max">
-          <h2 className="text-base font-semibold text-shadow-mystic-purple-surface/85 mb-4 flex items-center gap-2 font-heading uppercase">
+          <h2 className="text-base font-semibold text-mystic-accent-light mb-4 flex items-center gap-2 font-heading uppercase">
             Table of Contents
           </h2>
           <nav>
@@ -50,7 +50,7 @@ export function TableOfContents({ article }: Props) {
                 <li key={index}>
                   <a
                     href={`#${item.id}`}
-                    className="text-mystic-accent/80 hover:text-mystic-accent-hover hover:underline transition-colors block py-1 font-body text-xs font-semibold"
+                    className="hover:text-mystic-accent-hover hover:underline transition-colors block py-1 font-body text-xs font-semibold"
                     style={{
                       paddingLeft: `${(item.level - minLevelToc) * 0.75}rem`,
                     }}

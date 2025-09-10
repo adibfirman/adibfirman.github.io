@@ -1,8 +1,6 @@
 "use client";
 
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import rehypeRaw from "rehype-raw";
+import Markdown from "markdown-to-jsx";
 import Giscus from "@giscus/react";
 import { useEffect, useState } from "react";
 
@@ -124,13 +122,10 @@ export function ArticleDetail({ article, totalViews, coverIMG }: Props) {
           <hr className="w-full col-start-1 col-end-13 mb-14 border-mystic-purple-soft" />
 
           {/* article content */}
-          <ReactMarkdown
-            rehypePlugins={[rehypeRaw]}
-            remarkPlugins={[remarkGfm]}
-            components={MarkdownParser({ article })}
-          >
-            {article.content}
-          </ReactMarkdown>
+          <Markdown
+            options={{ overrides: MarkdownParser({ article }) }}
+            children={article.content}
+          />
 
           <Giscus
             repo="adibfirman/adibfirman.github.io"

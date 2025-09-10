@@ -5,9 +5,10 @@ excerpt: Learn about what it's and how the Snowpack bundler work
 copyrightCover: 'Photo by <a href="https://unsplash.com/@lureofadventure?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Ali Kazal</a> on <a href="https://unsplash.com/photos/a-person-with-a-red-backpack-walking-in-the-snow-wLezcMA-JCg?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>'
 ---
 
-> Disclaimer: Since (April 20, 2022) Snowpack will no longer be actively maintained by their core team, source: Link — I just wanted to learn about this, don’t take this seriously.
+<Admonition type="warning">
+  Since (April 20, 2022) Snowpack will no longer be actively maintained by their core team [source](https://www.snowpack.dev/). I just wanted to learn about this, don’t take this seriously.
+</Admonition>
 
-\
 Before we jump into our main topic about what it's and how the Snowpack bundler it's working, first, we will learn about 101 how we build our website.
 
 Basically, web was made with three pilars inside it, HTML, CSS and JAVASCRIPT, looks these are the basic pilars that can build our website, looks easy right?
