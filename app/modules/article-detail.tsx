@@ -1,6 +1,9 @@
+"use client";
+
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
+import Giscus from "@giscus/react";
 
 import { type Article, normalizeDate } from "@/utils/articles";
 import { SubHeader, MarkdownParser, TableOfContents } from "@/components";
@@ -52,19 +55,25 @@ export function ArticleDetail({ article, totalViews, coverIMG }: Props) {
           {/* article header */}
           <div className="flex justify-between text-xs col-start-1 col-end-11 pb-2">
             <p className="text-gray-300 leading-relaxed font-body font-semibold">
-              <span className="text-mystic-accent-light mr-1">
+              <span className="text-mystic-accent-light mr-1 font-semibold">
                 {totalViews}
               </span>
               views
             </p>
-            {article.isRegional && (
-              <p className="text-gray-300 leading-relaxed font-body font-semibold">
-                You are reading
-                <span className="italic ml-1 text-mystic-accent-light">
-                  Regional / Indonesian article
-                </span>
-              </p>
-            )}
+            <div className="flex flex-row gap-1 text-gray-300 leading-relaxed font-body font-semibold">
+              {article.isRegional && (
+                <>
+                  <p>
+                    You are reading
+                    <span className="italic ml-1 text-mystic-accent-light">
+                      Regional / Indonesian article
+                    </span>
+                  </p>
+                  <span>|</span>
+                </>
+              )}
+              <p>0 Discussion</p>
+            </div>
           </div>
 
           <hr className="w-full col-start-1 col-end-13 mb-14 border-mystic-purple-soft" />
@@ -77,6 +86,21 @@ export function ArticleDetail({ article, totalViews, coverIMG }: Props) {
           >
             {article.content}
           </ReactMarkdown>
+
+          <Giscus
+            repo="adibfirman/adibfirman.github.io"
+            repoId="MDEwOlJlcG9zaXRvcnkxNjgyODI2NDI="
+            category="Articles"
+            categoryId="DIC_kwDOCgfKEs4CvOGg"
+            mapping="pathname"
+            strict="1"
+            reactionsEnabled="1"
+            emitMetadata="0"
+            inputPosition="top"
+            theme="dark"
+            lang="en"
+            loading="lazy"
+          />
         </article>
 
         <div className="hidden lg:block col-start-11 col-end-12">
