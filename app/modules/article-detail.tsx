@@ -4,6 +4,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import Giscus from "@giscus/react";
+import { useEffect, useState } from "react";
 
 import { type Article, normalizeDate } from "@/utils/articles";
 import { SubHeader, MarkdownParser, TableOfContents } from "@/components";
@@ -14,7 +15,41 @@ type Props = {
   coverIMG: string;
 };
 
+type DiscussionDataGiscus = {
+  reactionCount: number;
+  totalCommentCount: number;
+  totalReplyCount: number;
+};
+
 export function ArticleDetail({ article, totalViews, coverIMG }: Props) {
+  const [giscusData, setGiscusData] = useState({ discussion: 0, reaction: 0 });
+
+  useEffect(() => {
+    function handleMessage(event: MessageEvent) {
+      if (event.origin !== "https://giscus.app") return;
+      if (!(typeof event.data === "object" && event.data.giscus)) return;
+
+      const giscusData = event.data.giscus;
+      const discussionData: DiscussionDataGiscus = giscusData?.discussion || {
+        reactionCount: 0,
+        totalCommentCount: 0,
+        totalReplyCount: 0,
+      };
+
+      const reaction = discussionData.reactionCount;
+      const discussion =
+        discussionData.totalCommentCount + discussionData.totalReplyCount;
+
+      setGiscusData({ discussion, reaction });
+    }
+
+    window.addEventListener("message", handleMessage);
+
+    return () => {
+      window.removeEventListener("message", handleMessage);
+    };
+  }, []);
+
   return (
     <>
       <SubHeader>
@@ -72,7 +107,17 @@ export function ArticleDetail({ article, totalViews, coverIMG }: Props) {
                   <span>|</span>
                 </>
               )}
-              <p>0 Discussion</p>
+              <p>
+                {giscusData.discussion}
+                <span className="text-mystic-accent-light ml-1">
+                  Discussion
+                </span>
+              </p>
+              <span>|</span>
+              <p>
+                {giscusData.reaction}
+                <span className="text-mystic-accent-light ml-1">Reactions</span>
+              </p>
             </div>
           </div>
 
@@ -95,11 +140,10 @@ export function ArticleDetail({ article, totalViews, coverIMG }: Props) {
             mapping="pathname"
             strict="1"
             reactionsEnabled="1"
-            emitMetadata="0"
+            emitMetadata="1"
             inputPosition="top"
             theme="dark"
             lang="en"
-            loading="lazy"
           />
         </article>
 
