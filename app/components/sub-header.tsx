@@ -270,7 +270,7 @@ export function SubHeader({
 
       {/* Linear gradient overlay at bottom */}
       <div
-        className="absolute bottom-0 left-0 w-full h-32 z-10"
+        className="absolute bottom-0 left-0 w-full h-24 lg:h-48 z-10"
         style={{
           background: `linear-gradient(180deg, transparent 0%, hsla(210, 20%, 8%, 0.3) 30%, hsla(220, 25%, 10%, 0.6) 50%, #101828 100%)`,
         }}
