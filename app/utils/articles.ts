@@ -146,3 +146,10 @@ export function normalizeDate(date: string) {
     day: "2-digit",
   }).format(toDate);
 }
+
+export function createHashArticleFromTitle(title: string) {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}

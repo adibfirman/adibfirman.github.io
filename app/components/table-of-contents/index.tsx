@@ -1,4 +1,6 @@
-import type { Article } from "@/utils/articles";
+import { type Article, createHashArticleFromTitle } from "@/utils/articles";
+import { useActiveId } from "./hooks/useActiveId";
+import { useScrollToHash } from "./hooks/useScrollToHash";
 
 type Props = {
   article: Article;
@@ -11,6 +13,8 @@ type Item = {
 };
 
 export function TableOfContents({ article }: Props) {
+  useScrollToHash();
+
   const tocItems = (() => {
     const headingRegex = /^(#{1,6})\s+(.+)$/gm;
     const items: Item[] = [];
@@ -19,10 +23,9 @@ export function TableOfContents({ article }: Props) {
     while ((match = headingRegex.exec(article.content)) !== null) {
       const level = match[1].length;
       const title = match[2].trim();
-      const id = title.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 
       items.push({
-        id,
+        id: createHashArticleFromTitle(title),
         title,
         level,
       });
@@ -37,6 +40,8 @@ export function TableOfContents({ article }: Props) {
     }, 6);
   })();
 
+  const activeId = useActiveId(tocItems.map((item) => item.id));
+
   return (
     <div className="hidden lg:block sticky top-32 self-start">
       {tocItems.length > 0 && (
@@ -50,7 +55,7 @@ export function TableOfContents({ article }: Props) {
                 <li key={index}>
                   <a
                     href={`#${item.id}`}
-                    className="hover:text-mystic-accent-hover hover:underline transition-colors block py-1 font-body text-xs font-semibold"
+                    className={`${activeId === item.id ? "text-mystic-accent-hover" : "hover:text-mystic-accent-hover"} hover:underline transition-colors block py-1 font-body text-xs font-semibold`}
                     style={{
                       paddingLeft: `${(item.level - minLevelToc) * 0.75}rem`,
                     }}

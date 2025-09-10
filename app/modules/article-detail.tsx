@@ -1,5 +1,3 @@
-"use client";
-
 import Markdown from "markdown-to-jsx";
 import Giscus from "@giscus/react";
 import { useEffect, useState } from "react";
