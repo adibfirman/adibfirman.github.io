@@ -16,6 +16,7 @@ especially with Node.js projects, and also because I had to constantly jump betw
 which made my hands sore due to this, it's broken my pace of coding, I'm just telling this because it's
 happened to me, if you not, then glad to hear that.
 
+<br/>
 So, let me try to recap first what kind of issue I had before:
 
 - VSCode eats so much memory, and you can imagine if you open alongside Chrome Dev Tools too :)
@@ -37,81 +38,90 @@ link with the OS itself, you need to accept, and cannot change that behavior.
 
 ## A destiny perhaps(?)
 
-Still in the same issue that I had, in between I find several folks in the X platform (formerly Twitter)
-talking about Neovim and several Youtube recommendation coming like "Here's the reason why you need
-to use Neovim" etc etc. It's make me curious about it.
+Still in the same issue that I had, in between, I find several folks on the X platform (formerly Twitter)
+talking about Neovim and several YouTube recommendations coming like "Here's the reason why you need
+to use Neovim, etc, etc. It makes me curious about it.
 
-After the research in the internet I find several battery-included about Neovim such as:
+<br/>
+After the research on the internet, I found several battery-included articles about Neovim, such as:
 
 - [NvChad](https://nvchad.com/)
 - [LunarVim](https://www.lunarvim.org/)
 - [AstroNvim](https://astronvim.com/)
 - [LazyVim](https://www.lazyvim.org/)
 
-I'm not sure is there any more besides that I mention above, but I've tried those and I'm falling in love
-with the LazyVim instead, the reason is only "the keymaps" are nearest the same as I have in the vscode.
-Because, in that time I don't know yet how I setup my keymaps in neovim, so just try it one by one and "voila"
+I'm not sure if there's anything more besides what I mentioned above, but I've tried those and I'm falling in love
+with the LazyVim instead, the reason is only that "the keymaps" are nearly the same as I have in VSCode.
+Because, at that time, I didn't know yet how to set up my keymaps in Neovim, so I just tried it one by one and "voila"
 found the Lazyvim.
 
 ![first commit of neovim the image](./image-1.png)
 
-So I guess all the issues that mentioned above has been resolved right? right?
+So I guess all the issues that were mentioned above have been resolved, right? right?
 
 ## Learning curve
 
-It's not easy as I think, to be honest it's really hard to start because you have a different keymaps,
-UI and etc, like it's totally different world but I have an answerd for this so, instead of testing it
-on a side or personal project, I jumped straigh into using it at work, this meant I had to adapt quickly,
-so just like adding more pressure to helped me learn faster.
+It's not as easy as I think, to be honest, it's really hard to start because you have a different keyboard,
+UI and etc, like it's a totally different world, but I have an answer for this, so instead of testing it.
+on a side or personal project, I jumped straight into using it at work, which meant I had to adapt quickly,
+so just like adding more pressure helped me learn faster.
 
+<br/>
 Along the way, I also started learning Lua, the scripting language that powers neovim configuration and start
-to change the keymaps that coming from Lazyvim and writing my own small functions and tweaking configs
+to change the keymaps that come from Lazyvim and write my own small functions and tweak configs
 that it feels gave me a sense of _control over my editor._
 
+<br/>
 Another game-changer for me was learning how to use [macros](https://neovim.io/doc/user/usr_10.html).
 Instead of repeating the same actions for your code over and over, I could record a sequence once and
 replay it as many times as needed. This drastically improved my speed when editing repetitive code patterns.
 
-Last one, is one of the biggest turning points was understanding what LSP (Language Server Protocol) and
+<br/>
+The last one is one of the biggest turning points, which was understanding what LSP (Language Server Protocol) and
 Treesitter could do. LSP brought several IDE features such as auto-completion, go-to definition,
 and inline diagnostics, while Treesitter made syntax highlighting and code navigation much more
-reliable. Together, they made the neovim feel modern and powerful.
+reliable. Together, they made Neovim feel modern and powerful.
 
-It's feels like I know under the hood of the IDE built-in after I use neovim.
+<br/>
+It feels like I know the under-the-hood of the IDE built-in after I use Neovim.
 
 ## Boring or maybe too much
 
-Day by day when I still use lazyvim-battery-included to use neovim, it feels like there are several plugins
-and keymaps that I really don't want to use it yet, so I'm just thinking that
+Day by day, when I still use lazyvim-battery-included to use Neovim, it feels like there are several plugins
+and keymaps that I really don't want to use yet, so I'm just thinking that
 
-> "How about I build it from scrach?"
+> "How about I build it from scratch?"
 
-I know it feels like I try to enter the unknown-area haha, but in my heart say "built it or lose it".
+I know it feels like I try to enter the unknown area, haha, but in my heart, I say "build it or lose it".
 
-So, I just start to build my own-config for neovim, turns out there are two types of packages from Lazyvim:
+<br/>
+So, I just started to build my own config for Neovim, turns out there are two types of packages from Lazyvim:
 
 - [The battery-included package](https://www.lazyvim.org/)
 - [The plugin manager](https://github.com/folke/lazy.nvim)
 
 At first, I was a bit confused about the difference between Lazy.nvim and LazyVim.org. Lazy.nvim
-is actually a plugin manager it helps install and manage other plugins. Meanwhile, LazyVim.org
-is a full neovim distribution built on top of Lazy.nvim, with lots of defaults and plugins preconfigured feels like battery-included right?
-So to built it from scratch I decided to go with the bare plugin manager so I could understand
+it is actually a plugin manager; it helps install and manage other plugins. Meanwhile, LazyVim.org
+is a full Neovim distribution built on top of Lazy.nvim, with lots of defaults and plugins preconfigured, feels like battery-included, right?
+So, to build it from scratch, I decided to go with the bare plugin manager, so I could understand
 what was going on under the hood.
 
-I keep my plugin list minimal, installing only the tools I really needed, this made my neovim feel lighweight.
-As I grew more confident, I try to writing my own keymaps, autocmd, etc. This was the moment when the editor
-truly felt like personal.
+<br/>
+I keep my plugin list minimal, installing only the tools I really need. This made my Neovim feel lightweight.
+As I grew more confident, I tried to write my own keymaps, autocmd, etc. This was the moment when the editor.
+truly felt personal.
 
 ![enter image commit initiate the plugins](./image-2.png)
 
 # And here we go
 
-Nowadays, my neovim workflow no longer followed my old vscode config, I just felt like more more confident.
-Moving from vscode to neovim turned out to be way more than just switching editors.
-I went from copying configs and struggling with defaults, to building my own setup piece by piece.
-Learning Lua, figuring out LSP and Treesitter, and keeping my plugins lean really shaped how I
-use the editor. At some point, I stopped comparing it to vscode, neovim became its own thing for me.
-And once I started writing my own keymaps, that’s when it finally felt like home.
+Nowadays, my Neovim workflow no longer follows my old VSCode config; I just feel more confident.
+Moving from VSCode to Neovim turned out to be way more than just switching editors.
+I went from copying configs and struggling with defaults to building my own setup piece by piece.
 
-You can check my own [dotfiles in here](https://github.com/adibfirman/dotfiles). Thanks for reading the story.
+<br/>
+Learning Lua, figuring out LSP and Treesitter, and keeping my plugins lean really shaped how I
+use the editor. At some point, I stopped comparing it to VSCode, and Neovim became its own thing for me.
+And once I started writing my own keymaps, that’s when it finally felt like home. You can check my own [dotfiles in here](https://github.com/adibfirman/dotfiles).
+
+Thanks for reading the story.
