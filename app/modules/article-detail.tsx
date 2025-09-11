@@ -123,6 +123,7 @@ export function ArticleDetail({ article, totalViews, coverIMG }: Props) {
           <Markdown
             options={{ overrides: MarkdownParser({ article }) }}
             children={article.content}
+            className="mb-32"
           />
 
           <Giscus
