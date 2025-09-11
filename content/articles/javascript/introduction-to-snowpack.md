@@ -1,6 +1,7 @@
 ---
 title: Introduction to Module Bundler Snowpack
 date: "2021-01-24"
+updatedAt: "2021-01-24"
 excerpt: Learn about what it's and how the Snowpack bundler work
 copyrightCover: 'Photo by <a href="https://unsplash.com/@lureofadventure?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Ali Kazal</a> on <a href="https://unsplash.com/photos/a-person-with-a-red-backpack-walking-in-the-snow-wLezcMA-JCg?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>'
 ---

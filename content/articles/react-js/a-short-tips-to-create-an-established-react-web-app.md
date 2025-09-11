@@ -1,6 +1,7 @@
 ---
 title: A Short Tips to Create an Established React Web App
 date: "2024-01-01"
+updatedAt: "2024-01-01"
 excerpt: Practical tips and some of my thoughts on how to create a maintainable React web app.
 copyrightCover: 'Photo by <a href="https://unsplash.com/@sam_truong?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Sam Dan Truong</a> on <a href="https://unsplash.com/photos/clear-glass-jar--rF4kuvgHhU?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>'
 ---
