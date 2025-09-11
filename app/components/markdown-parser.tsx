@@ -4,7 +4,11 @@ import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { ArrowSquareOut } from "phosphor-react";
 import React from "react";
 
-import { type Article, createHashArticleFromTitle } from "@/utils/articles";
+import {
+  type Article,
+  createHashArticleFromTitle,
+  childrenToText,
+} from "@/utils/articles";
 
 import { Admonition } from "./markdown-parser-custom/admonition.client";
 
@@ -19,7 +23,7 @@ export function MarkdownParser({ article }: Props) {
       return (
         <h1
           {...props}
-          id={createHashArticleFromTitle(props.children[0])}
+          id={createHashArticleFromTitle(childrenToText(props.children))}
           className={`${props.className} text-4xl font-extrabold mt-10 mb-8 leading-tight text-mystic-purple-surface font-heading`}
         />
       );
@@ -29,7 +33,7 @@ export function MarkdownParser({ article }: Props) {
       return (
         <h2
           {...props}
-          id={createHashArticleFromTitle(props.children[0])}
+          id={createHashArticleFromTitle(childrenToText(props.children))}
           className={`${props.className} text-3xl font-bold mt-10 mb-8 text-mystic-purple-surface font-heading`}
         />
       );
@@ -38,7 +42,7 @@ export function MarkdownParser({ article }: Props) {
       return (
         <h3
           {...props}
-          id={createHashArticleFromTitle(props.children[0])}
+          id={createHashArticleFromTitle(childrenToText(props.children))}
           className={`${props.className} text-xl font-bold mt-5 mb-2 text-mystic-purple-surface font-heading`}
         />
       );
@@ -47,7 +51,7 @@ export function MarkdownParser({ article }: Props) {
       return (
         <h6
           {...props}
-          id={createHashArticleFromTitle(props.children[0])}
+          id={createHashArticleFromTitle(childrenToText(props.children))}
           className={`${props.className} text-xs font-bold mt-5 mb-2 text-mystic-purple-surface/60 font-heading`}
         />
       );
@@ -198,7 +202,9 @@ export function MarkdownParser({ article }: Props) {
     // Images
     img(props) {
       const isPreservedImg = props.src.match(/https/i);
-      const src = isPreservedImg ? props.src : `${article.slug}/${props.src}`;
+      const src = isPreservedImg
+        ? props.src
+        : `/articles/${article.slug}/${props.src}`;
 
       return (
         <img

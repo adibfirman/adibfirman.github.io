@@ -31,7 +31,7 @@ export function Home({ articles, treeStructureArticles }: HomeProps) {
                           </span>
                         )}
                         <h2 className="text-xl font-bold hover:underline hover:decoration-mystic-accent-hover font-body">
-                          <Link to={`/articles/${article.slug}`}>
+                          <Link to={`/articles/${article.slug}`} viewTransition>
                             {article.title}
                           </Link>
                         </h2>
@@ -42,6 +42,7 @@ export function Home({ articles, treeStructureArticles }: HomeProps) {
 
                         <Link
                           to={`/articles/${article.slug}`}
+                          viewTransition
                           className="text-base inline-flex items-center gap-1 font-body font-bold hover:underline hover:decoration-mystic-accent-hover"
                         >
                           Read more

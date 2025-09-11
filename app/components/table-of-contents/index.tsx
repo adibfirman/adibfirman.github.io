@@ -1,4 +1,8 @@
-import { type Article, createHashArticleFromTitle } from "@/utils/articles";
+import {
+  type Article,
+  createHashArticleFromTitle,
+  childrenToText,
+} from "@/utils/articles";
 import { useActiveId } from "./hooks/useActiveId";
 import { useScrollToHash } from "./hooks/useScrollToHash";
 
@@ -25,7 +29,7 @@ export function TableOfContents({ article }: Props) {
       const title = match[2].trim();
 
       items.push({
-        id: createHashArticleFromTitle(title),
+        id: createHashArticleFromTitle(childrenToText(title)),
         title,
         level,
       });

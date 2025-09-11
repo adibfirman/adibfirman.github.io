@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import React from "react";
 
 export type Article = {
   slug: string;
@@ -145,6 +146,20 @@ export function normalizeDate(date: string) {
     year: "numeric",
     day: "2-digit",
   }).format(toDate);
+}
+
+export function childrenToText(children: React.ReactNode): string {
+  if (typeof children === "string" || typeof children === "number") {
+    return String(children);
+  }
+  if (Array.isArray(children)) {
+    return children.map(childrenToText).join("");
+  }
+  if (React.isValidElement(children)) {
+    // @ts-ignore
+    return childrenToText(children.props.children);
+  }
+  return "";
 }
 
 export function createHashArticleFromTitle(title: string) {
