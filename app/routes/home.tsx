@@ -10,7 +10,13 @@ export function loader({ request }: Route.LoaderArgs) {
   const folderStructureArticles = getFolderStructure();
   const metaImage = constructOgImageAPI(request.url);
 
-  return { articles, folderStructureArticles, metaImage };
+  return {
+    articles: articles.slice(0, 5),
+    restOfArticles: articles.slice(6, articles.length),
+    folderStructureArticles,
+    metaImage,
+    totalArticle: articles.length,
+  };
 }
 
 export function meta(args: Route.MetaArgs) {
@@ -23,7 +29,9 @@ export function meta(args: Route.MetaArgs) {
 export default function Home({ loaderData }: Route.ComponentProps) {
   return (
     <HomeModule
+      totalArticle={loaderData.totalArticle}
       articles={loaderData.articles}
+      restOfArticles={loaderData.restOfArticles}
       treeStructureArticles={loaderData.folderStructureArticles}
     />
   );

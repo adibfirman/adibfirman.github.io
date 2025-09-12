@@ -1,27 +1,41 @@
+import { Link } from "react-router";
+import { useState } from "react";
+
 import type { Article, TreeArticlesStructure } from "@/utils/articles";
 import { SubHeader, TreeTags } from "@/components";
-import { Link } from "react-router";
 
 interface HomeProps {
   articles: Article[];
+  restOfArticles: Article[];
+  totalArticle: number;
   treeStructureArticles: TreeArticlesStructure;
 }
 
-export function Home({ articles, treeStructureArticles }: HomeProps) {
+export function Home({
+  articles,
+  restOfArticles,
+  treeStructureArticles,
+  totalArticle,
+}: HomeProps) {
+  const [loadMoreClicked, setLoadMoreClicked] = useState(false);
+  const groupArticles = (() => {
+    return [...articles, ...(loadMoreClicked ? restOfArticles : [])];
+  })();
+
   return (
     <>
       <SubHeader className="min-h-[60vh] lg:min-h-[50svh]" />
       <main className="text-white min-h-screen">
-        <div className="max-w-5xl mx-auto px-4 lg:px-6 py-8">
+        <div className="max-w-4xl mx-auto px-4 lg:px-6 py-8">
           <div className="grid lg:grid-cols-4 gap-8">
             <div className="lg:col-span-3">
               <div className="mb-8">
                 <h1 className="text-base font-semibold mb-6 flex items-center gap-2 font-heading uppercase text-mystic-accent">
-                  corner of thoughts 🧠
+                  corner of thoughts ({totalArticle}) 🧠
                 </h1>
 
                 <div className="space-y-6">
-                  {articles.map((article) => (
+                  {groupArticles.map((article) => (
                     <article key={article.slug}>
                       {/* Article content */}
                       <div className="pb-6">
@@ -51,6 +65,19 @@ export function Home({ articles, treeStructureArticles }: HomeProps) {
                     </article>
                   ))}
                 </div>
+
+                {!loadMoreClicked && (
+                  <div className="flex justify-center mt-8">
+                    <button
+                      onClick={() => setLoadMoreClicked(true)}
+                      className="relative cursor-pointer inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-mystic-purple-mid to-mystic-accent-light group-hover:from-mystic-purple-mid group-hover:to-mystic-accent-light hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"
+                    >
+                      <span className="relative px-15 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-transparent group-hover:dark:bg-transparent">
+                        SHOW MORE
+                      </span>
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
 

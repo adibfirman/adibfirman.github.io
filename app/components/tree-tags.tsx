@@ -128,9 +128,9 @@ export function TreeTags({ folderStructure, onFolderClick }: TreeTagsProps) {
 
   return (
     <div className="hidden lg:block">
-      <h3 className="text-base font-semibold mb-3 font-heading uppercase text-mystic-accent">
-        filter by category 🔎
-      </h3>
+      <h1 className="text-base font-semibold mb-3 font-heading uppercase text-mystic-accent">
+        categories 🔎
+      </h1>
       <div className="space-y-1">
         {folderTree.length > 0 ? (
           folderTree.map((node) => renderFolderNode(node))
