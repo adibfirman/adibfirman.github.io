@@ -23,7 +23,9 @@ export function ArticleDetail({ article, totalViews, coverIMG }: Props) {
       <SubHeader>
         <div
           className={`absolute top-0 left-0 w-full h-[99%] bg-cover bg-center`}
-          style={{ backgroundImage: `url(${coverIMG})` }}
+          style={{
+            backgroundImage: `url(/api/get-image-article?path=${coverIMG})`,
+          }}
         >
           <div className="w-full h-full bg-gray-900/30 backdrop-blur-md" />
         </div>
@@ -53,65 +55,65 @@ export function ArticleDetail({ article, totalViews, coverIMG }: Props) {
         </div>
       </SubHeader>
 
-      <main className="grid grid-cols-12 gap-4 lg:max-w-5xl lg:mx-auto px-4 lg:px-6 py-8">
-        <article className="text-mystic-text-primary/85 lg:pr-2.5 lg:px-0 col-start-1 col-end-13 lg:col-end-11">
-          {/* article header */}
-          <div className="flex justify-between text-xs col-start-1 col-end-11 pb-2">
-            <p className="text-gray-300 leading-relaxed font-body font-semibold">
-              <span className="text-mystic-accent-light mr-1 font-semibold">
-                {totalViews}
-              </span>
-              views
-            </p>
-            <div className="flex flex-row gap-1 text-gray-300 leading-relaxed font-body font-semibold">
-              {article.isRegional && (
-                <>
-                  <p>
-                    You are reading
-                    <span className="italic ml-1 text-mystic-accent-light">
-                      Regional / Indonesian article
-                    </span>
-                  </p>
-                  <span>|</span>
-                </>
-              )}
-              <p>
-                {giscusData.discussion}
-                <span className="text-mystic-accent-light ml-1">
-                  Discussion
-                </span>
-              </p>
-              <span>|</span>
-              <p>
-                {giscusData.reaction}
-                <span className="text-mystic-accent-light ml-1">Reactions</span>
-              </p>
-            </div>
-          </div>
-
-          <hr className="w-full col-start-1 col-end-13 mb-14 border-mystic-purple-soft" />
-
-          {/* article content */}
-          <Markdown
-            options={{ overrides: MarkdownParser({ article }) }}
-            children={article.content}
-            className="mb-32"
-          />
-
-          <GiscusArticle
-            onReceiveData={(data) =>
-              setGiscusData({
-                reaction: data.totalReaction,
-                discussion: data.totalDiscussion,
-              })
-            }
-          />
-        </article>
-
-        <div className="hidden lg:block col-start-11 col-end-12">
-          <TableOfContents article={article} />
-        </div>
-      </main>
+      {/* <main className="grid grid-cols-12 gap-4 lg:max-w-5xl lg:mx-auto px-4 lg:px-6 py-8"> */}
+      {/*   <article className="text-mystic-text-primary/85 lg:pr-2.5 lg:px-0 col-start-1 col-end-13 lg:col-end-11"> */}
+      {/* article header */}
+      {/*     <div className="flex justify-between text-xs col-start-1 col-end-11 pb-2"> */}
+      {/*       <p className="text-gray-300 leading-relaxed font-body font-semibold"> */}
+      {/*         <span className="text-mystic-accent-light mr-1 font-semibold"> */}
+      {/*           {totalViews} */}
+      {/*         </span> */}
+      {/*         views */}
+      {/*       </p> */}
+      {/*       <div className="flex flex-row gap-1 text-gray-300 leading-relaxed font-body font-semibold"> */}
+      {/*         {article.isRegional && ( */}
+      {/*           <> */}
+      {/*             <p> */}
+      {/*               You are reading */}
+      {/*               <span className="italic ml-1 text-mystic-accent-light"> */}
+      {/*                 Regional / Indonesian article */}
+      {/*               </span> */}
+      {/*             </p> */}
+      {/*             <span>|</span> */}
+      {/*           </> */}
+      {/*         )} */}
+      {/*         <p> */}
+      {/*           {giscusData.discussion} */}
+      {/*           <span className="text-mystic-accent-light ml-1"> */}
+      {/*             Discussion */}
+      {/*           </span> */}
+      {/*         </p> */}
+      {/*         <span>|</span> */}
+      {/*         <p> */}
+      {/*           {giscusData.reaction} */}
+      {/*           <span className="text-mystic-accent-light ml-1">Reactions</span> */}
+      {/*         </p> */}
+      {/*       </div> */}
+      {/*     </div> */}
+      {/**/}
+      {/*     <hr className="w-full col-start-1 col-end-13 mb-14 border-mystic-purple-soft" /> */}
+      {/**/}
+      {/* article content */}
+      {/*     <Markdown */}
+      {/*       options={{ overrides: MarkdownParser({ article }) }} */}
+      {/*       children={article.content} */}
+      {/*       className="mb-32" */}
+      {/*     /> */}
+      {/**/}
+      {/*     <GiscusArticle */}
+      {/*       onReceiveData={(data) => */}
+      {/*         setGiscusData({ */}
+      {/*           reaction: data.totalReaction, */}
+      {/*           discussion: data.totalDiscussion, */}
+      {/*         }) */}
+      {/*       } */}
+      {/*     /> */}
+      {/*   </article> */}
+      {/**/}
+      {/*   <div className="hidden lg:block col-start-11 col-end-12"> */}
+      {/*     <TableOfContents article={article} /> */}
+      {/*   </div> */}
+      {/* </main> */}
     </>
   );
 }

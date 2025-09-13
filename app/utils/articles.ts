@@ -11,9 +11,9 @@ export type Article = {
   excerpt: string;
   tags: string[];
   content: string;
-  folderPath: string[];
   copyrightCover: string;
   isRegional: boolean;
+  articlePath: string;
 };
 
 export type TreeArticlesStructure = { [key: string]: number };
@@ -33,9 +33,11 @@ function getAllMdxFiles(
       if (item.isDirectory()) {
         const nestedFiles = getAllMdxFiles(fullPath, baseDir);
         files.push(...nestedFiles);
-      } else if (item.name.endsWith(".mdx") || item.name.endsWith(".md")) {
+      } else if (item.name.match("article.md")) {
         const relativePath = path.relative(baseDir, dir);
         const folderPath = relativePath ? relativePath.split(path.sep) : [];
+        folderPath.pop();
+
         files.push({ filePath: fullPath, folderPath });
       }
     }
@@ -68,30 +70,35 @@ export function getArticles(): Article[] {
     const articles = allFiles
       .map(({ filePath, folderPath }) => {
         const fileContents = fs.readFileSync(filePath, "utf8");
-        const fileStats = fs.statSync(filePath);
         const { data, content } = matter(fileContents);
 
-        const fileName = path.basename(filePath).replace(/(.mdx|.md)/i, "");
-        // const slug =
-        //   folderPath.length > 0
-        //     ? `${folderPath.join("/")}/${fileName}`
-        //     : fileName;
+        const slug = (() => {
+          const arrayOfPath = filePath.split("/");
+          return arrayOfPath[arrayOfPath.length - 2];
+        })();
+
+        const articlePath = (() => {
+          const replaceCwdPath = filePath.replace(process.cwd() + "/", "");
+          const removeFileArticle = replaceCwdPath.replace("/article.md", "");
+
+          return removeFileArticle;
+        })();
 
         const folderTags = generateTagsFromPath(folderPath);
         const manualTags = data.tags || [];
         const allTags = [...folderTags, ...manualTags];
 
         const articleData: Article = {
-          slug: fileName,
+          slug,
           title: data.title,
           excerpt: data.excerpt,
           tags: allTags,
           content,
-          folderPath,
           copyrightCover: data.copyrightCover,
           createdAt: data.date,
-          updatedAt: data.updatedAt || fileStats.mtime.toString(),
+          updatedAt: data.updatedAt,
           isRegional: Boolean(data.isRegional),
+          articlePath,
         };
 
         return articleData;

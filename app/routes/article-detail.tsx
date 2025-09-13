@@ -17,7 +17,7 @@ export async function loader({ params, request }: Route.LoaderArgs) {
     throw new Response("Article not found", { status: 404 });
   }
 
-  const coverIMG = `${url.pathname}/cover.jpg`;
+  const coverIMG = `${article.articlePath}/cover.jpg`;
   const metaImage = constructOgImageAPI(request.url, {
     customCoverPath: coverIMG,
     title: article.title,
