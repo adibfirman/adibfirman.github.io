@@ -1,7 +1,7 @@
 import path from "path";
 import fs from "fs";
 
-import { type Route } from "./+types/get-image-article";
+import type { Route } from "./+types/get-image-article";
 
 export function loader({ request: req }: Route.LoaderArgs) {
   try {
