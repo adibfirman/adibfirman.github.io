@@ -104,7 +104,7 @@ export function ArticleDetail({ article, coverIMG }: Props) {
 
           <Markdown
             options={{ overrides: MarkdownParser({ article }) }}
-            children={article.content}
+            children={article.content.replace(/^\s*\\\s*$/gm, "  ")}
             className="mb-32"
           />
 
