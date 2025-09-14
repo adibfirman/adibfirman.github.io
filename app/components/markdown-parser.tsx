@@ -24,7 +24,7 @@ export function MarkdownParser({ article }: Props) {
         <h1
           {...props}
           id={createHashArticleFromTitle(childrenToText(props.children))}
-          className={`${props.className} text-4xl font-extrabold mt-10 mb-8 leading-tight text-mystic-purple-surface font-heading`}
+          className="text-4xl font-extrabold mt-10 mb-8 leading-tight text-mystic-purple-surface font-heading"
         />
       );
     },
@@ -34,7 +34,7 @@ export function MarkdownParser({ article }: Props) {
         <h2
           {...props}
           id={createHashArticleFromTitle(childrenToText(props.children))}
-          className={`${props.className} text-3xl font-bold mt-10 mb-8 text-mystic-purple-surface font-heading`}
+          className="text-3xl font-bold mt-10 mb-8 text-mystic-purple-surface font-heading"
         />
       );
     },
@@ -43,7 +43,7 @@ export function MarkdownParser({ article }: Props) {
         <h3
           {...props}
           id={createHashArticleFromTitle(childrenToText(props.children))}
-          className={`${props.className} text-xl font-bold mt-5 mb-2 text-mystic-purple-surface font-heading`}
+          className="text-xl font-bold mt-5 mb-2 text-mystic-purple-surface font-heading"
         />
       );
     },
@@ -52,7 +52,7 @@ export function MarkdownParser({ article }: Props) {
         <h6
           {...props}
           id={createHashArticleFromTitle(childrenToText(props.children))}
-          className={`${props.className} text-xs font-bold mt-5 mb-2 text-mystic-purple-surface/60 font-heading`}
+          className="text-xs font-bold mt-5 mb-2 text-mystic-purple-surface/60 font-heading"
         />
       );
     },
@@ -60,10 +60,7 @@ export function MarkdownParser({ article }: Props) {
     // Paragraph
     p(props) {
       return (
-        <p
-          {...props}
-          className={`${props.children} text-lg leading-7 text-justify lg:text-left`}
-        />
+        <p {...props} className="text-lg leading-7 text-justify lg:text-left" />
       );
     },
 
@@ -72,7 +69,7 @@ export function MarkdownParser({ article }: Props) {
       return (
         <a
           {...props}
-          className={`${props.className} font-semibold decoration-2 underline hover:no-underline decoration-mystic-purple-bg inline-block w-max`}
+          className="font-semibold decoration-2 underline hover:no-underline decoration-mystic-purple-bg inline-block w-max"
         >
           {props.children}
           <ArrowSquareOut
@@ -88,7 +85,7 @@ export function MarkdownParser({ article }: Props) {
       return (
         <ul
           {...props}
-          className={`${props.className} list-disc pl-10 my-4 space-y-1 text-lg leading-7`}
+          className="list-disc pl-10 my-4 space-y-1 text-lg leading-7"
         />
       );
     },
@@ -97,18 +94,13 @@ export function MarkdownParser({ article }: Props) {
       return (
         <ol
           {...props}
-          className={`${props.className} list-decimal pl-10 my-4 space-y-1 text-lg leading-7`}
+          className="list-decimal pl-10 my-4 space-y-1 text-lg leading-7"
         />
       );
     },
 
     li(props) {
-      return (
-        <li
-          {...props}
-          className={`${props.className} my-1 text-lg leading-7`}
-        />
-      );
+      return <li {...props} className="my-1 text-lg leading-7" />;
     },
 
     // Blockquote
@@ -116,7 +108,7 @@ export function MarkdownParser({ article }: Props) {
       return (
         <blockquote
           {...props}
-          className={`${props.className || ""} border-l-4 border-slate-700 pl-4 text-slate-300 bg-slate-900/30 rounded-md py-2 my-5`}
+          className="border-l-4 border-slate-700 pl-4 text-slate-300 bg-slate-900/30 rounded-md py-2 my-5"
         />
       );
     },
@@ -159,7 +151,7 @@ export function MarkdownParser({ article }: Props) {
       return (
         <code
           {...props}
-          className={`${props.className} rounded-sm bg-mystic-surface/40 border border-slate-800 font-mono text-sm font-semibold`}
+          className="rounded-sm bg-mystic-surface/40 border border-slate-800 font-mono text-sm font-semibold"
         >
           `{props.children}`
         </code>
@@ -170,7 +162,7 @@ export function MarkdownParser({ article }: Props) {
       return (
         <hr
           {...props}
-          className="h-1 my-4 bg-mystic-soft/50 rounded-sm border-0"
+          className="h-1 my-4 bg-mystic-soft/50 rounded-sm border-0 px-4"
         />
       );
     },
@@ -210,7 +202,7 @@ export function MarkdownParser({ article }: Props) {
         <img
           {...props}
           src={src}
-          className={`${props.className} rounded-md shadow-sm my-7 mx-auto max-w-10/12`}
+          className="rounded-md shadow-sm my-7 mx-auto max-w-10/12"
         />
       );
     },
