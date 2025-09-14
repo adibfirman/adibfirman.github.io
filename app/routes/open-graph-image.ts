@@ -26,7 +26,7 @@ export async function loader({ request: req }: Route.LoaderArgs) {
 
     const pathBgCover = queryParams.customCoverPath
       ? `${url.origin}/api/get-image-article?path=${queryParams.customCoverPath}`
-      : "og-cover.svg";
+      : `${url.origin}/og-cover.svg`;
 
     const html = await constructDefaultHTML({
       ...queryParams,
