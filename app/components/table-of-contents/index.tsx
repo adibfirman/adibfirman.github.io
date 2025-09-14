@@ -4,7 +4,6 @@ import {
   childrenToText,
 } from "@/utils/articles";
 import { useActiveId } from "./hooks/useActiveId";
-import { useScrollToHash } from "./hooks/useScrollToHash";
 
 type Props = {
   article: Article;
@@ -17,8 +16,6 @@ type Item = {
 };
 
 export function TableOfContents({ article }: Props) {
-  useScrollToHash();
-
   const tocItems = (() => {
     const headingRegex = /^(#{1,6})\s+(.+)$/gm;
     const items: Item[] = [];

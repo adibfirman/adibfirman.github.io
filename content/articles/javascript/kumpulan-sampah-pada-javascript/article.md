@@ -10,9 +10,8 @@ isRegional: true
 ## Pendahuluan
 
 Pada waktu itu saya menghadiri sebuah konferensi yaitu JSDay, dan juga ini pertama kali diadakan di Indonesia, dan waktu itu [Alex Lakatos](https://twitter.com/lakatos88) membawakan sebuah tema yaitu tentang **Hands on Performance** gitu (saya lupa ✌️) dan beliau menyinggung masalah **Garbage Collection**, dan pada kali ini saya mau menjelaskan apa itu **Garbage Collection**.
-
-## Introduction
-
+<br/>
+<br/>
 Pada kali ini kita akan berbicara tentang Sampah-Sampah pada JS, sebenarnya istilah ini disebut juga dengan **Garbage Collection** oke, selanjutnya kita panggil dengan **GC**, nah **GC** sendiri penjelasan cepatnya ialah **free-up memory** jadi object atau variable yang tidak dipakai akan dibersihkan oleh Javascript Engine itu sendiri, sebenarnya **GC** tidak hanya pada JS bahkan di bahasa pemrograman lain pun istilah ini pasti tidak asing, cuman pada JS sendiri, ini sedikit spesial (ibarat kata beli nasi goreng karetnya dua), **GC** pada javascript ini bekerja secara otomatis, nah kalau pada bahasa _LOW-LEVEL_ programming lainnya itu harus set manual, maksudnya adalah pada seluruh bahasa pemrograman step dasar pada sebuah memory itu
 
 - Meng-alokasi memory yang ingin kita pake

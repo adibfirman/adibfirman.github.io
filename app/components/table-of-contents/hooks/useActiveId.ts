@@ -12,10 +12,10 @@ export function useActiveId(itemIds: string[]) {
           }
         });
       },
-      { rootMargin: `0% 0% 0% 0%` },
+      { rootMargin: `0% 0% -20% 0%` },
     );
 
-    const getEle = (id: string) => document.querySelector(`#${id}`);
+    const getEle = (id: string) => document.getElementById(id);
 
     itemIds.forEach((id) => {
       const ele = getEle(id);
