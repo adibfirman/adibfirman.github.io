@@ -3,7 +3,6 @@ import { Resvg } from "@resvg/resvg-js";
 
 import { loadGoogleFonts } from "@/utils/og-images/load-google-fonts";
 import { constructDefaultHTML } from "@/utils/og-images/construct-default-html";
-import { getImageAsBase64 } from "@/utils/og-images/get-image-as-base64";
 import { PARAMS_CUSTOM_OG_IMAGE } from "@/utils/og-images/constants";
 
 import type { Route } from "./+types/open-graph-image";
@@ -12,30 +11,28 @@ export async function loader({ request: req }: Route.LoaderArgs) {
   try {
     const url = new URL(req.url);
     const search = new URLSearchParams(url.searchParams);
+    const queryParams: Record<keyof typeof PARAMS_CUSTOM_OG_IMAGE, string> = {
+      title: "",
+      customCoverPath: "",
+      excerpt: "",
+      createdAt: "",
+      isRegionalContent: "",
+    };
 
-    const title = search.get(PARAMS_CUSTOM_OG_IMAGE.title) || "";
-    const excerpt = search.get(PARAMS_CUSTOM_OG_IMAGE.excerpt) || "";
-    const createdAt = search.get(PARAMS_CUSTOM_OG_IMAGE.createdAt) || "";
-    const isRegionalContent =
-      search.get(PARAMS_CUSTOM_OG_IMAGE.isRegionalContent) || "";
-    const customCoverPath =
-      search.get(PARAMS_CUSTOM_OG_IMAGE.customCoverPath) || "";
+    for (const searchParamsKey of search.keys()) {
+      queryParams[searchParamsKey as keyof typeof PARAMS_CUSTOM_OG_IMAGE] =
+        search.get(searchParamsKey) || "";
+    }
 
-    const pathBgCover = customCoverPath || "og-cover.svg";
-    const bgCoverBase64 = await getImageAsBase64(
-      `${url.origin}/${pathBgCover}`,
-    );
-
-    const avatarImg = await getImageAsBase64(`${url.origin}/profile.jpg`);
+    const pathBgCover = queryParams.customCoverPath
+      ? `${url.origin}/api/get-image-article?path=${queryParams.customCoverPath}`
+      : "og-cover.svg";
 
     const html = await constructDefaultHTML({
-      customCoverPath: bgCoverBase64,
-      useArticleDetailStyle: Boolean(customCoverPath),
-      title,
-      excerpt,
-      createdAt,
-      avatarImg,
-      isRegionalContent,
+      ...queryParams,
+      customCoverPath: pathBgCover,
+      useArticleDetailStyle: Boolean(queryParams.customCoverPath),
+      avatarImg: `${url.origin}/profile.jpg`,
     });
 
     const fonts = await loadGoogleFonts();

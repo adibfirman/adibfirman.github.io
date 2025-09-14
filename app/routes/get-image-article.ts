@@ -1,5 +1,6 @@
 import path from "path";
 import fs from "fs";
+import mimeTypes from "mime-types";
 
 import type { Route } from "./+types/get-image-article";
 
@@ -15,9 +16,13 @@ export function loader({ request: req }: Route.LoaderArgs) {
     }
 
     const image = fs.readFileSync(pathImage);
+    const contentType = mimeTypes.lookup(pathImage);
 
     return new Response(image as unknown as BodyInit, {
-      headers: { "Content-Type": "image/png" },
+      headers: {
+        "Content-Type": contentType || "",
+        "Cache-Control": "public, max-age=604800",
+      },
     });
   } catch (err) {
     console.error("Error serving image:", err);

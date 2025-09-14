@@ -3,15 +3,12 @@ import { useLoaderData } from "react-router";
 import { getSingleArticles } from "@/utils/articles";
 import { ArticleDetail as ArticleDetailModule } from "@/modules/article-detail";
 import { constructMetaTags } from "@/utils/construct-metatags";
-import { selectTotalViewsArticle } from "@/utils/db/select-total-views-article";
-import { insertAndUpdateTotalViewsArticle } from "@/utils/db/insert-and-update-total-views-article";
 import { constructOgImageAPI } from "@/utils/og-images/construct-og-image-api";
 
 import type { Route } from "./+types/article-detail";
 
 export async function loader({ params, request }: Route.LoaderArgs) {
   const article = getSingleArticles({ slug: params.slug });
-  const url = new URL(request.url);
 
   if (!article) {
     throw new Response("Article not found", { status: 404 });
@@ -23,16 +20,10 @@ export async function loader({ params, request }: Route.LoaderArgs) {
     title: article.title,
     excerpt: article.excerpt,
     createdAt: article.createdAt,
-    isRegionalContent: String(article.isRegional),
+    isRegionalContent: article.isRegional ? "1" : "",
   });
 
-  if (import.meta.env.PROD) {
-    await insertAndUpdateTotalViewsArticle(article);
-  }
-
-  const totalViews = await selectTotalViewsArticle(article);
-
-  return { article, totalViews, metaImage, coverIMG };
+  return { article, metaImage, coverIMG };
 }
 
 export function meta({ loaderData, location }: Route.MetaArgs) {
@@ -48,13 +39,7 @@ export function meta({ loaderData, location }: Route.MetaArgs) {
 }
 
 export default function ArticleDetail() {
-  const { article, totalViews, coverIMG } = useLoaderData<typeof loader>();
+  const { article, coverIMG } = useLoaderData<typeof loader>();
 
-  return (
-    <ArticleDetailModule
-      coverIMG={coverIMG}
-      totalViews={totalViews}
-      article={article}
-    />
-  );
+  return <ArticleDetailModule coverIMG={coverIMG} article={article} />;
 }

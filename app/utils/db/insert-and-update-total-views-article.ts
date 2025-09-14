@@ -1,9 +1,9 @@
 import type { Article } from "@/utils/articles";
 import { initArticlesViewsDB } from "./constructor";
 
-type Params = Article;
-
-export async function insertAndUpdateTotalViewsArticle(params: Params) {
+export async function insertAndUpdateTotalViewsArticle(
+  params: Pick<Article, "slug">,
+) {
   try {
     const { data } = await initArticlesViewsDB()
       .select("*")

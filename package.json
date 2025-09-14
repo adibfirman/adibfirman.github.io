@@ -20,6 +20,7 @@
     "gray-matter": "^4.0.3",
     "isbot": "^5.1.27",
     "markdown-to-jsx": "^7.7.13",
+    "mime-types": "^3.0.1",
     "phosphor-react": "^1.4.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
@@ -32,6 +33,7 @@
   "devDependencies": {
     "@react-router/dev": "^7.7.1",
     "@tailwindcss/vite": "^4.1.4",
+    "@types/mime-types": "^3.0.1",
     "@types/node": "^20",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",

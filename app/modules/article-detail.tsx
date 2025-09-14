@@ -1,5 +1,5 @@
 import Markdown from "markdown-to-jsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { type Article, normalizeDate } from "@/utils/articles";
 import {
@@ -11,13 +11,24 @@ import {
 
 type Props = {
   article: Article;
-  totalViews: number;
   coverIMG: string;
 };
 
-export function ArticleDetail({ article, totalViews, coverIMG }: Props) {
+export function ArticleDetail({ article, coverIMG }: Props) {
   const [giscusData, setGiscusData] = useState({ discussion: 0, reaction: 0 });
+  const [totalView, setTotalView] = useState(0);
   const bgImageCover = `url(/api/get-image-article?path=${coverIMG})`;
+
+  useEffect(() => {
+    (async function getTotalView() {
+      const fetchTotalView = await fetch(
+        `/api/get-total-views-article?slug=${article.slug}`,
+      );
+
+      const totalView = await fetchTotalView.json();
+      setTotalView(totalView.total);
+    })();
+  }, []);
 
   return (
     <>
@@ -56,11 +67,10 @@ export function ArticleDetail({ article, totalViews, coverIMG }: Props) {
 
       <main className="grid grid-cols-12 gap-4 lg:max-w-5xl lg:mx-auto px-4 lg:px-6 py-8">
         <article className="text-mystic-text-primary/85 lg:pr-2.5 lg:px-0 col-start-1 col-end-13 lg:col-end-11">
-          {/* article header */}
           <div className="flex justify-between text-xs col-start-1 col-end-11 pb-2">
             <p className="text-gray-300 leading-relaxed font-body font-semibold">
               <span className="text-mystic-accent-light mr-1 font-semibold">
-                {totalViews}
+                {totalView || "-"}
               </span>
               views
             </p>
@@ -92,7 +102,6 @@ export function ArticleDetail({ article, totalViews, coverIMG }: Props) {
 
           <hr className="w-full col-start-1 col-end-13 mb-14 border-mystic-purple-soft" />
 
-          {/* article content */}
           <Markdown
             options={{ overrides: MarkdownParser({ article }) }}
             children={article.content}
