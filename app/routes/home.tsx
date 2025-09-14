@@ -12,7 +12,7 @@ export function loader({ request }: Route.LoaderArgs) {
 
   return {
     articles: articles.slice(0, 5),
-    restOfArticles: articles.slice(6, articles.length),
+    restOfArticles: articles.slice(5, articles.length),
     folderStructureArticles,
     metaImage,
     totalArticle: articles.length,
