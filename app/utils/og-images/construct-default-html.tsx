@@ -105,7 +105,7 @@ export async function constructDefaultHTML({
 
         {renderDefaultBody}
 
-        {isRegionalContent && (
+        {isRegionalContent === "1" && (
           <p
             tw="relative text-xl mt-auto text-[#e1e1ec] mb-12"
             style={{ fontFamily: "Lato", marginLeft: 70, whiteSpace: "pre" }}

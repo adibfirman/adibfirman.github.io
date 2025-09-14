@@ -143,8 +143,4 @@ sekali lagi ini mudah bukan?
 
 ## Sedikit catatan
 
-Memang deno adalah versi galaknya JavaScript tetapi bukan berarti kita tidak belajar dulu apa itu NodeJS, karena untuk kasus sekarang NodeJS lebih populer dan banyak yang menggunakan, jadi saran saya NodeJS apa Deno, yaa keduanya dan lebih baik NodeJS baru ke Deno.
-
-\
-\
-Terima kasih.
+Memang deno adalah versi galaknya JavaScript tetapi bukan berarti kita tidak belajar dulu apa itu NodeJS, karena untuk kasus sekarang NodeJS lebih populer dan banyak yang menggunakan, jadi saran saya NodeJS apa Deno, yaa keduanya dan lebih baik NodeJS baru ke Deno. Terima kasih.

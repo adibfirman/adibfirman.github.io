@@ -204,7 +204,7 @@ export function MarkdownParser({ article }: Props) {
       const isPreservedImg = props.src.match(/https/i);
       const src = isPreservedImg
         ? props.src
-        : `/articles/${article.slug}/${props.src}`;
+        : `/api/get-image-article?path=${article.articlePath}/${props.src}`;
 
       return (
         <img

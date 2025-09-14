@@ -1,7 +1,7 @@
 import type { Article } from "@/utils/articles";
 import { initArticlesViewsDB } from "./constructor";
 
-export async function selectTotalViewsArticle({ slug }: Article) {
+export async function selectTotalViewsArticle({ slug }: Pick<Article, "slug">) {
   let total = 0;
 
   try {

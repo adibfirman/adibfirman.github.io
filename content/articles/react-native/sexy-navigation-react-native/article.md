@@ -9,16 +9,16 @@ isRegional: true
 
 Pada tahap ini saya akan melakukan cara instalasi pada _React Native Navigation WIX_, karena sering sekali gosip yang mencerikan kalau RNN ini susah sekali untuk di instal pada app kita, padahal ini semua sudah lengkap di kitab onlen RNN [(dokumentasinya)](https://wix.github.io/react-native-navigation/#/), sebelum tahap klimaks-nya saya akan menjelaskan jenis navigasi yang disediakan oleh **React Native**, yaitu:
 
-- **Default Navigation**, \
+- **Default Navigation**,  
   sebuah navigation yang disediakan default oleh RN itu sendiri, contoh-nya:
   - [Android](https://facebook.github.io/react-native/docs/navigator), ini sudah dihapus dari core RN itu semenjak versi ^0.45
   - [IOS](https://facebook.github.io/react-native/docs/navigatorios#docsNav), kabar baiknya ini masih di support sampai sekarang.
-- **JS Navigation**
+- **JS Navigation**  
   sebuah navigation yang memang berjalan pada JS Core pada sebuah device, ini sebuah navigasi yang sering saya gunakan, contoh-nya:
   - [React Navigation](https://reactnavigation.org/)
   - [React Native Router Flux](https://github.com/RNRF/react-native-router-flux)
   - [React Native Simple](https://www.npmjs.com/package/react-native-simple-router)
-- **Native Navigation Modules**
+- **Native Navigation Modules**  
   navigasi yang memang memanfaatkan native thread itu sendiri, ada beberapa contoh yang bisa digunakan, contoh-nya:
   - [React Native Navigation Wix](https://wix.github.io/react-native-navigation/#/)
   - [Native Navigation (AirBnb)](https://github.com/airbnb/native-navigation/issues/114), seperti yang kita ketahui AirBnb sudah tidak menggunakan React Native lagi, soo package ini juga sudah depracated atau sudah _IS DEAD_ berikut [_Github Thread_](https://github.com/airbnb/native-navigation/issues/114)-nya.

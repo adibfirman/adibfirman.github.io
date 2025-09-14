@@ -147,7 +147,7 @@ export default function ProductList() {
 }
 ```
 
-And here's a sneak peek of the `Summary`too.
+And here's a sneak peek of the `Summary` too.
 
 ```typescript
 import { useCheckout } from "@/routes/Checkout/remote-data";

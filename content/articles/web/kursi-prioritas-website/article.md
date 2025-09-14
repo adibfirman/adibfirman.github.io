@@ -7,9 +7,9 @@ copyrightCover: 'Photo by <a href="https://unsplash.com/@lg_photography?utm_cont
 isRegional: true
 ---
 
-Ya pada hari ini saya akan membagikan sebuah catatan penting tentang sebuah prioritas, bisa dikatakan kita akan berbicara tentang kursi prioritas pada website.
+## Pendahuluan
 
----
+Ya pada hari ini saya akan membagikan sebuah catatan penting tentang sebuah prioritas, bisa dikatakan kita akan berbicara tentang kursi prioritas pada website.
 
 Lalu apa sebenarnya yang dimaksud dengan kursi priortias? yaa benar, seperti kita menaiki sebuah busway (angkutan umum) setidaknya didalam ada sebuah kursi prioritas, seperti ini
 
