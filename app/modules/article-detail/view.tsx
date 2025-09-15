@@ -27,7 +27,7 @@ export function ArticleDetail({ article, coverIMG }: Props) {
     <>
       <Header coverIMG={coverIMG} article={article} />
       <main className="grid grid-cols-12 gap-4 lg:max-w-5xl lg:mx-auto px-4 lg:px-6 py-8">
-        <article className="text-mystic-text-primary/85 lg:pr-2.5 lg:px-0 col-start-1 col-end-13 lg:col-end-11">
+        <article className="text-mystic-text-primary/85 lg:pr-2.5 lg:px-0 col-start-1 col-end-13 lg:col-end-10 lg:min-xl:col-end-11">
           <SubHeader
             article={article}
             totalDiscussion={giscusData.discussion}
@@ -58,7 +58,7 @@ export function ArticleDetail({ article, coverIMG }: Props) {
           />
         </article>
 
-        <div className="hidden lg:block col-start-11 col-end-12">
+        <div className="hidden lg:block lg:col-start-10 lg:col-end-11 lg:min-xl:col-start-11 lg:min-xl:col-end-12">
           <TableOfContents
             tocItems={tocData.tocItems}
             activeId={tocData.activeId}
