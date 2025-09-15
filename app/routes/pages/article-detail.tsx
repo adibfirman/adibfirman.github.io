@@ -1,7 +1,7 @@
 import { useLoaderData } from "react-router";
 
 import { getSingleArticles } from "@/utils/articles";
-import { ArticleDetail as ArticleDetailModule } from "@/modules/article-detail";
+import { ArticleDetail as ArticleDetailModule } from "@/modules/article-detail/view";
 import { constructMetaTags } from "@/utils/construct-metatags";
 import { constructOgImageAPI } from "@/utils/og-images/construct-og-image-api";
 

@@ -1,12 +1,4 @@
-import Giscus from "@giscus/react";
-import { useEffect } from "react";
-
-type Props = {
-  onReceiveData: (data: {
-    totalDiscussion: number;
-    totalReaction: number;
-  }) => void;
-};
+import { useEffect, useState } from "react";
 
 type DiscussionDataGiscus = {
   reactionCount: number;
@@ -14,7 +6,9 @@ type DiscussionDataGiscus = {
   totalReplyCount: number;
 };
 
-export function GiscusArticle({ onReceiveData }: Props) {
+export function useListenGiscus() {
+  const [giscusData, setGiscusData] = useState({ discussion: 0, reaction: 0 });
+
   useEffect(() => {
     function handleMessage(event: MessageEvent) {
       if (event.origin !== "https://giscus.app") return;
@@ -31,7 +25,10 @@ export function GiscusArticle({ onReceiveData }: Props) {
       const discussion =
         discussionData.totalCommentCount + discussionData.totalReplyCount;
 
-      onReceiveData({ totalDiscussion: discussion, totalReaction: reaction });
+      setGiscusData((prevState) => ({
+        discussion: prevState.discussion + discussion,
+        reaction: prevState.reaction + reaction,
+      }));
     }
 
     window.addEventListener("message", handleMessage);
@@ -41,19 +38,5 @@ export function GiscusArticle({ onReceiveData }: Props) {
     };
   }, []);
 
-  return (
-    <Giscus
-      repo="adibfirman/adibfirman.github.io"
-      repoId="MDEwOlJlcG9zaXRvcnkxNjgyODI2NDI="
-      category="Articles"
-      categoryId="DIC_kwDOCgfKEs4CvOGg"
-      mapping="pathname"
-      strict="1"
-      reactionsEnabled="1"
-      emitMetadata="1"
-      inputPosition="top"
-      theme="dark"
-      lang="en"
-    />
-  );
+  return giscusData;
 }

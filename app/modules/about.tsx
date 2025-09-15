@@ -1,5 +1,3 @@
-"use client";
-
 import type { PropsWithChildren } from "react";
 import { EnvelopeSimple, LinkedinLogo, GithubLogo } from "phosphor-react";
 import { SubHeader } from "@/components";
