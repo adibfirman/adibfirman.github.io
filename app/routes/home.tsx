@@ -1,4 +1,4 @@
-import { Home as HomeModule } from "@/modules/home";
+import { Home as HomeModule } from "@/modules/home/view";
 import { getArticles, getFolderStructure } from "@/utils/articles";
 import { constructMetaTags } from "@/utils/construct-metatags";
 import { constructOgImageAPI } from "@/utils/og-images/construct-og-image-api";

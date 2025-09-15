@@ -37,7 +37,9 @@ export function TreeTagsItem({ node, depth = 0, onClick }: Props) {
     e.stopPropagation();
     setCategoriesQueryParams({
       value: node.path,
-      callback: (newSearchParams) => setSearchParams(newSearchParams),
+      callback: (newSearchParams) => {
+        setSearchParams(newSearchParams, { preventScrollReset: true });
+      },
     });
 
     if (hasChildren) {
