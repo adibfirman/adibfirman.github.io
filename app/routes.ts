@@ -1,11 +1,20 @@
-import { type RouteConfig, index, route } from "@react-router/dev/routes";
+import {
+  type RouteConfig,
+  index,
+  prefix,
+  route,
+} from "@react-router/dev/routes";
 
 export default [
-  index("routes/home.tsx"),
-  route("about", "routes/about.tsx"),
-  route("articles/:slug", "routes/article-detail.tsx"),
-  route("articles", "routes/articles.tsx"),
-  route("api/open-graph-image", "routes/open-graph-image.ts"),
-  route("api/get-image-article", "routes/get-image-article.ts"),
-  route("api/get-total-views-article", "routes/get-total-views-article.ts"),
+  index("routes/pages/home.tsx"),
+  route("about", "routes/pages/about.tsx"),
+  ...prefix("articles", [
+    index("routes/pages/articles.tsx"),
+    route(":slug", "routes/pages/article-detail.tsx"),
+  ]),
+  ...prefix("api", [
+    route("open-graph-image", "routes/api/open-graph-image.ts"),
+    route("get-image-article", "routes/api/get-image-article.ts"),
+    route("get-total-views-article", "routes/api/get-total-views-article.ts"),
+  ]),
 ] satisfies RouteConfig;

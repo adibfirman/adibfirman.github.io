@@ -1,6 +1,7 @@
 import { insertAndUpdateTotalViewsArticle } from "@/utils/db/insert-and-update-total-views-article";
-import type { Route } from "./+types/get-total-views-article";
 import { selectTotalViewsArticle } from "@/utils/db/select-total-views-article";
+
+import type { Route } from "./+types/get-total-views-article";
 
 export async function loader({ request }: Route.LoaderArgs) {
   try {
