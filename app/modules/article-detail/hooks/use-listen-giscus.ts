@@ -26,8 +26,9 @@ export function useListenGiscus() {
         discussionData.totalCommentCount + discussionData.totalReplyCount;
 
       setGiscusData((prevState) => ({
-        discussion: prevState.discussion + discussion,
-        reaction: prevState.reaction + reaction,
+        discussion:
+          prevState.discussion > 0 ? prevState.discussion : discussion,
+        reaction: prevState.reaction > 0 ? prevState.reaction : reaction,
       }));
     }
 
