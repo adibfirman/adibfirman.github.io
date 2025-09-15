@@ -63,7 +63,7 @@ function getArticlesDir() {
   return path.join(process.cwd(), "content/articles");
 }
 
-export function getArticles(): Article[] {
+export function getArticles(selectedTags: string[] = []): Article[] {
   try {
     const articlesDirectory = getArticlesDir();
     const allFiles = getAllMdxFiles(articlesDirectory);
@@ -107,6 +107,12 @@ export function getArticles(): Article[] {
         (a, b) =>
           new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
       );
+
+    if (selectedTags.length > 0) {
+      return articles.filter((article) =>
+        selectedTags.find((tag) => article.tags.includes(tag)),
+      );
+    }
 
     return articles;
   } catch (error) {

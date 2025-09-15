@@ -26,7 +26,7 @@ export function Home({
     <>
       <SubHeader className="min-h-[60vh] lg:min-h-[50svh]" />
       <main className="text-white min-h-screen">
-        <div className="max-w-4xl mx-auto px-4 lg:px-6 py-8">
+        <div className="max-w-5xl mx-auto px-4 lg:px-6 py-8">
           <div className="grid lg:grid-cols-4 gap-8">
             <div className="lg:col-span-3">
               <div className="mb-8">
@@ -66,7 +66,7 @@ export function Home({
                   ))}
                 </div>
 
-                {!loadMoreClicked && (
+                {!loadMoreClicked && restOfArticles.length > 0 && (
                   <div className="flex justify-center mt-8">
                     <button
                       onClick={() => setLoadMoreClicked(true)}

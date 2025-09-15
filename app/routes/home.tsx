@@ -6,7 +6,11 @@ import { constructOgImageAPI } from "@/utils/og-images/construct-og-image-api";
 import type { Route } from "./+types/home";
 
 export function loader({ request }: Route.LoaderArgs) {
-  const articles = getArticles();
+  const url = new URL(request.url);
+  const searchParams = new URLSearchParams(url.searchParams);
+  const selectedCategories = searchParams.getAll("categories");
+
+  const articles = getArticles(selectedCategories as string[]);
   const folderStructureArticles = getFolderStructure();
   const metaImage = constructOgImageAPI(request.url);
 
