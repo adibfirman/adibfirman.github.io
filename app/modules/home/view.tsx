@@ -1,8 +1,9 @@
 import type { Article, TreeArticlesStructure } from "@/utils/articles";
-import { SubHeader, TreeTags } from "@/components";
+import { SubHeader } from "@/components";
 
 import { ArticleSection } from "./components/articles-section";
 import { ShowcaseSection } from "./components/showcase-section";
+import { TreeTags } from "./components/tree-tags";
 
 interface HomeProps {
   articles: Article[];
