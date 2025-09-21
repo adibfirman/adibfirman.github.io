@@ -1,6 +1,4 @@
 import type { MarkdownToJSX } from "markdown-to-jsx";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { ArrowSquareOut } from "phosphor-react";
 import React from "react";
 
@@ -11,6 +9,7 @@ import {
 } from "@/utils/articles";
 
 import { Admonition } from "./markdown-parser-custom/admonition.client";
+import { Code } from "./markdown-parser-custom/code.client";
 
 type Props = {
   article: Article;
@@ -122,41 +121,7 @@ export function MarkdownParser({ article }: Props) {
       });
     },
 
-    code(props) {
-      const match = /lang-(\w+)/.exec(props.className || "");
-      if (match) {
-        return (
-          <SyntaxHighlighter
-            style={oneDark}
-            customStyle={{
-              fontFamily: "var(--font-mono)",
-              fontSize: "var(--text-base)",
-              margin: "21px 0",
-            }}
-            codeTagProps={{
-              style: {
-                fontFamily: "var(--font-mono)",
-                fontSize: "var(--text-base)",
-              },
-            }}
-            PreTag="div"
-            language={match[1] || "javascript"}
-            {...props}
-          >
-            {String(props.children).replace(/\n$/, "")}
-          </SyntaxHighlighter>
-        );
-      }
-
-      return (
-        <code
-          {...props}
-          className="rounded-sm bg-mystic-surface/40 border border-slate-800 font-mono text-sm font-semibold"
-        >
-          `{props.children}`
-        </code>
-      );
-    },
+    code: Code,
 
     hr(props) {
       return (

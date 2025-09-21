@@ -1,7 +1,7 @@
 ---
 title: title
-date: "2020-12-31"
-updatedAt: "2020-11-09"
+date: "9999-12-31"
+updatedAt: "9999-11-09"
 excerpt: ""
 copyrightCover: ""
 isRegional: false
