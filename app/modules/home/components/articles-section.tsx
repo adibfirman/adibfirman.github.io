@@ -3,13 +3,13 @@ import type { Article } from "@/utils/articles";
 import { ArticleItem } from "./article-item";
 
 type Props = {
-  totalArticle: number;
   mainArticles: Article[];
   restOfArticles: Props["mainArticles"];
 };
 
 export function ArticleSection(props: Props) {
   const [loadMoreClicked, setLoadMoreClicked] = useState(false);
+  const totalArticle = props.mainArticles.length + props.restOfArticles.length;
   const groupArticles = (() => {
     return [
       ...props.mainArticles,
@@ -20,7 +20,7 @@ export function ArticleSection(props: Props) {
   return (
     <>
       <h1 className="text-base font-semibold mb-6 flex items-center gap-2 font-heading uppercase text-mystic-accent">
-        corner of thoughts ({props.totalArticle}) 🧠
+        corner of thoughts ({totalArticle}) 🧠
       </h1>
 
       <div className="space-y-6">

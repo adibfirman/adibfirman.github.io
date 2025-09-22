@@ -26,12 +26,53 @@ const PROJECTS = [
     type: "package",
   },
   {
-    title: "ReactJS ID Website",
+    title: "reactjs-id/website",
     description: "An Official ReactJS Indonesia",
     github: "https://github.com/reactjs-id/website",
     tech: ["React", "TypeScript"],
-    type: "website",
+    type: "project",
     demo: "https://reactjs.id/",
+  },
+  {
+    title: "simple-rsc",
+    description: "⚛️ A Simple clone of React Server Component",
+    github: "https://github.com/adibfirman/simple-rsc",
+    tech: ["React", "TypeScript"],
+    type: "project",
+    demo: "",
+  },
+  {
+    title: "snake-game",
+    description: "A classic game snake inspired by Nokia",
+    github: "https://github.com/adibfirman/snake-game",
+    tech: ["JavaScript", "Canvas"],
+    type: "project",
+    demo: "",
+  },
+  {
+    title: "weather-geo-location",
+    description:
+      "A simple app that uses Geolocation to get the weather forecast for a user's location.",
+    github: "https://github.com/adibfirman/weather-geo-location",
+    tech: ["React Native"],
+    type: "project",
+    demo: "",
+  },
+  {
+    title: "gravity-ball",
+    description: "Drop a ball from top to bottom using canvas",
+    github: "https://github.com/adibfirman/gravity-ball",
+    tech: ["Canvas", "JavaScript"],
+    type: "project",
+    demo: "",
+  },
+  {
+    title: "funny-bubble",
+    description: "Funny bubble using canvas",
+    github: "https://github.com/adibfirman/funny-bubble",
+    tech: ["Canvas", "JavaScript"],
+    type: "project",
+    demo: "",
   },
 ];
 
@@ -48,7 +89,7 @@ export function ShowcaseSection() {
         <div className="grid lg:grid-cols-2 gap-6">
           {PROJECTS.map((project) => (
             <div key={project.github} className="bg-gray-800 rounded-lg p-6">
-              <div className="flex items-start justify-between mb-4">
+              <div className="flex items-start justify-between mb-2">
                 <h3 className="text-xl font-bold font-mono">{project.title}</h3>
                 <span className="px-2 py-1 text-xs rounded font-body bg-blue-600/60 text-blue-200 font-semibold">
                   {project.type}

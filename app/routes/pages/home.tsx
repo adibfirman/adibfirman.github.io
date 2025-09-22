@@ -19,7 +19,6 @@ export function loader({ request }: Route.LoaderArgs) {
     restOfArticles: articles.slice(5, articles.length),
     folderStructureArticles,
     metaImage,
-    totalArticle: articles.length,
   };
 }
 
@@ -33,7 +32,6 @@ export function meta(args: Route.MetaArgs) {
 export default function Home({ loaderData }: Route.ComponentProps) {
   return (
     <HomeModule
-      totalArticle={loaderData.totalArticle}
       articles={loaderData.articles}
       restOfArticles={loaderData.restOfArticles}
       treeStructureArticles={loaderData.folderStructureArticles}

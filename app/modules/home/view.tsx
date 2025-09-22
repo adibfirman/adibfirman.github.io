@@ -8,7 +8,6 @@ import { TreeTags } from "./components/tree-tags";
 interface HomeProps {
   articles: Article[];
   restOfArticles: Article[];
-  totalArticle: number;
   treeStructureArticles: TreeArticlesStructure;
 }
 
@@ -16,7 +15,6 @@ export function Home({
   articles,
   restOfArticles,
   treeStructureArticles,
-  totalArticle,
 }: HomeProps) {
   return (
     <>
@@ -27,7 +25,6 @@ export function Home({
             <div className="lg:col-span-3">
               <div className="mb-8">
                 <ArticleSection
-                  totalArticle={totalArticle}
                   mainArticles={articles}
                   restOfArticles={restOfArticles}
                 />
