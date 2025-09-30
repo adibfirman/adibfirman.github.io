@@ -179,21 +179,28 @@ export function DrawPicture() {
             <Circle size={20} />
             <select
               value={lineWidth}
+              className="cursor-pointer"
               onChange={(e) => setLineWidth(Number(e.target.value))}
             >
-              <option className="bg-gray-900 border-0" value={2}>
+              <option className="bg-gray-900 border-0 cursor-pointer" value={2}>
                 2px
               </option>
-              <option className="bg-gray-900 border-0" value={5}>
+              <option className="bg-gray-900 border-0 cursor-pointer" value={5}>
                 5px
               </option>
-              <option className="bg-gray-900 border-0" value={8}>
+              <option className="bg-gray-900 border-0 cursor-pointer" value={8}>
                 8px
               </option>
-              <option className="bg-gray-900 border-0" value={13}>
+              <option
+                className="bg-gray-900 border-0 cursor-pointer"
+                value={13}
+              >
                 13px
               </option>
-              <option className="bg-gray-900 border-0" value={20}>
+              <option
+                className="bg-gray-900 border-0 cursor-pointer"
+                value={20}
+              >
                 21px
               </option>
             </select>

@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 
 const placeholderImages = [
-  "/public/about-profile.png", // Example placeholders, replace with actual paths
-  "/public/profile.jpg",
-  "/public/neovim-logo.png",
+  "/about-profile.png", // Example placeholders, replace with actual paths
+  "/profile.jpg",
+  "/neovim-logo.png",
 ];
 
 export function DrawingResult() {
@@ -11,7 +11,9 @@ export function DrawingResult() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % placeholderImages.length);
+      setCurrentIndex(
+        (prevIndex) => (prevIndex + 1) % placeholderImages.length,
+      );
     }, 3000); // Auto slide every 3 seconds
 
     return () => clearInterval(interval);
@@ -38,3 +40,4 @@ export function DrawingResult() {
     </div>
   );
 }
+

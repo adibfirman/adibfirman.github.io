@@ -40,7 +40,6 @@ export function Home({
           </div>
 
           <GuestbookSection />
-
           <ShowcaseSection />
         </div>
       </main>
