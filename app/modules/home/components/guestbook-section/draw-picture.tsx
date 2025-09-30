@@ -16,6 +16,10 @@ export function DrawPicture() {
   const [cursorPos, setCursorPos] = useState<{ x: number; y: number } | null>(
     null,
   );
+  const [name, setName] = useState("");
+  const [hint, setHint] = useState("");
+  const [expectedWord, setExpectedWord] = useState("");
+  const [typedHint, setTypedHint] = useState("");
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -46,6 +50,13 @@ export function DrawPicture() {
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
     return () => window.removeEventListener("resize", resizeCanvas);
+  }, []);
+
+  useEffect(() => {
+    const words = ["submit", "send", "confirm"];
+    const word = words[Math.floor(Math.random() * words.length)];
+    setExpectedWord(word);
+    setHint(`Type "${word}" to submit`);
   }, []);
 
   const startDrawing = (e: React.MouseEvent<HTMLCanvasElement>) => {
@@ -149,6 +160,20 @@ export function DrawPicture() {
     link.click();
   };
 
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (typedHint.toLowerCase() === expectedWord && name.trim()) {
+      // Proceed with submission, e.g., send to API
+      console.log("Submitting:", { name, drawing: canvasRef.current?.toDataURL() });
+      // Reset
+      setName("");
+      setTypedHint("");
+      clearCanvas();
+    } else {
+      alert("Please enter your name and type the correct word to submit.");
+    }
+  };
+
   return (
     <section>
       <div className="flex flex-row justify-between mb-3">
@@ -245,6 +270,35 @@ export function DrawPicture() {
           />
         )}
       </div>
+
+      <form onSubmit={handleSubmit} className="mt-4 flex flex-col gap-2">
+        <label className="text-mystic-text-secondary text-sm">Your Name:</label>
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Enter your name"
+          className="bg-gray-900 text-mystic-text-primary border rounded py-1 px-2"
+          required
+        />
+        <div className="text-mystic-text-secondary text-sm">{hint}</div>
+        <input
+          type="text"
+          value={typedHint}
+          onChange={(e) => setTypedHint(e.target.value)}
+          placeholder="Type here"
+          className="bg-gray-900 text-mystic-text-primary border rounded py-1 px-2"
+          required
+          pattern={`^${expectedWord}$`}
+          title={`Please type "${expectedWord}" exactly`}
+        />
+        <button
+          type="submit"
+          className="cursor-pointer border rounded py-1 px-2 self-start"
+        >
+          Submit
+        </button>
+      </form>
     </section>
   );
 }
