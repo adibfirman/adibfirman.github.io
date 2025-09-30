@@ -4,6 +4,7 @@ import { SubHeader } from "@/components";
 import { ArticleSection } from "./components/articles-section";
 import { ShowcaseSection } from "./components/showcase-section";
 import { TreeTags } from "./components/tree-tags";
+import { GuestbookSection } from "./components/guestbook-section";
 
 interface HomeProps {
   articles: Article[];
@@ -37,6 +38,8 @@ export function Home({
               <TreeTags folderStructure={treeStructureArticles} />
             </div>
           </div>
+
+          <GuestbookSection />
 
           <ShowcaseSection />
         </div>

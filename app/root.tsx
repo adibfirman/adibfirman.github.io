@@ -59,7 +59,7 @@ export default function App() {
       value={{
         color: "#ded4f3",
         size: 32,
-        weight: "duotone",
+        weight: "bold",
       }}
     >
       <Outlet />
