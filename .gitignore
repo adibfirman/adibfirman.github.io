@@ -7,4 +7,5 @@
 
 .env
 
+# Deployment stuff
 .netlify/
