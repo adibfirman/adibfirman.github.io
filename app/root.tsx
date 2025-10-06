@@ -36,11 +36,23 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
         {import.meta.env.PROD && (
-          <script
-            defer
-            data-domain="adibfirman.dev"
-            src="https://plausible.io/js/script.js"
-          ></script>
+          <>
+            <script
+              async
+              src="https://www.googletagmanager.com/gtag/js?id=G-Q0HEC1EEPD"
+            ></script>
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+
+                  gtag('config', 'G-Q0HEC1EEPD');
+                `,
+              }}
+            ></script>
+          </>
         )}
       </head>
       <body>
