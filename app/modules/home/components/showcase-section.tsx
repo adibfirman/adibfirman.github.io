@@ -47,7 +47,7 @@ const PROJECTS = [
     github: "https://github.com/adibfirman/snake-game",
     tech: ["JavaScript", "Canvas"],
     type: "project",
-    demo: "",
+    demo: "https://teal-zabaione-24c189.netlify.app/",
   },
   {
     title: "weather-geo-location",
@@ -64,7 +64,7 @@ const PROJECTS = [
     github: "https://github.com/adibfirman/gravity-ball",
     tech: ["Canvas", "JavaScript"],
     type: "project",
-    demo: "",
+    demo: "https://rad-peony-87c371.netlify.app/",
   },
   {
     title: "funny-bubble",
@@ -72,7 +72,7 @@ const PROJECTS = [
     github: "https://github.com/adibfirman/funny-bubble",
     tech: ["Canvas", "JavaScript"],
     type: "project",
-    demo: "",
+    demo: "https://funny-bubble.netlify.app/",
   },
 ];
 
