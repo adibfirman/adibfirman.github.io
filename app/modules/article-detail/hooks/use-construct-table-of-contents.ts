@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 
 import type { Article } from "@/utils/articles";
 import { childrenToText, createHashArticleFromTitle } from "@/utils/articles";
@@ -31,16 +31,21 @@ export function useConstructTableOfcontents(args: Args) {
     return items;
   })();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveId(entry.target.id);
-          }
-        });
+        const intersecting = entries.filter((entry) => entry.isIntersecting);
+        if (intersecting.length > 0) {
+          const sorted = intersecting.sort(
+            (a, b) => a.boundingClientRect.top - b.boundingClientRect.top,
+          );
+          setActiveId(sorted[0].target.id);
+        } else {
+          const [entry] = entries;
+          setActiveId(entry.target.id);
+        }
       },
-      { rootMargin: `0% 0% -20% 0%` },
+      { rootMargin: "0px 0px -80% 0px" },
     );
 
     const getEle = (id: string) => document.getElementById(id);

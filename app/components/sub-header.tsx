@@ -120,7 +120,7 @@ export function SubHeader({
         },
       ];
 
-      layers.forEach((layer, index) => {
+      layers.forEach((layer) => {
         const gradient = ctx.createLinearGradient(0, 0, width, height);
         gradient.addColorStop(
           0,

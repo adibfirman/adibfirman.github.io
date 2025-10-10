@@ -1,5 +1,3 @@
-import { useLoaderData } from "react-router";
-
 import { getSingleArticles } from "@/utils/articles";
 import { ArticleDetail as ArticleDetailModule } from "@/modules/article-detail/view";
 import { constructMetaTags } from "@/utils/construct-metatags";
@@ -38,8 +36,8 @@ export function meta({ loaderData, location }: Route.MetaArgs) {
   return metaTags;
 }
 
-export default function ArticleDetail() {
-  const { article, coverIMG } = useLoaderData<typeof loader>();
+export default function ArticleDetail({ loaderData }: Route.ComponentProps) {
+  const { article, coverIMG } = loaderData;
 
   return <ArticleDetailModule coverIMG={coverIMG} article={article} />;
 }

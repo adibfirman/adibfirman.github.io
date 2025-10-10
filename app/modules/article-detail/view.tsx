@@ -9,7 +9,6 @@ import { TableOfContents } from "./components/table-of-contents";
 import { MarkdownParser } from "./components/markdown-parser";
 
 import { useGetTotalView } from "./hooks/use-get-total-view";
-import { useConstructTableOfcontents } from "./hooks/use-construct-table-of-contents";
 import { useListenGiscus } from "./hooks/use-listen-giscus";
 
 import { type ArticleDetail } from "./types";
@@ -21,13 +20,12 @@ type Props = Pick<ArticleDetail, "coverIMG"> & {
 export function ArticleDetail({ article, coverIMG }: Props) {
   const giscusData = useListenGiscus();
   const { totalView } = useGetTotalView({ slug: article.slug });
-  const tocData = useConstructTableOfcontents({ article });
 
   return (
     <>
       <Header coverIMG={coverIMG} article={article} />
-      <main className="grid grid-cols-12 gap-4 lg:max-w-5xl lg:mx-auto px-4 lg:px-6 py-8">
-        <article className="text-mystic-text-primary/85 lg:pr-2.5 lg:px-0 col-start-1 col-end-13 lg:col-end-10 lg:min-xl:col-end-11">
+      <main className="grid grid-cols-12 gap-4 lg:max-w-3xl lg:mx-auto px-4 lg:px-0 py-8">
+        <article className="text-mystic-text-contrast col-start-1 col-end-13">
           <SubHeader
             article={article}
             totalDiscussion={giscusData.discussion}
@@ -35,7 +33,7 @@ export function ArticleDetail({ article, coverIMG }: Props) {
             totalView={totalView}
           />
 
-          <hr className="w-full col-start-1 col-end-13 mb-14 border-mystic-purple-soft" />
+          <hr className="hidden lg:block w-full col-start-1 col-end-13 mb-14 border-mystic-purple-soft" />
 
           <Markdown
             options={{ overrides: MarkdownParser({ article }) }}
@@ -58,13 +56,7 @@ export function ArticleDetail({ article, coverIMG }: Props) {
           />
         </article>
 
-        <div className="hidden lg:block lg:col-start-10 lg:col-end-11 lg:min-xl:col-start-11 lg:min-xl:col-end-12">
-          <TableOfContents
-            tocItems={tocData.tocItems}
-            activeId={tocData.activeId}
-            minLevelToc={tocData.minLevelToc}
-          />
-        </div>
+        <TableOfContents article={article} />
       </main>
     </>
   );

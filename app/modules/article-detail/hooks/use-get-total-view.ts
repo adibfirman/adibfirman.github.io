@@ -12,7 +12,7 @@ export function useGetTotalView(args: { slug: string }) {
       const totalView = await fetchTotalView.json();
       setTotalView(totalView.total);
     })();
-  }, []);
+  }, [args.slug]);
 
   return { totalView };
 }

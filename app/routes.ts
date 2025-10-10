@@ -17,4 +17,5 @@ export default [
     route("get-image-article", "routes/api/get-image-article.ts"),
     route("get-total-views-article", "routes/api/get-total-views-article.ts"),
   ]),
+  route("*", "routes/pages/catch-all.tsx"),
 ] satisfies RouteConfig;

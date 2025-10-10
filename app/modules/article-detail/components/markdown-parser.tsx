@@ -1,5 +1,4 @@
 import type { MarkdownToJSX } from "markdown-to-jsx";
-import { ArrowSquareOut } from "phosphor-react";
 import React from "react";
 
 import {
@@ -23,7 +22,7 @@ export function MarkdownParser({ article }: Props) {
         <h1
           {...props}
           id={createHashArticleFromTitle(childrenToText(props.children))}
-          className="text-4xl font-extrabold mt-10 mb-8 leading-tight text-mystic-purple-surface font-heading"
+          className="text-4xl font-extrabold mt-10 mb-8 leading-tight text-mystic-purple-surface font-heading cursor-pointer"
         />
       );
     },
@@ -33,7 +32,7 @@ export function MarkdownParser({ article }: Props) {
         <h2
           {...props}
           id={createHashArticleFromTitle(childrenToText(props.children))}
-          className="text-3xl font-bold mt-10 mb-8 text-mystic-purple-surface font-heading"
+          className="text-3xl font-bold mt-10 mb-8 text-mystic-purple-surface font-heading cursor-pointer"
         />
       );
     },
@@ -42,7 +41,7 @@ export function MarkdownParser({ article }: Props) {
         <h3
           {...props}
           id={createHashArticleFromTitle(childrenToText(props.children))}
-          className="text-xl font-bold mt-5 mb-2 text-mystic-purple-surface font-heading"
+          className="text-xl font-bold mt-5 mb-2 text-mystic-purple-surface font-heading cursor-pointer"
         />
       );
     },
@@ -51,7 +50,7 @@ export function MarkdownParser({ article }: Props) {
         <h6
           {...props}
           id={createHashArticleFromTitle(childrenToText(props.children))}
-          className="text-xs font-bold mt-5 mb-2 text-mystic-purple-surface/60 font-heading"
+          className="text-xs font-bold mt-5 mb-2 text-mystic-purple-surface/60 font-heading cursor-pointer"
         />
       );
     },
@@ -59,7 +58,7 @@ export function MarkdownParser({ article }: Props) {
     // Paragraph
     p(props) {
       return (
-        <p {...props} className="text-lg leading-7 text-justify lg:text-left" />
+        <p {...props} className="text-lg leading-7 text-mystic-text-contrast" />
       );
     },
 
@@ -69,12 +68,9 @@ export function MarkdownParser({ article }: Props) {
         <a
           {...props}
           className="font-semibold decoration-2 underline hover:no-underline decoration-mystic-purple-bg inline-block w-max"
+          rel="nofollow ugc noopener"
         >
-          {props.children}
-          <ArrowSquareOut
-            size={16}
-            className="inline relative ml-0.5 -top-1.5"
-          />
+          ‘{props.children}’
         </a>
       );
     },

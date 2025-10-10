@@ -17,7 +17,7 @@ type Props = {
 
 export function TreeTagsItem({ node, depth = 0, onClick }: Props) {
   const [expandedNodes, setExpandedNodes] = useState<Set<string>>(new Set([]));
-  const [_, setSearchParams] = useSearchParams();
+  const [, setSearchParams] = useSearchParams();
 
   const hasChildren = node.children.length > 0;
   const isExpanded = expandedNodes.has(node.path);

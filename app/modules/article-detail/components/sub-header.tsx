@@ -9,7 +9,7 @@ type Props = {
 
 export function SubHeader(props: Props) {
   return (
-    <div className="flex justify-between text-xs col-start-1 col-end-11 pb-2">
+    <div className="hidden lg:flex justify-between text-xs col-start-1 col-end-11 pb-2">
       <p className="text-gray-300 leading-relaxed font-body font-semibold">
         <span className="text-mystic-accent-light mr-1 font-semibold">
           {props.totalView || "-"}

@@ -12,7 +12,7 @@ export function Code(props: PropsWithChildren<HTMLElement>) {
         await navigator.clipboard.writeText(code);
         setCopyToClipboard(true);
 
-        let idDelay = setTimeout(() => {
+        const idDelay = setTimeout(() => {
           clearTimeout(idDelay);
           setCopyToClipboard(false);
         }, 3000);

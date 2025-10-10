@@ -169,7 +169,7 @@ export function childrenToText(children: React.ReactNode): string {
     return children.map(childrenToText).join("");
   }
   if (React.isValidElement(children)) {
-    // @ts-ignore
+    // @ts-expect-error "type of props in here somehow got unknown but it's actuall not"
     return childrenToText(children.props.children);
   }
   return "";

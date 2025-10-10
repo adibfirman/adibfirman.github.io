@@ -9,7 +9,7 @@ type Options = Partial<{
   locale: string;
 }>;
 
-function returnSafeArray<T extends unknown>(source: unknown, data: T) {
+function returnSafeArray<T>(source: unknown, data: T) {
   const isSafe =
     (typeof source === "string" || Array.isArray(source)) &&
     source !== undefined;
