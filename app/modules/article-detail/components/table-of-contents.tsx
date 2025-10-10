@@ -11,7 +11,12 @@ type Props = {
 
 export function TableOfContents({ article }: Props) {
   const [showToc, setShowToc] = useState(false);
-  const { tocItems, activeId, minLevelToc } = useConstructTableOfcontents({
+  const {
+    tocItems,
+    activeId,
+    minLevelToc,
+    showToc: showActionToc,
+  } = useConstructTableOfcontents({
     article,
   });
 
@@ -19,17 +24,19 @@ export function TableOfContents({ article }: Props) {
 
   return (
     <div className="hidden fixed left-0 lg:flex items-center h-screen top-0">
-      <button
-        onClick={() => setShowToc(!showToc)}
-        className="flex flex-col max-h-52 cursor-pointer hover:bg-gray-500/20 rounded-md py-2 ml-2"
-      >
-        {tocItems.map((toc) => (
-          <Minus
-            key={toc.id}
-            weight={isHighlighted(toc.id) ? "bold" : "light"}
-          />
-        ))}
-      </button>
+      {showActionToc && (
+        <button
+          onClick={() => setShowToc(!showToc)}
+          className="flex flex-col max-h-52 cursor-pointer hover:bg-gray-500/20 rounded-md py-2 ml-2"
+        >
+          {tocItems.map((toc) => (
+            <Minus
+              key={toc.id}
+              weight={isHighlighted(toc.id) ? "bold" : "light"}
+            />
+          ))}
+        </button>
+      )}
       <div className="absolute top-0 left-14 h-screen flex items-center overflow-hidden">
         {tocItems.length > 0 && (
           <nav

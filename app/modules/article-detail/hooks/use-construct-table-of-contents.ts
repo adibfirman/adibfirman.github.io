@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 
 import type { Article } from "@/utils/articles";
 import { childrenToText, createHashArticleFromTitle } from "@/utils/articles";
@@ -11,6 +11,7 @@ type Args = {
 
 export function useConstructTableOfcontents(args: Args) {
   const [activeId, setActiveId] = useState("");
+  const [showToc, setShowToc] = useState(false);
 
   const tocItems = (() => {
     const headingRegex = /^(#{1,6})\s+(.+)$/gm;
@@ -67,11 +68,23 @@ export function useConstructTableOfcontents(args: Args) {
     };
   }, [tocItems]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const threshold = window.innerHeight * 0.19; // Adjust threshold as needed
+      setShowToc(window.scrollY > threshold);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Initial check
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const minLevelToc = (() => {
     return tocItems.reduce((acc, item) => {
       return Math.min(acc, item.level);
     }, 6);
   })();
 
-  return { minLevelToc, tocItems, activeId };
+  return { minLevelToc, tocItems, activeId, showToc };
 }
