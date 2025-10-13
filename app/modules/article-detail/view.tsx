@@ -26,6 +26,16 @@ export function ArticleDetail({ article, coverIMG }: Props) {
       <Header coverIMG={coverIMG} article={article} />
       <main className="grid grid-cols-12 gap-4 lg:max-w-3xl lg:mx-auto px-4 lg:px-0 py-8">
         <article className="text-mystic-text-contrast col-start-1 col-end-13">
+          {article.isRegional && (
+            <p className="text-mystic-text-contrast font-semibold text-xs mb-1">
+              <span className="text-base text-mystic-accent-light">*</span>
+              You Are Reading
+              <span className="text-mystic-accent-light"> Regional </span>/{" "}
+              <span className="text-mystic-accent-light">Indonesian </span>{" "}
+              article
+            </p>
+          )}
+
           <hr className="block w-full col-start-1 col-end-13 border-mystic-purple-soft/30" />
 
           <SubHeader

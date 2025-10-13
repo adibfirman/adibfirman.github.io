@@ -36,12 +36,12 @@ export function SubHeader(props: Props) {
         </div>
       </div>
 
-      {props.article.isRegional && (
-        <p className="text-mystic-text-contrast font-semibold text-xs">
-          <span className="text-base text-mystic-accent-light">*</span>Regional
-          / Indonesian article
-        </p>
-      )}
+      <p className="text-mystic-text-contrast font-semibold text-xs">
+        Published under{" "}
+        <span className="capitalize text-mystic-accent-light">
+          {props.article.tags[0]}
+        </span>
+      </p>
     </div>
   );
 }
