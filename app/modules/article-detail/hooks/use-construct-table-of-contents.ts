@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 import type { Article } from "@/utils/articles";
 import { childrenToText, createHashArticleFromTitle } from "@/utils/articles";
@@ -11,7 +11,11 @@ type Args = {
 
 export function useConstructTableOfcontents(args: Args) {
   const [activeId, setActiveId] = useState("");
-  const [showToc, setShowToc] = useState(false);
+  const [isBtnTncShow, setIsBtnTncShow] = useState(false);
+  const [isContentTncShow, setIsContentTncShow] = useState(false);
+  const tncRefDOM = useRef<HTMLDivElement>(null);
+
+  const isHighlightedSection = (id: typeof activeId) => id === activeId;
 
   const tocItems = (() => {
     const headingRegex = /^(#{1,6})\s+(.+)$/gm;
@@ -71,7 +75,7 @@ export function useConstructTableOfcontents(args: Args) {
   useEffect(() => {
     const handleScroll = () => {
       const threshold = window.innerHeight * 0.19; // Adjust threshold as needed
-      setShowToc(window.scrollY > threshold);
+      setIsBtnTncShow(window.scrollY > threshold);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -86,5 +90,30 @@ export function useConstructTableOfcontents(args: Args) {
     }, 6);
   })();
 
-  return { minLevelToc, tocItems, activeId, showToc };
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        tncRefDOM.current &&
+        !tncRefDOM.current.contains(event.target as Node)
+      ) {
+        setIsContentTncShow(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  return {
+    minLevelToc,
+    tocItems,
+    activeId,
+    isBtnTncShow,
+    tncRefDOM,
+    isContentTncShow,
+    setIsBtnTncShow,
+    isHighlightedSection,
+  };
 }
