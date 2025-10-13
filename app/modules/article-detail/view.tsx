@@ -26,6 +26,8 @@ export function ArticleDetail({ article, coverIMG }: Props) {
       <Header coverIMG={coverIMG} article={article} />
       <main className="grid grid-cols-12 gap-4 lg:max-w-3xl lg:mx-auto px-4 lg:px-0 py-8">
         <article className="text-mystic-text-contrast col-start-1 col-end-13">
+          <hr className="hidden lg:block w-full col-start-1 col-end-13 border-mystic-purple-soft/50" />
+
           <SubHeader
             article={article}
             totalDiscussion={giscusData.discussion}
@@ -33,7 +35,7 @@ export function ArticleDetail({ article, coverIMG }: Props) {
             totalView={totalView}
           />
 
-          <hr className="hidden lg:block w-full col-start-1 col-end-13 mb-14 border-mystic-purple-soft" />
+          <hr className="hidden lg:block w-full col-start-1 col-end-13 mb-7 border-mystic-purple-soft/50" />
 
           <Markdown
             options={{ overrides: MarkdownParser({ article }) }}

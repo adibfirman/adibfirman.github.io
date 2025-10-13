@@ -36,6 +36,12 @@ export function useConstructTableOfcontents(args: Args) {
     return items;
   })();
 
+  const minLevelToc = (() => {
+    return tocItems.reduce((acc, item) => {
+      return Math.min(acc, item.level);
+    }, 6);
+  })();
+
   useLayoutEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -74,7 +80,7 @@ export function useConstructTableOfcontents(args: Args) {
 
   useEffect(() => {
     const handleScroll = () => {
-      const threshold = window.innerHeight * 0.19; // Adjust threshold as needed
+      const threshold = window.innerHeight * 0.19;
       setIsBtnTncShow(window.scrollY > threshold);
     };
 
@@ -83,12 +89,6 @@ export function useConstructTableOfcontents(args: Args) {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const minLevelToc = (() => {
-    return tocItems.reduce((acc, item) => {
-      return Math.min(acc, item.level);
-    }, 6);
-  })();
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -113,7 +113,7 @@ export function useConstructTableOfcontents(args: Args) {
     isBtnTncShow,
     tncRefDOM,
     isContentTncShow,
-    setIsBtnTncShow,
+    setIsContentTncShow,
     isHighlightedSection,
   };
 }

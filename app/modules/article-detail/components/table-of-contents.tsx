@@ -12,7 +12,7 @@ export function TableOfContents({ article }: Props) {
     isContentTncShow,
     isHighlightedSection,
     minLevelToc,
-    setIsBtnTncShow,
+    setIsContentTncShow,
     tncRefDOM,
     tocItems,
   } = useConstructTableOfcontents({ article });
@@ -24,7 +24,7 @@ export function TableOfContents({ article }: Props) {
     >
       {isBtnTncShow && (
         <button
-          onClick={() => setIsBtnTncShow(!isContentTncShow)}
+          onClick={() => setIsContentTncShow(!isContentTncShow)}
           className="flex flex-col max-h-52 cursor-pointer hover:bg-gray-500/20 rounded-md py-2 ml-2"
         >
           {tocItems.map((toc) => (
