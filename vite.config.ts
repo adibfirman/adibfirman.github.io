@@ -16,6 +16,9 @@ export default defineConfig({
     visualizer({
       open: true,
       filename: "bundle-size.html",
+      gzipSize: true,
+      brotliSize: true,
+      exclude: [{ bundle: ".pnpm" }],
     }),
   ],
 });
