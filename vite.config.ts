@@ -4,6 +4,7 @@ import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 import netlifyPlugin from "@netlify/vite-plugin-react-router";
 import eslint from "vite-plugin-eslint";
+import { visualizer } from "rollup-plugin-visualizer";
 
 export default defineConfig({
   plugins: [
@@ -12,5 +13,9 @@ export default defineConfig({
     tsconfigPaths(),
     netlifyPlugin(),
     eslint(),
+    visualizer({
+      open: true,
+      filename: "bundle-size.html",
+    }),
   ],
 });

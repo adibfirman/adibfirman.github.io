@@ -9,3 +9,6 @@
 
 # Deployment stuff
 .netlify/
+
+# Analyzer
+bundle-size.html

@@ -30,9 +30,13 @@ export function ArticleDetail({ article, coverIMG }: Props) {
             <p className="text-mystic-text-contrast font-semibold text-xs mb-1">
               <span className="text-base text-mystic-accent-light">*</span>
               You Are Reading
-              <span className="text-mystic-accent-light"> Regional </span>/{" "}
-              <span className="text-mystic-accent-light">Indonesian </span>{" "}
-              article
+              <span className="text-mystic-accent-light italic ml-1">
+                Regional
+              </span>
+              <span className="mx-1">/</span>
+              <span className="text-mystic-accent-light italic">
+                Indonesian article
+              </span>
             </p>
           )}
 
