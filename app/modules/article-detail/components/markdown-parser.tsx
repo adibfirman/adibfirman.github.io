@@ -1,14 +1,11 @@
 import type { MarkdownToJSX } from "markdown-to-jsx";
 import React from "react";
 
-import {
-  type Article,
-  createHashArticleFromTitle,
-  childrenToText,
-} from "@/utils/articles";
+import { type Article } from "@/utils/articles";
 
 import { Admonition } from "./markdown-parser-custom/admonition.client";
 import { Code } from "./markdown-parser-custom/code.client";
+import { Heading } from "./markdown-parser-custom/heading";
 
 type Props = {
   article: Article;
@@ -19,39 +16,66 @@ export function MarkdownParser({ article }: Props) {
     // Headings
     h1(props) {
       return (
-        <h1
-          {...props}
-          id={createHashArticleFromTitle(childrenToText(props.children))}
-          className="text-4xl font-extrabold mt-10 mb-8 leading-tight text-mystic-purple-surface font-heading cursor-pointer"
-        />
+        <Heading.Base
+          type="h1"
+          className="text-4xl font-extrabold mt-10 mb-8 leading-tight"
+          text={props.children}
+        >
+          {(data) => (
+            <>
+              <Heading.IconLink isIconShown={data.isHovered} />
+              <Heading.Anchor text={props.children} id={data.id} />
+            </>
+          )}
+        </Heading.Base>
       );
     },
-
     h2(props) {
       return (
-        <h2
-          {...props}
-          id={createHashArticleFromTitle(childrenToText(props.children))}
-          className="text-3xl font-bold mt-10 mb-8 text-mystic-purple-surface font-heading cursor-pointer"
-        />
+        <Heading.Base
+          type="h2"
+          className="text-3xl font-bold mt-10 mb-8"
+          text={props.children}
+        >
+          {(data) => (
+            <>
+              <Heading.IconLink size={20} isIconShown={data.isHovered} />
+              <Heading.Anchor text={props.children} id={data.id} />
+            </>
+          )}
+        </Heading.Base>
       );
     },
     h3(props) {
       return (
-        <h3
-          {...props}
-          id={createHashArticleFromTitle(childrenToText(props.children))}
-          className="text-xl font-bold mt-5 mb-2 text-mystic-purple-surface font-heading cursor-pointer"
-        />
+        <Heading.Base
+          type="h3"
+          className="text-xl font-bold mt-5 mb-2"
+          text={props.children}
+        >
+          {(data) => (
+            <>
+              <Heading.IconLink size={15} isIconShown={data.isHovered} />
+              <Heading.Anchor text={props.children} id={data.id} />
+            </>
+          )}
+        </Heading.Base>
       );
     },
     h6(props) {
       return (
-        <h6
-          {...props}
-          id={createHashArticleFromTitle(childrenToText(props.children))}
-          className="text-xs font-bold mt-5 mb-2 text-mystic-purple-surface/60 font-heading cursor-pointer"
-        />
+        <Heading.Base
+          type="h6"
+          className="text-xs font-bold mt-5 mb-2 text-mystic-purple-surface/60"
+          text={props.children}
+        >
+          {(data) => (
+            <>
+              <Heading.IconLink size={12} isIconShown={data.isHovered} />
+              <Heading.Anchor text={props.children} id={data.id} />
+            </>
+          )}
+        </Heading.Base>
       );
     },
 
