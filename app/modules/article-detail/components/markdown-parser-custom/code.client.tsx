@@ -56,7 +56,6 @@ export function Code(props: PropsWithChildren<HTMLElement>) {
         <SyntaxHighlighter
           {...props}
           style={nightOwl}
-          showLineNumbers
           lineNumberStyle={{
             fontFamily: "var(--default-font-family)",
             fontStyle: "normal",

@@ -1,7 +1,7 @@
 ---
 title: Framework Baru dan AI?
 date: "2025-09-21"
-updatedAt: "2025-09-21"
+updatedAt: "2025-10-18"
 excerpt: "Di tengah AI generation sekarang, malah ada framework baru lagi? Apa yang perlu di pelajari dari seorang Web Dev, sebuah pandangan pribadi di tengah hiruk pikuk AI dan Kemunculan Framework baru di Web Ecosystem"
 copyrightCover: 'Photo by <a href="https://unsplash.com/@miteneva?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Maria Teneva</a> on <a href="https://unsplash.com/photos/a-large-group-of-multicolored-squares-of-varying-sizes-7FmSYQ3Z7fg?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>'
 isRegional: true
@@ -80,7 +80,7 @@ framework baru ini, yang saya mau highlight disini apapun framework yang sudah a
 yang akan datang ataupun yang lampau, tetap yang paling penting itu adalah "fundamental" dan
 mari kita bahas kenapa ini begitu penting.
 
-# Apa Itu Fundamental, Kenapa Penting?
+# Kenapa Fundamental Itu Penting?
 
 Seperti yang sudah saya mention di atas, memang tidak heran jika ada framework baru apalagi
 di tengah AI sekarang, mulai dari code yang di hasilkan semakin membaik
